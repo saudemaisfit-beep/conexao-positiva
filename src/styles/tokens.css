@@ -1,0 +1,104 @@
+/*
+ * Design tokens — Conexão Positiva
+ *
+ * Paleta base e tokens fora dos namespaces do Tailwind (espaçamento de layout, bordas,
+ * movimento, camadas, tamanhos de controlo). Os tokens semânticos de cor, tipografia,
+ * raios e sombras estão em theme.css (@theme), que os expõe como variáveis e utilitários.
+ *
+ * PALETA PROVISÓRIA: para aplicar a identidade oficial, substituir apenas os valores de
+ * "Paleta base". Tokens semânticos e componentes não precisam de mudar.
+ * Contrastes verificados (WCAG 2.2 AA) em docs/fase-03/01-design-system.md.
+ */
+
+:root {
+  /* ---------- Paleta base (provisória) ---------- */
+  --petroleo-950: #0d2b2e;
+  --petroleo-800: #0f3a3e;
+  --petroleo-700: #174a4f;
+  --petroleo-500: #2d6b6f;
+  --petroleo-300: #a9c4c1;
+  --petroleo-100: #dceae8;
+
+  --salvia-700: #4f6a50;
+  --salvia-400: #8ea68b;
+  --salvia-100: #e6ede2;
+
+  --ocre-700: #94591a;
+  --ocre-400: #d08c45;
+  --ocre-100: #f6e6d3;
+
+  --areia-50: #faf8f3;
+  --areia-100: #f1ede4;
+  --areia-300: #dcd6ca;
+
+  --grafite-900: #16201f;
+  --grafite-600: #56625f;
+  --grafite-400: #7e8984;
+  --branco: #ffffff;
+
+  --verde-700: #2e7a4e;
+  --verde-100: #e3f1e8;
+  --vermelho-700: #b42318;
+  --vermelho-100: #fbe9e7;
+  --ambar-700: #8a5600;
+  --ambar-100: #fbf0dc;
+
+  /* ---------- Espaçamento (base 4 px) ---------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  --space-section: clamp(4rem, 2.67rem + 5.93vw, 8rem);      /* 64 → 128 */
+  --space-gutter: clamp(1.25rem, 0.94rem + 1.39vw, 2.5rem);  /* 20 → 40 */
+  --container-max: 75rem;                                     /* 1200 */
+  --container-wide: 82.5rem;                                  /* 1320 */
+
+  /* ---------- Bordas ---------- */
+  --border-hairline: 1px;
+  --border-control: 1.5px;
+  --border-focus: 3px;
+
+  /* ---------- Movimento ---------- */
+  --duration-instant: 120ms;
+  --duration-fast: 200ms;
+  --duration-base: 320ms;
+  --duration-slow: 500ms;
+  --reveal-distance: 16px;
+
+  /* ---------- Camadas ---------- */
+  --z-base: 0;
+  --z-sticky: 20;
+  --z-header: 40;
+  --z-floating: 45;
+  --z-overlay: 50;
+  --z-modal: 60;
+  --z-toast: 70;
+
+  /* ---------- Tamanhos de controlo ---------- */
+  --control-sm: 2.5rem;  /* 40 */
+  --control-md: 3rem;    /* 48 */
+  --control-lg: 3.5rem;  /* 56 */
+  --input-height: 3.25rem; /* 52 */
+  --header-height: 4rem;
+  --header-height-lg: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-instant: 0ms;
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+    --reveal-distance: 0px;
+  }
+}
