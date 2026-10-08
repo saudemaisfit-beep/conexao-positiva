@@ -66,29 +66,29 @@
   --font-body: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Escala fluida: mínimo em 360 px, máximo em 1440 px. */
-  --text-display: clamp(2.5rem, 1.83rem + 2.96vw, 4.5rem);      /* 40 → 72 */
+  --text-display: clamp(2.5rem, 1.83rem + 2.96vw, 4.5rem); /* 40 → 72 */
   --text-display--line-height: 1.05;
   --text-display--letter-spacing: -0.03em;
-  --text-h1: clamp(2.125rem, 1.71rem + 1.85vw, 3.5rem);         /* 34 → 56 */
+  --text-h1: clamp(2.125rem, 1.71rem + 1.85vw, 3.5rem); /* 34 → 56 */
   --text-h1--line-height: 1.1;
   --text-h1--letter-spacing: -0.02em;
-  --text-h2: clamp(1.75rem, 1.5rem + 1.11vw, 2.5rem);           /* 28 → 40 */
+  --text-h2: clamp(1.75rem, 1.5rem + 1.11vw, 2.5rem); /* 28 → 40 */
   --text-h2--line-height: 1.15;
   --text-h2--letter-spacing: -0.02em;
-  --text-h3: clamp(1.375rem, 1.25rem + 0.56vw, 1.75rem);        /* 22 → 28 */
+  --text-h3: clamp(1.375rem, 1.25rem + 0.56vw, 1.75rem); /* 22 → 28 */
   --text-h3--line-height: 1.3;
   --text-h3--letter-spacing: -0.015em;
-  --text-h4: clamp(1.125rem, 1.08rem + 0.19vw, 1.25rem);        /* 18 → 20 */
+  --text-h4: clamp(1.125rem, 1.08rem + 0.19vw, 1.25rem); /* 18 → 20 */
   --text-h4--line-height: 1.35;
-  --text-lead: clamp(1.125rem, 1.08rem + 0.19vw, 1.25rem);      /* 18 → 20 */
+  --text-lead: clamp(1.125rem, 1.08rem + 0.19vw, 1.25rem); /* 18 → 20 */
   --text-lead--line-height: 1.6;
-  --text-body: 1rem;                                             /* 16 */
+  --text-body: 1rem; /* 16 */
   --text-body--line-height: 1.6;
-  --text-body-lg: 1.0625rem;                                     /* 17 */
+  --text-body-lg: 1.0625rem; /* 17 */
   --text-body-lg--line-height: 1.7;
-  --text-small: 0.875rem;                                        /* 14 */
+  --text-small: 0.875rem; /* 14 */
   --text-small--line-height: 1.5;
-  --text-caption: 0.75rem;                                       /* 12 */
+  --text-caption: 0.75rem; /* 12 */
   --text-caption--line-height: 1.4;
 
   /* ---------- Raios ---------- */
@@ -110,10 +110,10 @@
 
   /* ---------- Breakpoints (iguais aos da Fase 2) ---------- */
   --breakpoint-*: initial;
-  --breakpoint-md: 48rem;   /* 768 */
-  --breakpoint-lg: 64rem;   /* 1024 */
-  --breakpoint-xl: 80rem;   /* 1280 */
-  --breakpoint-2xl: 90rem;  /* 1440 */
+  --breakpoint-md: 48rem; /* 768 */
+  --breakpoint-lg: 64rem; /* 1024 */
+  --breakpoint-xl: 80rem; /* 1280 */
+  --breakpoint-2xl: 90rem; /* 1440 */
 }
 
 /*

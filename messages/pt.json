@@ -1,0 +1,76 @@
+{
+  "Common": {
+    "skipToContent": "Saltar para o conteúdo",
+    "requestProposal": "Solicitar proposta",
+    "proposalShort": "Proposta",
+    "home": "Home",
+    "breadcrumbs": "Caminho de navegação",
+    "back": "Voltar a {page}"
+  },
+  "Navigation": {
+    "main": "Navegação principal",
+    "about": "Sobre Nós",
+    "solutions": "Soluções",
+    "method": "Método C.E.N.T.R.O.",
+    "events": "Eventos",
+    "experiences": "Experiências",
+    "insights": "Insights",
+    "contact": "Contactos",
+    "allSolutions": "Ver todas as soluções",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "menuTitle": "Menu",
+    "quickContact": "Contacto rápido",
+    "solutionsPromo": "Experiências desenhadas à medida de cada equipa."
+  },
+  "Footer": {
+    "tagline": "Pessoas melhores constroem equipas melhores. Equipas melhores constroem organizações mais fortes.",
+    "navigation": "Navegação",
+    "solutions": "Soluções",
+    "contact": "Contacto",
+    "social": "Redes sociais",
+    "contactIntro": "Fale connosco sobre o momento da sua equipa.",
+    "rights": "© {year} Conexão Positiva. Todos os direitos reservados.",
+    "privacy": "Política de Privacidade",
+    "cookies": "Política de Cookies",
+    "terms": "Termos e Condições",
+    "manageCookies": "Gerir cookies",
+    "phone": "Telefone",
+    "email": "E-mail",
+    "whatsapp": "WhatsApp",
+    "location": "Localização"
+  },
+  "WhatsApp": {
+    "label": "Falar connosco no WhatsApp"
+  },
+  "Consent": {
+    "title": "Cookies e privacidade",
+    "description": "Usamos cookies necessários para o site funcionar. Com a sua autorização, usamos também cookies de estatística para perceber como o site é usado e melhorá-lo.",
+    "accept": "Aceitar",
+    "reject": "Rejeitar",
+    "customize": "Personalizar",
+    "save": "Guardar preferências",
+    "learnMore": "Saber mais na Política de Cookies",
+    "necessaryTitle": "Necessários",
+    "necessaryDescription": "Garantem o funcionamento do site e guardam as suas escolhas. Estão sempre ativos.",
+    "alwaysOn": "Sempre ativos",
+    "analyticsTitle": "Estatística",
+    "analyticsDescription": "Ajudam-nos a perceber que páginas são mais úteis, de forma agregada (Google Analytics).",
+    "preferencesTitle": "Preferências de cookies",
+    "close": "Fechar"
+  },
+  "NotFound": {
+    "title": "Esta página não existe ou mudou de lugar.",
+    "description": "Talvez encontre o que procura aqui:",
+    "backHome": "Voltar à página inicial",
+    "metaTitle": "Página não encontrada"
+  },
+  "Home": {
+    "metaTitle": "Conexão Positiva",
+    "metaDescription": "Desenvolvimento humano, formação, eventos e experiências corporativas para pessoas, equipas e organizações.",
+    "title": "Conectamos pessoas. Fortalecemos equipas. Potencializamos resultados.",
+    "lead": "Criamos experiências de desenvolvimento humano, formação e transformação pensadas para pessoas, equipas e organizações.",
+    "discoverSolutions": "Conhecer as nossas soluções",
+    "requestProposal": "Solicitar uma proposta"
+  }
+}

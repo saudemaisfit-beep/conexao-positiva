@@ -20,36 +20,36 @@ flowchart LR
 
 **Separação de responsabilidades**
 
-| Tipo de dado | Onde vive | Porquê |
-| --- | --- | --- |
-| Conteúdo editorial (páginas, serviços, eventos, artigos, casos, testemunhos) | **Sanity** | Editável pela equipa sem código, com pré-visualização e histórico |
-| Dados pessoais e transacionais (propostas, inscrições, contactos) | **Supabase (PostgreSQL)** | Base de dados relacional segura, com transações (controlo de vagas) e acesso só pelo servidor |
-| Contadores efémeros de rate limiting | **Upstash Redis** | Rápido, serverless, integrado com a Vercel |
+| Tipo de dado                                                                 | Onde vive                 | Porquê                                                                                        |
+| ---------------------------------------------------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------- |
+| Conteúdo editorial (páginas, serviços, eventos, artigos, casos, testemunhos) | **Sanity**                | Editável pela equipa sem código, com pré-visualização e histórico                             |
+| Dados pessoais e transacionais (propostas, inscrições, contactos)            | **Supabase (PostgreSQL)** | Base de dados relacional segura, com transações (controlo de vagas) e acesso só pelo servidor |
+| Contadores efémeros de rate limiting                                         | **Upstash Redis**         | Rápido, serverless, integrado com a Vercel                                                    |
 
 Dados pessoais **nunca** são guardados no Sanity.
 
 ## Stack
 
-| Camada | Tecnologia | Notas |
-| --- | --- | --- |
-| Framework | **Next.js** (App Router), última versão estável à data da instalação | RSC por defeito; `"use client"` apenas onde há interação |
-| Linguagem | **TypeScript** `strict` (+ `noUncheckedIndexedAccess`) | Sem `any`; tipos do Sanity gerados com `sanity typegen` |
-| Estilos | **Tailwind CSS v4** com tokens em CSS variables (`@theme`) | Paleta substituível num único ficheiro |
-| Variantes | `class-variance-authority` + `tailwind-merge` | Evita classes gigantes repetidas |
-| Primitivos acessíveis | **shadcn/ui** (Radix) totalmente re-estilizado | Só os necessários: Dialog, Accordion, Select, Tabs, etc. |
-| Ícones | **Lucide** | Biblioteca única, traço consistente |
-| Animação | CSS por defeito; **Motion** apenas no C.E.N.T.R.O. e reveals, com `dynamic import` | `prefers-reduced-motion` respeitado globalmente |
-| Tipografia | **Manrope** (títulos) + **Inter** (texto) via `next/font`, subconjunto `latin` + `latin-ext`, pesos mínimos | Sem pedidos a Google Fonts em runtime |
-| CMS | **Sanity** + `next-sanity`, Studio embebido em `/studio`, Presentation Tool (edição visual) e Draft Mode | Campos em português |
-| Base de dados | **Supabase PostgreSQL** | RLS ativo, sem políticas públicas |
-| Formulários | **React Hook Form** + **Zod** (schema partilhado cliente/servidor) + Server Actions | Validação dupla |
-| Anti-spam | Honeypot + tempo mínimo de preenchimento + **Turnstile** + rate limit (Upstash) | Turnstile é invisível na maioria dos casos |
-| E-mail | **Resend** + **React Email** | Templates com a identidade da marca |
-| i18n | **next-intl** (`localePrefix: "as-needed"`) | PT sem prefixo hoje; EN preparado |
-| Analytics | **GA4** com Consent Mode v2 + Search Console | Carregado só após consentimento |
-| Testes | **Vitest** + Testing Library; **Playwright** + `@axe-core/playwright`; Lighthouse CI | — |
-| Qualidade | ESLint (config Next + TS strict), Prettier, Husky + lint-staged | CI bloqueia em erros |
-| Hosting | **Vercel** (região de funções na Europa, próxima de Luanda e da BD) | Previews por PR |
+| Camada                | Tecnologia                                                                                                  | Notas                                                    |
+| --------------------- | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Framework             | **Next.js** (App Router), última versão estável à data da instalação                                        | RSC por defeito; `"use client"` apenas onde há interação |
+| Linguagem             | **TypeScript** `strict` (+ `noUncheckedIndexedAccess`)                                                      | Sem `any`; tipos do Sanity gerados com `sanity typegen`  |
+| Estilos               | **Tailwind CSS v4** com tokens em CSS variables (`@theme`)                                                  | Paleta substituível num único ficheiro                   |
+| Variantes             | `class-variance-authority` + `tailwind-merge`                                                               | Evita classes gigantes repetidas                         |
+| Primitivos acessíveis | **shadcn/ui** (Radix) totalmente re-estilizado                                                              | Só os necessários: Dialog, Accordion, Select, Tabs, etc. |
+| Ícones                | **Lucide**                                                                                                  | Biblioteca única, traço consistente                      |
+| Animação              | CSS por defeito; **Motion** apenas no C.E.N.T.R.O. e reveals, com `dynamic import`                          | `prefers-reduced-motion` respeitado globalmente          |
+| Tipografia            | **Manrope** (títulos) + **Inter** (texto) via `next/font`, subconjunto `latin` + `latin-ext`, pesos mínimos | Sem pedidos a Google Fonts em runtime                    |
+| CMS                   | **Sanity** + `next-sanity`, Studio embebido em `/studio`, Presentation Tool (edição visual) e Draft Mode    | Campos em português                                      |
+| Base de dados         | **Supabase PostgreSQL**                                                                                     | RLS ativo, sem políticas públicas                        |
+| Formulários           | **React Hook Form** + **Zod** (schema partilhado cliente/servidor) + Server Actions                         | Validação dupla                                          |
+| Anti-spam             | Honeypot + tempo mínimo de preenchimento + **Turnstile** + rate limit (Upstash)                             | Turnstile é invisível na maioria dos casos               |
+| E-mail                | **Resend** + **React Email**                                                                                | Templates com a identidade da marca                      |
+| i18n                  | **next-intl** (`localePrefix: "as-needed"`)                                                                 | PT sem prefixo hoje; EN preparado                        |
+| Analytics             | **GA4** com Consent Mode v2 + Search Console                                                                | Carregado só após consentimento                          |
+| Testes                | **Vitest** + Testing Library; **Playwright** + `@axe-core/playwright`; Lighthouse CI                        | —                                                        |
+| Qualidade             | ESLint (config Next + TS strict), Prettier, Husky + lint-staged                                             | CI bloqueia em erros                                     |
+| Hosting               | **Vercel** (região de funções na Europa, próxima de Luanda e da BD)                                         | Previews por PR                                          |
 
 ## Estrutura de pastas
 
@@ -122,23 +122,23 @@ Regras: `server-only` em tudo o que toca secrets (`lib/db`, `lib/email`, `lib/se
 
 Detalhe de campos é trabalho da Fase 13. Todos os documentos têm etiquetas, descrições e validações em português.
 
-| Documento | Tipo | Notas principais |
-| --- | --- | --- |
-| `siteSettings` | Singleton | Logótipo, favicon, contactos, WhatsApp, redes sociais, SEO por defeito, rodapé |
-| `homePage`, `aboutPage`, `centroPage`, `contactPage`, `proposalPage` | Singletons | Textos e secções editáveis das páginas fixas |
-| `impactStat` | Objeto em `homePage` | Valor + rótulo + **interruptor "Publicar"**; nunca preenchido por defeito |
-| `service` | Coleção | Nome, slug, resumo, ícone, imagem, problema, como funciona, benefícios, público, formatos, galeria, FAQ (ref.), SEO, ordem |
-| `centroPillar` | Coleção (6, ordenável) | Letra, nome, descrição curta, ícone, conteúdo, imagem |
-| `event` | Coleção | Nome, slug, imagem, início/fim (fuso Africa/Luanda), local, categoria, descrição, programa, facilitador (ref.), vagas, preço (Kz) ou gratuito, estado (rascunho/aberto/esgotado/encerrado/cancelado), galeria, FAQ |
-| `caseStudy` | Coleção | Cliente (ref.), título, categoria, serviço (ref.), desafio, objetivo, solução, participantes, galeria, vídeo, resultados, testemunho (ref.) |
-| `testimonial` | Coleção | Nome, cargo, empresa, foto, texto, **autorização de publicação confirmada** (obrigatório) |
-| `client` | Coleção | Nome, logótipo (SVG/PNG), website, autorização de uso do logótipo |
-| `article` | Coleção | Título, slug, autor (ref.), categoria (ref.), data, imagem, introdução, conteúdo (Portable Text), SEO; tempo de leitura calculado |
-| `category` | Coleção | Liderança, Pessoas, Equipas, Bem-estar, Desenvolvimento Humano, Produtividade, Método C.E.N.T.R.O. |
-| `teamMember` | Coleção | Nome, cargo, fotografia, biografia, LinkedIn, é fundador(a) |
-| `faq` | Coleção | Pergunta, resposta, categoria |
-| `legalPage` | Coleção | Privacidade, Cookies, Termos (com data de última atualização) |
-| `redirect` | Coleção | Origem, destino, permanente |
+| Documento                                                            | Tipo                   | Notas principais                                                                                                                                                                                                   |
+| -------------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `siteSettings`                                                       | Singleton              | Logótipo, favicon, contactos, WhatsApp, redes sociais, SEO por defeito, rodapé                                                                                                                                     |
+| `homePage`, `aboutPage`, `centroPage`, `contactPage`, `proposalPage` | Singletons             | Textos e secções editáveis das páginas fixas                                                                                                                                                                       |
+| `impactStat`                                                         | Objeto em `homePage`   | Valor + rótulo + **interruptor "Publicar"**; nunca preenchido por defeito                                                                                                                                          |
+| `service`                                                            | Coleção                | Nome, slug, resumo, ícone, imagem, problema, como funciona, benefícios, público, formatos, galeria, FAQ (ref.), SEO, ordem                                                                                         |
+| `centroPillar`                                                       | Coleção (6, ordenável) | Letra, nome, descrição curta, ícone, conteúdo, imagem                                                                                                                                                              |
+| `event`                                                              | Coleção                | Nome, slug, imagem, início/fim (fuso Africa/Luanda), local, categoria, descrição, programa, facilitador (ref.), vagas, preço (Kz) ou gratuito, estado (rascunho/aberto/esgotado/encerrado/cancelado), galeria, FAQ |
+| `caseStudy`                                                          | Coleção                | Cliente (ref.), título, categoria, serviço (ref.), desafio, objetivo, solução, participantes, galeria, vídeo, resultados, testemunho (ref.)                                                                        |
+| `testimonial`                                                        | Coleção                | Nome, cargo, empresa, foto, texto, **autorização de publicação confirmada** (obrigatório)                                                                                                                          |
+| `client`                                                             | Coleção                | Nome, logótipo (SVG/PNG), website, autorização de uso do logótipo                                                                                                                                                  |
+| `article`                                                            | Coleção                | Título, slug, autor (ref.), categoria (ref.), data, imagem, introdução, conteúdo (Portable Text), SEO; tempo de leitura calculado                                                                                  |
+| `category`                                                           | Coleção                | Liderança, Pessoas, Equipas, Bem-estar, Desenvolvimento Humano, Produtividade, Método C.E.N.T.R.O.                                                                                                                 |
+| `teamMember`                                                         | Coleção                | Nome, cargo, fotografia, biografia, LinkedIn, é fundador(a)                                                                                                                                                        |
+| `faq`                                                                | Coleção                | Pergunta, resposta, categoria                                                                                                                                                                                      |
+| `legalPage`                                                          | Coleção                | Privacidade, Cookies, Termos (com data de última atualização)                                                                                                                                                      |
+| `redirect`                                                           | Coleção                | Origem, destino, permanente                                                                                                                                                                                        |
 
 Preparação i18n: os documentos traduzíveis terão um campo `language` (oculto enquanto só existir PT), compatível com o plugin de internacionalização de documentos do Sanity.
 
@@ -146,11 +146,11 @@ Preparação i18n: os documentos traduzíveis terão um campo `language` (oculto
 
 Detalhe e migrations na Fase 14.
 
-| Tabela | Conteúdo |
-| --- | --- |
-| `proposal_requests` | Nome, empresa, cargo, telefone, e-mail, serviço, participantes, local, data prevista, objetivo, orçamento (opcional), informações adicionais |
-| `event_registrations` | Evento (id + slug do Sanity), nome, sobrenome, e-mail, telefone, empresa, cargo, observações, estado (confirmada/lista de espera/cancelada) |
-| `contact_messages` | Nome, empresa, e-mail, telefone, assunto, mensagem |
+| Tabela                | Conteúdo                                                                                                                                     |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `proposal_requests`   | Nome, empresa, cargo, telefone, e-mail, serviço, participantes, local, data prevista, objetivo, orçamento (opcional), informações adicionais |
+| `event_registrations` | Evento (id + slug do Sanity), nome, sobrenome, e-mail, telefone, empresa, cargo, observações, estado (confirmada/lista de espera/cancelada)  |
+| `contact_messages`    | Nome, empresa, e-mail, telefone, assunto, mensagem                                                                                           |
 
 Colunas comuns: `id` (uuid), `created_at`, `status` (para acompanhamento interno), `consent_version`, `consent_at`, `email_status` (pendente/enviado/falhou), `ip_hash` (hash com salt — nunca o IP em claro), `user_agent` truncado.
 
@@ -187,19 +187,19 @@ Mensagens de erro claras e em português; os dados preenchidos nunca se perdem n
 
 ## Variáveis de ambiente previstas
 
-| Variável | Pública? | Uso |
-| --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Sim | URL canónico |
-| `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, `NEXT_PUBLIC_SANITY_API_VERSION` | Sim | Leitura de conteúdo |
-| `SANITY_API_READ_TOKEN` | **Não** | Drafts / pré-visualização |
-| `SANITY_REVALIDATE_SECRET` | **Não** | Webhook de revalidação |
-| `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` | **Não** | Base de dados (só servidor) |
-| `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` | **Não** | Rate limiting |
-| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` / `TURNSTILE_SECRET_KEY` | Sim / **Não** | Anti-bot |
-| `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_TEAM_TO` | **Não** | E-mails |
-| `IP_HASH_SALT` | **Não** | Hash de IP |
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Sim | Analytics |
-| `CRON_SECRET` | **Não** | Jobs agendados (reenvio de e-mails, retenção) |
+| Variável                                                                                        | Pública?      | Uso                                           |
+| ----------------------------------------------------------------------------------------------- | ------------- | --------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`                                                                          | Sim           | URL canónico                                  |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, `NEXT_PUBLIC_SANITY_API_VERSION` | Sim           | Leitura de conteúdo                           |
+| `SANITY_API_READ_TOKEN`                                                                         | **Não**       | Drafts / pré-visualização                     |
+| `SANITY_REVALIDATE_SECRET`                                                                      | **Não**       | Webhook de revalidação                        |
+| `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`                                                     | **Não**       | Base de dados (só servidor)                   |
+| `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`                                            | **Não**       | Rate limiting                                 |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` / `TURNSTILE_SECRET_KEY`                                       | Sim / **Não** | Anti-bot                                      |
+| `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_TEAM_TO`                                                 | **Não**       | E-mails                                       |
+| `IP_HASH_SALT`                                                                                  | **Não**       | Hash de IP                                    |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID`                                                                 | Sim           | Analytics                                     |
+| `CRON_SECRET`                                                                                   | **Não**       | Jobs agendados (reenvio de e-mails, retenção) |
 
 Um `.env.example` sem valores reais será criado na Fase 4.
 

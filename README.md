@@ -6,13 +6,13 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 
 ## Estado
 
-| Fase | Descrição | Estado |
-| --- | --- | --- |
-| 1 | Planeamento e sitemap | ✅ Concluída |
-| 2 | Wireframes e estrutura UX | ✅ Concluída |
-| 3 | Design System (cores oficiais azul e marsala) | ✅ Concluída |
-| 4 | Header, Footer e componentes globais | ⏳ Próxima |
-| 5–20 | Home → Documentação final | Por iniciar |
+| Fase | Descrição                                     | Estado       |
+| ---- | --------------------------------------------- | ------------ |
+| 1    | Planeamento e sitemap                         | ✅ Concluída |
+| 2    | Wireframes e estrutura UX                     | ✅ Concluída |
+| 3    | Design System (cores oficiais azul e marsala) | ✅ Concluída |
+| 4    | Header, Footer e componentes globais          | ⏳ Próxima   |
+| 5–20 | Home → Documentação final                     | Por iniciar  |
 
 ## Documentação de planeamento (Fase 1)
 
@@ -34,4 +34,47 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 3. Tokens em código: `src/styles/tokens.css` (paleta base: azul e marsala oficiais, neutros propostos) e `src/styles/theme.css` (tokens semânticos para Tailwind v4)
 4. Logótipos: `public/brand/conexao-positiva/` e `public/brand/metodo-centro/` (originais + PNG transparentes; SVG pendentes)
 
-As instruções de instalação, execução, CMS e publicação serão acrescentadas a partir da Fase 4, quando existir código.
+## Componentes globais (Fase 4)
+
+[Componentes globais](docs/fase-04/01-componentes-globais.md): stack, componentes, decisões e verificação.
+
+## Desenvolvimento
+
+Requisitos: Node.js 22 (mínimo 20.9).
+
+```bash
+cd conexao-positiva
+npm install
+cp .env.example .env.local   # preencher os valores necessários
+npm run dev                  # http://localhost:3000
+```
+
+| Comando                           | O que faz                    |
+| --------------------------------- | ---------------------------- |
+| `npm run dev`                     | Servidor de desenvolvimento  |
+| `npm run build` / `npm start`     | Build de produção e servidor |
+| `npm run lint`                    | ESLint                       |
+| `npm run typecheck`               | TypeScript (strict)          |
+| `npm run format` / `format:check` | Prettier                     |
+| `npm run check`                   | Lint + tipos + formatação    |
+
+O CI (`.github/workflows/conexao-positiva.yml`) corre lint, tipos, formatação e build em cada pull request que altere esta pasta.
+
+### Estrutura
+
+```
+src/
+  app/[locale]/      páginas (App Router) e layout raiz
+  components/
+    ui/              primitivos (Button…)
+    layout/          Header, Footer, Container, Section, navegação
+    common/          Logo, SkipLink, WhatsApp, Breadcrumbs
+    consent/         consentimento de cookies
+  config/            navegação e dados institucionais provisórios
+  i18n/              next-intl (routing, request, navigation)
+  lib/               utilitários (cn, consent)
+  styles/            tokens do Design System
+messages/            textos de interface (pt.json)
+```
+
+As instruções de CMS, base de dados e publicação são acrescentadas nas fases respetivas.

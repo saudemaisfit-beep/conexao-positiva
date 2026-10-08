@@ -62,10 +62,10 @@
   --space-24: 6rem;
   --space-32: 8rem;
 
-  --space-section: clamp(4rem, 2.67rem + 5.93vw, 8rem);      /* 64 → 128 */
-  --space-gutter: clamp(1.25rem, 0.94rem + 1.39vw, 2.5rem);  /* 20 → 40 */
-  --container-max: 75rem;                                     /* 1200 */
-  --container-wide: 82.5rem;                                  /* 1320 */
+  --space-section: clamp(4rem, 2.67rem + 5.93vw, 8rem); /* 64 → 128 */
+  --space-gutter: clamp(1.25rem, 0.94rem + 1.39vw, 2.5rem); /* 20 → 40 */
+  --container-max: 75rem; /* 1200 */
+  --container-wide: 82.5rem; /* 1320 */
 
   /* ---------- Bordas ---------- */
   --border-hairline: 1px;
@@ -89,9 +89,9 @@
   --z-toast: 70;
 
   /* ---------- Tamanhos de controlo ---------- */
-  --control-sm: 2.5rem;  /* 40 */
-  --control-md: 3rem;    /* 48 */
-  --control-lg: 3.5rem;  /* 56 */
+  --control-sm: 2.5rem; /* 40 */
+  --control-md: 3rem; /* 48 */
+  --control-lg: 3.5rem; /* 56 */
   --input-height: 3.25rem; /* 52 */
   --header-height: 4rem;
   --header-height-lg: 5rem;

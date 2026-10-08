@@ -8,11 +8,13 @@ Código: [`src/styles/tokens.css`](../../src/styles/tokens.css) (paleta base e t
 ## 1. Direção visual
 
 **Duas marcas, uma linguagem: pontos ligados.**
+
 - **Conexão Positiva: a rede.** O logótipo é um globo formado por pontos ligados por linhas: pessoas, equipas e organizações em conexão. Traduz literalmente "Conectamos pessoas".
 - **Método C.E.N.T.R.O.: o centro.** Seis figuras humanas em movimento à volta de um ponto central: os seis pilares a partir de dentro.
 - As duas marcas partilham o mesmo vocabulário (ponto, linha, movimento circular). O site usa-o com moderação: o símbolo da rede como assinatura da Conexão Positiva (header, rodapé, separadores discretos) e o símbolo do centro na secção e na página do Método.
 
 **Tom visual**
+
 - **Claro e confiante**: fundo de areia muito claro, texto grafite com viés azul, o azul profundo da marca em botões e links, e um azul-marinho para as secções de ênfase, onde o azul oficial brilha.
 - **Calor humano em detalhes**: o marsala do Método é o único acento quente.
 - **Tipografia que lidera**: títulos grandes em Manrope, texto em Inter.
@@ -24,28 +26,28 @@ O que fica de fora: gradientes, glassmorphism, cards em todas as secções, somb
 
 ### Paleta base
 
-| Família | Token | HEX | Uso |
-| --- | --- | --- | --- |
-| **Azul (oficial Conexão Positiva)** | `--azul-950` | `#082231` | Fundo das secções de ênfase e do rodapé (azul-marinho) |
-| | `--azul-800` | `#0A4E73` | Hover do botão primário; texto em etiquetas azuis |
-| | `--azul-700` | `#0B6592` | **Primária**: botões, links, ícones ativos |
-| | `--azul-600` | `#0A7DB5` | Anel de foco |
-| | `--azul-400` | `#0AA0E0` | **Cor do logótipo**: símbolo, detalhes, destaques sobre azul-marinho (nunca texto sobre fundo claro) |
-| | `--azul-200` | `#B3E1F5` | Texto secundário e foco sobre azul-marinho; fundo de etiquetas |
-| | `--azul-100` | `#E2F3FB` | Superfícies tingidas, contentor de ícones |
-| **Marsala (oficial Método C.E.N.T.R.O.)** | `--marsala-950` | `#3A1717` | Fundo das secções de ênfase da página do Método |
-| | `--marsala-800` | `#742F30` | Hover de botões do Método; texto de destaque quente |
-| | `--marsala-700` | `#904141` | **Cor do logótipo do Método** · **acento** do site (ponto do eyebrow, sublinhados, "Últimas vagas") |
-| | `--marsala-400` | `#C27F7C` | Acento sobre azul-marinho |
-| | `--marsala-200` | `#E9C9C6` | Texto secundário sobre marsala profundo |
-| | `--marsala-100` | `#F5E6E4` | Fundo de etiquetas quentes |
-| Areia (proposta) | `--areia-50` | `#FAF8F3` | **Fundo** da página |
-| | `--areia-100` | `#F1EDE4` | **Superfície** (secções alternadas) |
-| | `--areia-300` | `#DCD6CA` | Bordas decorativas, divisores |
-| Grafite (proposta) | `--grafite-900` | `#131C24` | **Texto** |
-| | `--grafite-600` | `#52606B` | Texto secundário (**muted**) |
-| | `--grafite-400` | `#7A8691` | Bordas de campos de formulário |
-| Estados | `--verde-700` / `--vermelho-700` / `--ambar-700` | `#2E7A4E` / `#B42318` / `#8A5600` | Sucesso / erro / aviso (com fundos `-100`) |
+| Família                                   | Token                                            | HEX                               | Uso                                                                                                  |
+| ----------------------------------------- | ------------------------------------------------ | --------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| **Azul (oficial Conexão Positiva)**       | `--azul-950`                                     | `#082231`                         | Fundo das secções de ênfase e do rodapé (azul-marinho)                                               |
+|                                           | `--azul-800`                                     | `#0A4E73`                         | Hover do botão primário; texto em etiquetas azuis                                                    |
+|                                           | `--azul-700`                                     | `#0B6592`                         | **Primária**: botões, links, ícones ativos                                                           |
+|                                           | `--azul-600`                                     | `#0A7DB5`                         | Anel de foco                                                                                         |
+|                                           | `--azul-400`                                     | `#0AA0E0`                         | **Cor do logótipo**: símbolo, detalhes, destaques sobre azul-marinho (nunca texto sobre fundo claro) |
+|                                           | `--azul-200`                                     | `#B3E1F5`                         | Texto secundário e foco sobre azul-marinho; fundo de etiquetas                                       |
+|                                           | `--azul-100`                                     | `#E2F3FB`                         | Superfícies tingidas, contentor de ícones                                                            |
+| **Marsala (oficial Método C.E.N.T.R.O.)** | `--marsala-950`                                  | `#3A1717`                         | Fundo das secções de ênfase da página do Método                                                      |
+|                                           | `--marsala-800`                                  | `#742F30`                         | Hover de botões do Método; texto de destaque quente                                                  |
+|                                           | `--marsala-700`                                  | `#904141`                         | **Cor do logótipo do Método** · **acento** do site (ponto do eyebrow, sublinhados, "Últimas vagas")  |
+|                                           | `--marsala-400`                                  | `#C27F7C`                         | Acento sobre azul-marinho                                                                            |
+|                                           | `--marsala-200`                                  | `#E9C9C6`                         | Texto secundário sobre marsala profundo                                                              |
+|                                           | `--marsala-100`                                  | `#F5E6E4`                         | Fundo de etiquetas quentes                                                                           |
+| Areia (proposta)                          | `--areia-50`                                     | `#FAF8F3`                         | **Fundo** da página                                                                                  |
+|                                           | `--areia-100`                                    | `#F1EDE4`                         | **Superfície** (secções alternadas)                                                                  |
+|                                           | `--areia-300`                                    | `#DCD6CA`                         | Bordas decorativas, divisores                                                                        |
+| Grafite (proposta)                        | `--grafite-900`                                  | `#131C24`                         | **Texto**                                                                                            |
+|                                           | `--grafite-600`                                  | `#52606B`                         | Texto secundário (**muted**)                                                                         |
+|                                           | `--grafite-400`                                  | `#7A8691`                         | Bordas de campos de formulário                                                                       |
+| Estados                                   | `--verde-700` / `--vermelho-700` / `--ambar-700` | `#2E7A4E` / `#B42318` / `#8A5600` | Sucesso / erro / aviso (com fundos `-100`)                                                           |
 
 ### Tokens semânticos
 
@@ -57,29 +59,29 @@ No Tailwind: `bg-primary`, `text-muted`, `border-border-strong`, `bg-inverse tex
 
 ### Contrastes verificados (WCAG 2.2)
 
-| Combinação | Rácio | Resultado |
-| --- | --- | --- |
-| Texto `#131C24` sobre fundo `#FAF8F3` | 16,23 : 1 | AAA |
-| Texto sobre superfície `#F1EDE4` | 14,74 : 1 | AAA |
-| Muted `#52606B` sobre fundo | 6,10 : 1 | AA |
-| Muted sobre superfície | 5,54 : 1 | AA |
-| Branco sobre primária `#0B6592` (botão) | 6,38 : 1 | AA |
-| Primária sobre fundo (links) | 6,01 : 1 | AA |
-| Branco sobre azul-marinho `#082231` (ênfase, rodapé) | 16,36 : 1 | AAA |
-| Azul oficial `#0AA0E0` sobre azul-marinho | 5,55 : 1 | AA |
-| Azul-200 sobre azul-marinho (texto secundário escuro) | 11,69 : 1 | AAA |
-| Azul-800 sobre azul-200 (etiqueta azul) | 6,38 : 1 | AA |
-| Marsala-700 sobre fundo (acento, links do Método) | 6,56 : 1 | AA |
-| Branco sobre marsala-700 (botão do Método) | 6,96 : 1 | AA |
-| Marsala-700 sobre marsala-100 (etiqueta) | 5,74 : 1 | AA |
-| Marsala-400 sobre azul-marinho (acento em ênfase) | 5,16 : 1 | AA |
-| Branco sobre marsala-950 (ênfase do Método) | 15,97 : 1 | AAA |
-| Marsala-200 sobre marsala-950 | 10,37 : 1 | AAA |
-| Erro `#B42318` sobre branco | 6,57 : 1 | AA |
-| Sucesso `#2E7A4E` sobre fundo | 4,93 : 1 | AA |
-| Borda de campo `#7A8691` sobre branco | 3,72 : 1 | AA (componente ≥ 3 : 1) |
-| Foco `#0A7DB5` sobre fundo | 4,29 : 1 | AA (componente ≥ 3 : 1) |
-| Foco escuro `#B3E1F5` sobre azul-marinho | 11,69 : 1 | AA |
+| Combinação                                            | Rácio     | Resultado               |
+| ----------------------------------------------------- | --------- | ----------------------- |
+| Texto `#131C24` sobre fundo `#FAF8F3`                 | 16,23 : 1 | AAA                     |
+| Texto sobre superfície `#F1EDE4`                      | 14,74 : 1 | AAA                     |
+| Muted `#52606B` sobre fundo                           | 6,10 : 1  | AA                      |
+| Muted sobre superfície                                | 5,54 : 1  | AA                      |
+| Branco sobre primária `#0B6592` (botão)               | 6,38 : 1  | AA                      |
+| Primária sobre fundo (links)                          | 6,01 : 1  | AA                      |
+| Branco sobre azul-marinho `#082231` (ênfase, rodapé)  | 16,36 : 1 | AAA                     |
+| Azul oficial `#0AA0E0` sobre azul-marinho             | 5,55 : 1  | AA                      |
+| Azul-200 sobre azul-marinho (texto secundário escuro) | 11,69 : 1 | AAA                     |
+| Azul-800 sobre azul-200 (etiqueta azul)               | 6,38 : 1  | AA                      |
+| Marsala-700 sobre fundo (acento, links do Método)     | 6,56 : 1  | AA                      |
+| Branco sobre marsala-700 (botão do Método)            | 6,96 : 1  | AA                      |
+| Marsala-700 sobre marsala-100 (etiqueta)              | 5,74 : 1  | AA                      |
+| Marsala-400 sobre azul-marinho (acento em ênfase)     | 5,16 : 1  | AA                      |
+| Branco sobre marsala-950 (ênfase do Método)           | 15,97 : 1 | AAA                     |
+| Marsala-200 sobre marsala-950                         | 10,37 : 1 | AAA                     |
+| Erro `#B42318` sobre branco                           | 6,57 : 1  | AA                      |
+| Sucesso `#2E7A4E` sobre fundo                         | 4,93 : 1  | AA                      |
+| Borda de campo `#7A8691` sobre branco                 | 3,72 : 1  | AA (componente ≥ 3 : 1) |
+| Foco `#0A7DB5` sobre fundo                            | 4,29 : 1  | AA (componente ≥ 3 : 1) |
+| Foco escuro `#B3E1F5` sobre azul-marinho              | 11,69 : 1 | AA                      |
 
 **Regras**: o **azul oficial** `#0AA0E0` tem apenas 2,78 : 1 sobre fundo claro: é usado no símbolo, em ilustrações e em detalhes gráficos, **nunca** em texto ou limites de controlos sobre fundo claro (aí usa-se `--color-primary`). Sobre azul-marinho pode ser usado em texto grande e destaques. O marsala passa AA como texto, mas continua reservado a detalhes fora do universo do Método.
 
@@ -97,14 +99,15 @@ O site público usa apenas o tema claro na primeira versão (consistência visua
 
 Ficheiros em `public/brand/conexao-positiva/`:
 
-| Ficheiro | Conteúdo | Uso |
-| --- | --- | --- |
-| `conexao-positiva-original.jpg` | Captura recebida (símbolo sobre disco branco, fundo de fotografia) | Referência; não usar no site |
-| `conexao-positiva-simbolo.png` | Símbolo (globo em rede), azul oficial em sRGB, fundo transparente, 680 px | Header, rodapé, favicon provisório, imagem social |
+| Ficheiro                        | Conteúdo                                                                  | Uso                                               |
+| ------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------- |
+| `conexao-positiva-original.jpg` | Captura recebida (símbolo sobre disco branco, fundo de fotografia)        | Referência; não usar no site                      |
+| `conexao-positiva-simbolo.png`  | Símbolo (globo em rede), azul oficial em sRGB, fundo transparente, 680 px | Header, rodapé, favicon provisório, imagem social |
 
 O PNG foi recortado da imagem recebida sem redesenho; as bordas são ligeiramente suaves por causa da resolução de origem. **Para produção são necessários**: o símbolo em **SVG**, e o **logótipo com o nome** "Conexão Positiva" (versões horizontal e vertical), se existir. Enquanto não existir, o header usa o símbolo + "Conexão Positiva" composto em Manrope 800, marcado como **composição provisória**.
 
 **Regras de uso**
+
 - Nunca redesenhar, distorcer, rodar, recolorir nem aplicar efeitos.
 - Área de proteção: no mínimo 25 % do diâmetro do símbolo à volta.
 - Tamanho mínimo: 24 px de diâmetro (favicon 32 px).
@@ -114,15 +117,16 @@ O PNG foi recortado da imagem recebida sem redesenho; as bordas são ligeirament
 
 Ficheiros em `public/brand/metodo-centro/`:
 
-| Ficheiro | Conteúdo | Uso |
-| --- | --- | --- |
-| `metodo-centro-original.jpg` | Original recebido (fundo branco) | Referência; não usar no site |
-| `metodo-centro-logo.png` | Símbolo + "MÉTODO C.E.N.T.R.O®", fundo transparente | Hero da página do Método, materiais |
-| `metodo-centro-simbolo.png` | Só o símbolo, fundo transparente | Secção C.E.N.T.R.O. da Home, marca de água |
+| Ficheiro                     | Conteúdo                                            | Uso                                        |
+| ---------------------------- | --------------------------------------------------- | ------------------------------------------ |
+| `metodo-centro-original.jpg` | Original recebido (fundo branco)                    | Referência; não usar no site               |
+| `metodo-centro-logo.png`     | Símbolo + "MÉTODO C.E.N.T.R.O®", fundo transparente | Hero da página do Método, materiais        |
+| `metodo-centro-simbolo.png`  | Só o símbolo, fundo transparente                    | Secção C.E.N.T.R.O. da Home, marca de água |
 
 **Para produção é necessário o logótipo em SVG** e uma versão monocromática branca para fundos escuros.
 
 **Regras de uso**
+
 - Nunca redesenhar, distorcer, rodar, recolorir nem aplicar efeitos ao símbolo ou ao lettering.
 - Área de proteção: no mínimo a altura do ponto central do símbolo × 2 à volta de todo o logótipo.
 - Tamanho mínimo: símbolo com 32 px; logótipo completo com 160 px de largura.
@@ -137,25 +141,25 @@ Ficheiros em `public/brand/metodo-centro/`:
 
 Duas famílias, carregadas por `next/font/google` com `display: swap`, subconjuntos `latin` e `latin-ext`, e apenas os pesos usados:
 
-| Família | Papel | Pesos |
-| --- | --- | --- |
-| **Manrope** | Títulos, números de impacto, letras do C.E.N.T.R.O. | 700, 800 |
-| **Inter** | Texto, interface, formulários | 400, 500, 600 |
+| Família     | Papel                                               | Pesos         |
+| ----------- | --------------------------------------------------- | ------------- |
+| **Manrope** | Títulos, números de impacto, letras do C.E.N.T.R.O. | 700, 800      |
+| **Inter**   | Texto, interface, formulários                       | 400, 500, 600 |
 
 ### Escala (fluida entre 360 e 1440 px)
 
-| Token / utilitário | Tamanho | Altura de linha | Tracking | Família · peso | Uso |
-| --- | --- | --- | --- | --- | --- |
-| `text-display` | 40 → 72 px | 1,05 | −0,03 em | Manrope 800 | Hero da Home e do Método |
-| `text-h1` | 34 → 56 px | 1,10 | −0,02 em | Manrope 800 | `h1` das páginas |
-| `text-h2` | 28 → 40 px | 1,15 | −0,02 em | Manrope 700 | Títulos de secção |
-| `text-h3` | 22 → 28 px | 1,30 | −0,015 em | Manrope 700 | Subtítulos, títulos de pilar |
-| `text-h4` | 18 → 20 px | 1,35 | — | Manrope 700 | Títulos de card |
-| `text-lead` | 18 → 20 px | 1,60 | — | Inter 400 | Introduções |
-| `text-body` | 16 px | 1,60 | — | Inter 400 | Texto padrão |
-| `text-body-lg` | 17 px | 1,70 | — | Inter 400 | Artigos |
-| `text-small` | 14 px | 1,50 | — | Inter 400/500 | Metadados, legendas |
-| `text-caption` | 12 px | 1,40 | +0,12 em, maiúsculas | Inter 600 | Eyebrows, categorias |
+| Token / utilitário | Tamanho    | Altura de linha | Tracking             | Família · peso | Uso                          |
+| ------------------ | ---------- | --------------- | -------------------- | -------------- | ---------------------------- |
+| `text-display`     | 40 → 72 px | 1,05            | −0,03 em             | Manrope 800    | Hero da Home e do Método     |
+| `text-h1`          | 34 → 56 px | 1,10            | −0,02 em             | Manrope 800    | `h1` das páginas             |
+| `text-h2`          | 28 → 40 px | 1,15            | −0,02 em             | Manrope 700    | Títulos de secção            |
+| `text-h3`          | 22 → 28 px | 1,30            | −0,015 em            | Manrope 700    | Subtítulos, títulos de pilar |
+| `text-h4`          | 18 → 20 px | 1,35            | —                    | Manrope 700    | Títulos de card              |
+| `text-lead`        | 18 → 20 px | 1,60            | —                    | Inter 400      | Introduções                  |
+| `text-body`        | 16 px      | 1,60            | —                    | Inter 400      | Texto padrão                 |
+| `text-body-lg`     | 17 px      | 1,70            | —                    | Inter 400      | Artigos                      |
+| `text-small`       | 14 px      | 1,50            | —                    | Inter 400/500  | Metadados, legendas          |
+| `text-caption`     | 12 px      | 1,40            | +0,12 em, maiúsculas | Inter 600      | Eyebrows, categorias         |
 
 Regras: texto nunca abaixo de 12 px (e 12 px só em maiúsculas curtas); texto corrido limitado a `--measure` (68 ch); títulos com `text-wrap: balance`; números alinhados com `tabular-nums` (datas, horários, indicadores); itálico apenas em citações curtas.
 
@@ -168,14 +172,14 @@ Regras: texto nunca abaixo de 12 px (e 12 px só em maiúsculas curtas); texto c
 
 ## 6. Raios, bordas e sombras
 
-| Token | Valor | Uso |
-| --- | --- | --- |
-| `rounded-xs` | 4 px | Etiquetas pequenas, foco interno |
-| `rounded-sm` | 8 px | Chips de data, tooltips |
-| `rounded-md` | 12 px | Campos de formulário, caixas de logótipo |
-| `rounded-lg` | 20 px | Cards, imagens, painéis |
-| `rounded-xl` | 28 px | Imagens de destaque, CTA final |
-| `rounded-full` | — | Botões, chips de filtro, avatares, WhatsApp |
+| Token          | Valor | Uso                                         |
+| -------------- | ----- | ------------------------------------------- |
+| `rounded-xs`   | 4 px  | Etiquetas pequenas, foco interno            |
+| `rounded-sm`   | 8 px  | Chips de data, tooltips                     |
+| `rounded-md`   | 12 px | Campos de formulário, caixas de logótipo    |
+| `rounded-lg`   | 20 px | Cards, imagens, painéis                     |
+| `rounded-xl`   | 28 px | Imagens de destaque, CTA final              |
+| `rounded-full` | —     | Botões, chips de filtro, avatares, WhatsApp |
 
 Bordas: `--border-hairline` 1 px (divisores, cards), `--border-control` 1,5 px (campos e botão secundário), `--border-focus` 3 px (anel de foco).
 
@@ -192,13 +196,13 @@ Sombras tingidas com o azul-marinho: `shadow-sm` (repouso de cards elevados), `s
 
 ### Botões
 
-| Variante | Aparência | Uso |
-| --- | --- | --- |
-| `primary` | Fundo primária, texto branco | Ação principal (máx. 1 por bloco) |
-| `secondary` | Contorno 1,5 px primária, texto primária | Ação alternativa |
-| `inverse` | Fundo branco, texto azul-marinho | Ação principal sobre ênfase escura |
-| `inverse-outline` | Contorno branco, texto branco | Alternativa sobre ênfase escura |
-| `link` | Texto primária, sublinhado animado, seta opcional | "Saber mais →", "Ver todas" |
+| Variante          | Aparência                                         | Uso                                |
+| ----------------- | ------------------------------------------------- | ---------------------------------- |
+| `primary`         | Fundo primária, texto branco                      | Ação principal (máx. 1 por bloco)  |
+| `secondary`       | Contorno 1,5 px primária, texto primária          | Ação alternativa                   |
+| `inverse`         | Fundo branco, texto azul-marinho                  | Ação principal sobre ênfase escura |
+| `inverse-outline` | Contorno branco, texto branco                     | Alternativa sobre ênfase escura    |
+| `link`            | Texto primária, sublinhado animado, seta opcional | "Saber mais →", "Ver todas"        |
 
 Tamanhos: `sm` 40 px · `md` 48 px · `lg` 56 px (alvo mínimo no mobile: 44 px; CTAs do hero usam `lg`). Forma em pílula (`rounded-full`), Inter 600, padding horizontal 20–28 px, ícone opcional à direita (seta) com deslocamento de 4 px no hover.
 
@@ -208,12 +212,12 @@ Estados: **hover** (primária → primary-hover; contorno ganha fundo `primary-s
 
 Anatomia comum: imagem `rounded-lg` (proporção fixa por tipo) → etiqueta de categoria (caption) → título `text-h4` → descrição `text-small muted` (máx. 2 linhas) → metadados/ação. Card inteiro clicável através do link do título (área de clique alargada), sem links aninhados.
 
-| Card | Imagem | Particularidades |
-| --- | --- | --- |
-| `ServiceCard` | 4:3 | Ícone em contentor circular; mobile compacto sem imagem |
-| `EventCard` | 16:9 | Bloco de data (dia em Manrope 800 + mês em caption), estado (pílula), preço, botão |
-| `CaseStudyCard` | 4:3 ou 16:10 | Categoria · cliente, objetivo numa linha |
-| `ArticleCard` | 16:10 | Categoria, data e tempo de leitura |
+| Card            | Imagem       | Particularidades                                                                   |
+| --------------- | ------------ | ---------------------------------------------------------------------------------- |
+| `ServiceCard`   | 4:3          | Ícone em contentor circular; mobile compacto sem imagem                            |
+| `EventCard`     | 16:9         | Bloco de data (dia em Manrope 800 + mês em caption), estado (pílula), preço, botão |
+| `CaseStudyCard` | 4:3 ou 16:10 | Categoria · cliente, objetivo numa linha                                           |
+| `ArticleCard`   | 16:10        | Categoria, data e tempo de leitura                                                 |
 
 Superfície: `surface-raised` com borda hairline `border`; sem sombra em repouso. **Hover**: `shadow-md`, imagem com zoom 1,04 (`--duration-slow`, `ease-out`), título sublinhado, seta desloca 4 px. Foco visível no card inteiro quando o link recebe foco.
 
@@ -226,13 +230,13 @@ Superfície: `surface-raised` com borda hairline `border`; sem sombra em repouso
 
 ### Etiquetas e pílulas
 
-| Tipo | Estilo |
-| --- | --- |
-| Categoria (eyebrow) | Caption em maiúsculas, `muted`, com ponto marsala de 6 px antes |
-| Estado "Últimas vagas" | Pílula `accent-soft` / texto `accent-strong` (marsala) |
-| Estado "Gratuito" | Pílula `secondary-soft` / texto `secondary-strong` |
-| Estado "Esgotado" / "Encerrado" | Pílula `surface` / texto `muted` |
-| Filtro (chip) | Pílula com borda; selecionado = fundo `primary`, texto branco |
+| Tipo                            | Estilo                                                          |
+| ------------------------------- | --------------------------------------------------------------- |
+| Categoria (eyebrow)             | Caption em maiúsculas, `muted`, com ponto marsala de 6 px antes |
+| Estado "Últimas vagas"          | Pílula `accent-soft` / texto `accent-strong` (marsala)          |
+| Estado "Gratuito"               | Pílula `secondary-soft` / texto `secondary-strong`              |
+| Estado "Esgotado" / "Encerrado" | Pílula `surface` / texto `muted`                                |
+| Filtro (chip)                   | Pílula com borda; selecionado = fundo `primary`, texto branco   |
 
 ### Avisos e feedback
 
@@ -240,15 +244,15 @@ Superfície: `surface-raised` com borda hairline `border`; sem sombra em repouso
 
 ## 9. Movimento
 
-| Token | Valor | Uso |
-| --- | --- | --- |
-| `--duration-instant` | 120 ms | Hover de cor, active |
-| `--duration-fast` | 200 ms | Header, chips, acordeões |
-| `--duration-base` | 320 ms | Painéis do C.E.N.T.R.O., menu mobile |
-| `--duration-slow` | 500 ms | Zoom de imagem, reveals |
-| `ease-out` | `cubic-bezier(0.22, 1, 0.36, 1)` | Entradas (padrão) |
-| `ease-in-out` | `cubic-bezier(0.65, 0, 0.35, 1)` | Transições de estado |
-| `--reveal-distance` | 16 px | Deslocamento dos reveals |
+| Token                | Valor                            | Uso                                  |
+| -------------------- | -------------------------------- | ------------------------------------ |
+| `--duration-instant` | 120 ms                           | Hover de cor, active                 |
+| `--duration-fast`    | 200 ms                           | Header, chips, acordeões             |
+| `--duration-base`    | 320 ms                           | Painéis do C.E.N.T.R.O., menu mobile |
+| `--duration-slow`    | 500 ms                           | Zoom de imagem, reveals              |
+| `ease-out`           | `cubic-bezier(0.22, 1, 0.36, 1)` | Entradas (padrão)                    |
+| `ease-in-out`        | `cubic-bezier(0.65, 0, 0.35, 1)` | Transições de estado                 |
+| `--reveal-distance`  | 16 px                            | Deslocamento dos reveals             |
 
 Com `prefers-reduced-motion: reduce`, todas as durações passam a 0 e o deslocamento a 0 px; os componentes não precisam de lógica própria. Animar apenas `opacity` e `transform` (nunca `width`, `height`, `top`).
 

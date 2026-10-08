@@ -6,13 +6,13 @@ Nada nesta lista será inventado. Enquanto não for fornecido, o CMS terá place
 
 ### Identidade
 
-| Item | Necessário para | Prioridade |
-| --- | --- | --- |
-| ~~Logótipo da Conexão Positiva~~ ✅ Símbolo recebido (azul `#0AA0E0`) | Header, rodapé, favicon | — |
+| Item                                                                                                 | Necessário para                        | Prioridade    |
+| ---------------------------------------------------------------------------------------------------- | -------------------------------------- | ------------- |
+| ~~Logótipo da Conexão Positiva~~ ✅ Símbolo recebido (azul `#0AA0E0`)                                | Header, rodapé, favicon                | —             |
 | Símbolo da Conexão Positiva em **SVG** + **logótipo com o nome** (horizontal e vertical), se existir | Header, rodapé, e-mails, imagem social | Alta (Fase 4) |
-| Manual de marca com HEX exatos (as cores atuais foram extraídas das imagens) | Afinação do Design System | Média |
-| ~~Identidade visual do Método C.E.N.T.R.O.~~ ✅ Logótipo recebido (marsala `#904141`) | Página do método | — |
-| Logótipo do Método em **SVG** + versão monocromática branca | Produção (nitidez, fundos escuros) | Alta (Fase 8) |
+| Manual de marca com HEX exatos (as cores atuais foram extraídas das imagens)                         | Afinação do Design System              | Média         |
+| ~~Identidade visual do Método C.E.N.T.R.O.~~ ✅ Logótipo recebido (marsala `#904141`)                | Página do método                       | —             |
+| Logótipo do Método em **SVG** + versão monocromática branca                                          | Produção (nitidez, fundos escuros)     | Alta (Fase 8) |
 
 A paleta usa as duas cores oficiais extraídas dos logótipos: **azul Conexão Positiva** (`#0AA0E0`) e **marsala Método C.E.N.T.R.O.** (`#904141`), com neutros quentes (areia) propostos pela equipa de design.
 
@@ -49,24 +49,24 @@ Enquanto não houver fotografia real, será usada fotografia de banco de imagens
 
 ## Decisões a tomar
 
-| # | Decisão | Recomendação | Impacto se adiada |
-| --- | --- | --- | --- |
-| D1 | **Repositório**: este projeto está dentro do repositório do Creator Market AO | Criar um repositório dedicado `conexao-positiva` antes da Fase 19 (deploy) | Nenhum até ao deploy; depois, CI e deploy misturados |
-| D2 | **Domínio final** (`conexaopositiva.ao` ou outro) e variante canónica (com/sem `www`) | Sem `www`, com redirecionamento 301 | Bloqueia SEO final, e-mail transacional e SSL |
-| D3 | **Eventos pagos**: pagamento online ou reserva + pagamento por referência/transferência | Na primeira versão, inscrição como reserva e instruções de pagamento por e-mail; integração de pagamentos (ex.: Multicaixa Express) como evolução | Define o fluxo de inscrição |
-| D4 | **Lista de espera** quando um evento esgota | Ativar (custo baixo, valor comercial) | Pequeno |
-| D5 | **Alojamento dos dados pessoais**: Supabase não tem região em África; os dados ficariam na Europa | Validar com jurista o enquadramento da Lei n.º 22/11 (Proteção de Dados Pessoais, Angola) e eventual notificação/autorização da APD para transferência internacional | Bloqueia a publicação dos formulários em produção |
-| D6 | **Prazo de conservação** dos dados de leads e inscrições | 24 meses para leads; 12 meses após o evento para inscrições | Necessário para a Política de Privacidade |
-| D7 | **Gestão de leads**: só e-mail + Supabase, ou exportação/integração com CRM | Começar com e-mail + vista simples (Supabase/exportação CSV); CRM como evolução | Nenhum para o lançamento |
-| D8 | **Língua inglesa** | Arquitetura preparada agora; tradução numa fase posterior | Nenhum |
-| D9 | **Contas de serviços** (Vercel, Sanity, Supabase, Resend, Upstash, Cloudflare Turnstile, Google Analytics) em nome da Conexão Positiva | Criar em nome da empresa, com acesso partilhado à equipa técnica | Bloqueia a Fase 19 |
+| #   | Decisão                                                                                                                                | Recomendação                                                                                                                                                         | Impacto se adiada                                    |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| D1  | **Repositório**: este projeto está dentro do repositório do Creator Market AO                                                          | Criar um repositório dedicado `conexao-positiva` antes da Fase 19 (deploy)                                                                                           | Nenhum até ao deploy; depois, CI e deploy misturados |
+| D2  | **Domínio final** (`conexaopositiva.ao` ou outro) e variante canónica (com/sem `www`)                                                  | Sem `www`, com redirecionamento 301                                                                                                                                  | Bloqueia SEO final, e-mail transacional e SSL        |
+| D3  | **Eventos pagos**: pagamento online ou reserva + pagamento por referência/transferência                                                | Na primeira versão, inscrição como reserva e instruções de pagamento por e-mail; integração de pagamentos (ex.: Multicaixa Express) como evolução                    | Define o fluxo de inscrição                          |
+| D4  | **Lista de espera** quando um evento esgota                                                                                            | Ativar (custo baixo, valor comercial)                                                                                                                                | Pequeno                                              |
+| D5  | **Alojamento dos dados pessoais**: Supabase não tem região em África; os dados ficariam na Europa                                      | Validar com jurista o enquadramento da Lei n.º 22/11 (Proteção de Dados Pessoais, Angola) e eventual notificação/autorização da APD para transferência internacional | Bloqueia a publicação dos formulários em produção    |
+| D6  | **Prazo de conservação** dos dados de leads e inscrições                                                                               | 24 meses para leads; 12 meses após o evento para inscrições                                                                                                          | Necessário para a Política de Privacidade            |
+| D7  | **Gestão de leads**: só e-mail + Supabase, ou exportação/integração com CRM                                                            | Começar com e-mail + vista simples (Supabase/exportação CSV); CRM como evolução                                                                                      | Nenhum para o lançamento                             |
+| D8  | **Língua inglesa**                                                                                                                     | Arquitetura preparada agora; tradução numa fase posterior                                                                                                            | Nenhum                                               |
+| D9  | **Contas de serviços** (Vercel, Sanity, Supabase, Resend, Upstash, Cloudflare Turnstile, Google Analytics) em nome da Conexão Positiva | Criar em nome da empresa, com acesso partilhado à equipa técnica                                                                                                     | Bloqueia a Fase 19                                   |
 
 ## Riscos
 
-| Risco | Mitigação |
-| --- | --- |
-| Lançar com fotografia de banco e sem prova social real reduz a credibilidade | Secções ocultas quando vazias; sessão fotográfica recomendada antes do lançamento |
-| Conectividade móvel variável em Angola | Orçamentos de performance rígidos, imagens AVIF/WebP, JS mínimo, sem fontes externas em runtime |
-| Spam nos formulários | Defesa em camadas (honeypot, Turnstile, rate limit, validação no servidor) |
-| Conteúdo desatualizado (eventos passados ainda "abertos") | Estado calculado a partir da data; inscrições fecham automaticamente |
-| Dependência da equipa técnica para alterações | CMS em português, com descrições, validações e `GUIA-DO-CLIENTE.md` |
+| Risco                                                                        | Mitigação                                                                                       |
+| ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Lançar com fotografia de banco e sem prova social real reduz a credibilidade | Secções ocultas quando vazias; sessão fotográfica recomendada antes do lançamento               |
+| Conectividade móvel variável em Angola                                       | Orçamentos de performance rígidos, imagens AVIF/WebP, JS mínimo, sem fontes externas em runtime |
+| Spam nos formulários                                                         | Defesa em camadas (honeypot, Turnstile, rate limit, validação no servidor)                      |
+| Conteúdo desatualizado (eventos passados ainda "abertos")                    | Estado calculado a partir da data; inscrições fecham automaticamente                            |
+| Dependência da equipa técnica para alterações                                | CMS em português, com descrições, validações e `GUIA-DO-CLIENTE.md`                             |
