@@ -66,11 +66,91 @@
     "metaTitle": "Página não encontrada"
   },
   "Home": {
-    "metaTitle": "Conexão Positiva",
-    "metaDescription": "Desenvolvimento humano, formação, eventos e experiências corporativas para pessoas, equipas e organizações.",
-    "title": "Conectamos pessoas. Fortalecemos equipas. Potencializamos resultados.",
-    "lead": "Criamos experiências de desenvolvimento humano, formação e transformação pensadas para pessoas, equipas e organizações.",
-    "discoverSolutions": "Conhecer as nossas soluções",
-    "requestProposal": "Solicitar uma proposta"
+    "metaTitle": "Conexão Positiva — Desenvolvimento humano para pessoas, equipas e organizações",
+    "metaDescription": "Palestras, formações, workshops, team building e o Método C.E.N.T.R.O. para conectar pessoas, fortalecer equipas e potencializar resultados.",
+    "hero": {
+      "eyebrow": "Desenvolvimento humano · Formação · Experiências corporativas",
+      "line1": "Conectamos pessoas.",
+      "line2": "Fortalecemos equipas.",
+      "line3": "Potencializamos resultados.",
+      "lead": "Criamos experiências de desenvolvimento humano, formação e transformação pensadas para pessoas, equipas e organizações.",
+      "primary": "Conhecer as nossas soluções",
+      "secondary": "Solicitar uma proposta"
+    },
+    "about": {
+      "eyebrow": "Quem somos",
+      "title": "Desenvolvimento que começa nas pessoas.",
+      "text": "A Conexão Positiva é parceira de organizações que querem desenvolver pessoas, líderes e equipas. Desenhamos palestras, formações, workshops e experiências que unem consciência, bem-estar e resultados, sempre a partir da realidade de cada equipa.",
+      "cta": "Conhecer a Conexão Positiva",
+      "journeyTitle": "A nossa abordagem",
+      "journey": ["Conexão", "Consciência", "Desenvolvimento", "Transformação", "Resultados"]
+    },
+    "services": {
+      "eyebrow": "Soluções",
+      "title": "Como podemos ajudar a sua organização",
+      "lead": "Experiências desenhadas à medida de cada equipa, do primeiro diagnóstico ao acompanhamento.",
+      "all": "Ver todas as soluções",
+      "more": "Saber mais"
+    },
+    "centro": {
+      "eyebrow": "Metodologia própria",
+      "title": "Método C.E.N.T.R.O.",
+      "lead": "Seis pilares para desenvolver pessoas de dentro para fora.",
+      "cta": "Descobrir o Método C.E.N.T.R.O.",
+      "tablist": "Pilares do Método C.E.N.T.R.O.",
+      "more": "Saber mais sobre {pillar}"
+    },
+    "cases": {
+      "eyebrow": "Experiências",
+      "title": "Experiências que já vivemos com organizações",
+      "all": "Ver todas as experiências",
+      "more": "Ver experiência",
+      "confidential": "Cliente confidencial",
+      "objective": "Objetivo"
+    },
+    "impact": {
+      "title": "Impacto"
+    },
+    "clients": {
+      "title": "Organizações que já viveram experiências Conexão Positiva"
+    },
+    "testimonials": {
+      "eyebrow": "Testemunhos",
+      "title": "O que dizem as pessoas com quem trabalhamos",
+      "previous": "Testemunho anterior",
+      "next": "Testemunho seguinte",
+      "position": "{current} de {total}"
+    },
+    "events": {
+      "eyebrow": "Agenda",
+      "title": "Próximos eventos",
+      "all": "Ver agenda",
+      "view": "Ver evento",
+      "register": "Inscrever-me",
+      "free": "Gratuito",
+      "status": {
+        "ultimas-vagas": "Últimas vagas",
+        "esgotado": "Esgotado",
+        "encerrado": "Inscrições encerradas"
+      },
+      "category": {
+        "workshop": "Workshop",
+        "formacao": "Formação",
+        "palestra": "Palestra",
+        "experiencia": "Experiência"
+      }
+    },
+    "insights": {
+      "eyebrow": "Insights",
+      "title": "Ideias para pessoas, líderes e equipas",
+      "all": "Explorar Insights",
+      "readingTime": "{minutes} min de leitura"
+    },
+    "cta": {
+      "title": "Pronto para desenvolver a sua equipa?",
+      "text": "Conte-nos o momento da sua organização. Desenhamos consigo uma experiência à medida das suas pessoas.",
+      "primary": "Solicitar proposta",
+      "secondary": "Falar connosco"
+    }
   }
 }

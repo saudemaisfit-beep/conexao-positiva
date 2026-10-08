@@ -38,6 +38,10 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 
 [Componentes globais](docs/fase-04/01-componentes-globais.md): stack, componentes, decisões e verificação.
 
+## Home (Fase 5)
+
+[Home](docs/fase-05/01-home.md): secções, origem do conteúdo, decisões e verificação. Para rever todas as secções com exemplos: `CONTENT_PREVIEW=1 npm run dev`.
+
 ## Desenvolvimento
 
 Requisitos: Node.js 22 (mínimo 20.9).
@@ -68,9 +72,12 @@ src/
   components/
     ui/              primitivos (Button…)
     layout/          Header, Footer, Container, Section, navegação
-    common/          Logo, SkipLink, WhatsApp, Breadcrumbs
+    common/          Logo, SkipLink, WhatsApp, Breadcrumbs, motivo da rede
+    sections/        secções de página (Hero, Soluções, C.E.N.T.R.O.…)
+    cards/           ServiceCard, EventCard, CaseStudyCard, ArticleCard…
     consent/         consentimento de cookies
   config/            navegação e dados institucionais provisórios
+  content/           modelos e leitura de conteúdo (Sanity a partir da Fase 13)
   i18n/              next-intl (routing, request, navigation)
   lib/               utilitários (cn, consent)
   styles/            tokens do Design System

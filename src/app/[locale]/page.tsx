@@ -1,13 +1,25 @@
-import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { proposalHref } from "@/config/navigation";
-import { ButtonLink, arrowClassName } from "@/components/ui/button";
-import { Section } from "@/components/layout/section";
+import { getHomeContent, upcomingEvents } from "@/content/home";
+import { AboutIntro } from "@/components/sections/about-intro";
+import { CaseStudiesPreview } from "@/components/sections/case-studies-preview";
+import { CentroSection } from "@/components/sections/centro-section";
+import { ClientLogos } from "@/components/sections/client-logos";
+import { CtaBanner } from "@/components/sections/cta-banner";
+import { HomeHero } from "@/components/sections/home-hero";
+import { ImpactStats } from "@/components/sections/impact-stats";
+import { LatestInsights } from "@/components/sections/latest-insights";
+import { ServicesGrid } from "@/components/sections/services-grid";
+import { TestimonialsSection } from "@/components/sections/testimonials-section";
+import { UpcomingEvents } from "@/components/sections/upcoming-events";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
 }
+
+// Revalida de hora a hora: os eventos passados saem da secção "Próximos eventos".
+export const revalidate = 3600;
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
@@ -15,27 +27,32 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return { title: { absolute: t("metaTitle") }, description: t("metaDescription") };
 }
 
-// Home provisória: a página completa é construída na Fase 5.
 export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("Home");
+  const t = await getTranslations("Home.cta");
+  const now = new Date();
+  const content = await getHomeContent(now);
 
   return (
-    <Section>
-      <div className="container-site flex flex-col gap-6">
-        <h1 className="max-w-4xl text-display font-extrabold">{t("title")}</h1>
-        <p className="max-w-2xl text-lead text-muted">{t("lead")}</p>
-        <div className="flex flex-col gap-3 md:flex-row">
-          <ButtonLink href="/solucoes" size="lg">
-            {t("discoverSolutions")}
-            <ArrowRight aria-hidden="true" className={arrowClassName} />
-          </ButtonLink>
-          <ButtonLink href={proposalHref} variant="secondary" size="lg">
-            {t("requestProposal")}
-          </ButtonLink>
-        </div>
-      </div>
-    </Section>
+    <>
+      <HomeHero />
+      <AboutIntro />
+      <ServicesGrid />
+      <CentroSection />
+      <CaseStudiesPreview studies={content.caseStudies} />
+      <ImpactStats stats={content.stats} />
+      <ClientLogos clients={content.clients} />
+      <TestimonialsSection testimonials={content.testimonials} />
+      <UpcomingEvents events={upcomingEvents(content.events, now)} />
+      <LatestInsights articles={content.articles} />
+      <CtaBanner
+        id="cta-title"
+        title={t("title")}
+        text={t("text")}
+        primary={{ label: t("primary"), href: proposalHref }}
+        secondary={{ label: t("secondary"), href: "/contactos" }}
+      />
+    </>
   );
 }

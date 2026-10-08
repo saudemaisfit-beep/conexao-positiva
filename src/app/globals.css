@@ -52,6 +52,19 @@
   [data-surface="inverse"] :focus-visible {
     outline-color: var(--color-focus-on-inverse);
   }
+
+  /* Reduzir movimento: sem animações, atrasos nem transições (o conteúdo aparece logo). */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-delay: 0ms !important;
+      animation-duration: 0ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0ms !important;
+      transition-delay: 0ms !important;
+    }
+  }
 }
 
 @utility container-site {
@@ -76,6 +89,10 @@
   text-transform: uppercase;
   color: var(--color-muted);
 
+  [data-surface="inverse"] & {
+    color: var(--color-on-inverse-muted);
+  }
+
   &::before {
     content: "";
     width: 6px;
@@ -83,6 +100,11 @@
     border-radius: 9999px;
     background-color: var(--color-accent);
     box-shadow: 0 0 0 4px var(--color-accent-soft);
+
+    [data-surface="inverse"] & {
+      background-color: var(--color-accent-on-inverse);
+      box-shadow: 0 0 0 4px rgb(255 255 255 / 0.1);
+    }
   }
 }
 
@@ -109,5 +131,53 @@
       opacity: 0;
       transform: translateY(var(--reveal-distance));
     }
+  }
+}
+
+/* ---------- Movimento: reveals por scroll (CSS puro, melhoria progressiva) ---------- */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-distance));
+  }
+}
+
+@keyframes draw-line {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+
+@utility reveal {
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+  }
+}
+
+@layer components {
+  .network-lines line {
+    stroke-dasharray: 1;
+    animation: draw-line var(--duration-slow) var(--ease-out) both;
+  }
+
+  .network-nodes circle {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: pop-in var(--duration-base) var(--ease-out) both;
+  }
+
+  .network-ring {
+    animation: fade-in var(--duration-slow) var(--ease-out) both;
   }
 }
