@@ -5,24 +5,22 @@
  * movimento, camadas, tamanhos de controlo). Os tokens semânticos de cor, tipografia,
  * raios e sombras estão em theme.css (@theme), que os expõe como variáveis e utilitários.
  *
- * PALETA: o marsala é oficial (Método C.E.N.T.R.O.). Petróleo, sálvia, areia e grafite são
- * provisórios até à entrega da identidade da Conexão Positiva; para os substituir, alterar
- * apenas os valores de "Paleta base". Tokens semânticos e componentes não precisam de mudar.
+ * PALETA: azul (Conexão Positiva) e marsala (Método C.E.N.T.R.O.) são cores oficiais,
+ * extraídas dos logótipos. Os neutros (areia, grafite) são uma proposta. Para ajustar,
+ * alterar apenas os valores de "Paleta base"; tokens semânticos e componentes não mudam.
  * Contrastes verificados (WCAG 2.2 AA) em docs/fase-03/01-design-system.md.
  */
 
 :root {
-  /* ---------- Paleta base (provisória, exceto marsala) ---------- */
-  --petroleo-950: #0d2b2e;
-  --petroleo-800: #0f3a3e;
-  --petroleo-700: #174a4f;
-  --petroleo-500: #2d6b6f;
-  --petroleo-300: #a9c4c1;
-  --petroleo-100: #dceae8;
-
-  --salvia-700: #4f6a50;
-  --salvia-400: #8ea68b;
-  --salvia-100: #e6ede2;
+  /* ---------- Paleta base ---------- */
+  /* Azul: cor OFICIAL da Conexão Positiva (logótipo convertido de Display P3 para sRGB, ~#0AA0E0). Restantes tons derivados do mesmo matiz. */
+  --azul-950: #082231;
+  --azul-800: #0a4e73;
+  --azul-700: #0b6592;
+  --azul-600: #0a7db5;
+  --azul-400: #0aa0e0;
+  --azul-200: #b3e1f5;
+  --azul-100: #e2f3fb;
 
   /* Marsala: cor OFICIAL do Método C.E.N.T.R.O. (logótipo, ~#904141). Restantes tons derivados. */
   --marsala-950: #3a1717;
@@ -32,13 +30,14 @@
   --marsala-200: #e9c9c6;
   --marsala-100: #f5e6e4;
 
+  /* Neutros quentes (proposta) e grafite com viés azul. */
   --areia-50: #faf8f3;
   --areia-100: #f1ede4;
   --areia-300: #dcd6ca;
 
-  --grafite-900: #16201f;
-  --grafite-600: #56625f;
-  --grafite-400: #7e8984;
+  --grafite-900: #131c24;
+  --grafite-600: #52606b;
+  --grafite-400: #7a8691;
   --branco: #ffffff;
 
   --verde-700: #2e7a4e;

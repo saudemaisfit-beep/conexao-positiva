@@ -8,12 +8,13 @@ Nada nesta lista será inventado. Enquanto não for fornecido, o CMS terá place
 
 | Item | Necessário para | Prioridade |
 | --- | --- | --- |
-| Logótipo oficial (SVG, versões clara e escura) e símbolo para favicon | Header, rodapé, favicon, e-mails, imagem social | Alta (Fase 3) |
-| Cores oficiais (HEX) e, se existir, manual de marca | Design System | Alta (Fase 3) |
+| ~~Logótipo da Conexão Positiva~~ ✅ Símbolo recebido (azul `#0AA0E0`) | Header, rodapé, favicon | — |
+| Símbolo da Conexão Positiva em **SVG** + **logótipo com o nome** (horizontal e vertical), se existir | Header, rodapé, e-mails, imagem social | Alta (Fase 4) |
+| Manual de marca com HEX exatos (as cores atuais foram extraídas das imagens) | Afinação do Design System | Média |
 | ~~Identidade visual do Método C.E.N.T.R.O.~~ ✅ Logótipo recebido (marsala `#904141`) | Página do método | — |
 | Logótipo do Método em **SVG** + versão monocromática branca | Produção (nitidez, fundos escuros) | Alta (Fase 8) |
 
-A Fase 3 usa uma **paleta provisória** para a Conexão Positiva (azul-petróleo profundo, verde-sálvia, tons naturais, branco, bege muito claro), marcada como provisória e substituível num único ficheiro. O acento quente é o **marsala oficial** do logótipo do Método C.E.N.T.R.O.
+A paleta usa as duas cores oficiais extraídas dos logótipos: **azul Conexão Positiva** (`#0AA0E0`) e **marsala Método C.E.N.T.R.O.** (`#904141`), com neutros quentes (areia) propostos pela equipa de design.
 
 ### Fotografia e vídeo
 

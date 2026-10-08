@@ -3,54 +3,55 @@
 Referência visual navegável: [`design-system.html`](design-system.html).
 Código: [`src/styles/tokens.css`](../../src/styles/tokens.css) (paleta base e tokens de layout/movimento) e [`src/styles/theme.css`](../../src/styles/theme.css) (tokens semânticos expostos ao Tailwind v4).
 
-> **Estado da identidade.** O **marsala** (`#904141`) é **oficial**: foi extraído do logótipo do Método C.E.N.T.R.O. fornecido pela Conexão Positiva. Petróleo, sálvia, areia e grafite continuam a ser uma **proposta provisória** até à entrega da identidade da Conexão Positiva. Para os substituir, basta alterar os valores da "Paleta base" em `tokens.css` e voltar a verificar os contrastes desta página.
+> **Estado da identidade.** As duas cores de marca são **oficiais**, extraídas dos logótipos fornecidos: **azul Conexão Positiva** (`#0AA0E0`) e **marsala Método C.E.N.T.R.O.** (`#904141`). A imagem do logótipo da Conexão Positiva vinha em Display P3 e foi convertida para sRGB (o espaço de cor da web) antes da medição. Os tons derivados (mais escuros e mais claros) foram calculados a partir do mesmo matiz para garantir contraste. Os neutros (areia, grafite) são uma proposta. Para ajustar, basta alterar a "Paleta base" em `tokens.css` e voltar a verificar os contrastes desta página.
 
 ## 1. Direção visual
 
-**Ideia central: o centro.** O Método C.E.N.T.R.O. dá ao sistema o seu motivo: um ponto a partir do qual tudo se organiza. Visualmente traduz-se em:
+**Duas marcas, uma linguagem: pontos ligados.**
+- **Conexão Positiva: a rede.** O logótipo é um globo formado por pontos ligados por linhas: pessoas, equipas e organizações em conexão. Traduz literalmente "Conectamos pessoas".
+- **Método C.E.N.T.R.O.: o centro.** Seis figuras humanas em movimento à volta de um ponto central: os seis pilares a partir de dentro.
+- As duas marcas partilham o mesmo vocabulário (ponto, linha, movimento circular). O site usa-o com moderação: o símbolo da rede como assinatura da Conexão Positiva (header, rodapé, separadores discretos) e o símbolo do centro na secção e na página do Método.
 
-- **Anel e ponto**: círculo fino com um ponto central, usado com moderação (marcador de eyebrow, representação dos 6 pilares, fundo da página do Método). Nunca como padrão decorativo repetido.
-- **Calma com profundidade**: fundo de areia muito claro, texto grafite esverdeado, um petróleo profundo como cor de confiança e o marsala do Método como único acento quente.
-- **O símbolo oficial confirma a ideia**: seis figuras humanas em movimento à volta de um ponto central. O site usa este símbolo como assinatura do Método e o motivo "anel e ponto" como eco discreto noutras páginas.
-- **Tipografia que lidera**: títulos grandes em Manrope, com espaço à volta; o texto corrido em Inter, confortável e sem pressa.
-- **Fotografia humana em primeiro plano**: o sistema é discreto para que as pessoas nas fotografias sejam o centro.
+**Tom visual**
+- **Claro e confiante**: fundo de areia muito claro, texto grafite com viés azul, o azul profundo da marca em botões e links, e um azul-marinho para as secções de ênfase, onde o azul oficial brilha.
+- **Calor humano em detalhes**: o marsala do Método é o único acento quente.
+- **Tipografia que lidera**: títulos grandes em Manrope, texto em Inter.
+- **Fotografia humana em primeiro plano**: o sistema é discreto para que as pessoas sejam o centro.
 
-O que fica de fora: gradientes, glassmorphism, cards em todas as secções, sombras pesadas, mais de uma cor de destaque, emojis como ícones.
+O que fica de fora: gradientes, glassmorphism, cards em todas as secções, sombras pesadas, mais cores além de azul, marsala e neutros, emojis como ícones.
 
 ## 2. Cor
 
-### Paleta base (provisória, exceto marsala)
+### Paleta base
 
 | Família | Token | HEX | Uso |
 | --- | --- | --- | --- |
-| Petróleo | `--petroleo-950` | `#0D2B2E` | Fundo das secções de ênfase, rodapé |
-| | `--petroleo-800` | `#0F3A3E` | Hover do botão primário |
-| | `--petroleo-700` | `#174A4F` | **Primária**: botões, links, ícones ativos |
-| | `--petroleo-500` | `#2D6B6F` | Anel de foco |
-| | `--petroleo-300` | `#A9C4C1` | Texto secundário sobre fundo escuro |
-| | `--petroleo-100` | `#DCEAE8` | Superfícies tingidas, contentor de ícones |
-| Sálvia | `--salvia-700` | `#4F6A50` | Texto de etiquetas "Gratuito", detalhes |
-| | `--salvia-400` | `#8EA68B` | **Secundária**: ilustração, linhas, motivo do anel (decorativo) |
-| | `--salvia-100` | `#E6EDE2` | Fundo de etiquetas e blocos suaves |
-| **Marsala (oficial)** | `--marsala-950` | `#3A1717` | Fundo das secções de ênfase da página do Método |
+| **Azul (oficial Conexão Positiva)** | `--azul-950` | `#082231` | Fundo das secções de ênfase e do rodapé (azul-marinho) |
+| | `--azul-800` | `#0A4E73` | Hover do botão primário; texto em etiquetas azuis |
+| | `--azul-700` | `#0B6592` | **Primária**: botões, links, ícones ativos |
+| | `--azul-600` | `#0A7DB5` | Anel de foco |
+| | `--azul-400` | `#0AA0E0` | **Cor do logótipo**: símbolo, detalhes, destaques sobre azul-marinho (nunca texto sobre fundo claro) |
+| | `--azul-200` | `#B3E1F5` | Texto secundário e foco sobre azul-marinho; fundo de etiquetas |
+| | `--azul-100` | `#E2F3FB` | Superfícies tingidas, contentor de ícones |
+| **Marsala (oficial Método C.E.N.T.R.O.)** | `--marsala-950` | `#3A1717` | Fundo das secções de ênfase da página do Método |
 | | `--marsala-800` | `#742F30` | Hover de botões do Método; texto de destaque quente |
-| | `--marsala-700` | `#904141` | **Cor do logótipo do Método** · **acento** do site (ponto do motivo, sublinhados, "Últimas vagas") |
-| | `--marsala-400` | `#C27F7C` | Acento sobre fundo petróleo escuro |
+| | `--marsala-700` | `#904141` | **Cor do logótipo do Método** · **acento** do site (ponto do eyebrow, sublinhados, "Últimas vagas") |
+| | `--marsala-400` | `#C27F7C` | Acento sobre azul-marinho |
 | | `--marsala-200` | `#E9C9C6` | Texto secundário sobre marsala profundo |
-| | `--marsala-100` | `#F5E6E4` | Fundo de etiquetas quentes; foco sobre fundo escuro |
-| Areia | `--areia-50` | `#FAF8F3` | **Fundo** da página |
+| | `--marsala-100` | `#F5E6E4` | Fundo de etiquetas quentes |
+| Areia (proposta) | `--areia-50` | `#FAF8F3` | **Fundo** da página |
 | | `--areia-100` | `#F1EDE4` | **Superfície** (secções alternadas) |
 | | `--areia-300` | `#DCD6CA` | Bordas decorativas, divisores |
-| Grafite | `--grafite-900` | `#16201F` | **Texto** |
-| | `--grafite-600` | `#56625F` | Texto secundário (**muted**) |
-| | `--grafite-400` | `#7E8984` | Bordas de campos de formulário |
+| Grafite (proposta) | `--grafite-900` | `#131C24` | **Texto** |
+| | `--grafite-600` | `#52606B` | Texto secundário (**muted**) |
+| | `--grafite-400` | `#7A8691` | Bordas de campos de formulário |
 | Estados | `--verde-700` / `--vermelho-700` / `--ambar-700` | `#2E7A4E` / `#B42318` / `#8A5600` | Sucesso / erro / aviso (com fundos `-100`) |
 
 ### Tokens semânticos
 
 Os componentes usam **apenas** tokens semânticos (nunca a paleta base nem HEX):
 
-`--color-primary` · `--color-primary-hover` · `--color-primary-strong` · `--color-primary-soft` · `--color-on-primary` · `--color-secondary` (+ `-strong`, `-soft`) · `--color-accent` (+ `-strong`, `-soft`, `-on-inverse`) · `--color-method` (+ `-strong`, `-soft`) · `--color-on-method` · `--color-background` · `--color-surface` · `--color-surface-raised` · `--color-inverse` · `--color-on-inverse` · `--color-on-inverse-muted` · `--color-text` · `--color-muted` · `--color-border` · `--color-border-strong` · `--color-focus` · `--color-focus-on-inverse` · `--color-success|error|warning` (+ `-soft`).
+`--color-primary` · `--color-primary-hover` · `--color-primary-strong` · `--color-primary-soft` · `--color-on-primary` · `--color-secondary` (azul oficial; + `-strong`, `-soft`) · `--color-accent` (marsala; + `-strong`, `-soft`, `-on-inverse`) · `--color-brand-on-inverse` · `--color-method` (+ `-strong`, `-soft`) · `--color-on-method` · `--color-background` · `--color-surface` · `--color-surface-raised` · `--color-inverse` · `--color-on-inverse` · `--color-on-inverse-muted` · `--color-text` · `--color-muted` · `--color-border` · `--color-border-strong` · `--color-focus` · `--color-focus-on-inverse` · `--color-success|error|warning` (+ `-soft`).
 
 No Tailwind: `bg-primary`, `text-muted`, `border-border-strong`, `bg-inverse text-on-inverse`, etc. A paleta padrão do Tailwind está desativada, o que impede usar cores fora do sistema.
 
@@ -58,59 +59,79 @@ No Tailwind: `bg-primary`, `text-muted`, `border-border-strong`, `bg-inverse tex
 
 | Combinação | Rácio | Resultado |
 | --- | --- | --- |
-| Texto `#16201F` sobre fundo `#FAF8F3` | 15,70 : 1 | AAA |
-| Texto sobre superfície `#F1EDE4` | 14,26 : 1 | AAA |
-| Muted `#56625F` sobre fundo | 5,98 : 1 | AA |
-| Muted sobre superfície | 5,43 : 1 | AA |
-| Branco sobre primária `#174A4F` (botão) | 9,86 : 1 | AAA |
-| Primária sobre fundo (links) | 9,29 : 1 | AAA |
-| Branco sobre petróleo-950 (secções de ênfase) | 14,98 : 1 | AAA |
-| Petróleo-300 sobre petróleo-950 (texto secundário escuro) | 8,10 : 1 | AAA |
+| Texto `#131C24` sobre fundo `#FAF8F3` | 16,23 : 1 | AAA |
+| Texto sobre superfície `#F1EDE4` | 14,74 : 1 | AAA |
+| Muted `#52606B` sobre fundo | 6,10 : 1 | AA |
+| Muted sobre superfície | 5,54 : 1 | AA |
+| Branco sobre primária `#0B6592` (botão) | 6,38 : 1 | AA |
+| Primária sobre fundo (links) | 6,01 : 1 | AA |
+| Branco sobre azul-marinho `#082231` (ênfase, rodapé) | 16,36 : 1 | AAA |
+| Azul oficial `#0AA0E0` sobre azul-marinho | 5,55 : 1 | AA |
+| Azul-200 sobre azul-marinho (texto secundário escuro) | 11,69 : 1 | AAA |
+| Azul-800 sobre azul-200 (etiqueta azul) | 6,38 : 1 | AA |
 | Marsala-700 sobre fundo (acento, links do Método) | 6,56 : 1 | AA |
 | Branco sobre marsala-700 (botão do Método) | 6,96 : 1 | AA |
 | Marsala-700 sobre marsala-100 (etiqueta) | 5,74 : 1 | AA |
+| Marsala-400 sobre azul-marinho (acento em ênfase) | 5,16 : 1 | AA |
 | Branco sobre marsala-950 (ênfase do Método) | 15,97 : 1 | AAA |
 | Marsala-200 sobre marsala-950 | 10,37 : 1 | AAA |
-| Marsala-400 sobre petróleo-950 (acento em ênfase) | 4,72 : 1 | AA |
-| Sálvia-700 sobre sálvia-100 (etiqueta) | 5,01 : 1 | AA |
 | Erro `#B42318` sobre branco | 6,57 : 1 | AA |
 | Sucesso `#2E7A4E` sobre fundo | 4,93 : 1 | AA |
-| Borda de campo `#7E8984` sobre branco | 3,62 : 1 | AA (componente ≥ 3 : 1) |
-| Foco `#2D6B6F` sobre fundo | 5,74 : 1 | AA (≥ 3 : 1) |
-| Foco escuro `#F5E6E4` sobre petróleo-950 | 12,35 : 1 | AA |
+| Borda de campo `#7A8691` sobre branco | 3,72 : 1 | AA (componente ≥ 3 : 1) |
+| Foco `#0A7DB5` sobre fundo | 4,29 : 1 | AA (componente ≥ 3 : 1) |
+| Foco escuro `#B3E1F5` sobre azul-marinho | 11,69 : 1 | AA |
 
-**Regras**: `--color-secondary` (2,48 : 1) **nunca** é usado para texto ou para limites de controlos sobre fundo claro; é apenas decorativo (para texto usa-se `--color-secondary-strong`). O acento marsala passa AA como texto, mas continua reservado a detalhes: nunca para parágrafos nem para botões fora do universo do Método.
+**Regras**: o **azul oficial** `#0AA0E0` tem apenas 2,78 : 1 sobre fundo claro: é usado no símbolo, em ilustrações e em detalhes gráficos, **nunca** em texto ou limites de controlos sobre fundo claro (aí usa-se `--color-primary`). Sobre azul-marinho pode ser usado em texto grande e destaques. O marsala passa AA como texto, mas continua reservado a detalhes fora do universo do Método.
 
 ### Proporção de uso
 
-~70 % areia/branco · ~20 % petróleo (texto, botões, secções de ênfase) · ~8 % sálvia · ≤ 2 % marsala. Na página do Método a proporção inverte-se: o marsala substitui o petróleo (ver secção 3). Por página, no máximo **duas** secções de ênfase escura (Método + CTA final na Home).
+~70 % areia/branco · ~22 % azul (texto de ação, botões, secções de ênfase, símbolo) · ≤ 5 % marsala · resto em estados. Na página do Método o marsala substitui o azul nas ênfases (ver secção 3). Por página, no máximo **duas** secções de ênfase escura (Método + CTA final na Home).
 
 ### Modo escuro
 
-O site público usa apenas o tema claro na primeira versão (decisão de marca: consistência visual e fotografia). As secções de ênfase já funcionam como "superfície escura" com tokens próprios (`inverse`), e a separação paleta/semântica permite acrescentar um tema escuro mais tarde sem tocar nos componentes.
+O site público usa apenas o tema claro na primeira versão (consistência visual e fotografia). As secções de ênfase já funcionam como "superfície escura" com tokens próprios (`inverse`), e a separação paleta/semântica permite acrescentar um tema escuro mais tarde sem tocar nos componentes.
 
-## 3. Marca Método C.E.N.T.R.O.
+## 3. Marcas
 
-O logótipo oficial foi fornecido (`public/brand/metodo-centro/`):
+### Conexão Positiva
+
+Ficheiros em `public/brand/conexao-positiva/`:
+
+| Ficheiro | Conteúdo | Uso |
+| --- | --- | --- |
+| `conexao-positiva-original.jpg` | Captura recebida (símbolo sobre disco branco, fundo de fotografia) | Referência; não usar no site |
+| `conexao-positiva-simbolo.png` | Símbolo (globo em rede), azul oficial em sRGB, fundo transparente, 680 px | Header, rodapé, favicon provisório, imagem social |
+
+O PNG foi recortado da imagem recebida sem redesenho; as bordas são ligeiramente suaves por causa da resolução de origem. **Para produção são necessários**: o símbolo em **SVG**, e o **logótipo com o nome** "Conexão Positiva" (versões horizontal e vertical), se existir. Enquanto não existir, o header usa o símbolo + "Conexão Positiva" composto em Manrope 800, marcado como **composição provisória**.
+
+**Regras de uso**
+- Nunca redesenhar, distorcer, rodar, recolorir nem aplicar efeitos.
+- Área de proteção: no mínimo 25 % do diâmetro do símbolo à volta.
+- Tamanho mínimo: 24 px de diâmetro (favicon 32 px).
+- Funciona em azul oficial sobre areia, branco e azul-marinho. Sobre fotografia, apenas dentro do disco branco (como na versão recebida) ou numa versão branca, quando fornecida.
+
+### Método C.E.N.T.R.O.
+
+Ficheiros em `public/brand/metodo-centro/`:
 
 | Ficheiro | Conteúdo | Uso |
 | --- | --- | --- |
 | `metodo-centro-original.jpg` | Original recebido (fundo branco) | Referência; não usar no site |
 | `metodo-centro-logo.png` | Símbolo + "MÉTODO C.E.N.T.R.O®", fundo transparente | Hero da página do Método, materiais |
-| `metodo-centro-simbolo.png` | Só o símbolo, fundo transparente | Secção C.E.N.T.R.O. da Home, favicon do Método, marca de água |
+| `metodo-centro-simbolo.png` | Só o símbolo, fundo transparente | Secção C.E.N.T.R.O. da Home, marca de água |
 
-Os PNG foram recortados do original sem redesenho. **Para produção é necessário o logótipo em SVG** (e uma versão monocromática branca para fundos escuros); pedido registado nas pendências.
+**Para produção é necessário o logótipo em SVG** e uma versão monocromática branca para fundos escuros.
 
 **Regras de uso**
 - Nunca redesenhar, distorcer, rodar, recolorir nem aplicar efeitos ao símbolo ou ao lettering.
 - Área de proteção: no mínimo a altura do ponto central do símbolo × 2 à volta de todo o logótipo.
 - Tamanho mínimo: símbolo com 32 px; logótipo completo com 160 px de largura.
-- Sobre fundo claro (areia, branco): versão marsala original. Sobre marsala profundo ou petróleo: apenas a versão branca, quando for fornecida.
+- Sobre fundo claro (areia, branco): versão marsala original. Sobre fundos escuros: apenas a versão branca, quando for fornecida (marsala sobre azul-marinho tem só 2,35 : 1).
 - O nome escreve-se sempre **Método C.E.N.T.R.O.** em texto corrido; o "®" aparece no logótipo e na primeira menção da página do Método.
 
-**Identidade da página do Método**: o contentor da página leva `data-brand="metodo"`. Com isso, as secções de ênfase passam a marsala profundo (`--marsala-950`), os botões primários a marsala e o foco a marsala, sem duplicar componentes. Nas restantes páginas, o Método aparece com o símbolo oficial e o acento marsala, mantendo o petróleo da Conexão Positiva.
+**Identidade da página do Método**: o contentor da página leva `data-brand="metodo"`. As secções de ênfase passam a marsala profundo (`--marsala-950`), os botões primários, links e foco a marsala, sem duplicar componentes. Nas restantes páginas (ex.: secção C.E.N.T.R.O. da Home), o Método aparece com o símbolo oficial sobre fundo claro e o acento marsala, dentro do azul da Conexão Positiva.
 
-**Tipografia do logótipo**: o lettering faz parte da imagem e não é reproduzido com fontes do site. Nos títulos do site, "C.E.N.T.R.O." usa Manrope 800, que tem um peso e uma largura próximos do logótipo.
+**Tipografia dos logótipos**: o lettering faz parte da imagem e não é reproduzido com fontes do site. Nos títulos, "C.E.N.T.R.O." usa Manrope 800, com peso e largura próximos do logótipo.
 
 ## 4. Tipografia
 
@@ -158,7 +179,7 @@ Regras: texto nunca abaixo de 12 px (e 12 px só em maiúsculas curtas); texto c
 
 Bordas: `--border-hairline` 1 px (divisores, cards), `--border-control` 1,5 px (campos e botão secundário), `--border-focus` 3 px (anel de foco).
 
-Sombras tingidas com o petróleo: `shadow-sm` (repouso de cards elevados), `shadow-md` (hover de cards, dropdowns), `shadow-lg` (modal, menu), `shadow-header` (header após scroll). Nada de sombras em texto nem em botões.
+Sombras tingidas com o azul-marinho: `shadow-sm` (repouso de cards elevados), `shadow-md` (hover de cards, dropdowns), `shadow-lg` (modal, menu), `shadow-header` (header após scroll). Nada de sombras em texto nem em botões.
 
 ## 7. Ícones
 
@@ -175,7 +196,7 @@ Sombras tingidas com o petróleo: `shadow-sm` (repouso de cards elevados), `shad
 | --- | --- | --- |
 | `primary` | Fundo primária, texto branco | Ação principal (máx. 1 por bloco) |
 | `secondary` | Contorno 1,5 px primária, texto primária | Ação alternativa |
-| `inverse` | Fundo branco, texto petróleo-950 | Ação principal sobre ênfase escura |
+| `inverse` | Fundo branco, texto azul-marinho | Ação principal sobre ênfase escura |
 | `inverse-outline` | Contorno branco, texto branco | Alternativa sobre ênfase escura |
 | `link` | Texto primária, sublinhado animado, seta opcional | "Saber mais →", "Ver todas" |
 
@@ -239,9 +260,11 @@ Com `prefers-reduced-motion: reduce`, todas as durações passam a 0 e o desloca
 - Informação nunca transmitida só pela cor: estados de evento têm texto, erros têm ícone e mensagem.
 - Links em texto corrido são sempre sublinhados.
 
-## 11. Como alterar a marca
+## 11. Como ajustar a marca
 
-1. Receber o manual de marca ou as cores oficiais (HEX).
-2. Substituir os valores da "Paleta base" em `src/styles/tokens.css`, mantendo os nomes ou ajustando os mapeamentos em `theme.css`.
-3. Recalcular a tabela de contrastes (secção 2) e ajustar as variantes `-strong` se algum par descer abaixo de AA.
-4. Substituir o logótipo provisório em `siteSettings` (CMS).
+As cores oficiais foram extraídas de imagens dos logótipos (valores aproximados ao pixel). Quando chegar o manual de marca com os HEX exatos:
+
+1. Substituir `--azul-400` e `--marsala-700` em `src/styles/tokens.css` pelos valores oficiais e recalcular os tons derivados do mesmo matiz.
+2. Recalcular a tabela de contrastes (secção 2) e ajustar as variantes escuras se algum par descer abaixo de AA.
+3. Substituir os PNG de `public/brand/` pelos SVG oficiais.
+4. Atualizar logótipo e favicon em `siteSettings` (CMS).

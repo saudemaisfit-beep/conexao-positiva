@@ -10,17 +10,15 @@
 <style>
 /* Tokens gerados a partir de src/styles/tokens.css e src/styles/theme.css (não editar aqui). */
 :root {
-  /* ---------- Paleta base (provisória, exceto marsala) ---------- */
-  --petroleo-950: #0d2b2e;
-  --petroleo-800: #0f3a3e;
-  --petroleo-700: #174a4f;
-  --petroleo-500: #2d6b6f;
-  --petroleo-300: #a9c4c1;
-  --petroleo-100: #dceae8;
-
-  --salvia-700: #4f6a50;
-  --salvia-400: #8ea68b;
-  --salvia-100: #e6ede2;
+  /* ---------- Paleta base ---------- */
+  /* Azul: cor OFICIAL da Conexão Positiva (logótipo convertido de Display P3 para sRGB, ~#0AA0E0). Restantes tons derivados do mesmo matiz. */
+  --azul-950: #082231;
+  --azul-800: #0a4e73;
+  --azul-700: #0b6592;
+  --azul-600: #0a7db5;
+  --azul-400: #0aa0e0;
+  --azul-200: #b3e1f5;
+  --azul-100: #e2f3fb;
 
   /* Marsala: cor OFICIAL do Método C.E.N.T.R.O. (logótipo, ~#904141). Restantes tons derivados. */
   --marsala-950: #3a1717;
@@ -30,13 +28,14 @@
   --marsala-200: #e9c9c6;
   --marsala-100: #f5e6e4;
 
+  /* Neutros quentes (proposta) e grafite com viés azul. */
   --areia-50: #faf8f3;
   --areia-100: #f1ede4;
   --areia-300: #dcd6ca;
 
-  --grafite-900: #16201f;
-  --grafite-600: #56625f;
-  --grafite-400: #7e8984;
+  --grafite-900: #131c24;
+  --grafite-600: #52606b;
+  --grafite-400: #7a8691;
   --branco: #ffffff;
 
   --verde-700: #2e7a4e;
@@ -107,21 +106,23 @@
 }
 :root {
   /* ---------- Cor ---------- */
-  --color-primary: var(--petroleo-700);
-  --color-primary-hover: var(--petroleo-800);
-  --color-primary-strong: var(--petroleo-950);
-  --color-primary-soft: var(--petroleo-100);
+  --color-primary: var(--azul-700);
+  --color-primary-hover: var(--azul-800);
+  --color-primary-strong: var(--azul-950);
+  --color-primary-soft: var(--azul-100);
   --color-on-primary: var(--branco);
 
-  --color-secondary: var(--salvia-400);
-  --color-secondary-strong: var(--salvia-700);
-  --color-secondary-soft: var(--salvia-100);
+  /* Azul oficial do logótipo: marca e detalhes; nunca texto sobre fundo claro (2,7 : 1). */
+  --color-secondary: var(--azul-400);
+  --color-secondary-strong: var(--azul-800);
+  --color-secondary-soft: var(--azul-200);
 
   /* Acento quente = marsala oficial do Método C.E.N.T.R.O. */
   --color-accent: var(--marsala-700);
   --color-accent-strong: var(--marsala-800);
   --color-accent-soft: var(--marsala-100);
   --color-accent-on-inverse: var(--marsala-400);
+  --color-brand-on-inverse: var(--azul-400);
 
   /* Sub-marca Método C.E.N.T.R.O. */
   --color-method: var(--marsala-700);
@@ -132,17 +133,17 @@
   --color-background: var(--areia-50);
   --color-surface: var(--areia-100);
   --color-surface-raised: var(--branco);
-  --color-inverse: var(--petroleo-950);
+  --color-inverse: var(--azul-950);
   --color-on-inverse: var(--branco);
-  --color-on-inverse-muted: var(--petroleo-300);
+  --color-on-inverse-muted: var(--azul-200);
 
   --color-text: var(--grafite-900);
   --color-muted: var(--grafite-600);
   --color-border: var(--areia-300);
   --color-border-strong: var(--grafite-400);
 
-  --color-focus: var(--petroleo-500);
-  --color-focus-on-inverse: var(--marsala-100);
+  --color-focus: var(--azul-600);
+  --color-focus-on-inverse: var(--azul-200);
 
   --color-success: var(--verde-700);
   --color-success-soft: var(--verde-100);
@@ -193,11 +194,11 @@
   --radius-lg: 1.25rem;
   --radius-xl: 1.75rem;
 
-  /* ---------- Sombras (tingidas com o petróleo, nunca pretas puras) ---------- */
-  --shadow-sm: 0 1px 2px rgb(13 43 46 / 0.06), 0 1px 1px rgb(13 43 46 / 0.04);
-  --shadow-md: 0 8px 24px -12px rgb(13 43 46 / 0.18), 0 2px 6px rgb(13 43 46 / 0.06);
-  --shadow-lg: 0 24px 48px -20px rgb(13 43 46 / 0.28), 0 4px 12px rgb(13 43 46 / 0.06);
-  --shadow-header: 0 6px 20px -12px rgb(13 43 46 / 0.22);
+  /* ---------- Sombras (tingidas com o azul-marinho, nunca pretas puras) ---------- */
+  --shadow-sm: 0 1px 2px rgb(8 34 49 / 0.06), 0 1px 1px rgb(8 34 49 / 0.04);
+  --shadow-md: 0 8px 24px -12px rgb(8 34 49 / 0.18), 0 2px 6px rgb(8 34 49 / 0.06);
+  --shadow-lg: 0 24px 48px -20px rgb(8 34 49 / 0.28), 0 4px 12px rgb(8 34 49 / 0.06);
+  --shadow-header: 0 6px 20px -12px rgb(8 34 49 / 0.22);
 
   /* ---------- Movimento ---------- */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -259,7 +260,6 @@ code, .mono { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, mono
 @media (min-width: 900px) { .hero { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); } }
 .notice { display: flex; gap: 12px; align-items: start; background: var(--color-warning-soft); border-left: 3px solid var(--color-warning); border-radius: var(--radius-sm); padding: 14px 16px; font-size: var(--text-small); margin-top: 28px; max-width: 640px; }
 .notice svg { flex: none; color: var(--color-warning); margin-top: 2px; }
-.orbit { width: min(100%, 380px); margin-inline: auto; display: block; }
 
 /* Cores */
 .family { display: grid; gap: 12px; margin-bottom: 36px; }
@@ -408,6 +408,11 @@ select.input { padding-right: 44px; cursor: pointer; }
 .brand-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
 .brand-tile { margin: 0; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface-raised); padding: clamp(24px, 4vw, 48px); display: grid; gap: 16px; justify-items: center; align-content: center; text-align: center; }
 .brand-tile img { width: min(100%, 320px); height: auto; }
+.lockup { display: inline-flex; align-items: center; gap: 12px; font: 800 22px/1 var(--font-display); letter-spacing: -0.01em; color: var(--color-text); }
+.lockup img { width: 40px; height: 40px; }
+.brand-tile.inverse { background: var(--color-inverse); }
+.hero-mark { margin: 0; display: grid; place-items: center; }
+.hero-mark img { width: min(100%, 340px); height: auto; }
 .inverse .eyebrow::before { background: var(--color-accent-on-inverse); }
 
 /* Medidas */
@@ -431,32 +436,33 @@ select.input { padding-right: 44px; cursor: pointer; }
     <div>
       <p class="eyebrow">Fase 3 · Design System</p>
       <h1 class="t-display">Conexão Positiva</h1>
-      <p class="t-lead" style="margin-top:20px">O sistema visual do website: cores, tipografia, espaçamento e componentes, construídos à volta de uma ideia simples: tudo parte do centro.</p>
-      <div class="notice" role="note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><p><b>Marsala oficial, restante paleta provisória.</b> O marsala vem do logótipo do Método C.E.N.T.R.O. Petróleo, sálvia e areia são uma proposta até chegar a identidade da Conexão Positiva e trocam-se num único ficheiro (<code>tokens.css</code>).</p></div>
+      <p class="t-lead" style="margin-top:20px">O sistema visual do website: cores, tipografia, espaçamento e componentes, construídos à volta de uma ideia simples: pontos que se ligam.</p>
+      <div class="notice" role="note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><p><b>Cores oficiais extraídas dos logótipos.</b> Azul Conexão Positiva e marsala Método C.E.N.T.R.O. Os tons derivados e os neutros areia são propostas; os HEX exatos afinam-se quando chegar o manual de marca.</p></div>
     </div>
-    <svg class="orbit" viewBox="0 0 400 400" role="img" aria-label="Motivo do centro: seis pilares, C, E, N, T, R, O, à volta de um ponto central">
-      <circle cx="200" cy="200" r="150" fill="none" stroke="var(--color-secondary)" stroke-width="1.5"/>
-      <circle cx="200" cy="200" r="96" fill="none" stroke="var(--color-border)" stroke-width="1"/>
-      <circle cx="200" cy="200" r="46" fill="var(--color-primary)"/>
-      <circle cx="200" cy="200" r="8" fill="var(--color-accent)"/>
-      <g font-family="Manrope, sans-serif" font-weight="800" font-size="26" text-anchor="middle" fill="var(--color-primary)" id="orbit-letters"></g>
-    </svg>
+    <figure class="hero-mark"><img src="../../public/brand/conexao-positiva/conexao-positiva-simbolo.png" alt="Símbolo da Conexão Positiva: globo formado por pontos ligados" width="340" height="340"></figure>
   </header>
 
   <section class="block" id="cor">
-    <div class="sec-head"><p class="eyebrow">Cor</p><h2 class="t-h2">Calma com profundidade</h2><p class="t-lead">Areia como fundo, petróleo para confiança, sálvia para leveza e o marsala do Método como único acento quente.</p></div>
+    <div class="sec-head"><p class="eyebrow">Cor</p><h2 class="t-h2">Claro e confiante</h2><p class="t-lead">Areia como fundo, o azul da marca para ação e confiança, azul-marinho para os momentos de ênfase e o marsala do Método como único acento quente.</p></div>
     <div id="families"></div>
     <div class="family"><h3>Proporção de uso</h3>
-      <div class="ratio-bar" role="img" aria-label="Cerca de 70 por cento areia e branco, 20 por cento petróleo, 8 por cento sálvia, 2 por cento marsala"><span style="flex:70;background:var(--color-surface)"></span><span style="flex:20;background:var(--color-primary)"></span><span style="flex:8;background:var(--color-secondary)"></span><span style="flex:2;background:var(--color-accent)"></span></div>
-      <p class="t-small muted">~70 % areia e branco · ~20 % petróleo · ~8 % sálvia · ≤ 2 % marsala</p>
+      <div class="ratio-bar" role="img" aria-label="Cerca de 70 por cento areia e branco, 22 por cento azul, até 5 por cento marsala"><span style="flex:70;background:var(--color-surface)"></span><span style="flex:12;background:var(--color-primary)"></span><span style="flex:6;background:var(--color-inverse)"></span><span style="flex:4;background:var(--color-secondary)"></span><span style="flex:5;background:var(--color-accent)"></span></div>
+      <p class="t-small muted">~70 % areia e branco · ~22 % azul (ação, ênfase, símbolo) · ≤ 5 % marsala</p>
     </div>
     <div class="family"><h3>Tokens semânticos (usados pelos componentes)</h3><div class="semantic" id="semantic"></div></div>
-    <div class="family"><h3>Contrastes (WCAG 2.2)</h3><p class="t-small muted">Calculados no browser a partir dos tokens em uso. A sálvia é apenas decorativa sobre fundo claro.</p>
+    <div class="family"><h3>Contrastes (WCAG 2.2)</h3><p class="t-small muted">Calculados no browser a partir dos tokens em uso. O azul oficial é decorativo sobre fundo claro; sobre azul-marinho pode ser usado em destaques.</p>
       <div class="table-scroll"><table class="contrast"><thead><tr><th>Exemplo</th><th>Combinação</th><th>Rácio</th><th>Resultado</th></tr></thead><tbody id="contrast"></tbody></table></div></div>
   </section>
 
   <section class="block" id="metodo">
-    <div class="sec-head"><p class="eyebrow">Marca</p><h2 class="t-h2">Método C.E.N.T.R.O.</h2><p class="t-lead">Logótipo oficial: seis figuras em movimento à volta de um centro. Usado sem alterações, sempre sobre fundo claro até haver versão branca.</p></div>
+    <div class="sec-head"><p class="eyebrow">Marcas</p><h2 class="t-h2">A rede e o centro</h2><p class="t-lead">A Conexão Positiva é um globo de pontos ligados; o Método C.E.N.T.R.O. são seis figuras à volta de um centro. Usados sempre sem alterações.</p></div>
+    <h3 class="t-h4" style="margin-bottom:16px">Conexão Positiva</h3>
+    <div class="brand-grid">
+      <figure class="brand-tile"><img src="../../public/brand/conexao-positiva/conexao-positiva-simbolo.png" alt="Símbolo da Conexão Positiva sobre fundo claro" width="200" height="200" style="width:min(60%,200px)"><figcaption class="t-small muted">Sobre areia ou branco · mín. 24 px</figcaption></figure>
+      <figure class="brand-tile inverse" style="border-color:transparent"><img src="../../public/brand/conexao-positiva/conexao-positiva-simbolo.png" alt="Símbolo da Conexão Positiva sobre azul-marinho" width="200" height="200" style="width:min(60%,200px)"><figcaption class="t-small" style="color:var(--color-on-inverse-muted)">Sobre azul-marinho · o azul oficial mantém 5,55 : 1</figcaption></figure>
+      <figure class="brand-tile"><span class="lockup"><img src="../../public/brand/conexao-positiva/conexao-positiva-simbolo.png" alt="" width="40" height="40">Conexão Positiva</span><figcaption class="t-small muted">Composição provisória do header (símbolo + nome em Manrope 800) até chegar o logótipo com nome</figcaption></figure>
+    </div>
+    <h3 class="t-h4" style="margin:40px 0 16px">Método C.E.N.T.R.O.</h3>
     <div class="brand-grid">
       <figure class="brand-tile"><img src="../../public/brand/metodo-centro/metodo-centro-logo.png" alt="Logótipo Método C.E.N.T.R.O." width="463" height="360"><figcaption class="t-small muted">Logótipo completo · mín. 160 px de largura</figcaption></figure>
       <figure class="brand-tile surface"><img src="../../public/brand/metodo-centro/metodo-centro-simbolo.png" alt="Símbolo do Método C.E.N.T.R.O." width="208" height="190" style="width:min(60%,208px)"><figcaption class="t-small muted">Símbolo · mín. 32 px · área de proteção = 2 × o ponto central</figcaption></figure>
@@ -562,12 +568,8 @@ select.input { padding-right: 44px; cursor: pointer; }
   const ICONS = { mic: '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/>', "graduation-cap": '<path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>', "pencil-ruler": '<path d="m15 5 4 4"/><path d="M13 7 8.7 2.7a2.4 2.4 0 0 0-3.4 0L2.7 5.3a2.4 2.4 0 0 0 0 3.4L7 13"/><path d="m8 6 2-2"/><path d="m17 11 4.3 4.3c.94.94.94 2.46 0 3.4l-2.6 2.6c-.94.94-2.46.94-3.4 0L11 17"/><path d="M21.17 6.81a1 1 0 0 0-3.99-3.99L3.84 16.17a2 2 0 0 0-.5.83l-1.32 4.35a.5.5 0 0 0 .62.62l4.35-1.32a2 2 0 0 0 .83-.5Z"/>', users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>', compass: '<circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/>', handshake: '<path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/>', leaf: '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>', "calendar-heart": '<path d="M3 10h18V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7"/><path d="M8 2v4M16 2v4"/><path d="M21.29 14.7a2.43 2.43 0 0 0-2.65-.52c-.3.12-.57.3-.8.53l-.34.34-.35-.34a2.43 2.43 0 0 0-2.65-.53c-.3.12-.56.3-.79.53-.95.94-1 2.53.2 3.74L17.5 22l3.6-3.55c1.2-1.21 1.14-2.8.19-3.74Z"/>', eye: '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>', scale: '<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>', sprout: '<path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/>', hourglass: '<path d="M5 22h14M5 2h14"/><path d="M17 22v-4.17a2 2 0 0 0-.59-1.42L12 12l-4.41 4.41A2 2 0 0 0 7 17.83V22"/><path d="M7 2v4.17a2 2 0 0 0 .59 1.42L12 12l4.41-4.41A2 2 0 0 0 17 6.17V2"/>', wind: '<path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/>', navigation: '<polygon points="3 11 22 2 13 21 11 13 3 11"/>', clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>', "map-pin": '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>' };
   const svg = (n, s) => `<svg width="${s || 24}" height="${s || 24}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[n] || ""}</svg>`;
 
-  // Motivo
-  const g = document.getElementById("orbit-letters");
-  g.innerHTML = PILLARS.map((p, i) => { const a = (-90 + i * 60) * Math.PI / 180, x = 200 + 150 * Math.cos(a), y = 200 + 150 * Math.sin(a); return `<circle cx="${x}" cy="${y}" r="27" fill="var(--color-background)" stroke="var(--color-secondary)" stroke-width="1.5"/><text x="${x}" y="${y + 9}">${p[0]}</text>`; }).join("");
-
   // Paleta
-  const FAM = [["Petróleo", "primária e ênfase", ["petroleo-950", "petroleo-800", "petroleo-700", "petroleo-500", "petroleo-300", "petroleo-100"]], ["Sálvia", "secundária", ["salvia-700", "salvia-400", "salvia-100"]], ["Marsala", "oficial · Método C.E.N.T.R.O. e acento", ["marsala-950", "marsala-800", "marsala-700", "marsala-400", "marsala-200", "marsala-100"]], ["Areia e grafite", "fundos e texto", ["areia-50", "areia-100", "areia-300", "grafite-900", "grafite-600", "grafite-400"]], ["Estados", "feedback", ["verde-700", "verde-100", "vermelho-700", "vermelho-100", "ambar-700", "ambar-100"]]];
+  const FAM = [["Azul", "oficial · Conexão Positiva", ["azul-950", "azul-800", "azul-700", "azul-600", "azul-400", "azul-200", "azul-100"]], ["Marsala", "oficial · Método C.E.N.T.R.O. e acento", ["marsala-950", "marsala-800", "marsala-700", "marsala-400", "marsala-200", "marsala-100"]], ["Areia e grafite", "neutros propostos", ["areia-50", "areia-100", "areia-300", "grafite-900", "grafite-600", "grafite-400"]], ["Estados", "feedback", ["verde-700", "verde-100", "vermelho-700", "vermelho-100", "ambar-700", "ambar-100"]]];
   document.getElementById("families").innerHTML = FAM.map(([n, d, list]) => `<div class="family"><h3>${n} <span class="muted t-small" style="font-family:var(--font-body);font-weight:400">· ${d}</span></h3><div class="swatches">${list.map((t) => `<div class="sw"><div class="chip" style="background:var(--${t})"><span>${v("--" + t).toUpperCase()}</span></div><div class="meta"><b>${t.replace("-", " ")}</b><code>--${t}</code></div></div>`).join("")}</div></div>`).join("");
   const SEM = ["primary", "primary-hover", "primary-strong", "primary-soft", "secondary", "secondary-strong", "secondary-soft", "accent", "accent-strong", "accent-soft", "method", "method-strong", "method-soft", "background", "surface", "surface-raised", "inverse", "text", "muted", "border", "border-strong", "focus", "success", "error", "warning"];
   document.getElementById("semantic").innerHTML = SEM.map((t) => `<div class="sem"><i style="background:var(--color-${t})"></i><div style="min-width:0"><code>--color-${t}</code><div class="t-small muted">${v("--color-" + t)}</div></div></div>`).join("");
@@ -576,7 +578,7 @@ select.input { padding-right: 44px; cursor: pointer; }
   const hex = (n) => { const d = document.createElement("i"); d.style.color = `var(${n})`; document.body.appendChild(d); const c = getComputedStyle(d).color.match(/\d+/g).slice(0, 3).map(Number); d.remove(); return c; };
   const lum = (c) => { const a = c.map((x) => { x /= 255; return x <= 0.04045 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4; }); return 0.2126 * a[0] + 0.7152 * a[1] + 0.0722 * a[2]; };
   const ratio = (a, b) => { const l1 = lum(hex(a)), l2 = lum(hex(b)); return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05); };
-  const PAIRS = [["--color-text", "--color-background", "Texto sobre fundo", 4.5], ["--color-muted", "--color-background", "Texto secundário sobre fundo", 4.5], ["--color-muted", "--color-surface", "Texto secundário sobre superfície", 4.5], ["--color-on-primary", "--color-primary", "Botão primário", 4.5], ["--color-primary", "--color-background", "Link sobre fundo", 4.5], ["--color-on-inverse", "--color-inverse", "Texto em secção de ênfase", 4.5], ["--color-on-inverse-muted", "--color-inverse", "Texto secundário em ênfase", 4.5], ["--color-accent-strong", "--color-accent-soft", "Etiqueta quente", 4.5], ["--color-secondary-strong", "--color-secondary-soft", "Etiqueta sálvia", 4.5], ["--color-error", "--color-surface-raised", "Mensagem de erro", 4.5], ["--color-border-strong", "--color-surface-raised", "Borda de campo (componente)", 3], ["--color-focus", "--color-background", "Anel de foco (componente)", 3], ["--color-accent", "--color-background", "Acento marsala", 4.5], ["--color-on-method", "--color-method", "Botão do Método", 4.5], ["--color-accent-on-inverse", "--color-inverse", "Acento sobre ênfase", 3], ["--color-secondary", "--color-background", "Sálvia (decorativo)", 0]];
+  const PAIRS = [["--color-text", "--color-background", "Texto sobre fundo", 4.5], ["--color-muted", "--color-background", "Texto secundário sobre fundo", 4.5], ["--color-muted", "--color-surface", "Texto secundário sobre superfície", 4.5], ["--color-on-primary", "--color-primary", "Botão primário", 4.5], ["--color-primary", "--color-background", "Link sobre fundo", 4.5], ["--color-on-inverse", "--color-inverse", "Texto em secção de ênfase", 4.5], ["--color-on-inverse-muted", "--color-inverse", "Texto secundário em ênfase", 4.5], ["--color-accent-strong", "--color-accent-soft", "Etiqueta quente", 4.5], ["--color-secondary-strong", "--color-secondary-soft", "Etiqueta sálvia", 4.5], ["--color-error", "--color-surface-raised", "Mensagem de erro", 4.5], ["--color-border-strong", "--color-surface-raised", "Borda de campo (componente)", 3], ["--color-focus", "--color-background", "Anel de foco (componente)", 3], ["--color-accent", "--color-background", "Acento marsala", 4.5], ["--color-on-method", "--color-method", "Botão do Método", 4.5], ["--color-accent-on-inverse", "--color-inverse", "Acento sobre ênfase", 3], ["--color-secondary", "--color-background", "Azul oficial (decorativo)", 0], ["--color-brand-on-inverse", "--color-inverse", "Azul oficial sobre azul-marinho", 4.5], ["--color-secondary-strong", "--color-secondary-soft", "Etiqueta azul", 4.5]];
   document.getElementById("contrast").innerHTML = PAIRS.map(([f, b, label, min]) => { const r = ratio(f, b); const res = min === 0 ? '<span class="deco">Só decorativo</span>' : r >= min ? `<span class="pass">AA ${r >= 7 && min === 4.5 ? "· AAA" : ""}</span>` : '<span style="color:var(--color-error);font-weight:600">Falha</span>'; return `<tr><td><span class="sample" style="color:var(${f});background:var(${b});${f.includes("border") || f.includes("focus") ? `border:2px solid var(${f});color:var(--color-text)` : ""}">Aa</span></td><td>${label}<div class="t-small muted"><code>${f}</code> / <code>${b}</code></div></td><td>${r.toFixed(2)} : 1</td><td>${res}</td></tr>`; }).join("");
 
   // Escala tipográfica
