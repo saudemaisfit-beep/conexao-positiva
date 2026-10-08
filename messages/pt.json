@@ -5,7 +5,8 @@
     "proposalShort": "Proposta",
     "home": "Home",
     "breadcrumbs": "Caminho de navegação",
-    "back": "Voltar a {page}"
+    "back": "Voltar a {page}",
+    "faqTitle": "Perguntas frequentes"
   },
   "Navigation": {
     "main": "Navegação principal",
@@ -200,6 +201,97 @@
       "text": "Conte-nos o momento da sua equipa e o que gostaria de desenvolver.",
       "primary": "Solicitar proposta",
       "secondary": "Falar connosco"
+    }
+  },
+  "Solutions": {
+    "metaTitle": "Soluções",
+    "metaDescription": "Palestras, formações, workshops, team building, liderança, desenvolvimento de equipas, bem-estar e eventos corporativos à medida de cada organização.",
+    "breadcrumb": "Soluções",
+    "hero": {
+      "eyebrow": "Soluções",
+      "title": "Soluções para pessoas, equipas e organizações",
+      "lead": "Do primeiro diagnóstico ao acompanhamento, desenhamos cada experiência a partir das pessoas que a vão viver."
+    },
+    "paths": {
+      "eyebrow": "Por onde começar",
+      "title": "Encontre a solução certa para o seu contexto",
+      "items": [
+        {
+          "title": "Para empresas",
+          "text": "Fortalecer a colaboração, o bem-estar e a cultura das equipas.",
+          "slugs": [
+            "team-building",
+            "desenvolvimento-de-equipas",
+            "bem-estar-corporativo",
+            "eventos-corporativos"
+          ]
+        },
+        {
+          "title": "Para líderes",
+          "text": "Preparar líderes para conduzir pessoas com clareza e presença.",
+          "slugs": ["desenvolvimento-de-lideranca", "formacoes", "palestras"]
+        },
+        {
+          "title": "Para pessoas",
+          "text": "Desenvolver-se em workshops, formações e eventos abertos.",
+          "slugs": ["workshops", "formacoes"]
+        }
+      ]
+    },
+    "all": {
+      "eyebrow": "Todas as soluções",
+      "title": "Oito formas de desenvolver pessoas e equipas"
+    },
+    "process": {
+      "eyebrow": "Como trabalhamos",
+      "title": "Cada proposta é desenhada consigo",
+      "steps": [
+        {
+          "title": "Diagnóstico",
+          "text": "Ouvimos a organização para perceber o contexto, as pessoas e os objetivos."
+        },
+        {
+          "title": "Desenho à medida",
+          "text": "Propomos o formato, os conteúdos e a experiência mais adequados."
+        },
+        {
+          "title": "Experiência",
+          "text": "Facilitamos as sessões com proximidade, prática e participação."
+        },
+        {
+          "title": "Acompanhamento",
+          "text": "Ajudamos a integrar o que foi vivido no dia a dia das equipas."
+        }
+      ]
+    },
+    "centro": {
+      "eyebrow": "Método C.E.N.T.R.O.",
+      "title": "Todas as soluções partilham a mesma base",
+      "text": "Consciência, Equilíbrio, Nutrição, Tempo, Respiração e Orientação: os seis pilares do nosso método estão presentes em cada experiência.",
+      "cta": "Conhecer o método"
+    },
+    "cta": {
+      "title": "Não sabe qual a solução certa?",
+      "text": "Conte-nos o objetivo e o contexto da sua equipa. Ajudamos a escolher.",
+      "primary": "Solicitar proposta",
+      "secondary": "Falar connosco"
+    },
+    "service": {
+      "requestProposal": "Solicitar uma proposta",
+      "introEyebrow": "Introdução",
+      "problemsEyebrow": "Quando faz sentido",
+      "problemsTitle": "Desafios que ajudamos a resolver",
+      "stepsEyebrow": "Como funciona",
+      "stepsTitle": "Do primeiro contacto à experiência",
+      "benefitsEyebrow": "Benefícios",
+      "benefitsTitle": "O que a sua equipa ganha",
+      "audienceTitle": "Para quem é",
+      "formatsTitle": "Formatos",
+      "casesTitle": "Experiências relacionadas",
+      "testimonialsTitle": "O que dizem os participantes",
+      "ctaTitle": "Vamos desenhar a experiência certa para a sua equipa.",
+      "ctaText": "Partilhe connosco o objetivo, o número de participantes e a data prevista.",
+      "otherTitle": "Outras soluções"
     }
   }
 }

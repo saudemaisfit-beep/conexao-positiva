@@ -9,10 +9,11 @@ interface PageHeroProps {
   breadcrumbs: BreadcrumbItem[];
   /** Conteúdo visual à direita (fotografia, logótipo…). Por defeito, o motivo da rede. */
   aside?: ReactNode;
+  actions?: ReactNode;
 }
 
 /** Hero das páginas interiores: breadcrumbs, eyebrow, h1 e introdução. */
-export function PageHero({ eyebrow, title, lead, breadcrumbs, aside }: PageHeroProps) {
+export function PageHero({ eyebrow, title, lead, breadcrumbs, aside, actions }: PageHeroProps) {
   return (
     <section aria-labelledby="page-title" className="relative overflow-hidden">
       <div className="container-site grid items-center gap-10 pt-6 pb-14 md:pt-8 md:pb-20 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)] lg:gap-16 lg:pb-24">
@@ -33,6 +34,14 @@ export function PageHero({ eyebrow, title, lead, breadcrumbs, aside }: PageHeroP
             >
               {lead}
             </p>
+          )}
+          {actions && (
+            <div
+              className="mt-3 flex animate-rise-in flex-col gap-3 md:flex-row"
+              style={{ animationDelay: "240ms" }}
+            >
+              {actions}
+            </div>
           )}
         </div>
         <div className="relative mx-auto hidden w-full max-w-[22rem] lg:block">

@@ -14,8 +14,9 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 | 4    | Header, Footer e componentes globais          | ✅ Concluída |
 | 5    | Home                                          | ✅ Concluída |
 | 6    | Sobre Nós                                     | ✅ Concluída |
-| 7    | Soluções                                      | ⏳ Próxima   |
-| 8–20 | Método C.E.N.T.R.O. → Documentação final      | Por iniciar  |
+| 7    | Soluções                                      | ✅ Concluída |
+| 8    | Método C.E.N.T.R.O.                           | ⏳ Próxima   |
+| 9–20 | Eventos → Documentação final                  | Por iniciar  |
 
 ## Documentação de planeamento (Fase 1)
 
@@ -48,6 +49,10 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 ## Sobre Nós (Fase 6)
 
 [Sobre Nós](docs/fase-06/01-sobre-nos.md): estrutura, **textos para aprovação** (missão, visão, valores) e conteúdo a fornecer.
+
+## Soluções (Fase 7)
+
+[Soluções](docs/fase-07/01-solucoes.md): página índice, 8 páginas de serviço e **textos para aprovação**.
 
 ## Desenvolvimento
 
