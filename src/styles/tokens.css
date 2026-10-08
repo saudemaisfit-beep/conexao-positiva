@@ -5,13 +5,14 @@
  * movimento, camadas, tamanhos de controlo). Os tokens semânticos de cor, tipografia,
  * raios e sombras estão em theme.css (@theme), que os expõe como variáveis e utilitários.
  *
- * PALETA PROVISÓRIA: para aplicar a identidade oficial, substituir apenas os valores de
- * "Paleta base". Tokens semânticos e componentes não precisam de mudar.
+ * PALETA: o marsala é oficial (Método C.E.N.T.R.O.). Petróleo, sálvia, areia e grafite são
+ * provisórios até à entrega da identidade da Conexão Positiva; para os substituir, alterar
+ * apenas os valores de "Paleta base". Tokens semânticos e componentes não precisam de mudar.
  * Contrastes verificados (WCAG 2.2 AA) em docs/fase-03/01-design-system.md.
  */
 
 :root {
-  /* ---------- Paleta base (provisória) ---------- */
+  /* ---------- Paleta base (provisória, exceto marsala) ---------- */
   --petroleo-950: #0d2b2e;
   --petroleo-800: #0f3a3e;
   --petroleo-700: #174a4f;
@@ -23,9 +24,13 @@
   --salvia-400: #8ea68b;
   --salvia-100: #e6ede2;
 
-  --ocre-700: #94591a;
-  --ocre-400: #d08c45;
-  --ocre-100: #f6e6d3;
+  /* Marsala: cor OFICIAL do Método C.E.N.T.R.O. (logótipo, ~#904141). Restantes tons derivados. */
+  --marsala-950: #3a1717;
+  --marsala-800: #742f30;
+  --marsala-700: #904141;
+  --marsala-400: #c27f7c;
+  --marsala-200: #e9c9c6;
+  --marsala-100: #f5e6e4;
 
   --areia-50: #faf8f3;
   --areia-100: #f1ede4;

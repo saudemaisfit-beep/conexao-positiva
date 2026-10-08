@@ -20,9 +20,17 @@
   --color-secondary-strong: var(--salvia-700);
   --color-secondary-soft: var(--salvia-100);
 
-  --color-accent: var(--ocre-400);
-  --color-accent-strong: var(--ocre-700);
-  --color-accent-soft: var(--ocre-100);
+  /* Acento quente = marsala oficial do Método C.E.N.T.R.O. */
+  --color-accent: var(--marsala-700);
+  --color-accent-strong: var(--marsala-800);
+  --color-accent-soft: var(--marsala-100);
+  --color-accent-on-inverse: var(--marsala-400);
+
+  /* Sub-marca Método C.E.N.T.R.O. */
+  --color-method: var(--marsala-700);
+  --color-method-strong: var(--marsala-950);
+  --color-method-soft: var(--marsala-100);
+  --color-on-method: var(--branco);
 
   --color-background: var(--areia-50);
   --color-surface: var(--areia-100);
@@ -37,7 +45,7 @@
   --color-border-strong: var(--grafite-400);
 
   --color-focus: var(--petroleo-500);
-  --color-focus-on-inverse: var(--ocre-100);
+  --color-focus-on-inverse: var(--marsala-100);
 
   --color-success: var(--verde-700);
   --color-success-soft: var(--verde-100);
@@ -104,4 +112,18 @@
   --breakpoint-lg: 64rem;   /* 1024 */
   --breakpoint-xl: 80rem;   /* 1280 */
   --breakpoint-2xl: 90rem;  /* 1440 */
+}
+
+/*
+ * Identidade do Método C.E.N.T.R.O.: aplicar data-brand="metodo" ao contentor da página
+ * /metodo-centro. As secções de ênfase passam a marsala profundo em vez de petróleo.
+ */
+[data-brand="metodo"] {
+  --color-inverse: var(--marsala-950);
+  --color-on-inverse-muted: var(--marsala-200);
+  --color-accent-on-inverse: var(--marsala-200);
+  --color-primary: var(--marsala-700);
+  --color-primary-hover: var(--marsala-800);
+  --color-primary-soft: var(--marsala-100);
+  --color-focus: var(--marsala-700);
 }

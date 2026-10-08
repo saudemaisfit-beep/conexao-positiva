@@ -10,9 +10,10 @@ Nada nesta lista será inventado. Enquanto não for fornecido, o CMS terá place
 | --- | --- | --- |
 | Logótipo oficial (SVG, versões clara e escura) e símbolo para favicon | Header, rodapé, favicon, e-mails, imagem social | Alta (Fase 3) |
 | Cores oficiais (HEX) e, se existir, manual de marca | Design System | Alta (Fase 3) |
-| Identidade visual do Método C.E.N.T.R.O. (se existir) | Página do método | Média |
+| ~~Identidade visual do Método C.E.N.T.R.O.~~ ✅ Logótipo recebido (marsala `#904141`) | Página do método | — |
+| Logótipo do Método em **SVG** + versão monocromática branca | Produção (nitidez, fundos escuros) | Alta (Fase 8) |
 
-Sem identidade oficial, a Fase 3 usará uma **paleta provisória** (azul-petróleo profundo, verde-sálvia, tons naturais, branco, bege muito claro e um acento quente), marcada como provisória e substituível num único ficheiro.
+A Fase 3 usa uma **paleta provisória** para a Conexão Positiva (azul-petróleo profundo, verde-sálvia, tons naturais, branco, bege muito claro), marcada como provisória e substituível num único ficheiro. O acento quente é o **marsala oficial** do logótipo do Método C.E.N.T.R.O.
 
 ### Fotografia e vídeo
 

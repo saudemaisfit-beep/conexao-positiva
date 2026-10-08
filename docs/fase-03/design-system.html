@@ -10,7 +10,7 @@
 <style>
 /* Tokens gerados a partir de src/styles/tokens.css e src/styles/theme.css (não editar aqui). */
 :root {
-  /* ---------- Paleta base (provisória) ---------- */
+  /* ---------- Paleta base (provisória, exceto marsala) ---------- */
   --petroleo-950: #0d2b2e;
   --petroleo-800: #0f3a3e;
   --petroleo-700: #174a4f;
@@ -22,9 +22,13 @@
   --salvia-400: #8ea68b;
   --salvia-100: #e6ede2;
 
-  --ocre-700: #94591a;
-  --ocre-400: #d08c45;
-  --ocre-100: #f6e6d3;
+  /* Marsala: cor OFICIAL do Método C.E.N.T.R.O. (logótipo, ~#904141). Restantes tons derivados. */
+  --marsala-950: #3a1717;
+  --marsala-800: #742f30;
+  --marsala-700: #904141;
+  --marsala-400: #c27f7c;
+  --marsala-200: #e9c9c6;
+  --marsala-100: #f5e6e4;
 
   --areia-50: #faf8f3;
   --areia-100: #f1ede4;
@@ -113,9 +117,17 @@
   --color-secondary-strong: var(--salvia-700);
   --color-secondary-soft: var(--salvia-100);
 
-  --color-accent: var(--ocre-400);
-  --color-accent-strong: var(--ocre-700);
-  --color-accent-soft: var(--ocre-100);
+  /* Acento quente = marsala oficial do Método C.E.N.T.R.O. */
+  --color-accent: var(--marsala-700);
+  --color-accent-strong: var(--marsala-800);
+  --color-accent-soft: var(--marsala-100);
+  --color-accent-on-inverse: var(--marsala-400);
+
+  /* Sub-marca Método C.E.N.T.R.O. */
+  --color-method: var(--marsala-700);
+  --color-method-strong: var(--marsala-950);
+  --color-method-soft: var(--marsala-100);
+  --color-on-method: var(--branco);
 
   --color-background: var(--areia-50);
   --color-surface: var(--areia-100);
@@ -130,7 +142,7 @@
   --color-border-strong: var(--grafite-400);
 
   --color-focus: var(--petroleo-500);
-  --color-focus-on-inverse: var(--ocre-100);
+  --color-focus-on-inverse: var(--marsala-100);
 
   --color-success: var(--verde-700);
   --color-success-soft: var(--verde-100);
@@ -196,6 +208,20 @@
   --breakpoint-lg: 64rem;   /* 1024 */
   --breakpoint-xl: 80rem;   /* 1280 */
   --breakpoint-2xl: 90rem;  /* 1440 */
+}
+
+/*
+ * Identidade do Método C.E.N.T.R.O.: aplicar data-brand="metodo" ao contentor da página
+ * /metodo-centro. As secções de ênfase passam a marsala profundo em vez de petróleo.
+ */
+[data-brand="metodo"] {
+  --color-inverse: var(--marsala-950);
+  --color-on-inverse-muted: var(--marsala-200);
+  --color-accent-on-inverse: var(--marsala-200);
+  --color-primary: var(--marsala-700);
+  --color-primary-hover: var(--marsala-800);
+  --color-primary-soft: var(--marsala-100);
+  --color-focus: var(--marsala-700);
 }
 :root { --font-manrope: "Manrope"; --font-inter: "Inter"; color-scheme: light; }
 
@@ -370,13 +396,19 @@ select.input { padding-right: 44px; cursor: pointer; }
 .letters button { font: 800 clamp(36px, 8vw, 104px)/1 var(--font-display); background: none; border: 0; border-bottom: 2px solid rgb(255 255 255 / 0.16); color: var(--color-on-inverse); opacity: 0.32; padding: 8px 0 14px; cursor: pointer; transition: opacity var(--duration-fast) var(--ease-out), border-color var(--duration-fast); }
 .letters button span { display: block; font: 600 12px var(--font-body); margin-top: 10px; letter-spacing: 0.02em; }
 .letters button:hover { opacity: 0.7; }
-.letters button[aria-selected="true"] { opacity: 1; border-color: var(--color-accent); }
+.letters button[aria-selected="true"] { opacity: 1; border-color: var(--color-accent-on-inverse); }
 .pillar { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: start; padding-top: 28px; min-height: 150px; }
 .pillar.enter { animation: rise var(--duration-base) var(--ease-out); }
 @keyframes rise { from { opacity: 0; transform: translateY(var(--reveal-distance)); } }
 .pillar .icon-wrap { width: 56px; height: 56px; background: rgb(255 255 255 / 0.08); color: var(--color-accent-soft); }
 .pillar .icon-wrap svg { width: 26px; height: 26px; }
 @media (max-width: 640px) { .letters button span { display: none; } }
+
+/* Marca */
+.brand-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.brand-tile { margin: 0; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-surface-raised); padding: clamp(24px, 4vw, 48px); display: grid; gap: 16px; justify-items: center; align-content: center; text-align: center; }
+.brand-tile img { width: min(100%, 320px); height: auto; }
+.inverse .eyebrow::before { background: var(--color-accent-on-inverse); }
 
 /* Medidas */
 .scale-list { display: grid; gap: 10px; }
@@ -400,7 +432,7 @@ select.input { padding-right: 44px; cursor: pointer; }
       <p class="eyebrow">Fase 3 · Design System</p>
       <h1 class="t-display">Conexão Positiva</h1>
       <p class="t-lead" style="margin-top:20px">O sistema visual do website: cores, tipografia, espaçamento e componentes, construídos à volta de uma ideia simples: tudo parte do centro.</p>
-      <div class="notice" role="note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><p><b>Paleta provisória.</b> A identidade oficial ainda não foi fornecida. Estas cores são uma proposta de trabalho e trocam-se num único ficheiro (<code>tokens.css</code>) sem alterar componentes.</p></div>
+      <div class="notice" role="note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><p><b>Marsala oficial, restante paleta provisória.</b> O marsala vem do logótipo do Método C.E.N.T.R.O. Petróleo, sálvia e areia são uma proposta até chegar a identidade da Conexão Positiva e trocam-se num único ficheiro (<code>tokens.css</code>).</p></div>
     </div>
     <svg class="orbit" viewBox="0 0 400 400" role="img" aria-label="Motivo do centro: seis pilares, C, E, N, T, R, O, à volta de um ponto central">
       <circle cx="200" cy="200" r="150" fill="none" stroke="var(--color-secondary)" stroke-width="1.5"/>
@@ -412,15 +444,28 @@ select.input { padding-right: 44px; cursor: pointer; }
   </header>
 
   <section class="block" id="cor">
-    <div class="sec-head"><p class="eyebrow">Cor</p><h2 class="t-h2">Calma com profundidade</h2><p class="t-lead">Areia como fundo, petróleo para confiança, sálvia para leveza e um ocre quente reservado a pequenos detalhes.</p></div>
+    <div class="sec-head"><p class="eyebrow">Cor</p><h2 class="t-h2">Calma com profundidade</h2><p class="t-lead">Areia como fundo, petróleo para confiança, sálvia para leveza e o marsala do Método como único acento quente.</p></div>
     <div id="families"></div>
     <div class="family"><h3>Proporção de uso</h3>
-      <div class="ratio-bar" role="img" aria-label="Cerca de 70 por cento areia e branco, 20 por cento petróleo, 8 por cento sálvia, 2 por cento ocre"><span style="flex:70;background:var(--color-surface)"></span><span style="flex:20;background:var(--color-primary)"></span><span style="flex:8;background:var(--color-secondary)"></span><span style="flex:2;background:var(--color-accent)"></span></div>
-      <p class="t-small muted">~70 % areia e branco · ~20 % petróleo · ~8 % sálvia · ≤ 2 % ocre</p>
+      <div class="ratio-bar" role="img" aria-label="Cerca de 70 por cento areia e branco, 20 por cento petróleo, 8 por cento sálvia, 2 por cento marsala"><span style="flex:70;background:var(--color-surface)"></span><span style="flex:20;background:var(--color-primary)"></span><span style="flex:8;background:var(--color-secondary)"></span><span style="flex:2;background:var(--color-accent)"></span></div>
+      <p class="t-small muted">~70 % areia e branco · ~20 % petróleo · ~8 % sálvia · ≤ 2 % marsala</p>
     </div>
     <div class="family"><h3>Tokens semânticos (usados pelos componentes)</h3><div class="semantic" id="semantic"></div></div>
-    <div class="family"><h3>Contrastes (WCAG 2.2)</h3><p class="t-small muted">Calculados no browser a partir dos tokens em uso. Acento e secundária são apenas decorativos sobre fundo claro.</p>
+    <div class="family"><h3>Contrastes (WCAG 2.2)</h3><p class="t-small muted">Calculados no browser a partir dos tokens em uso. A sálvia é apenas decorativa sobre fundo claro.</p>
       <div class="table-scroll"><table class="contrast"><thead><tr><th>Exemplo</th><th>Combinação</th><th>Rácio</th><th>Resultado</th></tr></thead><tbody id="contrast"></tbody></table></div></div>
+  </section>
+
+  <section class="block" id="metodo">
+    <div class="sec-head"><p class="eyebrow">Marca</p><h2 class="t-h2">Método C.E.N.T.R.O.</h2><p class="t-lead">Logótipo oficial: seis figuras em movimento à volta de um centro. Usado sem alterações, sempre sobre fundo claro até haver versão branca.</p></div>
+    <div class="brand-grid">
+      <figure class="brand-tile"><img src="../../public/brand/metodo-centro/metodo-centro-logo.png" alt="Logótipo Método C.E.N.T.R.O." width="463" height="360"><figcaption class="t-small muted">Logótipo completo · mín. 160 px de largura</figcaption></figure>
+      <figure class="brand-tile surface"><img src="../../public/brand/metodo-centro/metodo-centro-simbolo.png" alt="Símbolo do Método C.E.N.T.R.O." width="208" height="190" style="width:min(60%,208px)"><figcaption class="t-small muted">Símbolo · mín. 32 px · área de proteção = 2 × o ponto central</figcaption></figure>
+    </div>
+    <div class="panel" data-brand="metodo" style="margin-top:24px;padding:0;overflow:hidden;border:1px solid var(--color-border)">
+      <div class="inverse" style="padding:clamp(24px,4vw,48px);display:grid;gap:14px"><p class="eyebrow">Página do Método · data-brand="metodo"</p><h3 class="t-h2" style="color:var(--color-on-inverse)">Um caminho para desenvolver pessoas de dentro para fora.</h3><p class="t-lead" style="color:var(--color-on-inverse-muted)">Na página do Método, as secções de ênfase passam a marsala profundo.</p><div class="row"><a class="btn btn-inverse" href="#metodo">Levar o método para a minha organização</a><a class="btn btn-inverse-outline" href="#metodo">Ver os pilares</a></div></div>
+      <div style="padding:clamp(20px,3vw,32px);display:flex;flex-wrap:wrap;gap:12px;align-items:center;background:var(--color-background)"><a class="btn btn-primary" href="#metodo">Botão primário do Método</a><a class="btn btn-secondary" href="#metodo">Secundário</a><a class="btn btn-link" href="#metodo">Link do Método</a><span class="pill pill-warm">Etiqueta marsala</span></div>
+    </div>
+    <ul class="t-small muted" style="margin:20px 0 0;padding-left:18px;display:grid;gap:4px"><li>Nunca redesenhar, distorcer, rodar, recolorir nem aplicar efeitos.</li><li>Sobre fundos escuros, usar apenas a versão branca (a pedir em SVG).</li><li>Em texto escreve-se sempre "Método C.E.N.T.R.O.".</li></ul>
   </section>
 
   <section class="block" id="tipografia">
@@ -522,16 +567,16 @@ select.input { padding-right: 44px; cursor: pointer; }
   g.innerHTML = PILLARS.map((p, i) => { const a = (-90 + i * 60) * Math.PI / 180, x = 200 + 150 * Math.cos(a), y = 200 + 150 * Math.sin(a); return `<circle cx="${x}" cy="${y}" r="27" fill="var(--color-background)" stroke="var(--color-secondary)" stroke-width="1.5"/><text x="${x}" y="${y + 9}">${p[0]}</text>`; }).join("");
 
   // Paleta
-  const FAM = [["Petróleo", "primária e ênfase", ["petroleo-950", "petroleo-800", "petroleo-700", "petroleo-500", "petroleo-300", "petroleo-100"]], ["Sálvia", "secundária", ["salvia-700", "salvia-400", "salvia-100"]], ["Ocre", "acento quente, só detalhes", ["ocre-700", "ocre-400", "ocre-100"]], ["Areia e grafite", "fundos e texto", ["areia-50", "areia-100", "areia-300", "grafite-900", "grafite-600", "grafite-400"]], ["Estados", "feedback", ["verde-700", "verde-100", "vermelho-700", "vermelho-100", "ambar-700", "ambar-100"]]];
+  const FAM = [["Petróleo", "primária e ênfase", ["petroleo-950", "petroleo-800", "petroleo-700", "petroleo-500", "petroleo-300", "petroleo-100"]], ["Sálvia", "secundária", ["salvia-700", "salvia-400", "salvia-100"]], ["Marsala", "oficial · Método C.E.N.T.R.O. e acento", ["marsala-950", "marsala-800", "marsala-700", "marsala-400", "marsala-200", "marsala-100"]], ["Areia e grafite", "fundos e texto", ["areia-50", "areia-100", "areia-300", "grafite-900", "grafite-600", "grafite-400"]], ["Estados", "feedback", ["verde-700", "verde-100", "vermelho-700", "vermelho-100", "ambar-700", "ambar-100"]]];
   document.getElementById("families").innerHTML = FAM.map(([n, d, list]) => `<div class="family"><h3>${n} <span class="muted t-small" style="font-family:var(--font-body);font-weight:400">· ${d}</span></h3><div class="swatches">${list.map((t) => `<div class="sw"><div class="chip" style="background:var(--${t})"><span>${v("--" + t).toUpperCase()}</span></div><div class="meta"><b>${t.replace("-", " ")}</b><code>--${t}</code></div></div>`).join("")}</div></div>`).join("");
-  const SEM = ["primary", "primary-hover", "primary-strong", "primary-soft", "secondary", "secondary-strong", "secondary-soft", "accent", "accent-strong", "accent-soft", "background", "surface", "surface-raised", "inverse", "text", "muted", "border", "border-strong", "focus", "success", "error", "warning"];
+  const SEM = ["primary", "primary-hover", "primary-strong", "primary-soft", "secondary", "secondary-strong", "secondary-soft", "accent", "accent-strong", "accent-soft", "method", "method-strong", "method-soft", "background", "surface", "surface-raised", "inverse", "text", "muted", "border", "border-strong", "focus", "success", "error", "warning"];
   document.getElementById("semantic").innerHTML = SEM.map((t) => `<div class="sem"><i style="background:var(--color-${t})"></i><div style="min-width:0"><code>--color-${t}</code><div class="t-small muted">${v("--color-" + t)}</div></div></div>`).join("");
 
   // Contrastes
   const hex = (n) => { const d = document.createElement("i"); d.style.color = `var(${n})`; document.body.appendChild(d); const c = getComputedStyle(d).color.match(/\d+/g).slice(0, 3).map(Number); d.remove(); return c; };
   const lum = (c) => { const a = c.map((x) => { x /= 255; return x <= 0.04045 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4; }); return 0.2126 * a[0] + 0.7152 * a[1] + 0.0722 * a[2]; };
   const ratio = (a, b) => { const l1 = lum(hex(a)), l2 = lum(hex(b)); return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05); };
-  const PAIRS = [["--color-text", "--color-background", "Texto sobre fundo", 4.5], ["--color-muted", "--color-background", "Texto secundário sobre fundo", 4.5], ["--color-muted", "--color-surface", "Texto secundário sobre superfície", 4.5], ["--color-on-primary", "--color-primary", "Botão primário", 4.5], ["--color-primary", "--color-background", "Link sobre fundo", 4.5], ["--color-on-inverse", "--color-inverse", "Texto em secção de ênfase", 4.5], ["--color-on-inverse-muted", "--color-inverse", "Texto secundário em ênfase", 4.5], ["--color-accent-strong", "--color-accent-soft", "Etiqueta quente", 4.5], ["--color-secondary-strong", "--color-secondary-soft", "Etiqueta sálvia", 4.5], ["--color-error", "--color-surface-raised", "Mensagem de erro", 4.5], ["--color-border-strong", "--color-surface-raised", "Borda de campo (componente)", 3], ["--color-focus", "--color-background", "Anel de foco (componente)", 3], ["--color-accent", "--color-background", "Acento (decorativo)", 0], ["--color-secondary", "--color-background", "Sálvia (decorativo)", 0]];
+  const PAIRS = [["--color-text", "--color-background", "Texto sobre fundo", 4.5], ["--color-muted", "--color-background", "Texto secundário sobre fundo", 4.5], ["--color-muted", "--color-surface", "Texto secundário sobre superfície", 4.5], ["--color-on-primary", "--color-primary", "Botão primário", 4.5], ["--color-primary", "--color-background", "Link sobre fundo", 4.5], ["--color-on-inverse", "--color-inverse", "Texto em secção de ênfase", 4.5], ["--color-on-inverse-muted", "--color-inverse", "Texto secundário em ênfase", 4.5], ["--color-accent-strong", "--color-accent-soft", "Etiqueta quente", 4.5], ["--color-secondary-strong", "--color-secondary-soft", "Etiqueta sálvia", 4.5], ["--color-error", "--color-surface-raised", "Mensagem de erro", 4.5], ["--color-border-strong", "--color-surface-raised", "Borda de campo (componente)", 3], ["--color-focus", "--color-background", "Anel de foco (componente)", 3], ["--color-accent", "--color-background", "Acento marsala", 4.5], ["--color-on-method", "--color-method", "Botão do Método", 4.5], ["--color-accent-on-inverse", "--color-inverse", "Acento sobre ênfase", 3], ["--color-secondary", "--color-background", "Sálvia (decorativo)", 0]];
   document.getElementById("contrast").innerHTML = PAIRS.map(([f, b, label, min]) => { const r = ratio(f, b); const res = min === 0 ? '<span class="deco">Só decorativo</span>' : r >= min ? `<span class="pass">AA ${r >= 7 && min === 4.5 ? "· AAA" : ""}</span>` : '<span style="color:var(--color-error);font-weight:600">Falha</span>'; return `<tr><td><span class="sample" style="color:var(${f});background:var(${b});${f.includes("border") || f.includes("focus") ? `border:2px solid var(${f});color:var(--color-text)` : ""}">Aa</span></td><td>${label}<div class="t-small muted"><code>${f}</code> / <code>${b}</code></div></td><td>${r.toFixed(2)} : 1</td><td>${res}</td></tr>`; }).join("");
 
   // Escala tipográfica

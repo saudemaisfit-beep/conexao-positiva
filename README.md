@@ -10,7 +10,7 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 | --- | --- | --- |
 | 1 | Planeamento e sitemap | ✅ Concluída |
 | 2 | Wireframes e estrutura UX | ✅ Concluída |
-| 3 | Design System (paleta provisória) | ✅ Concluída |
+| 3 | Design System (marsala oficial do Método; restante paleta provisória) | ✅ Concluída |
 | 4 | Header, Footer e componentes globais | ⏳ Próxima |
 | 5–20 | Home → Documentação final | Por iniciar |
 
@@ -31,6 +31,7 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 
 1. [Design System](docs/fase-03/01-design-system.md): direção visual, cor e contrastes, tipografia, espaçamento, componentes base, movimento
 2. [Guia visual](docs/fase-03/design-system.html): abrir no browser
-3. Tokens em código: `src/styles/tokens.css` (paleta base, provisória) e `src/styles/theme.css` (tokens semânticos para Tailwind v4)
+3. Tokens em código: `src/styles/tokens.css` (paleta base: marsala oficial, restantes provisórias) e `src/styles/theme.css` (tokens semânticos para Tailwind v4)
+4. Logótipo do Método C.E.N.T.R.O.: `public/brand/metodo-centro/` (original + PNG transparentes; SVG pendente)
 
 As instruções de instalação, execução, CMS e publicação serão acrescentadas a partir da Fase 4, quando existir código.
