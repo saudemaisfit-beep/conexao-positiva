@@ -9,8 +9,9 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 | Fase | Descrição | Estado |
 | --- | --- | --- |
 | 1 | Planeamento e sitemap | ✅ Concluída |
-| 2 | Wireframes e estrutura UX | ⏳ Próxima |
-| 3–20 | Design System → Documentação final | Por iniciar |
+| 2 | Wireframes e estrutura UX | ✅ Concluída |
+| 3 | Design System | ⏳ Próxima |
+| 4–20 | Componentes globais → Documentação final | Por iniciar |
 
 ## Documentação de planeamento (Fase 1)
 
@@ -18,5 +19,11 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 2. [Sitemap, URLs e navegação](docs/fase-01/02-sitemap-e-navegacao.md)
 3. [Arquitetura técnica](docs/fase-01/03-arquitetura-tecnica.md)
 4. [Conteúdos e decisões pendentes](docs/fase-01/04-conteudos-e-decisoes-pendentes.md)
+
+## Wireframes e UX (Fase 2)
+
+1. [Fundamentos de UX](docs/fase-02/01-fundamentos-ux.md): grelha, navegação, interações, formulários, estados
+2. [Especificação de páginas](docs/fase-02/02-especificacao-de-paginas.md): secções, componentes e limites de texto
+3. [Wireframes navegáveis](docs/fase-02/wireframes.html): abrir no browser; alternar Desktop / Tablet / Mobile
 
 As instruções de instalação, execução, CMS e publicação serão acrescentadas a partir da Fase 4, quando existir código.

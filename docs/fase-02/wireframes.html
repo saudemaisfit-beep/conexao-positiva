@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wireframes Conexão Positiva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap">
+<style>
+/* Layout: barra de controlos + "dispositivo" centrado; o conteúdo do wireframe usa container queries sobre a largura do dispositivo. */
+:root {
+  --bg: #eef1f0;
+  --panel: #ffffff;
+  --ink: #1c2422;
+  --muted: #5b6764;
+  --line: #ccd3d1;
+  --fill: #e5e9e8;
+  --fill-2: #d9dfdd;
+  --emph-bg: #263230;
+  --emph-ink: #edf2f1;
+  --emph-muted: #a9b7b4;
+  --emph-fill: #34413f;
+  --note: #2a6a88;
+  --note-bg: #e1eef4;
+  --danger: #a43a32;
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111615; --panel: #181e1d; --ink: #e6ebea; --muted: #98a5a2; --line: #33403d;
+    --fill: #222a28; --fill-2: #2a3331; --emph-bg: #0c1110; --emph-ink: #e6ebea; --emph-muted: #8e9c99;
+    --emph-fill: #1e2725; --note: #7fc1de; --note-bg: #16303b; --danger: #ef8f86; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111615; --panel: #181e1d; --ink: #e6ebea; --muted: #98a5a2; --line: #33403d;
+  --fill: #222a28; --fill-2: #2a3331; --emph-bg: #0c1110; --emph-ink: #e6ebea; --emph-muted: #8e9c99;
+  --emph-fill: #1e2725; --note: #7fc1de; --note-bg: #16303b; --danger: #ef8f86; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 14px; line-height: 1.5; padding-inline: 16px; padding-block: 0; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--note); outline-offset: 2px; border-radius: 4px; }
+
+/* ---------- Visualizador ---------- */
+.topbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding-block: 12px; max-width: 1320px; margin-inline: auto; }
+.topbar .title { font-family: var(--font-display); font-size: 15px; font-weight: 800; margin: 0; letter-spacing: -0.01em; }
+.topbar .title small { display: block; font-family: var(--font-body); font-weight: 500; font-size: 12px; color: var(--muted); letter-spacing: 0; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; align-items: center; }
+.controls label { font-size: 12px; color: var(--muted); }
+select#page-select { font: inherit; font-size: 13px; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); max-width: 100%; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--panel); }
+.seg button { font: inherit; font-size: 12px; font-weight: 600; border: 0; background: transparent; color: var(--muted); padding: 6px 10px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--panel); }
+.toggle { font: inherit; font-size: 12px; font-weight: 600; border: 1px solid var(--line); background: var(--panel); color: var(--ink); padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+.toggle[aria-pressed="true"] { background: var(--note-bg); border-color: var(--note); color: var(--note); }
+.width-info { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; max-width: 1320px; margin-inline: auto; padding-bottom: 8px; }
+
+.device { container: wf / inline-size; position: relative; width: min(var(--w, 1280px), 100%); margin-inline: auto; margin-bottom: 16px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.device.is-phone { border-radius: 28px; border-width: 6px; border-color: var(--ink); }
+.frame { height: max(520px, calc(100dvh - 150px)); overflow-y: auto; overscroll-behavior: contain; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { .frame { scroll-behavior: auto; } }
+
+/* ---------- Wireframe: base ---------- */
+.wrap { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 20px; }
+@container wf (min-width: 768px) { .wrap { padding-inline: 32px; } }
+@container wf (min-width: 1024px) { .wrap { padding-inline: 40px; } }
+
+.sec { --sp: 44px; position: relative; padding-block: var(--sp); }
+@container wf (min-width: 768px) { .sec { --sp: 64px; } }
+@container wf (min-width: 1024px) { .sec { --sp: 88px; } }
+.sec.tight { --sp: 24px; }
+.sec.alt { background: var(--fill); }
+.sec.emph { background: var(--emph-bg); color: var(--emph-ink); }
+.sec.emph .muted, .sec.emph .lead { color: var(--emph-muted); }
+.sec.emph .ph { background-color: var(--emph-fill); border-color: color-mix(in srgb, var(--emph-ink) 25%, transparent); color: var(--emph-muted); }
+.sec.emph .bars i { background: var(--emph-fill); }
+
+.note { display: none; position: absolute; top: 8px; left: 8px; z-index: 2; max-width: calc(100% - 16px); font-size: 11px; font-weight: 600; line-height: 1.35; color: var(--note); background: var(--note-bg); border: 1px solid var(--note); border-radius: 6px; padding: 3px 7px; }
+.show-notes .note { display: block; }
+.show-notes .sec { padding-top: calc(var(--sp) + 28px); }
+
+.h1, .h2, .h3, .display { font-family: var(--font-display); letter-spacing: -0.02em; text-wrap: balance; margin: 0; }
+.display { font-size: clamp(30px, 6.4cqi, 68px); font-weight: 800; line-height: 1.04; }
+.h1 { font-size: clamp(28px, 4.8cqi, 52px); font-weight: 800; line-height: 1.08; }
+.h2 { font-size: clamp(22px, 3.4cqi, 38px); font-weight: 700; line-height: 1.15; }
+.h3 { font-size: 17px; font-weight: 700; line-height: 1.3; letter-spacing: -0.01em; }
+.eyebrow { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin: 0 0 10px; }
+.lead { font-size: clamp(15px, 1.7cqi, 18px); color: var(--muted); max-width: 60ch; margin: 14px 0 0; }
+.muted { color: var(--muted); }
+.small { font-size: 12.5px; }
+p { margin: 0; }
+.stack { display: flex; flex-direction: column; gap: 12px; }
+.stack-lg { display: flex; flex-direction: column; gap: 24px; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 28px; }
+.head > div { min-width: 0; }
+
+.ph { position: relative; display: grid; place-items: center; width: 100%; max-width: 100%; background-color: var(--fill); background-image: repeating-linear-gradient(135deg, transparent 0 11px, var(--fill-2) 11px 12px); border: 1px dashed var(--line); border-radius: 10px; color: var(--muted); font-size: 11.5px; font-weight: 500; text-align: center; padding: 10px; overflow: hidden; }
+.ph span { background: var(--panel); padding: 2px 8px; border-radius: 4px; max-width: 90%; }
+.sec.emph .ph span { background: var(--emph-bg); }
+.icon { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid currentColor; display: grid; place-items: center; font-size: 9px; font-weight: 600; opacity: 0.7; }
+.bars { display: flex; flex-direction: column; gap: 7px; max-width: 62ch; }
+.bars i { display: block; height: 8px; border-radius: 4px; background: var(--fill-2); }
+.bars i:last-child { width: 62%; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 20px; border-radius: 999px; font-weight: 600; font-size: 14px; text-decoration: none; border: 1.5px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; font-family: inherit; white-space: nowrap; }
+.btn-p { background: var(--ink); color: var(--panel); }
+.sec.emph .btn { border-color: var(--emph-ink); color: var(--emph-ink); }
+.sec.emph .btn-p { background: var(--emph-ink); color: var(--emph-bg); }
+.btn-sm { min-height: 38px; padding: 0 16px; font-size: 13px; }
+.btn-xs { min-height: 36px; padding: 0 14px; font-size: 12.5px; }
+.link { font-weight: 600; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+@container wf (max-width: 639px) { .ctas.full .btn { width: 100%; } }
+
+.g { display: grid; gap: 20px; grid-template-columns: minmax(0, 1fr); }
+.c-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.c-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@container wf (min-width: 768px) { .md-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .md-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@container wf (min-width: 1024px) { .lg-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } .lg-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } .lg-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); } .lg-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+.split { display: grid; gap: 28px; grid-template-columns: minmax(0, 1fr); align-items: center; }
+@container wf (min-width: 1024px) { .split { grid-template-columns: 5fr 6fr; gap: 64px; } .split.rev > :first-child { order: 2; } .split.wide-l { grid-template-columns: 7fr 5fr; } }
+
+.card { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--panel); display: flex; flex-direction: column; }
+.card .body { padding: 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.card .more { margin-top: auto; padding-top: 6px; font-weight: 600; font-size: 13px; }
+.tag { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+.pill { display: inline-flex; align-items: center; font-size: 11.5px; font-weight: 600; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+
+/* ---------- Header ---------- */
+.hdr { position: sticky; top: 0; z-index: 10; background: var(--panel); border-bottom: 1px solid transparent; transition: box-shadow .2s, border-color .2s; }
+.hdr.scrolled { border-color: var(--line); box-shadow: 0 6px 20px -14px rgba(0,0,0,.45); }
+.hdr-in { display: flex; align-items: center; gap: 14px; height: 64px; transition: height .2s; }
+@container wf (min-width: 1024px) { .hdr-in { height: 80px; } .hdr.scrolled .hdr-in { height: 64px; } }
+@media (prefers-reduced-motion: reduce) { .hdr, .hdr-in { transition: none; } }
+.logo { display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-display); font-weight: 800; font-size: 15px; text-decoration: none; letter-spacing: -0.01em; margin-right: auto; white-space: nowrap; }
+.logo-mark { width: 26px; height: 26px; border-radius: 50%; border: 2px solid currentColor; position: relative; }
+.logo-mark::after { content: ""; position: absolute; inset: 6px; border-radius: 50%; background: currentColor; }
+.nav-d { display: none; gap: 2px; align-items: center; }
+.nav-d a, .nav-d button { font: inherit; font-size: 13.5px; font-weight: 500; text-decoration: none; padding: 8px 10px; border-radius: 8px; background: none; border: 0; color: var(--ink); cursor: pointer; }
+.nav-d a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+.hdr-cta { display: none; }
+@container wf (min-width: 1024px) { .nav-d { display: flex; } .hdr-cta { display: inline-flex; } .hdr-cta-m, .burger { display: none !important; } }
+.burger { width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); display: inline-grid; place-content: center; gap: 4px; cursor: pointer; }
+.burger span { display: block; width: 18px; height: 2px; background: var(--ink); border-radius: 2px; }
+.mega { position: absolute; left: 0; right: 0; top: 100%; background: var(--panel); border-block: 1px solid var(--line); box-shadow: 0 18px 40px -24px rgba(0,0,0,.5); padding-block: 24px; }
+.mega .g { gap: 6px 24px; }
+.mega a { display: flex; gap: 12px; padding: 10px; border-radius: 10px; text-decoration: none; }
+.mega a:hover { background: var(--fill); }
+.focus-hdr .hdr-in { height: 64px; }
+
+/* ---------- Overlays do dispositivo ---------- */
+.overlay { position: absolute; inset: 0; z-index: 30; background: var(--panel); display: flex; flex-direction: column; overflow-y: auto; }
+.overlay .top { display: flex; align-items: center; height: 64px; gap: 12px; border-bottom: 1px solid var(--line); }
+.m-links { display: flex; flex-direction: column; padding-block: 12px; }
+.m-links a, .m-links summary { font-family: var(--font-display); font-size: 22px; font-weight: 700; text-decoration: none; padding: 10px 0; min-height: 48px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; letter-spacing: -0.01em; }
+.m-links summary::-webkit-details-marker { display: none; }
+.m-links details a { font-family: var(--font-body); font-size: 15px; font-weight: 500; min-height: 44px; padding: 6px 0 6px 14px; border-left: 2px solid var(--line); }
+.chev { width: 9px; height: 9px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform .2s; flex: none; margin-inline: 6px; }
+details[open] > summary .chev { transform: rotate(-135deg); }
+.wa { position: absolute; right: 16px; bottom: 16px; z-index: 20; width: 56px; height: 56px; border-radius: 50%; background: var(--ink); color: var(--panel); display: grid; place-items: center; font-size: 10px; font-weight: 700; text-decoration: none; box-shadow: 0 8px 24px -10px rgba(0,0,0,.6); }
+.wa.lifted { bottom: 88px; }
+@container wf (min-width: 1024px) { .wa.lifted { bottom: 16px; } }
+@container wf (max-width: 1023px) { .wa.hide-narrow { display: none; } }
+@container wf (max-width: 1023px) { .has-bar .frame { padding-bottom: 72px; } }
+.ev-bar { position: absolute; left: 0; right: 0; bottom: 0; z-index: 19; background: var(--panel); border-top: 1px solid var(--line); padding: 10px 16px; display: flex; align-items: center; gap: 12px; }
+.ev-bar .btn { margin-left: auto; }
+@container wf (min-width: 1024px) { .ev-bar { display: none; } }
+
+/* ---------- Secções específicas ---------- */
+.hero-full { display: grid; gap: 24px; }
+.hero-full .ph { aspect-ratio: 4 / 5; }
+@container wf (min-width: 768px) { .hero-full .ph { aspect-ratio: 16 / 9; } }
+@container wf (min-width: 1024px) {
+  .hero-full > * { grid-area: 1 / 1; }
+  .hero-full .ph { aspect-ratio: auto; min-height: 480px; place-items: start end; }
+  .hero-full .hero-copy { align-self: end; padding: 48px; max-width: 760px; background: color-mix(in srgb, var(--panel) 88%, transparent); border-radius: 0 16px 0 10px; }
+}
+.svc-img { aspect-ratio: 4 / 3; border-radius: 0; border-width: 0 0 1px; }
+.svc-row { display: flex; gap: 14px; align-items: start; }
+@container wf (max-width: 767px) { .svc-card .svc-img { display: none; } }
+@container wf (min-width: 768px) { .svc-row .icon { display: none; } }
+
+.centro-tabs { display: none; }
+@container wf (min-width: 768px) { .centro-tabs { display: block; } .centro-acc { display: none; } }
+.letters { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; margin-top: 32px; }
+.letters button { font-family: var(--font-display); font-weight: 800; font-size: clamp(40px, 9cqi, 112px); line-height: 1; background: none; border: 0; border-bottom: 2px solid color-mix(in srgb, var(--emph-ink) 22%, transparent); color: var(--emph-ink); opacity: 0.35; padding: 8px 0 14px; cursor: pointer; transition: opacity .2s, border-color .2s; }
+.letters button[aria-selected="true"] { opacity: 1; border-color: var(--emph-ink); }
+.letters button:hover { opacity: 0.75; }
+.letters button span { display: block; font-family: var(--font-body); font-size: 12px; font-weight: 600; letter-spacing: 0.04em; margin-top: 8px; }
+.pillar-panel { display: flex; gap: 20px; align-items: start; padding-top: 28px; min-height: 120px; animation: rise .25s ease-out; }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+@media (prefers-reduced-motion: reduce) { .pillar-panel { animation: none; } .letters button { transition: none; } }
+.centro-acc details { border-bottom: 1px solid color-mix(in srgb, var(--emph-ink) 22%, transparent); }
+.centro-acc summary { display: flex; align-items: center; gap: 16px; min-height: 64px; cursor: pointer; list-style: none; }
+.centro-acc summary::-webkit-details-marker { display: none; }
+.centro-acc summary b { font-family: var(--font-display); font-size: 40px; font-weight: 800; width: 40px; line-height: 1; }
+.centro-acc summary .h3 { flex: 1; }
+.centro-acc details > div { padding: 0 0 18px 56px; display: flex; flex-direction: column; gap: 8px; }
+
+.stat b { display: block; font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 4.4cqi, 48px); letter-spacing: -0.02em; line-height: 1.1; color: var(--muted); }
+.logo-box { aspect-ratio: 3 / 2; border-radius: 8px; }
+.quote { font-family: var(--font-display); font-weight: 700; font-size: clamp(20px, 2.8cqi, 30px); line-height: 1.3; letter-spacing: -0.015em; }
+.person { display: flex; gap: 12px; align-items: center; }
+.avatar { width: 48px; height: 48px; border-radius: 50%; aspect-ratio: 1; flex: none; padding: 0; font-size: 9px; }
+.t-grid { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); }
+@container wf (min-width: 1024px) { .t-grid { grid-template-columns: 7fr 5fr; gap: 48px; } }
+.t-side { display: flex; flex-direction: column; gap: 20px; }
+.t-side > div { border-top: 1px solid var(--line); padding-top: 18px; display: flex; flex-direction: column; gap: 12px; }
+.t-nav { display: flex; gap: 8px; align-items: center; margin-top: 20px; font-variant-numeric: tabular-nums; }
+.round { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--ink); display: grid; place-items: center; background: none; color: var(--ink); font-weight: 700; cursor: pointer; }
+
+.date-box { flex: none; width: 56px; border: 1px solid var(--line); border-radius: 10px; text-align: center; padding: 6px 0; background: var(--panel); }
+.date-box b { display: block; font-family: var(--font-display); font-size: 22px; line-height: 1; }
+.date-box small { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.ev-meta { display: flex; flex-direction: column; gap: 3px; font-size: 12.5px; color: var(--muted); }
+.featured-ev { display: grid; gap: 0; grid-template-columns: minmax(0, 1fr); }
+@container wf (min-width: 768px) { .featured-ev { grid-template-columns: 6fr 5fr; } .featured-ev .ph { height: 100%; } }
+
+.chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+.chip { flex: none; font: inherit; font-size: 13px; font-weight: 600; min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
+.chip[aria-pressed="true"], .chip[aria-current="page"] { background: var(--ink); color: var(--panel); border-color: var(--ink); }
+.tabs-line { display: inline-flex; gap: 4px; border: 1px solid var(--line); border-radius: 999px; padding: 4px; margin-bottom: 14px; }
+.tabs-line .chip { border: 0; min-height: 36px; }
+.empty { border: 1px dashed var(--line); border-radius: 14px; padding: 32px; text-align: center; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+
+.layout-aside { display: grid; gap: 32px; grid-template-columns: minmax(0, 1fr); align-items: start; }
+@container wf (min-width: 1024px) { .layout-aside { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 56px; } .layout-aside .aside { position: sticky; top: 88px; order: 2; } }
+.facts { border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px; background: var(--panel); }
+.facts dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 16px; font-size: 13.5px; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; font-weight: 600; }
+.agenda { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 10px 16px; font-variant-numeric: tabular-nums; }
+.agenda b { font-weight: 600; }
+
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 56px; font-weight: 600; cursor: pointer; list-style: none; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq details > div { padding-bottom: 16px; }
+
+.steps { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); counter-reset: s; }
+@container wf (min-width: 768px) { .steps.s4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@container wf (min-width: 1024px) { .steps.s4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } .steps.s5 { grid-template-columns: repeat(5, minmax(0, 1fr)); } .steps.s3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.step { border-top: 2px solid currentColor; padding-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+.step::before { counter-increment: s; content: counter(s, decimal-leading-zero); font-size: 12px; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
+.sec.emph .step::before { color: var(--emph-muted); }
+
+.timeline { display: grid; gap: 0; grid-template-columns: minmax(0, 1fr); }
+@container wf (min-width: 1024px) { .timeline { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; } }
+.timeline > div { border-left: 2px solid var(--line); padding: 0 0 22px 18px; position: relative; display: flex; flex-direction: column; gap: 6px; }
+.timeline > div::before { content: ""; position: absolute; left: -7px; top: 3px; width: 12px; height: 12px; border-radius: 50%; background: var(--panel); border: 2px solid var(--ink); }
+@container wf (min-width: 1024px) { .timeline > div { border-left: 0; border-top: 2px solid var(--line); padding: 22px 0 0; } .timeline > div::before { left: 0; top: -7px; } }
+
+.crumbs { font-size: 12.5px; color: var(--muted); display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
+.crumbs .full { display: none; }
+@container wf (min-width: 768px) { .crumbs .full { display: inline; } .crumbs .back { display: none; } }
+
+.story { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); }
+@container wf (min-width: 1024px) { .story { grid-template-columns: 180px minmax(0, 1fr); gap: 64px; } }
+.story-index { position: sticky; top: 64px; z-index: 5; background: var(--panel); display: flex; gap: 6px; padding-block: 8px; margin-inline: -20px; padding-inline: 20px; border-bottom: 1px solid var(--line); }
+.story-index a { flex: 1; min-height: 44px; display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; font-size: 18px; text-decoration: none; border-radius: 10px; color: var(--muted); }
+.story-index a.on { background: var(--ink); color: var(--panel); }
+@container wf (min-width: 1024px) {
+  .story-index { top: 104px; align-self: start; flex-direction: column; gap: 2px; border: 0; margin: 0; padding: 0; background: none; }
+  .story-index a { justify-content: start; place-items: center start; font-size: 48px; line-height: 1; padding: 4px 0; border-radius: 0; background: none !important; }
+  .story-index a.on { color: var(--ink); }
+  .story-index a span { font-family: var(--font-body); font-size: 12px; font-weight: 600; margin-left: 12px; vertical-align: middle; }
+}
+.story-index a span { display: none; }
+@container wf (min-width: 1024px) { .story-index a span { display: inline; } }
+.pillar-block { min-height: 320px; padding-block: 24px; border-bottom: 1px solid var(--line); display: grid; gap: 20px; grid-template-columns: minmax(0, 1fr); scroll-margin-top: 130px; }
+@container wf (min-width: 768px) { .pillar-block { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; } }
+.big-letter { font-family: var(--font-display); font-weight: 800; font-size: clamp(64px, 12cqi, 140px); line-height: 0.9; color: var(--fill-2); }
+.orbit { width: min(100%, 360px); aspect-ratio: 1; margin-inline: auto; display: block; }
+
+.form { display: flex; flex-direction: column; gap: 22px; }
+.form fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+@container wf (min-width: 768px) { .form fieldset { grid-template-columns: repeat(2, minmax(0, 1fr)); } .form .full { grid-column: 1 / -1; } }
+.form legend { font-family: var(--font-display); font-weight: 700; font-size: 17px; margin-bottom: 14px; padding: 0; }
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.field label { font-size: 13px; font-weight: 600; }
+.field label em { font-style: normal; font-weight: 400; color: var(--muted); }
+.field input, .field select, .field textarea { font: inherit; font-size: 15px; min-height: 48px; padding: 10px 14px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--panel); color: var(--ink); width: 100%; }
+.field textarea { min-height: 110px; resize: vertical; }
+.field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: 3px solid color-mix(in srgb, var(--note) 40%, transparent); border-color: var(--note); outline-offset: 0; }
+.field [aria-invalid="true"] { border-color: var(--danger); }
+.err { color: var(--danger); font-size: 12.5px; font-weight: 600; }
+.err-summary { border: 2px solid var(--danger); border-radius: 12px; padding: 14px 16px; color: var(--danger); font-weight: 600; }
+.err-summary ul { margin: 6px 0 0; padding-left: 18px; font-weight: 500; }
+.consent { display: flex; gap: 10px; align-items: start; font-size: 13.5px; }
+.consent input { width: 20px; height: 20px; margin-top: 2px; flex: none; }
+.hp { position: absolute; left: -9999px; }
+.check { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--ink); position: relative; }
+.check::after { content: ""; position: absolute; left: 22px; top: 14px; width: 14px; height: 26px; border-right: 3px solid var(--ink); border-bottom: 3px solid var(--ink); transform: rotate(45deg); }
+
+.footer { background: var(--emph-bg); color: var(--emph-ink); padding-block: 48px 24px; }
+.footer .g { gap: 28px; }
+.footer h4 { margin: 0 0 10px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--emph-muted); }
+.footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; }
+.footer a { text-decoration: none; }
+.legal { border-top: 1px solid var(--emph-fill); margin-top: 32px; padding-top: 16px; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 12px; color: var(--emph-muted); }
+.prose { max-width: 68ch; display: flex; flex-direction: column; gap: 16px; }
+.share { display: flex; flex-wrap: wrap; gap: 8px; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <p class="title">Wireframes · Conexão Positiva<small>Fase 2 · estrutura e comportamento, sem identidade visual</small></p>
+  <div class="controls">
+    <label for="page-select">Página</label>
+    <select id="page-select"></select>
+    <div class="seg" role="group" aria-label="Largura do ecrã">
+      <button type="button" data-w="1280" aria-pressed="true">Desktop</button>
+      <button type="button" data-w="768" aria-pressed="false">Tablet</button>
+      <button type="button" data-w="390" aria-pressed="false">Mobile</button>
+    </div>
+    <button type="button" class="toggle" id="notes-toggle" aria-pressed="true">Notas UX</button>
+  </div>
+</header>
+<p class="width-info" id="width-info"></p>
+<div class="device show-notes" id="device">
+  <div class="frame" id="frame" tabindex="-1"></div>
+</div>
+
+<script>
+(function () {
+  const SERVICES = [
+    ["palestras", "Palestras", "Momentos de inspiração e reflexão que abrem conversas importantes nas equipas."],
+    ["formacoes", "Formações", "Programas estruturados para desenvolver competências com aplicação prática."],
+    ["workshops", "Workshops", "Sessões práticas e participativas para experimentar, refletir e agir."],
+    ["team-building", "Team Building", "Experiências que fortalecem a confiança, a comunicação e a colaboração."],
+    ["lideranca", "Desenvolvimento de Liderança", "Apoio a líderes para conduzir pessoas com clareza, presença e propósito."],
+    ["equipas", "Desenvolvimento de Equipas", "Processos para equipas mais alinhadas, comunicativas e eficazes."],
+    ["bem-estar", "Bem-estar Corporativo", "Programas que cuidam do equilíbrio físico, mental e emocional das pessoas."],
+    ["eventos-corporativos", "Eventos Corporativos", "Encontros desenhados para ligar pessoas, cultura e propósito."]
+  ];
+  const PILLARS = [
+    ["C", "Consciência", "consciencia", "Desenvolvimento da autoconsciência, compreensão de comportamentos, emoções, necessidades e objetivos."],
+    ["E", "Equilíbrio", "equilibrio", "Construção de maior equilíbrio entre vida profissional, pessoal e emocional."],
+    ["N", "Nutrição", "nutricao", "Escolhas, hábitos e comportamentos que contribuem para o bem-estar físico, mental e emocional."],
+    ["T", "Tempo", "tempo", "Gestão consciente do tempo, prioridades, produtividade e organização."],
+    ["R", "Respiração", "respiracao", "A respiração como ferramenta para presença, foco, equilíbrio e gestão emocional."],
+    ["O", "Orientação", "orientacao", "Transformar a consciência em direção, objetivos, decisões e ações."]
+  ];
+  const NAV = [["sobre", "Sobre Nós"], ["solucoes", "Soluções"], ["metodo", "Método C.E.N.T.R.O."], ["eventos", "Eventos"], ["experiencias", "Experiências"], ["insights", "Insights"], ["contactos", "Contactos"]];
+  const EVENTS = [
+    ["workshops", "proximos", "Workshop"], ["formacoes", "proximos", "Formação"], ["palestras", "proximos", "Palestra"],
+    ["experiencias", "proximos", "Experiência"], ["workshops", "passados", "Workshop"], ["palestras", "passados", "Palestra"]
+  ];
+
+  const ph = (label, ratio, cls) => `<div class="ph ${cls || ""}"${ratio ? ` style="aspect-ratio:${ratio}"` : ""}><span>${label}</span></div>`;
+  const bars = (n) => `<div class="bars" aria-hidden="true">${"<i></i>".repeat(n)}</div>`;
+  const btn = (t, href, k) => `<a class="btn ${k === "s" ? "" : "btn-p"}" href="#${href}">${t}</a>`;
+  const sec = (note, inner, cls) => `<section class="sec ${cls || ""}"><div class="note">${note}</div><div class="wrap">${inner}</div></section>`;
+  const head = (eyebrow, title, lead, action) => `<div class="head"><div>${eyebrow ? `<p class="eyebrow">${eyebrow}</p>` : ""}<h2 class="h2">${title}</h2>${lead ? `<p class="lead">${lead}</p>` : ""}</div>${action || ""}</div>`;
+  const crumbs = (items) => `<nav class="crumbs" aria-label="Breadcrumbs"><a class="back" href="#${items[items.length - 2][0]}">← ${items[items.length - 2][1]}</a>${items.map((it, i) => i < items.length - 1 ? `<span class="full"><a href="#${it[0]}">${it[1]}</a> /</span>` : `<span class="full" aria-current="page">${it[1]}</span>`).join(" ")}</nav>`;
+  const field = (id, label, type, opt, full, extra) => `<div class="field ${full ? "full" : ""}"><label for="${id}">${label}${opt ? " <em>(opcional)</em>" : ""}</label>${type === "textarea" ? `<textarea id="${id}" ${opt ? "" : "required"}></textarea>` : type === "select" ? `<select id="${id}" ${opt ? "" : "required"}><option value="">Selecione</option>${(extra || []).map((o) => Array.isArray(o) ? `<option${o[1] ? " selected" : ""}>${o[0]}</option>` : `<option>${o}</option>`).join("")}</select>` : `<input id="${id}" type="${type}" ${opt ? "" : "required"} ${extra || ""}>`}<span class="err" hidden></span></div>`;
+  const consent = (id) => `<div class="consent full"><input type="checkbox" id="${id}" required><label for="${id}">Li e aceito a <a class="link" href="#legal">Política de Privacidade</a>.</label></div><span class="err full" hidden></span>`;
+  const faq = (n, note) => sec(note || "FAQ · acordeão; vários itens podem abrir; aria-expanded", head("", "Perguntas frequentes") + `<div class="faq">${Array.from({ length: n }, (_, i) => `<details${i === 0 ? " open" : ""}><summary>[Pergunta ${i + 1} gerida no CMS]<span class="chev"></span></summary><div>${bars(2)}</div></details>`).join("")}</div>`);
+  const cta = (title, text, a, b) => sec("CTA final · secção de ênfase; botões em largura total no mobile", `<div class="split rev"><div>${ph("Fotografia humana: momento de interação", "4/3")}</div><div><h2 class="h1">${title}</h2><p class="lead">${text}</p><div class="ctas full">${btn(a[0], a[1])}${b ? btn(b[0], b[1], "s") : ""}</div></div></div>`, "emph");
+
+  const serviceCard = (s, large) => `<a class="card svc-card" href="#servico" style="text-decoration:none">${ph("Fotografia: " + s[1].toLowerCase(), large ? "16/10" : "4/3", "svc-img")}<div class="body"><div class="svc-row"><span class="icon" aria-hidden="true">ícone</span><div class="stack" style="gap:6px"><h3 class="h3">${s[1]}</h3><p class="muted small">${s[2]}</p>${large ? `<div class="row" style="gap:6px;margin-top:4px"><span class="pill">Presencial</span><span class="pill">Online</span><span class="pill">À medida</span></div>` : ""}</div></div><span class="more">Saber mais →</span></div></a>`;
+  const eventCard = (e, i) => `<article class="card" data-cat="${e[0]}" data-when="${e[1]}">${ph("Imagem do evento (16:9)", "16/9", "svc-img")}<div class="body"><div class="row" style="justify-content:space-between"><span class="tag">${e[2]}</span>${i === 1 ? '<span class="pill">Últimas vagas</span>' : e[1] === "passados" ? '<span class="pill">Já decorreu</span>' : ""}</div><div class="row" style="align-items:start;flex-wrap:nowrap"><div class="date-box"><b>[DD]</b><small>[mês]</small></div><div class="stack" style="gap:4px;min-width:0"><h3 class="h3">[Nome do evento]</h3><div class="ev-meta"><span>[Hora] · [Local]</span><span>[Preço em Kz] ou Gratuito</span></div></div></div><a class="btn btn-sm ${e[1] === "passados" ? "" : "btn-p"}" href="#evento" style="margin-top:8px">${e[1] === "passados" ? "Ver evento" : "Inscrever-me"}</a></div></article>`;
+  const caseCard = (cat, ratio) => `<a class="card" href="#caso" style="text-decoration:none">${ph("Fotografia real do projeto", ratio || "4/3", "svc-img")}<div class="body"><span class="tag">${cat} · [Cliente]</span><h3 class="h3">[Título da experiência]</h3><p class="muted small">Objetivo: [uma linha retirada do CMS]</p><span class="more">Ver experiência →</span></div></a>`;
+  const articleCard = (cat, img) => `<a class="card" href="#artigo" style="text-decoration:none">${img === false ? "" : ph("Imagem do artigo", "16/10", "svc-img")}<div class="body"><span class="tag">${cat}</span><h3 class="h3">[Título do artigo]</h3><p class="muted small">[Introdução curta, até 2 linhas]</p><span class="muted small">[Data] · [X] min de leitura</span></div></a>`;
+  const testimonial = (big) => big
+    ? `<figure style="margin:0" class="stack-lg"><blockquote class="quote" style="margin:0">“[Testemunho real com autorização de publicação: 2 a 4 frases]”</blockquote><figcaption class="person">${ph("Foto", null, "avatar")}<div><b>[Nome]</b><div class="muted small">[Cargo], [Empresa]</div></div></figcaption></figure>`
+    : `<div><p>“[Testemunho real, versão curta]”</p><div class="person">${ph("Foto", null, "avatar")}<div><b>[Nome]</b><div class="muted small">[Cargo], [Empresa]</div></div></div></div>`;
+
+  function header(current, focus) {
+    if (focus) return `<header class="hdr focus-hdr"><div class="wrap hdr-in"><a href="#home" class="logo"><span class="logo-mark" aria-hidden="true"></span>Conexão Positiva</a><a class="link small" href="#evento">← Voltar ao evento</a></div></header>`;
+    return `<header class="hdr"><div class="wrap hdr-in">
+      <a href="#home" class="logo"><span class="logo-mark" aria-hidden="true"></span>Conexão Positiva</a>
+      <nav class="nav-d" aria-label="Principal">${NAV.map(([id, t]) => id === "solucoes"
+        ? `<button type="button" data-action="mega" aria-expanded="false" aria-controls="mega">Soluções ▾</button>`
+        : `<a href="#${id}"${current === id ? ' aria-current="page"' : ""}>${t}</a>`).join("")}</nav>
+      <a href="#proposta" class="btn btn-p btn-sm hdr-cta">Solicitar proposta</a>
+      <a href="#proposta" class="btn btn-p btn-xs hdr-cta-m">Proposta</a>
+      <button type="button" class="burger" data-action="menu" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mega" id="mega" hidden><div class="wrap"><div class="g md-2">${SERVICES.map((s) => `<a href="#servico"><span class="icon" aria-hidden="true">ícone</span><span><b>${s[1]}</b><br><span class="muted small">${s[2]}</span></span></a>`).join("")}</div><p style="margin-top:14px"><a class="link" href="#solucoes">Ver todas as soluções →</a></p></div></div></header>`;
+  }
+
+  function footer(slim) {
+    const legal = `<div class="legal"><span>© ${new Date().getFullYear()} Conexão Positiva</span><a href="#legal">Política de Privacidade</a><a href="#legal">Cookies</a><a href="#legal">Termos</a><a href="#legal">Gerir cookies</a></div>`;
+    if (slim) return `<footer class="footer" style="padding-block:8px 20px"><div class="wrap">${legal}</div></footer>`;
+    return `<footer class="footer"><div class="wrap"><div class="g md-2 lg-4">
+      <div class="stack"><span class="logo"><span class="logo-mark" aria-hidden="true"></span>Conexão Positiva</span><p style="color:var(--emph-muted)">Pessoas melhores constroem equipas melhores.</p><p class="small" style="color:var(--emph-muted)">[Instagram] [LinkedIn] [Facebook] [YouTube]: só os configurados no CMS</p></div>
+      <div><h4>Navegação</h4><ul>${NAV.map(([id, t]) => `<li><a href="#${id}">${t}</a></li>`).join("")}</ul></div>
+      <div><h4>Soluções</h4><ul>${SERVICES.map((s) => `<li><a href="#servico">${s[1]}</a></li>`).join("")}</ul></div>
+      <div><h4>Contacto</h4><ul><li>[Telefone]</li><li>[E-mail]</li><li>[WhatsApp]</li><li>[Localização, se fornecida]</li></ul><div class="ctas" style="margin-top:16px"><a class="btn btn-sm" href="#proposta" style="border-color:var(--emph-ink);color:var(--emph-ink)">Solicitar proposta</a></div></div>
+    </div>${legal}</div></footer>`;
+  }
+
+  const centroInteractive = () => `<div class="centro-tabs"><div class="letters" role="tablist" aria-label="Pilares do Método C.E.N.T.R.O.">${PILLARS.map((p, i) => `<button type="button" role="tab" id="tab-${i}" aria-selected="${i === 0}" aria-controls="pillar-panel" tabindex="${i === 0 ? 0 : -1}" data-pillar="${i}">${p[0]}<span>${p[1]}</span></button>`).join("")}</div><div id="pillar-panel" role="tabpanel" aria-labelledby="tab-0" class="pillar-panel"></div></div>
+    <div class="centro-acc">${PILLARS.map((p, i) => `<details name="centro"${i === 0 ? " open" : ""}><summary><b>${p[0]}</b><span class="h3">${p[1]}</span><span class="chev"></span></summary><div><p class="muted">${p[3]}</p><a class="link small" href="#metodo">Saber mais</a></div></details>`).join("")}</div>`;
+
+  const PAGES = {
+    home: { title: "Home", nav: "", render: () =>
+      sec("Header sticky 80→64 px, transparente sobre o hero · Hero: headline em 3 linhas com entrada suave; vídeo curto ou fotografia real; 2 CTAs", `<div class="hero-full">${ph("Vídeo curto (sem som) ou fotografia real: pessoas num workshop, em movimento")}<div class="hero-copy"><h1 class="display">Conectamos pessoas.<br>Fortalecemos equipas.<br>Potencializamos resultados.</h1><p class="lead">Criamos experiências de desenvolvimento humano, formação e transformação pensadas para pessoas, equipas e organizações.</p><div class="ctas full">${btn("Conhecer as nossas soluções", "solucoes")}${btn("Solicitar uma proposta", "proposta", "s")}</div></div></div>`) +
+      sec("Quem somos · texto curto + fotografia autêntica (editorial, sem card)", `<div class="split">${ph("Fotografia autêntica: facilitador(a) com grupo", "4/5")}<div><p class="eyebrow">Quem somos</p><h2 class="h2">Desenvolvimento que começa nas pessoas.</h2><p class="lead">A Conexão Positiva é uma parceira de organizações que querem desenvolver pessoas, líderes e equipas com consciência, equilíbrio e propósito.</p><div class="ctas">${btn("Conhecer a Conexão Positiva", "sobre", "s")}</div></div></div>`) +
+      sec("Soluções · 8 ServiceCards · 4/2/1 colunas; no mobile ficam compactos (ícone + texto, sem foto)", head("Soluções", "Como podemos ajudar a sua organização", "Experiências desenhadas à medida de cada equipa, do primeiro encontro ao acompanhamento.", `<a class="link" href="#solucoes">Ver todas as soluções →</a>`) + `<div class="g md-2 lg-4">${SERVICES.map((s) => serviceCard(s)).join("")}</div>`) +
+      sec("Método C.E.N.T.R.O. · secção de ênfase · desktop: tabs com setas/hover · mobile: acordeão", `<div class="head"><div><p class="eyebrow" style="color:var(--emph-muted)">Método próprio</p><h2 class="h2">Método C.E.N.T.R.O.</h2><p class="lead">Seis pilares para desenvolver pessoas de dentro para fora.</p></div>${btn("Descobrir o Método C.E.N.T.R.O.", "metodo", "s")}</div>${centroInteractive()}`, "emph") +
+      sec("Experiências · 1 destaque + 2 · oculta se não houver casos publicados", head("Experiências", "Experiências que já vivemos com organizações", "", `<a class="link" href="#experiencias">Ver todas as experiências →</a>`) + `<div class="split wide-l" style="align-items:stretch">${caseCard("Team Building", "16/10")}<div class="g">${caseCard("Formação", "16/7")}${caseCard("Liderança", "16/7")}</div></div>`) +
+      sec("Impacto · números grandes sem cards · cada indicador só aparece quando marcado 'Publicar' no CMS", `<div class="g md-3 lg-5">${["Empresas atendidas", "Pessoas impactadas", "Formações realizadas", "Eventos realizados", "Anos de experiência"].map((t) => `<div class="stat"><b>[Número real]</b><span class="muted">${t}</span></div>`).join("")}</div>`, "alt") +
+      sec("Clientes · logótipos monocromáticos em caixas iguais, sem distorção · 6/3 por linha", `<h2 class="h3" style="text-align:center;margin-bottom:24px">Organizações que já viveram experiências Conexão Positiva</h2><div class="g c-3 lg-6">${Array.from({ length: 6 }, () => ph("[Logótipo autorizado]", null, "logo-box")).join("")}</div>`) +
+      sec("Testemunhos · layout editorial 1 + 2 · setas Anterior/Seguinte quando > 3 · sem autoplay", head("Testemunhos", "O que dizem as pessoas com quem trabalhamos") + `<div class="t-grid">${testimonial(true)}<div class="t-side">${testimonial()}${testimonial()}</div></div><div class="t-nav"><button class="round" aria-label="Testemunho anterior">‹</button><button class="round" aria-label="Testemunho seguinte">›</button><span class="muted small">1 / [n]</span></div>`, "alt") +
+      sec("Próximos eventos · até 3 · oculta se não houver eventos futuros", head("Agenda", "Próximos eventos", "", `<a class="link" href="#eventos">Ver agenda →</a>`) + `<div class="g md-2 lg-3">${EVENTS.slice(0, 3).map(eventCard).join("")}</div>`) +
+      sec("Insights · 3 mais recentes · no mobile só o 1.º com imagem", head("Insights", "Ideias para pessoas e organizações", "", `<a class="link" href="#insights">Explorar Insights →</a>`) + `<div class="g md-3">${articleCard("Liderança")}${articleCard("Bem-estar")}${articleCard("Equipas")}</div>`) +
+      cta("Pronto para desenvolver a sua equipa?", "Conte-nos o que a sua organização precisa. Desenhamos uma experiência à medida das suas pessoas.", ["Solicitar proposta", "proposta"], ["Falar connosco", "contactos"])
+    },
+    sobre: { title: "Sobre Nós", nav: "sobre", render: () =>
+      sec("Hero de página com fotografia", `<div class="split"><div><p class="eyebrow">Sobre a Conexão Positiva</p><h1 class="h1">Desenvolvemos pessoas para fortalecer organizações.</h1><p class="lead">[Subtítulo institucional aprovado pela equipa]</p></div>${ph("Fotografia de equipa ou workshop", "4/3")}</div>`) +
+      sec("Quem somos · texto curto (≤ 120 palavras)", `<div class="split rev"><div>${ph("Fotografia autêntica", "1/1")}</div><div><h2 class="h2">Quem somos</h2><div style="margin-top:16px">${bars(5)}</div></div></div>`) +
+      sec("Nossa história · timeline (vertical no mobile, horizontal no desktop) · marcos reais", head("", "A nossa história") + `<div class="timeline">${[1, 2, 3, 4].map(() => `<div><b>[Ano]</b><span class="h3">[Marco real]</span><span class="muted small">[Uma frase]</span></div>`).join("")}</div>`, "alt") +
+      sec("Frase de destaque · largura total", `<p class="quote" style="font-size:clamp(24px,4cqi,44px);max-width:22ch">Pessoas melhores constroem equipas melhores. Equipas melhores constroem organizações mais fortes.</p>`) +
+      sec("Propósito · Missão · Visão · 3 blocos de texto", `<div class="g md-3">${["Propósito", "Missão", "Visão"].map((t) => `<div class="stack"><p class="eyebrow">${t}</p>${bars(3)}</div>`).join("")}</div>`, "alt") +
+      sec("Valores · grelha editorial (não numerada: a ordem não tem significado)", head("", "Os nossos valores") + `<div class="g md-2 lg-3">${[1, 2, 3, 4, 5, 6].map(() => `<div class="stack" style="border-top:1px solid var(--line);padding-top:14px"><span class="h3">[Valor]</span>${bars(2)}</div>`).join("")}</div>`) +
+      sec("Nossa abordagem · sequência real, por isso numerada", head("", "A nossa abordagem", "Cada experiência segue o mesmo caminho.") + `<div class="steps s5">${["Conexão", "Consciência", "Desenvolvimento", "Transformação", "Resultados"].map((t) => `<div class="step"><span class="h3">${t}</span><span class="muted small">[Frase curta]</span></div>`).join("")}</div>`, "emph") +
+      sec("Fundador(a) · fotografia grande + biografia + LinkedIn", `<div class="split">${ph("Retrato do(a) fundador(a)", "4/5")}<div class="stack"><p class="eyebrow">Liderança</p><h2 class="h2">[Nome do(a) fundador(a)]</h2><p class="muted">[Cargo]</p>${bars(5)}<a class="link" href="#sobre">LinkedIn</a></div></div>`) +
+      sec("Equipa · 4/2 colunas · retratos 4:5", head("", "A equipa") + `<div class="g c-2 lg-4">${[1, 2, 3, 4].map(() => `<div class="stack">${ph("Retrato", "4/5")}<b>[Nome]</b><span class="muted small">[Cargo]</span></div>`).join("")}</div>`, "alt") +
+      cta("Vamos construir algo juntos?", "Conte-nos o momento da sua equipa e o que gostaria de desenvolver.", ["Solicitar proposta", "proposta"], ["Falar connosco", "contactos"])
+    },
+    solucoes: { title: "Soluções", nav: "solucoes", render: () =>
+      sec("Hero simples (sem fotografia)", `<p class="eyebrow">Soluções</p><h1 class="h1">Soluções para pessoas, equipas e organizações</h1><p class="lead">Do primeiro diagnóstico ao acompanhamento, desenhamos cada experiência a partir das pessoas que a vão viver.</p><div class="chips" style="margin-top:24px"><a class="chip" href="#solucoes">Para empresas</a><a class="chip" href="#solucoes">Para líderes</a><a class="chip" href="#solucoes">Para pessoas</a></div>`) +
+      sec("Serviços · cards grandes 2 colunas / 1 · etiquetas de formato", `<div class="g md-2">${SERVICES.map((s) => serviceCard(s, true)).join("")}</div>`, "alt") +
+      sec("Como trabalhamos · 4 passos", head("", "Como trabalhamos") + `<div class="steps s4">${["Diagnóstico", "Desenho à medida", "Experiência", "Acompanhamento"].map((t) => `<div class="step"><span class="h3">${t}</span><span class="muted small">[Frase curta]</span></div>`).join("")}</div>`) +
+      sec("Ponte para o Método", `<div class="split"><div><p class="eyebrow" style="color:var(--emph-muted)">Método C.E.N.T.R.O.</p><h2 class="h2">Todas as soluções partilham a mesma base.</h2><div class="ctas">${btn("Conhecer o método", "metodo", "s")}</div></div><p class="display" style="letter-spacing:.08em">C·E·N·T·R·O</p></div>`, "emph") +
+      cta("Não sabe qual a solução certa?", "Ajudamos a escolher. Conte-nos o objetivo e o contexto da sua equipa.", ["Solicitar proposta", "proposta"], ["Falar connosco", "contactos"])
+    },
+    servico: { title: "Serviço (ex.: Team Building)", nav: "solucoes", render: () =>
+      sec("Breadcrumbs + hero com fotografia · CTA leva ?servico=team-building", `${crumbs([["home", "Home"], ["solucoes", "Soluções"], ["servico", "Team Building"]])}<div class="split"><div><h1 class="h1">Team Building</h1><p class="lead">Experiências que fortalecem a confiança, a comunicação e a colaboração.</p><div class="ctas full">${btn("Solicitar uma proposta", "proposta")}</div></div>${ph("Fotografia real de team building", "16/10")}</div>`) +
+      sec("Introdução · 1 parágrafo, largura de leitura", `<div class="prose">${bars(4)}</div>`) +
+      sec("Problema que resolve · 3–4 desafios", head("", "Quando faz sentido") + `<div class="g md-2">${[1, 2, 3, 4].map(() => `<div class="row" style="align-items:start;flex-wrap:nowrap"><span class="icon" aria-hidden="true">ícone</span><div class="stack" style="gap:6px;min-width:0"><b>[Desafio comum]</b>${bars(2)}</div></div>`).join("")}</div>`, "alt") +
+      sec("Como funciona · passos", head("", "Como funciona") + `<div class="steps s4">${[1, 2, 3, 4].map(() => `<div class="step"><span class="h3">[Etapa]</span><span class="muted small">[Descrição curta]</span></div>`).join("")}</div>`) +
+      sec("Benefícios · 3/2/1 colunas", head("", "Benefícios") + `<div class="g md-2 lg-3">${[1, 2, 3, 4, 5, 6].map(() => `<div class="stack"><span class="icon" aria-hidden="true">ícone</span><b>[Benefício]</b>${bars(2)}</div>`).join("")}</div>`, "alt") +
+      sec("Para quem é + Formatos", `<div class="g md-2"><div class="stack"><h2 class="h2">Para quem é</h2><ul class="stack" style="padding-left:18px;margin:0"><li>[Perfil ou contexto]</li><li>[Perfil ou contexto]</li><li>[Perfil ou contexto]</li></ul></div><div class="stack"><h2 class="h2">Formatos</h2><div class="facts"><dl><dt>Modalidade</dt><dd>[Presencial · Online · Híbrido]</dd><dt>Duração</dt><dd>[Duração típica]</dd><dt>Participantes</dt><dd>[Intervalo indicativo]</dd></dl></div></div></div>`) +
+      sec("Galeria · 3/2 colunas · lightbox acessível", `<div class="g c-2 md-3">${Array.from({ length: 6 }, () => ph("Fotografia", "4/3")).join("")}</div>`) +
+      sec("Experiências relacionadas · oculta se vazia", head("", "Experiências relacionadas") + `<div class="g md-3">${caseCard("Team Building")}${caseCard("Team Building")}${caseCard("Team Building")}</div>`, "alt") +
+      sec("Testemunhos do serviço · variante compacta", `<div class="g md-2">${testimonial()}${testimonial()}</div>`) +
+      faq(5) +
+      cta("Vamos desenhar a experiência certa para a sua equipa.", "Partilhe connosco o objetivo e o número de participantes.", ["Solicitar uma proposta", "proposta"])
+    },
+    metodo: { title: "Método C.E.N.T.R.O.", nav: "metodo", render: () =>
+      sec("Hero do método · identidade diferenciada · SVG dos 6 pilares à volta de um centro", `<div class="split"><div><p class="eyebrow" style="color:var(--emph-muted)">Metodologia própria</p><h1 class="display">Método C.E.N.T.R.O.</h1><p class="lead">Um caminho para desenvolver pessoas de dentro para fora.</p><div class="ctas full">${btn("Levar o método para a minha organização", "proposta")}</div></div>${orbitSvg()}</div>`, "emph") +
+      sec("O que é o método", `<div class="split"><h2 class="h2">O que é o Método C.E.N.T.R.O.</h2><div class="prose">${bars(4)}</div></div>`) +
+      sec("Porque foi criado · citação do(a) autor(a)", `<p class="quote" style="max-width:30ch">“[Citação real do(a) autor(a) sobre a origem do método]”</p><p class="muted" style="margin-top:12px">[Nome], [Cargo]</p>`, "alt") +
+      sec("Para quem é", head("", "Para quem é") + `<div class="g md-2 lg-4">${["Pessoas", "Líderes", "Equipas", "Organizações"].map((t) => `<div class="stack"><b class="h3">${t}</b>${bars(2)}</div>`).join("")}</div>`) +
+      sec("Os seis pilares · scroll storytelling · desktop: índice sticky vertical · mobile: índice horizontal fixo sob o header · âncoras partilháveis", head("", "Os seis pilares") + `<div class="story"><nav class="story-index" aria-label="Pilares">${PILLARS.map((p, i) => `<a href="#metodo" data-target="p-${p[2]}" class="${i === 0 ? "on" : ""}">${p[0]}<span>${p[1]}</span></a>`).join("")}</nav><div>${PILLARS.map((p) => `<article class="pillar-block" id="p-${p[2]}"><div class="stack"><span class="big-letter" aria-hidden="true">${p[0]}</span><h3 class="h2">${p[1]}</h3><p class="muted">${p[3]}</p>${bars(3)}</div>${ph("Imagem ou ilustração: " + p[1].toLowerCase(), "4/3")}</article>`).join("")}</div></div>`) +
+      sec("Como funciona · sequência de aplicação", head("", "Como funciona") + `<div class="steps s4">${["Diagnóstico", "Sessões", "Prática", "Integração"].map((t) => `<div class="step"><span class="h3">[${t}]</span><span class="muted small">[A confirmar com a autora/o autor do método]</span></div>`).join("")}</div>`, "alt") +
+      sec("Aplicação individual vs. corporativa · dois caminhos", `<div class="g md-2">${["Aplicação individual", "Aplicação corporativa"].map((t, i) => `<div class="card"><div class="body" style="padding:24px"><h3 class="h2">${t}</h3>${bars(3)}<div class="ctas">${i ? btn("Solicitar proposta", "proposta") : btn("Ver próximos eventos", "eventos", "s")}</div></div></div>`).join("")}</div>`) +
+      sec("Resultados esperados · qualitativos, sem números inventados", head("", "Resultados esperados") + `<div class="g md-2 lg-3">${[1, 2, 3].map(() => `<div class="stack"><span class="icon" aria-hidden="true">ícone</span><b>[Resultado esperado]</b>${bars(2)}</div>`).join("")}</div>`, "alt") +
+      faq(4) +
+      cta("Levar o Método C.E.N.T.R.O. para a minha organização", "Desenhamos a aplicação do método à realidade da sua equipa.", ["Solicitar proposta", "proposta"], ["Falar connosco", "contactos"])
+    },
+    eventos: { title: "Eventos", nav: "eventos", render: () =>
+      sec("Hero simples", `<p class="eyebrow">Eventos</p><h1 class="h1">Agenda</h1><p class="lead">Workshops, formações, palestras e experiências abertas a pessoas e organizações.</p>`) +
+      sec("Filtros · Próximos/Passados + categorias · estado no URL · contagem anunciada (aria-live)", `<div class="tabs-line" role="group" aria-label="Período"><button class="chip" data-when="proximos" aria-pressed="true">Próximos</button><button class="chip" data-when="passados" aria-pressed="false">Passados</button></div><div class="chips" role="group" aria-label="Categoria"><button class="chip" data-cat="todos" aria-pressed="true">Todos</button><button class="chip" data-cat="workshops" aria-pressed="false">Workshops</button><button class="chip" data-cat="formacoes" aria-pressed="false">Formações</button><button class="chip" data-cat="palestras" aria-pressed="false">Palestras</button><button class="chip" data-cat="experiencias" aria-pressed="false">Experiências</button></div><p class="muted small" style="margin-top:12px" aria-live="polite" id="ev-count"></p>`, "tight") +
+      sec("Próximo evento em destaque", `<article class="card featured-ev">${ph("Imagem do próximo evento", "16/10")}<div class="body" style="padding:24px"><span class="tag">Workshop · Próximo evento</span><h2 class="h2">[Nome do evento]</h2><div class="ev-meta"><span>[Data] · [Hora]</span><span>[Local]</span><span>[Preço em Kz] ou Gratuito · [n] vagas disponíveis</span></div><div class="ctas">${btn("Inscrever-me", "evento")}${btn("Ver evento", "evento", "s")}</div></div></article>`) +
+      sec("Lista · 3/2/1 colunas · demonstração dos filtros funcional", `<div class="g md-2 lg-3" id="ev-grid">${EVENTS.map(eventCard).join("")}</div><div class="empty" id="ev-empty" hidden><b>Não encontrámos eventos para este filtro.</b><button class="btn btn-sm" data-action="ev-reset">Limpar filtros</button></div>`) +
+      cta("Quer levar uma experiência à sua organização?", "Desenhamos eventos e formações exclusivos para a sua equipa.", ["Solicitar proposta", "proposta"])
+    },
+    evento: { title: "Evento", nav: "eventos", bar: true, render: () =>
+      sec("Hero do evento · CTA INSCREVER-ME · no mobile surge barra fixa inferior", `${crumbs([["home", "Home"], ["eventos", "Eventos"], ["evento", "[Nome do evento]"]])}<div class="split"><div class="stack"><span class="tag">Workshop</span><h1 class="h1">[Nome do evento]</h1><p class="lead">[Frase de apresentação do evento]</p><div class="ctas full">${btn("INSCREVER-ME", "inscricao")}</div></div>${ph("Imagem do evento", "16/10")}</div>`) +
+      sec("Conteúdo + coluna sticky de informação prática (desktop) · vagas por streaming com skeleton", `<div class="layout-aside"><aside class="aside facts"><b class="h3">Informação prática</b><dl><dt>Data</dt><dd>[Dia da semana, DD de mês de AAAA]</dd><dt>Horário</dt><dd>[09:00–13:00]</dd><dt>Local</dt><dd>[Local] · <a class="link" href="#evento">Ver mapa</a></dd><dt>Vagas</dt><dd>[n] disponíveis</dd><dt>Valor</dt><dd>[Valor em Kz] ou Gratuito</dd></dl>${btn("INSCREVER-ME", "inscricao")}<a class="link small" href="#evento">Partilhar evento</a></aside>
+        <div class="stack-lg"><div class="stack"><h2 class="h2">Sobre o evento</h2><div class="prose">${bars(5)}</div></div>
+        <div class="stack"><h2 class="h2">Programa</h2><div class="agenda">${["[09:00]", "[10:30]", "[11:00]", "[12:30]"].map((h) => `<b>${h}</b><span>[Atividade]</span>`).join("")}</div></div>
+        <div class="stack"><h2 class="h2">Facilitador(a)</h2><div class="person">${ph("Foto", null, "avatar")}<div><b>[Nome]</b><div class="muted small">[Cargo]</div></div></div>${bars(2)}</div>
+        <div class="stack"><h2 class="h2">Galeria</h2><div class="g" style="grid-template-columns:repeat(3,minmax(0,1fr))">${Array.from({ length: 3 }, () => ph("Foto", "1/1")).join("")}</div></div></div></div>`) +
+      faq(3) +
+      sec("Outros eventos", head("", "Outros eventos") + `<div class="g md-2 lg-3">${EVENTS.slice(1, 4).map(eventCard).join("")}</div>`, "alt")
+    },
+    inscricao: { title: "Inscrição em evento", nav: "eventos", focus: true, form: true, render: () =>
+      sec("Layout de foco · header simplificado, sem rodapé completo · noindex · evento fixo (não editável)", `<div class="layout-aside"><aside class="aside facts"><div class="row" style="flex-wrap:nowrap;align-items:start"><div class="date-box"><b>[DD]</b><small>[mês]</small></div><div class="stack" style="gap:4px;min-width:0"><span class="tag">Workshop</span><b class="h3">[Nome do evento]</b><span class="muted small">[Hora] · [Local]</span></div></div><dl><dt>Valor</dt><dd>[Valor em Kz] ou Gratuito</dd><dt>Vagas</dt><dd>[n] disponíveis</dd></dl><p class="small muted">Evento pago: a inscrição reserva o seu lugar. Enviaremos as instruções de pagamento por e-mail.</p></aside>
+      <div><h1 class="h1">Inscrição</h1><p class="lead">Preencha os seus dados. Recebe a confirmação por e-mail.</p>
+      <form class="form" novalidate data-next="confirmacao" style="margin-top:28px"><div class="err-summary" role="alert" hidden></div>
+      <fieldset><legend class="full">Os seus dados</legend>${field("i-nome", "Nome", "text", 0, 0, 'autocomplete="given-name"')}${field("i-sobrenome", "Sobrenome", "text", 0, 0, 'autocomplete="family-name"')}${field("i-email", "E-mail", "email", 0, 0, 'autocomplete="email"')}${field("i-tel", "Telefone", "tel", 0, 0, 'autocomplete="tel" value="+244 "')}${field("i-empresa", "Empresa", "text", 1, 0, 'autocomplete="organization"')}${field("i-cargo", "Cargo", "text", 1, 0, 'autocomplete="organization-title"')}${field("i-obs", "Observações", "textarea", 1, 1)}${consent("i-consent")}</fieldset>
+      <input class="hp" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" name="website">
+      <div><button class="btn btn-p" type="submit">Confirmar inscrição</button></div></form></div></div>`)
+    },
+    confirmacao: { title: "Inscrição confirmada", nav: "eventos", render: () =>
+      sec("/inscricao-confirmada?evento=slug · noindex · sem dados pessoais no URL", `<div class="stack-lg" style="max-width:640px;margin-inline:auto;text-align:center;align-items:center"><span class="check" aria-hidden="true"></span><h1 class="h1">A sua inscrição está confirmada.</h1><p class="lead">Enviámos um e-mail com todos os detalhes. Até breve!</p><div class="facts" style="text-align:left;width:100%"><b class="h3">[Nome do evento]</b><dl><dt>Data</dt><dd>[DD de mês de AAAA] · [Hora]</dd><dt>Local</dt><dd>[Local]</dd></dl></div><div class="ctas full" style="justify-content:center">${btn("Adicionar ao calendário", "confirmacao")}${btn("Partilhar evento", "confirmacao", "s")}</div><a class="link" href="#eventos">Ver outros eventos</a></div>`)
+    },
+    experiencias: { title: "Experiências", nav: "experiencias", render: () =>
+      sec("Hero simples", `<p class="eyebrow">Experiências</p><h1 class="h1">Experiências que já vivemos com organizações</h1><p class="lead">Projetos reais, com desafios, soluções e resultados partilhados com autorização dos clientes.</p>`) +
+      sec("Filtros por categoria · chips com aria-pressed · estado no URL", `<div class="chips" role="group" aria-label="Categoria">${["Todas", "Team Building", "Formação", "Workshop", "Evento", "Liderança", "Bem-estar"].map((t, i) => `<button class="chip" aria-pressed="${i === 0}" data-simple-chip>${t}</button>`).join("")}</div>`, "tight") +
+      sec("Grelha 2 colunas com alturas alternadas / 1 coluna · cliente pode ser 'Cliente confidencial'", `<div class="g md-2">${caseCard("Team Building", "4/3")}${caseCard("Formação", "16/10")}${caseCard("Liderança", "16/10")}${caseCard("Bem-estar", "4/3")}</div>`) +
+      cta("Quer criar uma experiência para a sua equipa?", "Cada projeto começa por ouvir as pessoas.", ["Solicitar proposta", "proposta"])
+    },
+    caso: { title: "Experiência (caso)", nav: "experiencias", render: () =>
+      sec("Hero do caso · fotografia larga", `${crumbs([["home", "Home"], ["experiencias", "Experiências"], ["caso", "[Título]"]])}<span class="tag">Team Building · [Cliente]</span><h1 class="h1" style="margin-top:8px">[Título da experiência]</h1><div style="margin-top:24px">${ph("Fotografia larga do projeto", "21/9")}</div>`) +
+      sec("Ficha · só os campos preenchidos", `<div class="facts"><dl style="grid-template-columns:auto minmax(0,1fr) auto minmax(0,1fr)"><dt>Cliente</dt><dd>[Cliente]</dd><dt>Serviço</dt><dd>Team Building</dd><dt>Participantes</dt><dd>[Número real]</dd><dt>Local</dt><dd>[Local]</dd></dl></div>`, "tight") +
+      sec("Desafio · Objetivo · Solução", `<div class="g md-3">${["Desafio", "Objetivo", "Solução"].map((t) => `<div class="stack"><h2 class="h3">${t}</h2>${bars(4)}</div>`).join("")}</div>`) +
+      sec("Galeria / vídeo · poster, sem autoplay", `<div class="g md-2">${ph("Vídeo (poster + controlos)", "16/9")}<div class="g" style="grid-template-columns:repeat(2,minmax(0,1fr))">${Array.from({ length: 4 }, () => ph("Foto", "4/3")).join("")}</div></div>`, "alt") +
+      sec("Resultados · reais (qualitativos ou números fornecidos) + testemunho", `<div class="split"><div class="stack"><h2 class="h2">Resultados</h2>${bars(4)}</div>${testimonial(true)}</div>`) +
+      sec("Experiências relacionadas", `<div class="g md-3">${caseCard("Formação")}${caseCard("Workshop")}${caseCard("Liderança")}</div>`, "alt") +
+      cta("Quer viver uma experiência semelhante?", "Conte-nos o que a sua equipa precisa.", ["Solicitar proposta", "proposta"])
+    },
+    insights: { title: "Insights", nav: "insights", render: () =>
+      sec("Hero simples", `<p class="eyebrow">Insights</p><h1 class="h1">Ideias para pessoas, líderes e equipas</h1>`) +
+      sec("Categorias (links para /insights/categoria/…) + pesquisa (ativa com ≥ 12 artigos)", `<div class="row" style="justify-content:space-between;align-items:start"><div class="chips" style="min-width:0;flex:1">${["Todos", "Liderança", "Pessoas", "Equipas", "Bem-estar", "Desenvolvimento Humano", "Produtividade", "Método C.E.N.T.R.O."].map((t, i) => `<a class="chip" href="#insights"${i === 0 ? ' aria-current="page"' : ""}>${t}</a>`).join("")}</div><div class="field" style="width:min(100%,280px)"><label for="q" class="small">Pesquisar artigos</label><input id="q" type="search" placeholder="Ex.: liderança"></div></div>`, "tight") +
+      sec("Artigo em destaque", `<a class="card featured-ev" href="#artigo" style="text-decoration:none">${ph("Imagem do artigo", "16/10")}<div class="body" style="padding:24px"><span class="tag">Liderança</span><h2 class="h2">[Título do artigo mais recente]</h2><p class="muted">[Introdução]</p><span class="muted small">[Autor] · [Data] · [X] min</span></div></a>`) +
+      sec("Lista · 3/2/1 · 'Carregar mais' com ?pagina=2", `<div class="g md-2 lg-3">${["Pessoas", "Equipas", "Bem-estar", "Produtividade", "Liderança", "Método C.E.N.T.R.O."].map((c) => articleCard(c)).join("")}</div><div class="ctas" style="justify-content:center">${btn("Carregar mais artigos", "insights", "s")}</div>`)
+    },
+    artigo: { title: "Artigo", nav: "insights", render: () =>
+      sec("Cabeçalho do artigo · largura de leitura", `<div style="max-width:760px;margin-inline:auto">${crumbs([["home", "Home"], ["insights", "Insights"], ["artigo", "[Título]"]])}<span class="tag">Liderança</span><h1 class="h1" style="margin-top:8px">[Título do artigo]</h1><p class="lead">[Introdução do artigo]</p><div class="row" style="margin-top:20px;justify-content:space-between"><div class="person">${ph("Foto", null, "avatar")}<div><b>[Autor]</b><div class="muted small">[Data] · [X] min de leitura</div></div></div><a class="link small" href="#artigo">Partilhar</a></div></div>`) +
+      sec("Imagem principal", ph("Imagem principal do artigo", "21/9"), "tight") +
+      sec("Conteúdo · Portable Text (títulos, listas, citações, imagens com legenda)", `<div class="prose" style="margin-inline:auto">${bars(5)}<h2 class="h2">[Subtítulo]</h2>${bars(4)}<blockquote class="quote" style="margin:8px 0;border-left:3px solid var(--ink);padding-left:16px">“[Citação em destaque]”</blockquote>${bars(5)}<div class="stack" style="border-top:1px solid var(--line);padding-top:16px"><b>Partilhar este artigo</b><div class="share">${["LinkedIn", "WhatsApp", "Facebook", "Copiar link"].map((t) => `<a class="chip" href="#artigo">${t}</a>`).join("")}</div></div><div class="facts"><div class="person">${ph("Foto", null, "avatar")}<div><b>[Autor]</b><div class="muted small">[Bio curta]</div></div></div></div></div>`) +
+      sec("Artigos relacionados (mesma categoria)", head("", "Continue a ler") + `<div class="g md-3">${articleCard("Liderança")}${articleCard("Liderança")}${articleCard("Liderança")}</div>`, "alt") +
+      cta("Desenvolva os líderes da sua organização.", "Conheça o programa de Desenvolvimento de Liderança.", ["Ver a solução", "servico"], ["Solicitar proposta", "proposta"])
+    },
+    contactos: { title: "Contactos", nav: "contactos", form: true, render: () =>
+      sec("Contactos · mobile: canais como botões grandes primeiro, depois formulário", `<div class="layout-aside"><aside class="aside stack-lg"><div class="stack"><h2 class="h3">Fale connosco</h2><div class="stack">${["Ligar · [Telefone]", "E-mail · [E-mail]", "WhatsApp · [Número]"].map((t) => `<a class="btn" href="#contactos" style="justify-content:start">${t}</a>`).join("")}</div></div><div class="stack"><b>Redes sociais</b><span class="muted small">[Instagram] · [LinkedIn] · [Facebook]</span></div><div class="stack"><b>Localização</b><span class="muted small">[Morada, se fornecida]</span></div></aside>
+      <div><h1 class="h1">Vamos conversar</h1><p class="lead">Envie-nos uma mensagem. Respondemos o mais breve possível.</p>
+      <form class="form" novalidate data-next="enviada" style="margin-top:28px"><div class="err-summary" role="alert" hidden></div><fieldset><legend class="full">A sua mensagem</legend>${field("c-nome", "Nome", "text", 0, 0, 'autocomplete="name"')}${field("c-empresa", "Empresa", "text", 1, 0, 'autocomplete="organization"')}${field("c-email", "E-mail", "email", 0, 0, 'autocomplete="email"')}${field("c-tel", "Telefone", "tel", 1, 0, 'autocomplete="tel" value="+244 "')}${field("c-assunto", "Assunto", "select", 0, 1, ["Pedido de informação", "Parcerias", "Imprensa", "Outro"])}${field("c-msg", "Mensagem", "textarea", 0, 1)}${consent("c-consent")}</fieldset><div><button class="btn btn-p" type="submit">Enviar mensagem</button></div></form></div></div>`) +
+      sec("Encaminhamento comercial", `<div class="row" style="justify-content:space-between"><h2 class="h2">Procura uma proposta para a sua organização?</h2>${btn("Solicitar proposta", "proposta")}</div>`, "alt")
+    },
+    proposta: { title: "Solicitar proposta", nav: "", form: true, render: () =>
+      sec("Página comercial de foco · 3 grupos numa só página · ?servico= pré-seleciona", `<div class="layout-aside"><aside class="aside facts"><b class="h3">O que acontece a seguir</b><div class="steps">${["Analisamos o seu pedido", "Contactamos para conhecer melhor o contexto", "Enviamos uma proposta à medida"].map((t) => `<div class="step"><span>${t}</span></div>`).join("")}</div><p class="small muted">[Prazo de resposta, depois de confirmado pela equipa]</p></aside>
+      <div><h1 class="h1">Solicitar proposta</h1><p class="lead">Conte-nos o que pretende. Preparamos uma proposta à medida da sua equipa.</p>
+      <form class="form" novalidate data-next="recebida" style="margin-top:28px"><div class="err-summary" role="alert" hidden></div>
+      <fieldset><legend class="full">1. Os seus dados</legend>${field("p-nome", "Nome", "text", 0, 0, 'autocomplete="name"')}${field("p-empresa", "Empresa", "text", 0, 0, 'autocomplete="organization"')}${field("p-cargo", "Cargo", "text", 0, 0, 'autocomplete="organization-title"')}${field("p-tel", "Telefone", "tel", 0, 0, 'autocomplete="tel" value="+244 "')}${field("p-email", "E-mail", "email", 0, 1, 'autocomplete="email"')}</fieldset>
+      <fieldset><legend class="full">2. O seu projeto</legend>${field("p-servico", "Serviço pretendido", "select", 0, 1, SERVICES.map((s) => [s[1], s[0] === "team-building"]).concat([["Método C.E.N.T.R.O."], ["Ainda não sei: preciso de ajuda a escolher"]]))}${field("p-part", "Número aproximado de participantes", "select", 0, 0, ["Até 20", "21–50", "51–100", "101–250", "Mais de 250"])}${field("p-local", "Local", "text")}${field("p-data", "Data prevista", "date", 1)}${field("p-obj", "Objetivo", "textarea", 0, 1)}</fieldset>
+      <fieldset><legend class="full">3. Detalhes adicionais</legend>${field("p-orc", "Orçamento estimado", "select", 1, 1, ["[Intervalos definidos no CMS]", "Prefiro não indicar"])}${field("p-info", "Informações adicionais", "textarea", 1, 1)}${consent("p-consent")}</fieldset>
+      <input class="hp" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" name="website">
+      <div><button class="btn btn-p" type="submit">Enviar pedido</button></div></form></div></div>`)
+    },
+    recebida: { title: "Proposta recebida", nav: "", render: () =>
+      sec("/proposta-recebida · noindex · página de conversão", `<div class="stack-lg" style="max-width:640px;margin-inline:auto;text-align:center;align-items:center"><span class="check" aria-hidden="true"></span><h1 class="h1">Obrigado pelo seu contacto.</h1><p class="lead">A equipa Conexão Positiva irá analisar as informações e entrar em contacto consigo.</p><div class="steps s3" style="text-align:left;width:100%">${["Analisamos o seu pedido", "Contactamos para conhecer o contexto", "Enviamos uma proposta à medida"].map((t) => `<div class="step"><span>${t}</span></div>`).join("")}</div><div class="ctas full" style="justify-content:center">${btn("Ver experiências", "experiencias", "s")}${btn("Conhecer o Método", "metodo", "s")}</div></div>`)
+    },
+    enviada: { title: "Mensagem enviada", nav: "contactos", render: () =>
+      sec("/mensagem-enviada · noindex", `<div class="stack-lg" style="max-width:640px;margin-inline:auto;text-align:center;align-items:center"><span class="check" aria-hidden="true"></span><h1 class="h1">Mensagem enviada.</h1><p class="lead">Obrigado por nos escrever. Entraremos em contacto consigo em breve.</p><div class="ctas full" style="justify-content:center">${btn("Explorar Insights", "insights", "s")}${btn("Ver eventos", "eventos", "s")}</div></div>`)
+    },
+    legal: { title: "Página legal", nav: "", render: () =>
+      sec("Páginas legais · índice com âncoras · largura de leitura · data de atualização", `<div style="max-width:760px;margin-inline:auto" class="stack-lg"><div><h1 class="h1">Política de Privacidade</h1><p class="muted small" style="margin-top:8px">Última atualização: [data]</p></div><nav class="facts" aria-label="Nesta página"><b>Nesta página</b><ol class="stack" style="margin:0;padding-left:18px;gap:4px">${["Responsável pelo tratamento", "Dados recolhidos", "Finalidades", "Conservação", "Direitos", "Contacto"].map((t) => `<li><a class="link" href="#legal">${t}</a></li>`).join("")}</ol></nav><div class="prose">${bars(5)}${bars(4)}${bars(5)}</div></div>`)
+    },
+    erro404: { title: "404", nav: "", render: () =>
+      sec("404 personalizada · caminhos úteis", `<div class="stack-lg" style="max-width:640px;margin-inline:auto;text-align:center;align-items:center"><p class="display" style="color:var(--muted)">404</p><h1 class="h1">Esta página não existe ou mudou de lugar.</h1><p class="lead">Talvez encontre o que procura aqui:</p><div class="chips" style="justify-content:center;flex-wrap:wrap">${[["solucoes", "Soluções"], ["eventos", "Eventos"], ["insights", "Insights"], ["contactos", "Contactos"]].map(([h, t]) => `<a class="chip" href="#${h}">${t}</a>`).join("")}</div>${btn("Voltar à página inicial", "home")}</div>`)
+    }
+  };
+
+  function orbitSvg() {
+    const r = 130, c = 180;
+    const nodes = PILLARS.map((p, i) => { const a = (-90 + i * 60) * Math.PI / 180; return `<g><circle cx="${c + r * Math.cos(a)}" cy="${c + r * Math.sin(a)}" r="30" fill="var(--emph-bg)" stroke="var(--emph-ink)" stroke-width="1.5"/><text x="${c + r * Math.cos(a)}" y="${c + r * Math.sin(a) + 8}" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="24" fill="var(--emph-ink)">${p[0]}</text></g>`; }).join("");
+    return `<svg class="orbit" viewBox="0 0 360 360" role="img" aria-label="Seis pilares à volta de um centro: Consciência, Equilíbrio, Nutrição, Tempo, Respiração, Orientação"><circle cx="${c}" cy="${c}" r="${r}" fill="none" stroke="var(--emph-muted)" stroke-dasharray="3 6"/><circle cx="${c}" cy="${c}" r="44" fill="var(--emph-fill)" stroke="var(--emph-ink)" stroke-width="1.5"/><text x="${c}" y="${c + 5}" text-anchor="middle" font-family="Inter, sans-serif" font-weight="600" font-size="12" letter-spacing="1.5" fill="var(--emph-ink)">CENTRO</text>${nodes}</svg>`;
+  }
+
+  const device = document.getElementById("device");
+  const frame = document.getElementById("frame");
+  const select = document.getElementById("page-select");
+  const widthInfo = document.getElementById("width-info");
+  const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+
+  select.innerHTML = Object.entries(PAGES).map(([id, p]) => `<option value="${id}">${p.title}</option>`).join("") + `<option value="menu">Menu mobile (abre sobre a Home)</option>`;
+
+  function closeOverlays() { device.querySelectorAll(".overlay").forEach((o) => o.remove()); }
+
+  function openMenu(trigger) {
+    closeOverlays();
+    const el = document.createElement("div");
+    el.className = "overlay"; el.setAttribute("role", "dialog"); el.setAttribute("aria-modal", "true"); el.setAttribute("aria-label", "Menu");
+    el.innerHTML = `<div class="wrap top"><span class="logo"><span class="logo-mark" aria-hidden="true"></span>Conexão Positiva</span><button type="button" class="burger" data-action="close" aria-label="Fechar menu" style="font-size:20px;font-weight:600">×</button></div>
+      <div class="wrap"><nav class="m-links" aria-label="Menu"><a href="#home">Home</a>${NAV.map(([id, t]) => id === "solucoes" ? `<details><summary>Soluções<span class="chev"></span></summary>${SERVICES.map((s) => `<a href="#servico">${s[1]}</a>`).join("")}<a href="#solucoes">Ver todas</a></details>` : `<a href="#${id}">${t}</a>`).join("")}</nav>
+      <div class="stack" style="padding-bottom:24px"><a class="btn btn-p" href="#proposta">Solicitar proposta</a><div class="g" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">${["Ligar", "E-mail", "WhatsApp"].map((t) => `<a class="btn btn-sm" href="#contactos">${t}</a>`).join("")}</div><p class="muted small">Foco preso no painel · Esc fecha · foco regressa ao botão de menu</p></div></div>`;
+    device.appendChild(el);
+    el._trigger = trigger;
+    el.querySelector("[data-action=close]").focus();
+  }
+
+  function render(id) {
+    if (id === "menu") { render("home"); openMenu(); select.value = "menu"; return; }
+    const page = PAGES[id] || PAGES.home;
+    closeOverlays();
+    device.querySelectorAll(".wa, .ev-bar").forEach((n) => n.remove());
+    device.classList.toggle("has-bar", !!page.bar);
+    frame.innerHTML = header(page.nav, page.focus) + `<main id="conteudo">${page.render()}</main>` + footer(page.focus);
+    const wa = document.createElement("a");
+    wa.className = "wa" + (page.bar ? " lifted" : "") + (page.form ? " hide-narrow" : "");
+    wa.href = "#contactos"; wa.setAttribute("aria-label", "Falar connosco no WhatsApp"); wa.textContent = "WA";
+    device.appendChild(wa);
+    if (page.bar) {
+      const bar = document.createElement("div");
+      bar.className = "ev-bar";
+      bar.innerHTML = `<div class="small"><b>[DD mês] · [Hora]</b><br><span class="muted">[Valor] ou Gratuito</span></div><a class="btn btn-p btn-sm" href="#inscricao">Inscrever-me</a>`;
+      device.appendChild(bar);
+    }
+    select.value = id in PAGES ? id : "home";
+    frame.scrollTop = 0;
+    initPage();
+  }
+
+  function initPage() {
+    const panel = frame.querySelector("#pillar-panel");
+    if (panel) setPillar(0, false);
+    filterEvents();
+    onScroll();
+  }
+
+  function setPillar(i, focus) {
+    const tabs = frame.querySelectorAll('[role="tab"]');
+    const panel = frame.querySelector("#pillar-panel");
+    if (!panel || !tabs[i]) return;
+    tabs.forEach((t, j) => { t.setAttribute("aria-selected", j === i); t.tabIndex = j === i ? 0 : -1; });
+    if (focus) tabs[i].focus();
+    const p = PILLARS[i];
+    panel.setAttribute("aria-labelledby", "tab-" + i);
+    panel.innerHTML = `<span class="icon" aria-hidden="true" style="width:56px;height:56px">ícone</span><div class="stack" style="max-width:60ch"><h3 class="h2">${p[1]}</h3><p class="lead" style="margin:0">${p[3]}</p><a class="link" href="#metodo">Saber mais sobre ${p[1]}</a></div>`;
+    panel.style.animation = "none"; void panel.offsetWidth; panel.style.animation = "";
+  }
+
+  function filterEvents() {
+    const grid = frame.querySelector("#ev-grid");
+    if (!grid) return;
+    const when = frame.querySelector("[data-when][aria-pressed=true]").dataset.when;
+    const cat = frame.querySelector(".chips [data-cat][aria-pressed=true]").dataset.cat;
+    let n = 0;
+    grid.querySelectorAll("article").forEach((a) => { const show = a.dataset.when === when && (cat === "todos" || a.dataset.cat === cat); a.hidden = !show; if (show) n++; });
+    frame.querySelector("#ev-empty").hidden = n > 0;
+    frame.querySelector("#ev-count").textContent = n === 1 ? "1 evento" : n + " eventos";
+  }
+
+  function onScroll() {
+    const hdr = frame.querySelector(".hdr");
+    if (hdr) hdr.classList.toggle("scrolled", frame.scrollTop > 40);
+    const idx = frame.querySelector(".story-index");
+    if (idx) {
+      const blocks = frame.querySelectorAll(".pillar-block");
+      const top = frame.getBoundingClientRect().top + frame.clientHeight * 0.4;
+      let on = 0;
+      blocks.forEach((b, i) => { if (b.getBoundingClientRect().top < top) on = i; });
+      idx.querySelectorAll("a").forEach((a, i) => { a.classList.toggle("on", i === on); if (i === on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current"); });
+    }
+  }
+  frame.addEventListener("scroll", onScroll, { passive: true });
+
+  let hoverTimer;
+  frame.addEventListener("mouseover", (e) => {
+    const t = e.target.closest('[role="tab"]');
+    if (!t) return;
+    clearTimeout(hoverTimer);
+    hoverTimer = setTimeout(() => setPillar(+t.dataset.pillar, false), 150);
+  });
+  frame.addEventListener("mouseout", () => clearTimeout(hoverTimer));
+
+  device.addEventListener("click", (e) => {
+    const a = e.target.closest("a[href^='#']");
+    const act = e.target.closest("[data-action]");
+    const tab = e.target.closest('[role="tab"]');
+    const target = a && a.dataset.target;
+    if (tab) { setPillar(+tab.dataset.pillar, false); return; }
+    if (target) { e.preventDefault(); const el = frame.querySelector("#" + target); if (el) el.scrollIntoView({ block: "start" }); return; }
+    if (act) {
+      const k = act.dataset.action;
+      if (k === "menu") openMenu(act);
+      if (k === "close") { const ov = act.closest(".overlay"); const tr = ov && ov._trigger; closeOverlays(); if (tr) tr.focus(); else { const b = frame.querySelector(".burger"); if (b) b.focus(); } }
+      if (k === "mega") { const m = frame.querySelector("#mega"); const open = m.hidden; m.hidden = !open; act.setAttribute("aria-expanded", open); }
+      if (k === "ev-reset") { frame.querySelectorAll(".chips [data-cat]").forEach((c) => c.setAttribute("aria-pressed", c.dataset.cat === "todos")); filterEvents(); }
+      return;
+    }
+    const chip = e.target.closest("button.chip");
+    if (chip) {
+      const group = chip.parentElement;
+      group.querySelectorAll("button.chip").forEach((c) => c.setAttribute("aria-pressed", c === chip));
+      filterEvents();
+      return;
+    }
+    if (a) {
+      const id = a.getAttribute("href").slice(1);
+      if (id && (id in PAGES)) { e.preventDefault(); if (location.hash.slice(1) === id) render(id); else location.hash = id; }
+    }
+  });
+
+  frame.addEventListener("keydown", (e) => {
+    const t = e.target.closest('[role="tab"]');
+    if (!t) return;
+    const i = +t.dataset.pillar, n = PILLARS.length;
+    const map = { ArrowRight: (i + 1) % n, ArrowLeft: (i - 1 + n) % n, Home: 0, End: n - 1 };
+    if (e.key in map) { e.preventDefault(); setPillar(map[e.key], true); }
+  });
+  device.addEventListener("keydown", (e) => {
+    const ov = device.querySelector(".overlay");
+    if (!ov) return;
+    if (e.key === "Escape") { const tr = ov._trigger; closeOverlays(); (tr || frame.querySelector(".burger") || frame).focus(); }
+    if (e.key === "Tab") {
+      const f = ov.querySelectorAll("a, button, summary");
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  device.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const errors = [];
+    form.querySelectorAll("[required]").forEach((inp) => {
+      const holder = inp.closest(".field") || inp.closest(".consent");
+      const err = inp.type === "checkbox" ? holder.nextElementSibling : holder.querySelector(".err");
+      let msg = "";
+      const v = (inp.value || "").trim();
+      if (inp.type === "checkbox" && !inp.checked) msg = "Para continuar, aceite a Política de Privacidade.";
+      else if (inp.type !== "checkbox" && (!v || v === "+244")) msg = "Preencha este campo.";
+      else if (inp.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) msg = "Indique um e-mail válido, por exemplo nome@empresa.ao.";
+      inp.setAttribute("aria-invalid", msg ? "true" : "false");
+      if (err) { err.textContent = msg; err.hidden = !msg; err.id = inp.id + "-err"; if (msg) inp.setAttribute("aria-describedby", err.id); else inp.removeAttribute("aria-describedby"); }
+      if (msg) errors.push([inp, (holder.querySelector("label") || {}).textContent || "Campo"]);
+    });
+    const summary = form.querySelector(".err-summary");
+    if (errors.length) {
+      summary.innerHTML = `Corrija ${errors.length === 1 ? "1 campo" : errors.length + " campos"} para continuar:<ul>${errors.map(([inp, l]) => `<li><a class="link" href="#${form.dataset.next}" data-focus="${inp.id}">${l.replace("(opcional)", "").trim()}</a></li>`).join("")}</ul>`;
+      summary.hidden = false;
+      errors[0][0].focus();
+      summary.querySelectorAll("[data-focus]").forEach((l) => l.addEventListener("click", (ev) => { ev.preventDefault(); ev.stopPropagation(); frame.querySelector("#" + l.dataset.focus).focus(); }));
+      return;
+    }
+    const b = form.querySelector("[type=submit]");
+    b.textContent = "A enviar…"; b.disabled = true;
+    setTimeout(() => { location.hash = form.dataset.next; }, 700);
+  });
+
+  function setWidth(w) {
+    device.style.setProperty("--w", w + "px");
+    device.classList.toggle("is-phone", w < 500);
+    document.querySelectorAll(".seg button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.w === String(w)));
+    store.set("wf-w", w);
+    requestAnimationFrame(updateInfo);
+  }
+  function updateInfo() { widthInfo.textContent = `Largura real do ecrã simulado: ${Math.round(device.clientWidth)} px. Abra o menu ☰ em Tablet ou Mobile; experimente os filtros em Eventos e o envio vazio dos formulários.`; }
+  document.querySelectorAll(".seg button").forEach((b) => b.addEventListener("click", () => setWidth(+b.dataset.w)));
+  window.addEventListener("resize", updateInfo);
+
+  const notesBtn = document.getElementById("notes-toggle");
+  function setNotes(on) { device.classList.toggle("show-notes", on); notesBtn.setAttribute("aria-pressed", on); store.set("wf-notes", on ? "1" : "0"); }
+  notesBtn.addEventListener("click", () => setNotes(notesBtn.getAttribute("aria-pressed") !== "true"));
+
+  select.addEventListener("change", () => { if (select.value === "menu") render("menu"); else location.hash = select.value; });
+  window.addEventListener("hashchange", () => render(location.hash.slice(1) || "home"));
+
+  setWidth(+(store.get("wf-w") || (window.innerWidth < 700 ? 390 : 1280)));
+  setNotes(store.get("wf-notes") !== "0");
+  render(location.hash.slice(1) || "home");
+})();
+</script>
+</body>
+</html>
