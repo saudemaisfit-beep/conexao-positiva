@@ -11,8 +11,11 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 | 1    | Planeamento e sitemap                         | ✅ Concluída |
 | 2    | Wireframes e estrutura UX                     | ✅ Concluída |
 | 3    | Design System (cores oficiais azul e marsala) | ✅ Concluída |
-| 4    | Header, Footer e componentes globais          | ⏳ Próxima   |
-| 5–20 | Home → Documentação final                     | Por iniciar  |
+| 4    | Header, Footer e componentes globais          | ✅ Concluída |
+| 5    | Home                                          | ✅ Concluída |
+| 6    | Sobre Nós                                     | ✅ Concluída |
+| 7    | Soluções                                      | ⏳ Próxima   |
+| 8–20 | Método C.E.N.T.R.O. → Documentação final      | Por iniciar  |
 
 ## Documentação de planeamento (Fase 1)
 
@@ -41,6 +44,10 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 ## Home (Fase 5)
 
 [Home](docs/fase-05/01-home.md): secções, origem do conteúdo, decisões e verificação. Para rever todas as secções com exemplos: `CONTENT_PREVIEW=1 npm run dev`.
+
+## Sobre Nós (Fase 6)
+
+[Sobre Nós](docs/fase-06/01-sobre-nos.md): estrutura, **textos para aprovação** (missão, visão, valores) e conteúdo a fornecer.
 
 ## Desenvolvimento
 

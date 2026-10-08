@@ -1,5 +1,5 @@
 import "server-only";
-import type { HomeContent } from "./types";
+import type { AboutContent, HomeContent } from "./types";
 
 /**
  * EXEMPLOS PARA REVISÃO DE DESIGN — nunca usados em produção.
@@ -122,5 +122,41 @@ export function exampleHomeContent(now: Date): HomeContent {
         readingMinutes: 6,
       },
     ],
+  };
+}
+
+export function exampleAboutContent(): AboutContent {
+  return {
+    history: [
+      {
+        year: "[Ano]",
+        title: "[Exemplo] Fundação",
+        text: "[Exemplo] Uma frase sobre o início da Conexão Positiva.",
+      },
+      {
+        year: "[Ano]",
+        title: "[Exemplo] Primeiros programas",
+        text: "[Exemplo] Uma frase sobre os primeiros projetos com empresas.",
+      },
+      {
+        year: "[Ano]",
+        title: "[Exemplo] Método C.E.N.T.R.O.",
+        text: "[Exemplo] Uma frase sobre a criação do método.",
+      },
+      {
+        year: "[Ano]",
+        title: "[Exemplo] Hoje",
+        text: "[Exemplo] Uma frase sobre o momento atual.",
+      },
+    ],
+    founder: {
+      name: "[Exemplo] Nome do(a) fundador(a)",
+      role: "Fundador(a)",
+      bio: "[Exemplo] Biografia real a fornecer: percurso, formação e o que motivou a criação da Conexão Positiva e do Método C.E.N.T.R.O.",
+    },
+    team: Array.from({ length: 4 }, (_, index) => ({
+      name: `[Exemplo] Pessoa ${index + 1}`,
+      role: "Cargo",
+    })),
   };
 }

@@ -83,7 +83,13 @@
       "text": "A Conexão Positiva é parceira de organizações que querem desenvolver pessoas, líderes e equipas. Desenhamos palestras, formações, workshops e experiências que unem consciência, bem-estar e resultados, sempre a partir da realidade de cada equipa.",
       "cta": "Conhecer a Conexão Positiva",
       "journeyTitle": "A nossa abordagem",
-      "journey": ["Conexão", "Consciência", "Desenvolvimento", "Transformação", "Resultados"]
+      "journey": [
+        "Conexão",
+        "Consciência",
+        "Desenvolvimento",
+        "Transformação",
+        "Resultados"
+      ]
     },
     "services": {
       "eyebrow": "Soluções",
@@ -149,6 +155,60 @@
     "cta": {
       "title": "Pronto para desenvolver a sua equipa?",
       "text": "Conte-nos o momento da sua organização. Desenhamos consigo uma experiência à medida das suas pessoas.",
+      "primary": "Solicitar proposta",
+      "secondary": "Falar connosco"
+    }
+  },
+  "About": {
+    "metaTitle": "Sobre Nós",
+    "metaDescription": "Conheça a Conexão Positiva: desenvolvimento humano, formação e experiências corporativas para pessoas, equipas e organizações.",
+    "breadcrumb": "Sobre Nós",
+    "hero": {
+      "eyebrow": "Sobre a Conexão Positiva",
+      "title": "Desenvolvemos pessoas para fortalecer organizações.",
+      "lead": "Somos uma parceira estratégica de quem acredita que o crescimento de uma organização começa nas pessoas que a constroem."
+    },
+    "who": {
+      "eyebrow": "Quem somos",
+      "title": "Uma parceira no desenvolvimento de pessoas, líderes e equipas",
+      "audiencesLabel": "Com quem trabalhamos",
+      "audiences": [
+        "Pessoas",
+        "Empresas",
+        "Organizações",
+        "Instituições"
+      ]
+    },
+    "history": {
+      "eyebrow": "A nossa história",
+      "title": "O caminho até aqui"
+    },
+    "quote": "Pessoas melhores constroem equipas melhores. Equipas melhores constroem organizações mais fortes.",
+    "purpose": {
+      "eyebrow": "Propósito",
+      "missionTitle": "Missão",
+      "visionTitle": "Visão"
+    },
+    "values": {
+      "eyebrow": "Valores",
+      "title": "O que nos orienta"
+    },
+    "approach": {
+      "eyebrow": "A nossa abordagem",
+      "title": "Cada experiência segue o mesmo caminho",
+      "lead": "Da primeira conversa aos resultados, acompanhamos pessoas e equipas em cinco momentos."
+    },
+    "founder": {
+      "eyebrow": "Liderança",
+      "linkedin": "Perfil de {name} no LinkedIn"
+    },
+    "team": {
+      "eyebrow": "Equipa",
+      "title": "As pessoas por trás da Conexão Positiva"
+    },
+    "cta": {
+      "title": "Vamos construir algo juntos?",
+      "text": "Conte-nos o momento da sua equipa e o que gostaria de desenvolver.",
       "primary": "Solicitar proposta",
       "secondary": "Falar connosco"
     }

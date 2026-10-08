@@ -63,6 +63,26 @@ export interface ArticleSummary {
   image?: ContentImage;
 }
 
+export interface Milestone {
+  year: string;
+  title: string;
+  text: string;
+}
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  bio?: string;
+  photo?: ContentImage;
+  linkedin?: string;
+}
+
+export interface AboutContent {
+  history: Milestone[];
+  founder: TeamMember | null;
+  team: TeamMember[];
+}
+
 export interface HomeContent {
   stats: ImpactStat[];
   clients: ClientLogo[];
