@@ -83,13 +83,7 @@
       "text": "A Conexão Positiva é parceira de organizações que querem desenvolver pessoas, líderes e equipas. Desenhamos palestras, formações, workshops e experiências que unem consciência, bem-estar e resultados, sempre a partir da realidade de cada equipa.",
       "cta": "Conhecer a Conexão Positiva",
       "journeyTitle": "A nossa abordagem",
-      "journey": [
-        "Conexão",
-        "Consciência",
-        "Desenvolvimento",
-        "Transformação",
-        "Resultados"
-      ]
+      "journey": ["Conexão", "Consciência", "Desenvolvimento", "Transformação", "Resultados"]
     },
     "services": {
       "eyebrow": "Soluções",
@@ -172,12 +166,7 @@
       "eyebrow": "Quem somos",
       "title": "Uma parceira no desenvolvimento de pessoas, líderes e equipas",
       "audiencesLabel": "Com quem trabalhamos",
-      "audiences": [
-        "Pessoas",
-        "Empresas",
-        "Organizações",
-        "Instituições"
-      ]
+      "audiences": ["Pessoas", "Empresas", "Organizações", "Instituições"]
     },
     "history": {
       "eyebrow": "A nossa história",
