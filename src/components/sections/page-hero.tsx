@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/common/breadcrumbs";
 import { NetworkGraphic } from "@/components/common/network-graphic";
+import { cn } from "@/lib/cn";
 
 interface PageHeroProps {
   eyebrow: string;
@@ -10,10 +11,20 @@ interface PageHeroProps {
   /** Conteúdo visual à direita (fotografia, logótipo…). Por defeito, o motivo da rede. */
   aside?: ReactNode;
   actions?: ReactNode;
+  /** Mostra o conteúdo lateral também no mobile (por baixo do texto). */
+  asideOnMobile?: boolean;
 }
 
 /** Hero das páginas interiores: breadcrumbs, eyebrow, h1 e introdução. */
-export function PageHero({ eyebrow, title, lead, breadcrumbs, aside, actions }: PageHeroProps) {
+export function PageHero({
+  eyebrow,
+  title,
+  lead,
+  breadcrumbs,
+  aside,
+  actions,
+  asideOnMobile = false,
+}: PageHeroProps) {
   return (
     <section aria-labelledby="page-title" className="relative overflow-hidden">
       <div className="container-site grid items-center gap-10 pt-6 pb-14 md:pt-8 md:pb-20 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)] lg:gap-16 lg:pb-24">
@@ -44,7 +55,12 @@ export function PageHero({ eyebrow, title, lead, breadcrumbs, aside, actions }: 
             </div>
           )}
         </div>
-        <div className="relative mx-auto hidden w-full max-w-[22rem] lg:block">
+        <div
+          className={cn(
+            "relative mx-auto w-full max-w-[22rem] lg:block",
+            asideOnMobile ? "max-w-[15rem] lg:max-w-[22rem]" : "hidden",
+          )}
+        >
           {aside ?? (
             <>
               <div

@@ -6,17 +6,18 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 
 ## Estado
 
-| Fase | Descrição                                     | Estado       |
-| ---- | --------------------------------------------- | ------------ |
-| 1    | Planeamento e sitemap                         | ✅ Concluída |
-| 2    | Wireframes e estrutura UX                     | ✅ Concluída |
-| 3    | Design System (cores oficiais azul e marsala) | ✅ Concluída |
-| 4    | Header, Footer e componentes globais          | ✅ Concluída |
-| 5    | Home                                          | ✅ Concluída |
-| 6    | Sobre Nós                                     | ✅ Concluída |
-| 7    | Soluções                                      | ✅ Concluída |
-| 8    | Método C.E.N.T.R.O.                           | ⏳ Próxima   |
-| 9–20 | Eventos → Documentação final                  | Por iniciar  |
+| Fase  | Descrição                                     | Estado       |
+| ----- | --------------------------------------------- | ------------ |
+| 1     | Planeamento e sitemap                         | ✅ Concluída |
+| 2     | Wireframes e estrutura UX                     | ✅ Concluída |
+| 3     | Design System (cores oficiais azul e marsala) | ✅ Concluída |
+| 4     | Header, Footer e componentes globais          | ✅ Concluída |
+| 5     | Home                                          | ✅ Concluída |
+| 6     | Sobre Nós                                     | ✅ Concluída |
+| 7     | Soluções                                      | ✅ Concluída |
+| 8     | Método C.E.N.T.R.O.                           | ✅ Concluída |
+| 9     | Eventos                                       | ⏳ Próxima   |
+| 10–20 | Experiências → Documentação final             | Por iniciar  |
 
 ## Documentação de planeamento (Fase 1)
 
@@ -53,6 +54,10 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 ## Soluções (Fase 7)
 
 [Soluções](docs/fase-07/01-solucoes.md): página índice, 8 páginas de serviço e **textos para aprovação**.
+
+## Método C.E.N.T.R.O. (Fase 8)
+
+[Método C.E.N.T.R.O.](docs/fase-08/01-metodo-centro.md): identidade marsala, scroll storytelling dos seis pilares e **textos para aprovação**.
 
 ## Desenvolvimento
 

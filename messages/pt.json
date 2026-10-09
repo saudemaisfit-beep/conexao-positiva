@@ -293,5 +293,46 @@
       "ctaText": "Partilhe connosco o objetivo, o número de participantes e a data prevista.",
       "otherTitle": "Outras soluções"
     }
+  },
+  "Metodo": {
+    "metaTitle": "Método C.E.N.T.R.O.",
+    "metaDescription": "Consciência, Equilíbrio, Nutrição, Tempo, Respiração e Orientação: um caminho para desenvolver pessoas de dentro para fora.",
+    "breadcrumb": "Método C.E.N.T.R.O.",
+    "hero": {
+      "eyebrow": "Metodologia própria",
+      "title": "Método C.E.N.T.R.O.",
+      "lead": "Um caminho para desenvolver pessoas de dentro para fora.",
+      "primary": "Levar o método para a minha organização",
+      "secondary": "Conhecer os pilares",
+      "logoAlt": "Logótipo Método C.E.N.T.R.O."
+    },
+    "audience": {
+      "eyebrow": "Para quem é",
+      "title": "Um método para pessoas e organizações"
+    },
+    "pillars": {
+      "eyebrow": "Os seis pilares",
+      "title": "Seis dimensões, um centro",
+      "indexLabel": "Pilares do Método C.E.N.T.R.O.",
+      "practice": "Na prática"
+    },
+    "steps": {
+      "eyebrow": "Como funciona",
+      "title": "Da consciência à ação"
+    },
+    "paths": {
+      "eyebrow": "Aplicação",
+      "title": "Individual ou na sua organização"
+    },
+    "results": {
+      "eyebrow": "Resultados esperados",
+      "title": "O que procuramos construir consigo"
+    },
+    "cta": {
+      "title": "Levar o Método C.E.N.T.R.O. para a minha organização",
+      "text": "Desenhamos consigo a aplicação do método à realidade das suas pessoas e equipas.",
+      "primary": "Solicitar proposta",
+      "secondary": "Falar connosco"
+    }
   }
 }

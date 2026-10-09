@@ -19,7 +19,7 @@ export function CtaBanner({ id, title, text, primary, secondary }: CtaBannerProp
           data-surface="inverse"
           className="relative isolate overflow-hidden rounded-xl bg-inverse px-6 py-14 text-on-inverse md:px-14 md:py-20"
         >
-          <NetworkGraphic className="pointer-events-none absolute -top-1/3 -right-1/4 -z-10 w-[min(42rem,120%)] opacity-25 md:-right-[10%]" />
+          <NetworkGraphic className="pointer-events-none absolute -top-1/3 -right-1/4 -z-10 w-[min(42rem,120%)] text-brand-on-inverse opacity-25 md:-right-[10%]" />
           <div className="flex max-w-2xl reveal flex-col gap-5">
             <h2 id={id} className="text-h1 font-extrabold">
               {title}
