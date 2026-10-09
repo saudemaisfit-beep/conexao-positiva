@@ -14,6 +14,7 @@ export interface TitledText {
 }
 
 export type { FaqItem } from "./types";
+import { getCaseStudiesForService } from "./cases";
 import type { FaqItem } from "./types";
 
 export interface ServiceDetail {
@@ -510,15 +511,13 @@ export function getServiceDetail(slug: string) {
  * com CONTENT_PREVIEW=1 devolve exemplos [Exemplo].
  */
 export async function getServiceRelated(slug: string) {
+  const caseStudies = await getCaseStudiesForService(slug);
   if (process.env.CONTENT_PREVIEW === "1") {
     const { exampleHomeContent } = await import("./fixtures");
-    const examples = exampleHomeContent(new Date());
     return {
-      caseStudies: examples.caseStudies
-        .slice(0, 2)
-        .map((study) => ({ ...study, slug: `${study.slug}-${slug}` })),
-      testimonials: examples.testimonials.slice(0, 2),
+      caseStudies,
+      testimonials: exampleHomeContent(new Date()).testimonials.slice(0, 2),
     };
   }
-  return { caseStudies: [], testimonials: [] };
+  return { caseStudies, testimonials: [] };
 }

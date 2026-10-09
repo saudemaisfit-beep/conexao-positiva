@@ -49,7 +49,6 @@ export default async function ServicePage({ params }: PageProps) {
   if (!service) notFound();
 
   const t = await getTranslations("Solutions");
-  const tCases = await getTranslations("Home.cases");
   const tHome = await getTranslations("Home.services");
   const related = await getServiceRelated(slug);
   const Icon = service.icon;
@@ -140,7 +139,7 @@ export default async function ServicePage({ params }: PageProps) {
             <ul className="grid gap-5 md:grid-cols-2">
               {related.caseStudies.map((study) => (
                 <li key={study.slug} className="reveal">
-                  <CaseStudyCard study={study} confidentialLabel={tCases("confidential")} />
+                  <CaseStudyCard study={study} />
                 </li>
               ))}
             </ul>

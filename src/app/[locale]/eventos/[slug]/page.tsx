@@ -8,6 +8,7 @@ import { siteConfig } from "@/config/site";
 import { getEvent, getEvents, isPastEvent, registrationState, toSummary } from "@/content/events";
 import type { EventDetail } from "@/content/types";
 import { EventCard } from "@/components/cards/event-card";
+import { Gallery } from "@/components/common/gallery";
 import { JsonLd } from "@/components/common/json-ld";
 import { PersonAvatar } from "@/components/common/person-avatar";
 import { Section } from "@/components/layout/section";
@@ -233,22 +234,7 @@ export default async function EventPage({ params }: PageProps) {
             {event.gallery.length > 0 && (
               <div className="flex flex-col gap-5">
                 <h2 className="text-h2 font-bold">{t("detail.gallery")}</h2>
-                <ul className="grid grid-cols-2 gap-3 md:grid-cols-3">
-                  {event.gallery.map((image) => (
-                    <li
-                      key={image.src}
-                      className="relative aspect-[4/3] overflow-hidden rounded-md"
-                    >
-                      <Image
-                        src={image.src}
-                        alt={image.alt}
-                        fill
-                        sizes="(min-width: 768px) 25vw, 50vw"
-                        className="object-cover"
-                      />
-                    </li>
-                  ))}
-                </ul>
+                <Gallery images={event.gallery} />
               </div>
             )}
           </div>

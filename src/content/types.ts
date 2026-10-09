@@ -60,13 +60,47 @@ export interface EventDetail extends EventSummary {
   faq: FaqItem[];
 }
 
+/** Tipos de experiência (filtros de /experiencias). */
+export type CaseCategory =
+  "team-building" | "formacao" | "workshop" | "evento" | "lideranca" | "bem-estar";
+
 export interface CaseStudySummary {
   slug: string;
   title: string;
-  client: string | null; // null = cliente confidencial
-  category: string;
+  client: string | null; // null = cliente confidencial (sem autorização para publicar o nome)
+  category: CaseCategory;
+  /** Objetivo numa frase (card e introdução da página). */
   objective: string;
+  /** Slugs de serviços (src/config/navigation.ts) usados nesta experiência. */
+  services: string[];
   image?: ContentImage;
+}
+
+export interface CaseResult {
+  /** Só números reais e verificáveis; sem valor, o resultado é qualitativo. */
+  value?: string;
+  text: string;
+}
+
+export interface CaseVideo {
+  /** URL do YouTube ou do Vimeo. */
+  url: string;
+  title: string;
+}
+
+export interface CaseStudy extends CaseStudySummary {
+  sector?: string;
+  participants?: number;
+  format?: string;
+  /** Texto livre, ex.: "Março de 2025". */
+  period?: string;
+  location?: string;
+  challenge: string[];
+  solution: string[];
+  results: CaseResult[];
+  gallery: ContentImage[];
+  video?: CaseVideo;
+  testimonial?: Testimonial;
 }
 
 export interface ArticleSummary {

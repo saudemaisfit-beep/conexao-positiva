@@ -22,14 +22,14 @@ export async function CaseStudiesPreview({ studies }: { studies: CaseStudySummar
         <div className="grid gap-5 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
           {featured && (
             <div className="reveal">
-              <CaseStudyCard study={featured} confidentialLabel={t("confidential")} featured />
+              <CaseStudyCard study={featured} featured />
             </div>
           )}
           {rest.length > 0 && (
             <div className="grid gap-5">
               {rest.map((study) => (
                 <div key={study.slug} className="reveal">
-                  <CaseStudyCard study={study} confidentialLabel={t("confidential")} />
+                  <CaseStudyCard study={study} />
                 </div>
               ))}
             </div>

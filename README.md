@@ -17,8 +17,9 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 | 7     | Soluções                                      | ✅ Concluída |
 | 8     | Método C.E.N.T.R.O.                           | ✅ Concluída |
 | 9     | Eventos                                       | ✅ Concluída |
-| 10    | Experiências                                  | ⏳ Próxima   |
-| 11–20 | Insights → Documentação final                 | Por iniciar  |
+| 10    | Experiências                                  | ✅ Concluída |
+| 11    | Insights                                      | ⏳ Próxima   |
+| 12–20 | Contactos → Documentação final                | Por iniciar  |
 
 ## Documentação de planeamento (Fase 1)
 
@@ -63,6 +64,10 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 ## Eventos (Fase 9)
 
 [Eventos](docs/fase-09/01-eventos.md): agenda com filtros, páginas de evento, estados de inscrição e dados estruturados.
+
+## Experiências (Fase 10)
+
+[Experiências](docs/fase-10/01-experiencias.md): portefólio com filtros, página de cada experiência, regras de autorização e modelo de conteúdo.
 
 ## Desenvolvimento
 

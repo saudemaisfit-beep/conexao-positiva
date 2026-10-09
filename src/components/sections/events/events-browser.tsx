@@ -6,6 +6,7 @@ import type { EventCategory, EventSummary } from "@/content/types";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { EventCard } from "@/components/cards/event-card";
 import { Button } from "@/components/ui/button";
+import { FilterChips, chipClass } from "@/components/ui/filter-chips";
 import { cn } from "@/lib/cn";
 
 export interface BrowsableEvent extends EventSummary {
@@ -13,9 +14,6 @@ export interface BrowsableEvent extends EventSummary {
 }
 
 const CATEGORIES: EventCategory[] = ["workshop", "formacao", "palestra", "experiencia"];
-
-const chipClass =
-  "inline-flex min-h-11 shrink-0 cursor-pointer items-center rounded-full border px-5 text-small font-semibold transition-colors duration-(--duration-instant)";
 
 /**
  * Agenda com filtros Próximos/Passados + categoria. O estado vive no URL
@@ -44,7 +42,6 @@ export function EventsBrowser({ events }: { events: BrowsableEvent[] }) {
   const showFeatured = period === "proximos" && !category;
   const featured = showFeatured ? visible[0] : undefined;
   const rest = showFeatured ? visible.slice(1) : visible;
-  period === "proximos" && !category ? visible : [undefined, ...visible];
 
   const update = (next: { filtro?: string | null; categoria?: string | null }) => {
     const query = new URLSearchParams(params.toString());
@@ -83,28 +80,15 @@ export function EventsBrowser({ events }: { events: BrowsableEvent[] }) {
           ))}
         </div>
         {available.length > 1 && (
-          <div
-            role="group"
-            aria-label={t("category")}
-            className="-mx-(--space-gutter) flex gap-2 overflow-x-auto px-(--space-gutter) pb-1 md:mx-0 md:px-0"
-          >
-            {[null, ...available].map((value) => (
-              <button
-                key={value ?? "todos"}
-                type="button"
-                aria-pressed={category === value}
-                onClick={() => update({ categoria: value })}
-                className={cn(
-                  chipClass,
-                  category === value
-                    ? "border-primary bg-primary text-on-primary"
-                    : "border-border-strong bg-surface-raised text-text hover:border-primary hover:text-primary",
-                )}
-              >
-                {value ? tc(value) : t("all")}
-              </button>
-            ))}
-          </div>
+          <FilterChips
+            label={t("category")}
+            options={[
+              { value: null, label: t("all") },
+              ...available.map((item) => ({ value: item, label: tc(item) })),
+            ]}
+            value={category}
+            onChange={(value) => update({ categoria: value })}
+          />
         )}
       </div>
 

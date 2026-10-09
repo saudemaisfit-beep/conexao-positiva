@@ -104,10 +104,7 @@
     "cases": {
       "eyebrow": "Experiências",
       "title": "Experiências que já vivemos com organizações",
-      "all": "Ver todas as experiências",
-      "more": "Ver experiência",
-      "confidential": "Cliente confidencial",
-      "objective": "Objetivo"
+      "all": "Ver todas as experiências"
     },
     "impact": {
       "title": "Impacto"
@@ -393,6 +390,64 @@
       "others": "Outros eventos",
       "paidNote": "A inscrição reserva o seu lugar. As instruções de pagamento são enviadas por e-mail.",
       "share": "Partilhar evento"
+    }
+  },
+  "Experiences": {
+    "metaTitle": "Experiências",
+    "metaDescription": "Projetos, programas e eventos que a Conexão Positiva desenhou e facilitou com organizações em Angola.",
+    "breadcrumb": "Experiências",
+    "hero": {
+      "eyebrow": "Experiências",
+      "title": "Experiências que já vivemos com organizações",
+      "lead": "Cada experiência começa por uma conversa sobre as pessoas e o momento da organização. Aqui partilhamos algumas, sempre com autorização de quem as viveu connosco."
+    },
+    "categories": {
+      "team-building": "Team Building",
+      "formacao": "Formação",
+      "workshop": "Workshop",
+      "evento": "Evento",
+      "lideranca": "Liderança",
+      "bem-estar": "Bem-estar"
+    },
+    "filters": {
+      "category": "Tipo de experiência",
+      "all": "Todas",
+      "results": "{count, plural, =0 {Nenhuma experiência} one {1 experiência} other {# experiências}}"
+    },
+    "confidential": "Cliente confidencial",
+    "more": "Ver experiência",
+    "empty": {
+      "title": "Estamos a preparar as primeiras experiências para partilhar.",
+      "text": "Só publicamos projetos com autorização das organizações envolvidas. Entretanto, conte-nos o que a sua equipa precisa e mostramos como podemos trabalhar juntos.",
+      "primary": "Solicitar proposta",
+      "secondary": "Conhecer as soluções"
+    },
+    "cta": {
+      "title": "Quer criar uma experiência para a sua equipa?",
+      "text": "Conte-nos o contexto e os objetivos. Desenhamos uma proposta à medida das pessoas e do momento da organização.",
+      "primary": "Solicitar proposta",
+      "secondary": "Falar connosco"
+    },
+    "detail": {
+      "facts": "Ficha da experiência",
+      "client": "Cliente",
+      "sector": "Setor",
+      "services": "Soluções",
+      "participants": "Participantes",
+      "participantsCount": "{count, plural, one {1 pessoa} other {# pessoas}}",
+      "format": "Formato",
+      "period": "Data",
+      "location": "Local",
+      "challenge": "O desafio",
+      "objective": "O objetivo",
+      "solution": "A solução",
+      "gallery": "Galeria",
+      "video": "Vídeo",
+      "playVideo": "Reproduzir vídeo: {title}",
+      "videoNotice": "O vídeo é carregado a partir de {provider} só depois de carregar no botão.",
+      "results": "Resultados",
+      "testimonial": "Testemunho",
+      "related": "Outras experiências"
     }
   }
 }
