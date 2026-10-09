@@ -11,32 +11,47 @@ const statusClass = {
   "ultimas-vagas": "bg-accent-soft text-accent-strong",
   esgotado: "bg-surface text-muted",
   encerrado: "bg-surface text-muted",
+  passado: "bg-surface text-muted",
 } as const;
 
-export function EventCard({ event }: { event: EventSummary }) {
+export function EventCard({
+  event,
+  past = false,
+  featured = false,
+}: {
+  event: EventSummary;
+  past?: boolean;
+  featured?: boolean;
+}) {
   const t = useTranslations("Home.events");
-  const open = event.status === "aberto" || event.status === "ultimas-vagas";
+  const status = past ? "passado" : event.status;
+  const open = status === "aberto" || status === "ultimas-vagas";
   const href = `/eventos/${event.slug}`;
 
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-surface-raised transition-shadow duration-(--duration-base) hover:shadow-md">
+    <article
+      className={cn(
+        "group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-surface-raised transition-shadow duration-(--duration-base) hover:shadow-md",
+        featured && "md:grid md:grid-cols-[minmax(0,6fr)_minmax(0,5fr)]",
+      )}
+    >
       <MediaFrame
         image={event.image}
         icon={CalendarDays}
-        ratio="aspect-[16/9]"
-        sizes="(min-width: 1024px) 380px, 100vw"
+        ratio={featured ? "aspect-[16/9] md:aspect-auto md:h-full" : "aspect-[16/9]"}
+        sizes={featured ? "(min-width: 768px) 55vw, 100vw" : "(min-width: 1024px) 380px, 100vw"}
       />
-      <div className="flex flex-1 flex-col gap-4 p-5 md:p-6">
+      <div className={cn("flex flex-1 flex-col gap-4 p-5 md:p-6", featured && "md:p-8")}>
         <div className="flex items-center justify-between gap-3">
           <span className="eyebrow">{t(`category.${event.category}`)}</span>
-          {event.status !== "aberto" && (
+          {status !== "aberto" && (
             <span
               className={cn(
                 "rounded-full px-3 py-1 text-caption font-semibold",
-                statusClass[event.status],
+                statusClass[status],
               )}
             >
-              {t(`status.${event.status}`)}
+              {t(`status.${status}`)}
             </span>
           )}
         </div>
@@ -53,7 +68,7 @@ export function EventCard({ event }: { event: EventSummary }) {
             </span>
           </time>
           <div className="flex min-w-0 flex-col gap-2">
-            <h3 className="text-h4 font-bold">
+            <h3 className={featured ? "text-h3 font-bold" : "text-h4 font-bold"}>
               <Link href={href} className="hover:text-primary">
                 {event.title}
               </Link>

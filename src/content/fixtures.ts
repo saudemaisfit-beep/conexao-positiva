@@ -1,5 +1,5 @@
 import "server-only";
-import type { AboutContent, HomeContent } from "./types";
+import type { AboutContent, EventDetail, HomeContent } from "./types";
 
 /**
  * EXEMPLOS PARA REVISÃO DE DESIGN — nunca usados em produção.
@@ -43,36 +43,7 @@ export function exampleHomeContent(now: Date): HomeContent {
         company: "Empresa",
       },
     ],
-    events: [
-      {
-        slug: "exemplo-workshop",
-        title: "[Exemplo] Workshop de gestão consciente do tempo",
-        category: "workshop",
-        startsAt: inDays(12, 9),
-        endsAt: inDays(12, 13),
-        location: "[Local]",
-        priceKz: 25000,
-        status: "aberto",
-      },
-      {
-        slug: "exemplo-formacao",
-        title: "[Exemplo] Formação em liderança",
-        category: "formacao",
-        startsAt: inDays(26, 9),
-        location: "[Local]",
-        priceKz: null,
-        status: "ultimas-vagas",
-      },
-      {
-        slug: "exemplo-palestra",
-        title: "[Exemplo] Palestra sobre bem-estar no trabalho",
-        category: "palestra",
-        startsAt: inDays(40, 18),
-        location: "[Local]",
-        priceKz: 10000,
-        status: "aberto",
-      },
-    ],
+    events: exampleEvents(now),
     caseStudies: [
       {
         slug: "exemplo-team-building",
@@ -159,4 +130,104 @@ export function exampleAboutContent(): AboutContent {
       role: "Cargo",
     })),
   };
+}
+
+const exampleFaq = [
+  {
+    question: "[Exemplo] É preciso experiência prévia?",
+    answer: "[Exemplo] Resposta real a fornecer pela Conexão Positiva.",
+  },
+  {
+    question: "[Exemplo] Recebo certificado de participação?",
+    answer: "[Exemplo] Resposta real a fornecer pela Conexão Positiva.",
+  },
+];
+
+export function exampleEvents(now: Date): EventDetail[] {
+  const at = (days: number, hour: number) => {
+    const date = new Date(now);
+    date.setUTCDate(date.getUTCDate() + days);
+    date.setUTCHours(hour - 1, 0, 0, 0); // hora de Luanda (UTC+1)
+    return date.toISOString();
+  };
+  const base = {
+    summary: "[Exemplo] Uma frase que apresenta o evento e o que os participantes vão viver.",
+    description: [
+      "[Exemplo] Descrição real do evento: objetivo, temas e o que os participantes vão levar.",
+      "[Exemplo] Segundo parágrafo com a abordagem e o formato da sessão.",
+    ],
+    program: [
+      { time: "09:00", activity: "[Exemplo] Acolhimento" },
+      { time: "09:30", activity: "[Exemplo] Primeiro momento" },
+      { time: "11:00", activity: "[Exemplo] Pausa" },
+      { time: "11:15", activity: "[Exemplo] Prática em grupo" },
+      { time: "12:45", activity: "[Exemplo] Encerramento" },
+    ],
+    facilitator: {
+      name: "[Exemplo] Nome do(a) facilitador(a)",
+      role: "Facilitador(a)",
+      bio: "[Exemplo] Biografia curta real a fornecer.",
+    },
+    gallery: [],
+    faq: exampleFaq,
+  };
+  return [
+    {
+      ...base,
+      slug: "exemplo-workshop",
+      title: "[Exemplo] Workshop de gestão consciente do tempo",
+      category: "workshop",
+      startsAt: at(12, 9),
+      endsAt: at(12, 13),
+      location: "[Local]",
+      priceKz: 25000,
+      status: "aberto",
+      spotsLeft: 14,
+    },
+    {
+      ...base,
+      slug: "exemplo-formacao",
+      title: "[Exemplo] Formação em liderança",
+      category: "formacao",
+      startsAt: at(26, 9),
+      endsAt: at(26, 17),
+      location: "[Local]",
+      priceKz: null,
+      status: "ultimas-vagas",
+      spotsLeft: 3,
+    },
+    {
+      ...base,
+      slug: "exemplo-palestra",
+      title: "[Exemplo] Palestra sobre bem-estar no trabalho",
+      category: "palestra",
+      startsAt: at(40, 18),
+      endsAt: at(40, 20),
+      location: "[Local]",
+      priceKz: 10000,
+      status: "esgotado",
+      spotsLeft: 0,
+    },
+    {
+      ...base,
+      slug: "exemplo-experiencia-passada",
+      title: "[Exemplo] Experiência Método C.E.N.T.R.O.",
+      category: "experiencia",
+      startsAt: at(-20, 9),
+      endsAt: at(-20, 13),
+      location: "[Local]",
+      priceKz: 15000,
+      status: "encerrado",
+    },
+    {
+      ...base,
+      slug: "exemplo-workshop-passado",
+      title: "[Exemplo] Workshop de respiração consciente",
+      category: "workshop",
+      startsAt: at(-45, 10),
+      location: "[Local]",
+      priceKz: null,
+      status: "encerrado",
+    },
+  ];
 }

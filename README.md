@@ -16,8 +16,9 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 | 6     | Sobre Nós                                     | ✅ Concluída |
 | 7     | Soluções                                      | ✅ Concluída |
 | 8     | Método C.E.N.T.R.O.                           | ✅ Concluída |
-| 9     | Eventos                                       | ⏳ Próxima   |
-| 10–20 | Experiências → Documentação final             | Por iniciar  |
+| 9     | Eventos                                       | ✅ Concluída |
+| 10    | Experiências                                  | ⏳ Próxima   |
+| 11–20 | Insights → Documentação final                 | Por iniciar  |
 
 ## Documentação de planeamento (Fase 1)
 
@@ -58,6 +59,10 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 ## Método C.E.N.T.R.O. (Fase 8)
 
 [Método C.E.N.T.R.O.](docs/fase-08/01-metodo-centro.md): identidade marsala, scroll storytelling dos seis pilares e **textos para aprovação**.
+
+## Eventos (Fase 9)
+
+[Eventos](docs/fase-09/01-eventos.md): agenda com filtros, páginas de evento, estados de inscrição e dados estruturados.
 
 ## Desenvolvimento
 

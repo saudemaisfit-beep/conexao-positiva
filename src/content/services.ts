@@ -13,10 +13,8 @@ export interface TitledText {
   text: string;
 }
 
-export interface FaqItem {
-  question: string;
-  answer: string;
-}
+export type { FaqItem } from "./types";
+import type { FaqItem } from "./types";
 
 export interface ServiceDetail {
   slug: string;

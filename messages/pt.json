@@ -132,7 +132,8 @@
       "status": {
         "ultimas-vagas": "Últimas vagas",
         "esgotado": "Esgotado",
-        "encerrado": "Inscrições encerradas"
+        "encerrado": "Inscrições encerradas",
+        "passado": "Já decorreu"
       },
       "category": {
         "workshop": "Workshop",
@@ -333,6 +334,65 @@
       "text": "Desenhamos consigo a aplicação do método à realidade das suas pessoas e equipas.",
       "primary": "Solicitar proposta",
       "secondary": "Falar connosco"
+    }
+  },
+  "Events": {
+    "metaTitle": "Eventos",
+    "metaDescription": "Agenda de workshops, formações, palestras e experiências da Conexão Positiva.",
+    "breadcrumb": "Eventos",
+    "hero": {
+      "eyebrow": "Eventos",
+      "title": "Agenda",
+      "lead": "Workshops, formações, palestras e experiências abertas a pessoas e organizações."
+    },
+    "filters": {
+      "period": "Período",
+      "upcoming": "Próximos",
+      "past": "Passados",
+      "category": "Categoria",
+      "all": "Todos",
+      "results": "{count, plural, =0 {Nenhum evento} one {1 evento} other {# eventos}}",
+      "noResults": "Não encontrámos eventos para este filtro.",
+      "reset": "Limpar filtros"
+    },
+    "categories": {
+      "workshop": "Workshops",
+      "formacao": "Formações",
+      "palestra": "Palestras",
+      "experiencia": "Experiências"
+    },
+    "next": "Próximo evento",
+    "empty": {
+      "title": "De momento não há eventos agendados.",
+      "text": "Siga-nos nas redes sociais ou fale connosco para levar uma experiência à sua organização.",
+      "cta": "Falar connosco"
+    },
+    "cta": {
+      "title": "Quer levar uma experiência à sua organização?",
+      "text": "Desenhamos eventos, workshops e formações exclusivos para a sua equipa.",
+      "primary": "Solicitar proposta"
+    },
+    "detail": {
+      "register": "INSCREVER-ME",
+      "waitlist": "Entrar na lista de espera",
+      "closed": "Inscrições encerradas",
+      "past": "Este evento já decorreu",
+      "facts": "Informação prática",
+      "date": "Data",
+      "time": "Horário",
+      "location": "Local",
+      "map": "Ver no mapa",
+      "spots": "Vagas",
+      "spotsLeft": "{count, plural, =0 {Esgotado} one {1 vaga disponível} other {# vagas disponíveis}}",
+      "price": "Valor",
+      "free": "Gratuito",
+      "about": "Sobre o evento",
+      "program": "Programa",
+      "facilitator": "Facilitação",
+      "gallery": "Galeria",
+      "others": "Outros eventos",
+      "paidNote": "A inscrição reserva o seu lugar. As instruções de pagamento são enviadas por e-mail.",
+      "share": "Partilhar evento"
     }
   }
 }

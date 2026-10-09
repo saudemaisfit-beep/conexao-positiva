@@ -44,6 +44,22 @@ export interface EventSummary {
   image?: ContentImage;
 }
 
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface EventDetail extends EventSummary {
+  summary: string;
+  description: string[];
+  program: { time: string; activity: string }[];
+  facilitator?: { name: string; role: string; bio?: string; photo?: ContentImage };
+  /** Vagas restantes (vêm da base de dados de inscrições a partir da Fase 14). */
+  spotsLeft?: number | null;
+  gallery: ContentImage[];
+  faq: FaqItem[];
+}
+
 export interface CaseStudySummary {
   slug: string;
   title: string;
