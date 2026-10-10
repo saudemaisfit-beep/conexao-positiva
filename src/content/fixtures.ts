@@ -1,5 +1,12 @@
 import "server-only";
-import type { AboutContent, CaseStudy, EventDetail, HomeContent } from "./types";
+import type {
+  AboutContent,
+  Article,
+  ArticleCategory,
+  CaseStudy,
+  EventDetail,
+  HomeContent,
+} from "./types";
 
 /**
  * EXEMPLOS PARA REVISÃO DE DESIGN — nunca usados em produção.
@@ -7,13 +14,6 @@ import type { AboutContent, CaseStudy, EventDetail, HomeContent } from "./types"
  * marcados com [Exemplo] e não representam clientes, pessoas, números ou eventos reais.
  */
 export function exampleHomeContent(now: Date): HomeContent {
-  const inDays = (days: number, hour: number) => {
-    const date = new Date(now);
-    date.setUTCDate(date.getUTCDate() + days);
-    date.setUTCHours(hour - 1, 0, 0, 0); // hora de Luanda (UTC+1)
-    return date.toISOString();
-  };
-
   return {
     stats: [
       { value: "[000]", label: "[Exemplo] Empresas atendidas" },
@@ -45,32 +45,7 @@ export function exampleHomeContent(now: Date): HomeContent {
     ],
     events: exampleEvents(now),
     caseStudies: [],
-    articles: [
-      {
-        slug: "exemplo-artigo-1",
-        title: "[Exemplo] Como criar conversas mais conscientes na equipa",
-        excerpt: "[Exemplo] Introdução curta do artigo, com até duas linhas.",
-        category: "Equipas",
-        publishedAt: inDays(-3, 10),
-        readingMinutes: 5,
-      },
-      {
-        slug: "exemplo-artigo-2",
-        title: "[Exemplo] Respiração como ferramenta de foco",
-        excerpt: "[Exemplo] Introdução curta do artigo, com até duas linhas.",
-        category: "Método C.E.N.T.R.O.",
-        publishedAt: inDays(-10, 10),
-        readingMinutes: 4,
-      },
-      {
-        slug: "exemplo-artigo-3",
-        title: "[Exemplo] O papel do líder no bem-estar da equipa",
-        excerpt: "[Exemplo] Introdução curta do artigo, com até duas linhas.",
-        category: "Liderança",
-        publishedAt: inDays(-18, 10),
-        readingMinutes: 6,
-      },
-    ],
+    articles: [],
   };
 }
 
@@ -310,5 +285,131 @@ export function exampleCaseStudies(): CaseStudy[] {
       results: [{ text: "[Exemplo] Resultado qualitativo." }],
       gallery: [],
     },
+  ];
+}
+
+export function exampleArticles(now: Date): Article[] {
+  const daysAgo = (days: number) => {
+    const date = new Date(now);
+    date.setUTCDate(date.getUTCDate() - days);
+    date.setUTCHours(9, 0, 0, 0);
+    return date.toISOString();
+  };
+  const author = {
+    name: "[Exemplo] Nome do autor",
+    role: "Cargo na Conexão Positiva",
+    bio: "[Exemplo] Duas frases sobre o percurso e a área de trabalho do autor.",
+  };
+  const paragraph = (text: string) => ({ type: "paragraph" as const, text });
+  const filler =
+    "[Exemplo] Parágrafo de desenvolvimento com uma ideia por parágrafo, frases curtas e exemplos concretos do dia a dia das equipas em Angola. O texto real é escrito ou aprovado pela Conexão Positiva antes de ser publicado.";
+
+  const short = (
+    slug: string,
+    title: string,
+    category: ArticleCategory,
+    days: number,
+  ): Article => ({
+    slug,
+    title,
+    excerpt: "[Exemplo] Introdução curta do artigo, com uma ou duas frases que resumem a ideia.",
+    category,
+    publishedAt: daysAgo(days),
+    author,
+    body: [paragraph(filler), paragraph(filler), paragraph(filler)],
+  });
+
+  return [
+    {
+      slug: "exemplo-conversas-conscientes",
+      title: "[Exemplo] Como criar conversas mais conscientes na equipa",
+      excerpt:
+        "[Exemplo] Pequenas mudanças na forma como falamos e ouvimos podem mudar o clima de uma equipa. Três práticas para começar esta semana.",
+      category: "equipas",
+      publishedAt: daysAgo(3),
+      author,
+      body: [
+        paragraph(
+          "[Exemplo] Parágrafo de abertura que apresenta o problema: reuniões em que todos falam e poucos se sentem ouvidos, mensagens mal interpretadas, decisões que ninguém assume.",
+        ),
+        paragraph(filler),
+        { type: "heading", level: 2, text: "[Exemplo] Porque é que as conversas falham" },
+        paragraph(filler),
+        {
+          type: "list",
+          ordered: false,
+          items: [
+            "[Exemplo] Falamos para responder, não para compreender.",
+            "[Exemplo] Assumimos intenções em vez de perguntar.",
+            "[Exemplo] Evitamos temas difíceis até se tornarem conflitos.",
+          ],
+        },
+        {
+          type: "quote",
+          text: "[Exemplo] Uma frase marcante, de um autor real e citado corretamente.",
+          cite: "[Autor da citação]",
+        },
+        { type: "heading", level: 2, text: "[Exemplo] Três práticas para começar" },
+        { type: "heading", level: 3, text: "[Exemplo] 1. Abrir a reunião com uma pergunta" },
+        paragraph(filler),
+        { type: "heading", level: 3, text: "[Exemplo] 2. Confirmar o que ouviu" },
+        paragraph(filler),
+        { type: "heading", level: 3, text: "[Exemplo] 3. Fechar com compromissos claros" },
+        {
+          type: "list",
+          ordered: true,
+          items: [
+            "[Exemplo] O que foi decidido.",
+            "[Exemplo] Quem faz o quê.",
+            "[Exemplo] Até quando.",
+          ],
+        },
+        {
+          type: "callout",
+          title: "[Exemplo] Experimente esta semana",
+          text: "[Exemplo] Um exercício prático e curto que o leitor pode aplicar de imediato com a sua equipa.",
+        },
+        paragraph(filler),
+      ],
+    },
+    short(
+      "exemplo-respiracao-foco",
+      "[Exemplo] Respiração como ferramenta de foco",
+      "metodo-centro",
+      10,
+    ),
+    short(
+      "exemplo-lider-bem-estar",
+      "[Exemplo] O papel do líder no bem-estar da equipa",
+      "lideranca",
+      18,
+    ),
+    short(
+      "exemplo-pausas-conscientes",
+      "[Exemplo] Pausas conscientes num dia exigente",
+      "bem-estar",
+      25,
+    ),
+    short("exemplo-feedback", "[Exemplo] Dar feedback sem perder a ligação", "lideranca", 33),
+    short(
+      "exemplo-proposito",
+      "[Exemplo] Encontrar propósito no trabalho de todos os dias",
+      "desenvolvimento-pessoal",
+      41,
+    ),
+    short(
+      "exemplo-confianca",
+      "[Exemplo] Confiança: o que a constrói e o que a destrói",
+      "equipas",
+      49,
+    ),
+    short("exemplo-tempo", "[Exemplo] Gerir o tempo a partir das prioridades", "metodo-centro", 57),
+    short(
+      "exemplo-novos-lideres",
+      "[Exemplo] Os primeiros 90 dias de um novo líder",
+      "lideranca",
+      65,
+    ),
+    short("exemplo-sono-energia", "[Exemplo] Sono, energia e desempenho", "bem-estar", 73),
   ];
 }

@@ -6,7 +6,8 @@ import type { EventCategory, EventSummary } from "@/content/types";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { EventCard } from "@/components/cards/event-card";
 import { Button } from "@/components/ui/button";
-import { FilterChips, chipClass } from "@/components/ui/filter-chips";
+import { chipClass } from "@/components/ui/chip";
+import { FilterChips } from "@/components/ui/filter-chips";
 import { cn } from "@/lib/cn";
 
 export interface BrowsableEvent extends EventSummary {

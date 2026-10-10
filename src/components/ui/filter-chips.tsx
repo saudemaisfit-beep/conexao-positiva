@@ -1,9 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/cn";
-
-export const chipClass =
-  "inline-flex min-h-11 shrink-0 cursor-pointer items-center rounded-full border px-5 text-small font-semibold transition-colors duration-(--duration-instant)";
+import { chipClass } from "./chip";
 
 interface FilterChipsProps<T extends string> {
   label: string;

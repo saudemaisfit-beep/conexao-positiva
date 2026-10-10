@@ -142,8 +142,7 @@
     "insights": {
       "eyebrow": "Insights",
       "title": "Ideias para pessoas, líderes e equipas",
-      "all": "Explorar Insights",
-      "readingTime": "{minutes} min de leitura"
+      "all": "Explorar Insights"
     },
     "cta": {
       "title": "Pronto para desenvolver a sua equipa?",
@@ -448,6 +447,74 @@
       "results": "Resultados",
       "testimonial": "Testemunho",
       "related": "Outras experiências"
+    }
+  },
+  "Insights": {
+    "metaTitle": "Insights",
+    "metaDescription": "Artigos sobre liderança, equipas, bem-estar e desenvolvimento pessoal, escritos pela equipa da Conexão Positiva.",
+    "breadcrumb": "Insights",
+    "hero": {
+      "eyebrow": "Insights",
+      "title": "Ideias para pessoas, líderes e equipas",
+      "lead": "Reflexões e práticas do nosso trabalho com organizações, para ler com calma e experimentar no dia a dia."
+    },
+    "categoriesLabel": "Categorias",
+    "all": "Todos",
+    "categories": {
+      "lideranca": {
+        "name": "Liderança",
+        "description": "Ferramentas e reflexões para liderar pessoas com clareza, confiança e humanidade.",
+        "ctaTitle": "Quer desenvolver os líderes da sua organização?",
+        "ctaLabel": "Conhecer o Desenvolvimento de Liderança"
+      },
+      "equipas": {
+        "name": "Equipas",
+        "description": "Comunicação, confiança e colaboração: o que faz uma equipa funcionar.",
+        "ctaTitle": "Quer fortalecer a sua equipa?",
+        "ctaLabel": "Conhecer o Desenvolvimento de Equipas"
+      },
+      "bem-estar": {
+        "name": "Bem-estar",
+        "description": "Energia, equilíbrio e saúde emocional no trabalho.",
+        "ctaTitle": "Quer cuidar do bem-estar da sua equipa?",
+        "ctaLabel": "Conhecer o Bem-estar Corporativo"
+      },
+      "metodo-centro": {
+        "name": "Método C.E.N.T.R.O.",
+        "description": "Os seis pilares do método aplicados à vida e ao trabalho.",
+        "ctaTitle": "Quer levar o Método C.E.N.T.R.O. à sua organização?",
+        "ctaLabel": "Descobrir o Método C.E.N.T.R.O."
+      },
+      "desenvolvimento-pessoal": {
+        "name": "Desenvolvimento pessoal",
+        "description": "Autoconhecimento, propósito e hábitos para crescer como pessoa e profissional.",
+        "ctaTitle": "Quer investir no desenvolvimento das suas pessoas?",
+        "ctaLabel": "Conhecer as Formações"
+      }
+    },
+    "featured": "Artigo mais recente",
+    "readingTime": "{minutes} min de leitura",
+    "loadMore": "Carregar mais artigos",
+    "showing": "A mostrar {shown} de {total} artigos",
+    "empty": {
+      "title": "Os primeiros artigos estão a ser preparados.",
+      "text": "Em breve partilharemos aqui reflexões e práticas sobre liderança, equipas e bem-estar. Entretanto, conheça as nossas soluções.",
+      "cta": "Conhecer as soluções"
+    },
+    "emptyCategory": "Ainda não há artigos nesta categoria.",
+    "article": {
+      "by": "Por {name}",
+      "published": "Publicado a",
+      "updated": "Atualizado a {date}",
+      "share": "Partilhar",
+      "shareOn": "Partilhar no {network}",
+      "copyLink": "Copiar ligação",
+      "copied": "Ligação copiada",
+      "copyFailed": "Não foi possível copiar. Selecione o endereço na barra do browser.",
+      "aboutAuthor": "Sobre o autor",
+      "related": "Continue a ler",
+      "ctaText": "Conte-nos o momento da sua organização. Desenhamos uma proposta à medida.",
+      "ctaSecondary": "Solicitar proposta"
     }
   }
 }

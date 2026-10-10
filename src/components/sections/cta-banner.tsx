@@ -10,6 +10,9 @@ interface CtaBannerProps {
   secondary?: { label: string; href: string };
 }
 
+// Rótulos longos (ex.: nomes de serviços) quebram linha em ecrãs estreitos em vez de serem cortados.
+const wrap = "py-3 text-center whitespace-normal";
+
 /** CTA final de página, sobre azul-marinho, com o motivo da rede em segundo plano. */
 export function CtaBanner({ id, title, text, primary, secondary }: CtaBannerProps) {
   return (
@@ -26,12 +29,17 @@ export function CtaBanner({ id, title, text, primary, secondary }: CtaBannerProp
             </h2>
             <p className="text-lead text-on-inverse-muted">{text}</p>
             <div className="mt-3 flex flex-col gap-3 md:flex-row">
-              <ButtonLink href={primary.href} variant="inverse" size="lg">
+              <ButtonLink href={primary.href} variant="inverse" size="lg" className={wrap}>
                 {primary.label}
                 <ArrowRight aria-hidden="true" className={arrowClassName} />
               </ButtonLink>
               {secondary && (
-                <ButtonLink href={secondary.href} variant="inverse-outline" size="lg">
+                <ButtonLink
+                  href={secondary.href}
+                  variant="inverse-outline"
+                  size="lg"
+                  className={wrap}
+                >
                   {secondary.label}
                 </ButtonLink>
               )}

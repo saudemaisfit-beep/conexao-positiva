@@ -1,6 +1,7 @@
 import "server-only";
 import { getCaseStudies, toCaseSummary } from "./cases";
 import { getEvents, isPastEvent, toSummary } from "./events";
+import { getArticleSummaries } from "./insights";
 import type { HomeContent } from "./types";
 
 /**
@@ -12,12 +13,13 @@ import type { HomeContent } from "./types";
 export async function getHomeContent(now = new Date()): Promise<HomeContent> {
   const events = (await getEvents(now)).map(toSummary);
   const caseStudies = (await getCaseStudies()).slice(0, 3).map(toCaseSummary);
+  const articles = (await getArticleSummaries()).slice(0, 3);
   if (process.env.CONTENT_PREVIEW === "1") {
     const { exampleHomeContent } = await import("./fixtures");
-    return { ...exampleHomeContent(now), events, caseStudies };
+    return { ...exampleHomeContent(now), events, caseStudies, articles };
   }
 
-  return { stats: [], clients: [], testimonials: [], events, caseStudies, articles: [] };
+  return { stats: [], clients: [], testimonials: [], events, caseStudies, articles };
 }
 
 /** Eventos futuros e com inscrições ainda relevantes, por ordem de data. */

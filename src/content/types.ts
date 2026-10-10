@@ -103,14 +103,43 @@ export interface CaseStudy extends CaseStudySummary {
   testimonial?: Testimonial;
 }
 
+/** Categorias editoriais de /insights (ver src/content/insight-categories.ts). */
+export type ArticleCategory =
+  "lideranca" | "equipas" | "bem-estar" | "metodo-centro" | "desenvolvimento-pessoal";
+
 export interface ArticleSummary {
   slug: string;
   title: string;
   excerpt: string;
-  category: string;
+  category: ArticleCategory;
   publishedAt: string; // ISO 8601
   readingMinutes: number;
   image?: ContentImage;
+}
+
+/**
+ * Blocos do corpo do artigo. Na Fase 13 correspondem ao Portable Text do Sanity
+ * (blocos de texto, listas e tipos personalizados "quote", "image" e "callout").
+ */
+export type ArticleBlock =
+  | { type: "paragraph"; text: string }
+  | { type: "heading"; level: 2 | 3; text: string }
+  | { type: "list"; ordered: boolean; items: string[] }
+  | { type: "quote"; text: string; cite?: string }
+  | { type: "image"; image: ContentImage; caption?: string }
+  | { type: "callout"; title?: string; text: string };
+
+export interface ArticleAuthor {
+  name: string;
+  role: string;
+  bio?: string;
+  photo?: ContentImage;
+}
+
+export interface Article extends Omit<ArticleSummary, "readingMinutes"> {
+  updatedAt?: string;
+  author: ArticleAuthor;
+  body: ArticleBlock[];
 }
 
 export interface Milestone {
