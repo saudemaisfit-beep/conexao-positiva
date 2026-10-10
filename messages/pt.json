@@ -516,5 +516,208 @@
       "ctaText": "Conte-nos o momento da sua organização. Desenhamos uma proposta à medida.",
       "ctaSecondary": "Solicitar proposta"
     }
+  },
+  "Forms": {
+    "optional": "(opcional)",
+    "sending": "A enviar…",
+    "summary": "{count, plural, one {Há 1 campo a corrigir} other {Há # campos a corrigir}}",
+    "consent": "Li e aceito a <link>Política de Privacidade</link>. Os meus dados são usados apenas para responder a este pedido.",
+    "phoneHint": "Com indicativo do país (+244 para Angola).",
+    "errors": {
+      "required": "Preencha este campo.",
+      "email": "Escreva um e-mail válido, por exemplo nome@empresa.ao.",
+      "phone": "Escreva um número de telefone válido, com indicativo.",
+      "tooShort": "Escreva um pouco mais (pelo menos 10 caracteres).",
+      "tooLong": "O texto é demasiado longo.",
+      "consent": "Para enviar, aceite a Política de Privacidade.",
+      "date": "Indique a data prevista ou marque \"Ainda por definir\".",
+      "invalid": "Verifique este campo."
+    },
+    "server": {
+      "rate-limit": {
+        "title": "Recebemos vários pedidos seguidos.",
+        "text": "Por segurança, aguarde alguns minutos e tente novamente."
+      },
+      "closed": {
+        "title": "As inscrições para este evento já não estão abertas.",
+        "text": "Veja os próximos eventos na agenda."
+      },
+      "unavailable": {
+        "title": "Não foi possível enviar o formulário neste momento.",
+        "text": "Os seus dados continuam no formulário. Tente novamente mais tarde ou fale connosco diretamente."
+      },
+      "server": {
+        "title": "Ocorreu um erro ao enviar.",
+        "text": "Os seus dados continuam no formulário. Tente novamente dentro de instantes."
+      }
+    },
+    "alternatives": "Também pode falar connosco por:",
+    "fields": {
+      "name": "Nome",
+      "firstName": "Nome",
+      "lastName": "Sobrenome",
+      "company": "Empresa",
+      "role": "Cargo",
+      "email": "E-mail",
+      "phone": "Telefone",
+      "subject": "Assunto",
+      "message": "Mensagem",
+      "service": "Serviço pretendido",
+      "participants": "Número aproximado de participantes",
+      "location": "Local",
+      "locationHint": "Cidade e, se já souber, o espaço (nas vossas instalações, hotel, ao ar livre…).",
+      "date": "Data prevista",
+      "dateUndecided": "Ainda por definir",
+      "objective": "Objetivo",
+      "objectiveHint": "O que pretende alcançar com a sua equipa? Pode ser uma frase curta.",
+      "budget": "Orçamento estimado",
+      "details": "Informações adicionais",
+      "notes": "Observações",
+      "notesHint": "Por exemplo, necessidades de acessibilidade ou restrições alimentares.",
+      "consent": "Política de Privacidade",
+      "select": "Escolha uma opção"
+    },
+    "options": {
+      "service": {
+        "palestras": "Palestras",
+        "formacoes": "Formações",
+        "workshops": "Workshops",
+        "team-building": "Team Building",
+        "desenvolvimento-de-lideranca": "Desenvolvimento de Liderança",
+        "desenvolvimento-de-equipas": "Desenvolvimento de Equipas",
+        "bem-estar-corporativo": "Bem-estar Corporativo",
+        "eventos-corporativos": "Eventos Corporativos",
+        "metodo-centro": "Método C.E.N.T.R.O.",
+        "nao-sei": "Ainda não sei: preciso de ajuda a escolher"
+      },
+      "participants": {
+        "ate-20": "Até 20",
+        "21-50": "21 a 50",
+        "51-100": "51 a 100",
+        "101-250": "101 a 250",
+        "mais-250": "Mais de 250"
+      },
+      "budget": {
+        "ate-500k": "Até 500 000 Kz",
+        "500k-1m": "500 000 a 1 000 000 Kz",
+        "1m-3m": "1 000 000 a 3 000 000 Kz",
+        "mais-3m": "Mais de 3 000 000 Kz",
+        "prefiro-nao-indicar": "Prefiro não indicar"
+      },
+      "subject": {
+        "informacao": "Pedido de informação",
+        "parcerias": "Parcerias",
+        "imprensa": "Imprensa",
+        "outro": "Outro"
+      }
+    },
+    "seeEvents": "Ver próximos eventos"
+  },
+  "Contact": {
+    "metaTitle": "Contactos",
+    "metaDescription": "Fale com a Conexão Positiva: envie uma mensagem ou peça uma proposta para a sua organização.",
+    "breadcrumb": "Contactos",
+    "hero": {
+      "eyebrow": "Contactos",
+      "title": "Vamos conversar",
+      "lead": "Tem uma pergunta, uma ideia de parceria ou quer saber mais sobre o nosso trabalho? Escreva-nos."
+    },
+    "channels": "Canais diretos",
+    "phone": "Telefone",
+    "email": "E-mail",
+    "whatsapp": "WhatsApp",
+    "whatsappAction": "Conversar no WhatsApp",
+    "location": "Localização",
+    "social": "Redes sociais",
+    "callAction": "Ligar",
+    "emailAction": "Enviar e-mail",
+    "noChannels": "Os contactos diretos vão ser publicados em breve. Entretanto, use o formulário: respondemos por e-mail.",
+    "formTitle": "Envie uma mensagem",
+    "submit": "Enviar mensagem",
+    "proposal": {
+      "title": "Procura uma proposta para a sua organização?",
+      "text": "O formulário de proposta recolhe a informação de que precisamos para preparar uma proposta à medida.",
+      "cta": "Solicitar proposta"
+    }
+  },
+  "Proposal": {
+    "metaTitle": "Solicitar proposta",
+    "metaDescription": "Peça uma proposta à medida para palestras, formações, workshops, team building e programas de desenvolvimento da Conexão Positiva.",
+    "breadcrumb": "Solicitar proposta",
+    "title": "Solicitar proposta",
+    "lead": "Conte-nos o que pretende. Preparamos uma proposta à medida da sua equipa.",
+    "groups": {
+      "you": "Os seus dados",
+      "project": "O seu projeto",
+      "extra": "Detalhes adicionais"
+    },
+    "submit": "Enviar pedido de proposta",
+    "next": {
+      "title": "O que acontece a seguir",
+      "steps": [
+        {
+          "title": "Analisamos o seu pedido",
+          "text": "Lemos com atenção o contexto e os objetivos que nos enviou."
+        },
+        {
+          "title": "Falamos consigo",
+          "text": "Contactamos para conhecer melhor a equipa e o momento da organização."
+        },
+        {
+          "title": "Enviamos a proposta",
+          "text": "Preparamos uma proposta à medida, com formato, conteúdos e investimento."
+        }
+      ]
+    },
+    "privacy": "Os seus dados são tratados com confidencialidade e usados apenas para responder a este pedido."
+  },
+  "Registration": {
+    "metaTitle": "Inscrição: {event}",
+    "breadcrumb": "Inscrição",
+    "title": "Inscrição",
+    "waitlistTitle": "Lista de espera",
+    "lead": "Preencha os seus dados para reservar o seu lugar.",
+    "waitlistLead": "As vagas estão esgotadas. Deixe os seus dados e avisamos se abrir um lugar.",
+    "summary": "Resumo do evento",
+    "submit": "Confirmar inscrição",
+    "waitlistSubmit": "Entrar na lista de espera",
+    "unavailable": {
+      "title": "As inscrições para este evento não estão abertas.",
+      "past": "Este evento já decorreu.",
+      "closed": "As inscrições foram encerradas.",
+      "cta": "Ver próximos eventos"
+    },
+    "backToEvent": "Voltar ao evento"
+  },
+  "Confirmation": {
+    "proposal": {
+      "metaTitle": "Pedido de proposta recebido",
+      "title": "Obrigado pelo seu contacto.",
+      "text": "A equipa Conexão Positiva irá analisar as informações e entrar em contacto consigo.",
+      "nextTitle": "Próximos passos"
+    },
+    "message": {
+      "metaTitle": "Mensagem enviada",
+      "title": "Mensagem enviada. Obrigado!",
+      "text": "Recebemos a sua mensagem e respondemos por e-mail assim que possível."
+    },
+    "registration": {
+      "metaTitle": "Inscrição confirmada",
+      "title": "Inscrição recebida!",
+      "waitlistTitle": "Está na lista de espera.",
+      "text": "Enviámos um e-mail com os detalhes. Se não o encontrar, verifique a pasta de spam.",
+      "waitlistText": "Se abrir uma vaga, avisamos por e-mail.",
+      "calendar": "Adicionar ao calendário",
+      "share": "Ver página do evento",
+      "unknown": "Recebemos a sua inscrição. Enviámos os detalhes por e-mail."
+    },
+    "explore": "Enquanto isso, conheça",
+    "links": {
+      "experiences": "As nossas experiências",
+      "metodo": "O Método C.E.N.T.R.O.",
+      "insights": "Insights",
+      "events": "Agenda de eventos",
+      "home": "Voltar à Home"
+    }
   }
 }

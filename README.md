@@ -19,8 +19,9 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 | 9     | Eventos                                       | ✅ Concluída |
 | 10    | Experiências                                  | ✅ Concluída |
 | 11    | Insights                                      | ✅ Concluída |
-| 12    | Contactos e Proposta                          | ⏳ Próxima   |
-| 13–20 | CMS → Documentação final                      | Por iniciar  |
+| 12    | Contactos e Proposta                          | ✅ Concluída |
+| 13    | CMS                                           | ⏳ Próxima   |
+| 14–20 | Base de dados → Documentação final            | Por iniciar  |
 
 ## Documentação de planeamento (Fase 1)
 
@@ -73,6 +74,10 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 ## Insights (Fase 11)
 
 [Insights](docs/fase-11/01-insights.md): listagem com categorias e "Carregar mais", página de artigo, partilha, dados estruturados e modelo de conteúdo.
+
+## Contactos e Proposta (Fase 12)
+
+[Contactos e Proposta](docs/fase-12/01-contactos-e-proposta.md): formulários de contacto, proposta e inscrição, validação, anti-spam e páginas de confirmação.
 
 ## Desenvolvimento
 
