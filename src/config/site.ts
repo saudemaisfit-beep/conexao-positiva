@@ -1,6 +1,6 @@
 /**
- * Configuração institucional provisória.
- * A partir da fase de CMS, estes dados passam a vir de `siteSettings` no Sanity.
+ * Configuração institucional por defeito. Os contactos editáveis vêm de "Definições do site"
+ * no Sanity (src/content/site.ts); estes valores são o recurso quando o CMS não os tem.
  * Valores `null` significam "ainda não fornecido": os componentes não os mostram.
  */
 export type SocialNetwork = "Instagram" | "LinkedIn" | "Facebook" | "YouTube";
@@ -20,6 +20,9 @@ export interface SiteConfig {
   };
   social: { network: SocialNetwork; url: string }[];
 }
+
+/** Contactos usados pelos componentes (header, rodapé, WhatsApp, formulários). */
+export type SiteContacts = Pick<SiteConfig, "contact" | "whatsapp" | "social">;
 
 export const siteConfig: SiteConfig = {
   name: "Conexão Positiva",

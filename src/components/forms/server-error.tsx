@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
-import { siteConfig, whatsappHref } from "@/config/site";
+import { whatsappHref } from "@/config/site";
+import { useSiteContacts } from "@/components/common/site-contacts";
 import { Link } from "@/i18n/navigation";
 import type { FormResult } from "@/lib/forms/schemas";
 import { FormAlert } from "./form-feedback";
@@ -9,9 +10,10 @@ type ServerError = Exclude<FormResult, { ok: true }>["error"];
 /** Erro do servidor com alternativas de contacto (só as que existem). */
 export function ServerError({ error }: { error: ServerError }) {
   const t = useTranslations("Forms");
+  const contacts = useSiteContacts();
   if (error === "validation") return null;
-  const { phone, email } = siteConfig.contact;
-  const whatsapp = siteConfig.whatsapp.number;
+  const { phone, email } = contacts.contact;
+  const whatsapp = contacts.whatsapp.number;
   const showAlternatives =
     (error === "unavailable" || error === "server") && (phone || email || whatsapp);
 
@@ -32,7 +34,7 @@ export function ServerError({ error }: { error: ServerError }) {
             {whatsapp && (
               <li>
                 <a
-                  href={whatsappHref(whatsapp, siteConfig.whatsapp.message)}
+                  href={whatsappHref(whatsapp, contacts.whatsapp.message)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary underline underline-offset-2"

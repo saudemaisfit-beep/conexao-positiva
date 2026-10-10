@@ -5,11 +5,13 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
 import { ConsentProvider } from "@/components/consent/consent-provider";
 import { CookieBanner } from "@/components/consent/cookie-banner";
+import { SiteContactsProvider } from "@/components/common/site-contacts";
 import { SkipLink } from "@/components/common/skip-link";
 import { WhatsAppButton } from "@/components/common/whatsapp-button";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { siteConfig } from "@/config/site";
+import { getSiteContacts } from "@/content/site";
 import { routing } from "@/i18n/routing";
 import { inter, manrope } from "../fonts";
 import "../globals.css";
@@ -45,6 +47,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
+  const contacts = await getSiteContacts();
 
   return (
     <html
@@ -54,14 +57,16 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
       <body className="flex min-h-dvh flex-col">
         <NextIntlClientProvider>
           <ConsentProvider>
-            <SkipLink />
-            <Header />
-            <main id="conteudo" tabIndex={-1} className="flex-1 outline-none">
-              {children}
-            </main>
-            <Footer />
-            <WhatsAppButton />
-            <CookieBanner />
+            <SiteContactsProvider value={contacts}>
+              <SkipLink />
+              <Header />
+              <main id="conteudo" tabIndex={-1} className="flex-1 outline-none">
+                {children}
+              </main>
+              <Footer />
+              <WhatsAppButton />
+              <CookieBanner />
+            </SiteContactsProvider>
           </ConsentProvider>
         </NextIntlClientProvider>
       </body>

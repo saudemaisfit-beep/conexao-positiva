@@ -1,5 +1,15 @@
 import "server-only";
+import { present, toPerson, type RawPerson } from "@/sanity/mappers";
+import { sanityFetch } from "@/sanity/fetch";
+import { aboutQuery, tags } from "@/sanity/queries";
+import { contentSource } from "./source";
 import type { AboutContent } from "./types";
+
+interface RawAbout {
+  history?: { year?: string | null; title?: string | null; text?: string | null }[] | null;
+  founder?: RawPerson | null;
+  team?: (RawPerson | null)[] | null;
+}
 
 /**
  * Textos institucionais da página Sobre.
@@ -81,7 +91,20 @@ export const aboutCopy = {
  * Vazio até ser fornecido; com CONTENT_PREVIEW=1 devolve exemplos [Exemplo].
  */
 export async function getAboutContent(): Promise<AboutContent> {
-  if (process.env.CONTENT_PREVIEW === "1") {
+  const source = contentSource();
+  if (source === "sanity") {
+    const raw = await sanityFetch<RawAbout | null>(aboutQuery, [...tags.about]);
+    return {
+      history: (raw?.history ?? []).flatMap((item) =>
+        item.year && item.title && item.text
+          ? [{ year: item.year, title: item.title, text: item.text }]
+          : [],
+      ),
+      founder: toPerson(raw?.founder),
+      team: (raw?.team ?? []).map(toPerson).filter(present),
+    };
+  }
+  if (source === "preview") {
     const { exampleAboutContent } = await import("./fixtures");
     return exampleAboutContent();
   }

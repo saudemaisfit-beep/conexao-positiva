@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 import { legalNav, mainNav, proposalHref, services } from "@/config/navigation";
 import { siteConfig, whatsappHref } from "@/config/site";
+import { getSiteContacts } from "@/content/site";
 import { Link } from "@/i18n/navigation";
 import { ButtonLink, arrowClassName } from "@/components/ui/button";
 import { ManageCookiesButton } from "@/components/consent/manage-cookies-button";
@@ -17,8 +18,9 @@ export async function Footer() {
   const t = await getTranslations("Footer");
   const tn = await getTranslations("Navigation");
   const tc = await getTranslations("Common");
-  const { phone, email, location } = siteConfig.contact;
-  const whatsapp = siteConfig.whatsapp.number;
+  const contacts = await getSiteContacts();
+  const { phone, email, location } = contacts.contact;
+  const whatsapp = contacts.whatsapp.number;
 
   return (
     <footer
@@ -36,9 +38,9 @@ export async function Footer() {
               {siteConfig.name}
             </Link>
             <p className="max-w-xs text-small text-on-inverse-muted">{t("tagline")}</p>
-            {siteConfig.social.length > 0 && (
+            {contacts.social.length > 0 && (
               <ul aria-label={t("social")} className="flex flex-wrap gap-x-5 gap-y-2">
-                {siteConfig.social.map((item) => (
+                {contacts.social.map((item) => (
                   <li key={item.network}>
                     <a
                       href={item.url}
@@ -98,7 +100,7 @@ export async function Footer() {
                 {whatsapp && (
                   <ContactItem label={t("whatsapp")}>
                     <a
-                      href={whatsappHref(whatsapp, siteConfig.whatsapp.message)}
+                      href={whatsappHref(whatsapp, contacts.whatsapp.message)}
                       target="_blank"
                       rel="noopener noreferrer"
                       data-track="whatsapp"

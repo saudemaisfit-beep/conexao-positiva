@@ -1,12 +1,21 @@
 import "server-only";
+import { present, toEvent, type RawEvent } from "@/sanity/mappers";
+import { sanityFetch } from "@/sanity/fetch";
+import { eventsQuery, tags } from "@/sanity/queries";
+import { contentSource } from "./source";
 import type { EventDetail, EventSummary } from "./types";
 
 /**
- * Eventos. Até à ligação ao CMS não há eventos reais publicados: a lista está vazia e a
- * agenda mostra o estado vazio. Com CONTENT_PREVIEW=1 devolve exemplos [Exemplo].
+ * Eventos publicados no Sanity. Sem CMS configurado a lista está vazia e a agenda mostra o
+ * estado vazio; com CONTENT_PREVIEW=1 (sem Sanity) devolve exemplos [Exemplo].
  */
 export async function getEvents(now = new Date()): Promise<EventDetail[]> {
-  if (process.env.CONTENT_PREVIEW === "1") {
+  const source = contentSource();
+  if (source === "sanity") {
+    const raw = await sanityFetch<RawEvent[]>(eventsQuery, [...tags.events]);
+    return (raw ?? []).map(toEvent).filter(present);
+  }
+  if (source === "preview") {
     const { exampleEvents } = await import("./fixtures");
     return exampleEvents(now);
   }

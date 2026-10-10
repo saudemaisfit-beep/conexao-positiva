@@ -3,9 +3,10 @@
 import { MessageCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
-import { siteConfig, whatsappHref } from "@/config/site";
+import { whatsappHref } from "@/config/site";
 import { usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
+import { useSiteContacts } from "./site-contacts";
 
 /** Páginas de formulário: no mobile o botão fica escondido para não cobrir campos nem o envio. */
 const FORM_PAGES = [/^\/solicitar-proposta$/, /^\/contactos$/, /^\/eventos\/[^/]+\/inscricao$/];
@@ -16,7 +17,8 @@ export function WhatsAppButton() {
   const t = useTranslations("WhatsApp");
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
-  const number = siteConfig.whatsapp.number;
+  const { whatsapp } = useSiteContacts();
+  const number = whatsapp.number;
 
   useEffect(() => {
     const show = () => setVisible(true);
@@ -34,7 +36,7 @@ export function WhatsAppButton() {
 
   return (
     <a
-      href={whatsappHref(number, siteConfig.whatsapp.message)}
+      href={whatsappHref(number, whatsapp.message)}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t("label")}

@@ -5,10 +5,11 @@ import { ChevronDown, Mail, Menu, MessageCircle, Phone, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useId, useState } from "react";
 import { mainNav, proposalHref, services } from "@/config/navigation";
-import { siteConfig, whatsappHref } from "@/config/site";
+import { whatsappHref } from "@/config/site";
 import { Link, usePathname } from "@/i18n/navigation";
 import { buttonVariants } from "@/components/ui/button";
 import { Logo } from "@/components/common/logo";
+import { useSiteContacts } from "@/components/common/site-contacts";
 import { cn } from "@/lib/cn";
 import { isActivePath } from "./nav-link";
 
@@ -22,8 +23,9 @@ export function MobileMenu() {
   const [open, setOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const solutionsId = useId();
-  const { phone, email } = siteConfig.contact;
-  const whatsapp = siteConfig.whatsapp.number;
+  const contacts = useSiteContacts();
+  const { phone, email } = contacts.contact;
+  const whatsapp = contacts.whatsapp.number;
 
   // Fecha ao navegar (ajuste durante a renderização) e quando o ecrã passa a desktop.
   const [lastPathname, setLastPathname] = useState(pathname);
@@ -150,7 +152,7 @@ export function MobileMenu() {
                     )}
                     {whatsapp && (
                       <a
-                        href={whatsappHref(whatsapp, siteConfig.whatsapp.message)}
+                        href={whatsappHref(whatsapp, contacts.whatsapp.message)}
                         target="_blank"
                         rel="noopener noreferrer"
                         data-track="whatsapp"

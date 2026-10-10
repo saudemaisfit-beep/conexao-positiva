@@ -1,4 +1,8 @@
 import "server-only";
+import { present, toCaseStudy, type RawCaseStudy } from "@/sanity/mappers";
+import { sanityFetch } from "@/sanity/fetch";
+import { caseStudiesQuery, tags } from "@/sanity/queries";
+import { contentSource } from "./source";
 import type { CaseStudy, CaseStudySummary } from "./types";
 
 /**
@@ -7,7 +11,12 @@ import type { CaseStudy, CaseStudySummary } from "./types";
  * página mostra o estado vazio. Com CONTENT_PREVIEW=1 devolve exemplos [Exemplo].
  */
 export async function getCaseStudies(): Promise<CaseStudy[]> {
-  if (process.env.CONTENT_PREVIEW === "1") {
+  const source = contentSource();
+  if (source === "sanity") {
+    const raw = await sanityFetch<RawCaseStudy[]>(caseStudiesQuery, [...tags.cases]);
+    return (raw ?? []).map(toCaseStudy).filter(present);
+  }
+  if (source === "preview") {
     const { exampleCaseStudies } = await import("./fixtures");
     return exampleCaseStudies();
   }

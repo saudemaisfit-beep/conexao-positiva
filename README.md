@@ -20,8 +20,9 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 | 10    | Experiências                                  | ✅ Concluída |
 | 11    | Insights                                      | ✅ Concluída |
 | 12    | Contactos e Proposta                          | ✅ Concluída |
-| 13    | CMS                                           | ⏳ Próxima   |
-| 14–20 | Base de dados → Documentação final            | Por iniciar  |
+| 13    | CMS                                           | ✅ Concluída |
+| 14    | Base de dados e formulários                   | ⏳ Próxima   |
+| 15–20 | SEO → Documentação final                      | Por iniciar  |
 
 ## Documentação de planeamento (Fase 1)
 
@@ -79,6 +80,10 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 
 [Contactos e Proposta](docs/fase-12/01-contactos-e-proposta.md): formulários de contacto, proposta e inscrição, validação, anti-spam e páginas de confirmação.
 
+## CMS (Fase 13)
+
+[CMS](docs/fase-13/01-cms.md): o que se edita no Studio (`/studio`), como o site lê o conteúdo e **como ligar o projeto Sanity**.
+
 ## Desenvolvimento
 
 Requisitos: Node.js 22 (mínimo 20.9).
@@ -114,7 +119,8 @@ src/
     cards/           ServiceCard, EventCard, CaseStudyCard, ArticleCard…
     consent/         consentimento de cookies
   config/            navegação e dados institucionais provisórios
-  content/           modelos e leitura de conteúdo (Sanity a partir da Fase 13)
+  content/           modelos e leitura de conteúdo (Sanity, exemplos ou vazio)
+  sanity/            Studio: esquemas, consultas GROQ e conversões
   i18n/              next-intl (routing, request, navigation)
   lib/               utilitários (cn, consent)
   styles/            tokens do Design System

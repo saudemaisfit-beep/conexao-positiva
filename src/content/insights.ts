@@ -1,4 +1,8 @@
 import "server-only";
+import { present, toArticle, type RawArticle } from "@/sanity/mappers";
+import { sanityFetch } from "@/sanity/fetch";
+import { articlesQuery, tags } from "@/sanity/queries";
+import { contentSource } from "./source";
 import type { Article, ArticleBlock, ArticleCategory, ArticleSummary } from "./types";
 
 /**
@@ -8,7 +12,11 @@ import type { Article, ArticleBlock, ArticleCategory, ArticleSummary } from "./t
  */
 export async function getArticles(): Promise<Article[]> {
   let articles: Article[] = [];
-  if (process.env.CONTENT_PREVIEW === "1") {
+  const source = contentSource();
+  if (source === "sanity") {
+    const raw = await sanityFetch<RawArticle[]>(articlesQuery, [...tags.articles]);
+    articles = (raw ?? []).map(toArticle).filter(present);
+  } else if (source === "preview") {
     const { exampleArticles } = await import("./fixtures");
     articles = exampleArticles(new Date());
   }

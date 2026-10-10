@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
 import { proposalHref } from "@/config/navigation";
-import { siteConfig, whatsappHref } from "@/config/site";
+import { whatsappHref } from "@/config/site";
+import { getSiteContacts } from "@/content/site";
 import { ContactForm } from "@/components/forms/contact-form";
 import { Section } from "@/components/layout/section";
 import { PageHero } from "@/components/sections/page-hero";
@@ -72,9 +73,10 @@ export default async function ContactPage({ params }: PageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("Contact");
-  const { phone, email, location } = siteConfig.contact;
-  const whatsapp = siteConfig.whatsapp.number;
-  const hasChannels = Boolean(phone || email || location || whatsapp || siteConfig.social.length);
+  const contacts = await getSiteContacts();
+  const { phone, email, location } = contacts.contact;
+  const whatsapp = contacts.whatsapp.number;
+  const hasChannels = Boolean(phone || email || location || whatsapp || contacts.social.length);
 
   return (
     <>
@@ -95,7 +97,7 @@ export default async function ContactPage({ params }: PageProps) {
                     icon={<MessageCircle aria-hidden="true" className="size-5" />}
                     label={t("whatsapp")}
                     value={t("whatsappAction")}
-                    href={whatsappHref(whatsapp, siteConfig.whatsapp.message)}
+                    href={whatsappHref(whatsapp, contacts.whatsapp.message)}
                     external
                   />
                 )}
@@ -122,7 +124,7 @@ export default async function ContactPage({ params }: PageProps) {
                     value={location}
                   />
                 )}
-                {siteConfig.social.map((item) => (
+                {contacts.social.map((item) => (
                   <Channel
                     key={item.network}
                     icon={<ArrowRight aria-hidden="true" className="size-5" />}
