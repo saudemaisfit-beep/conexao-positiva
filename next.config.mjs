@@ -1,5 +1,4 @@
 import { fileURLToPath } from "node:url";
-import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
@@ -14,7 +13,8 @@ const isDev = process.env.NODE_ENV === "development";
  * - Terceiros só os necessários: Turnstile (Cloudflare), Google Analytics (só após
  *   consentimento), imagens do Sanity e vídeos do YouTube/Vimeo (só após clique).
  */
-const csp = (directives: Record<string, string[]>) =>
+/** @param {Record<string, string[]>} directives */
+const csp = (directives) =>
   Object.entries(directives)
     .map(([name, values]) => [name, ...values].join(" ").trim())
     .join("; ");
@@ -88,7 +88,8 @@ const securityHeaders = [
 // Raiz do projeto fixa (evita que o Next.js procure um package-lock.json em pastas acima).
 const projectRoot = fileURLToPath(new URL(".", import.meta.url));
 
-const nextConfig: NextConfig = {
+/** @type {import("next").NextConfig} */
+const nextConfig = {
   turbopack: { root: projectRoot },
   outputFileTracingRoot: projectRoot,
   reactStrictMode: true,

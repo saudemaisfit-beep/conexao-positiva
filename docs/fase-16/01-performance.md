@@ -28,7 +28,7 @@ Todas as páginas medidas: **performance 92–99, acessibilidade 100, boas prát
 
 ## Content Security Policy
 
-Definida em `next.config.ts`, com a lista exata do que o site carrega:
+Definida em `next.config.mjs`, com a lista exata do que o site carrega:
 
 | Recurso        | Origens permitidas                                                                                                        |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------- |

@@ -38,7 +38,7 @@ Versões fixadas (sem `^`) para builds reprodutíveis.
 ## Decisões
 
 - **Fontes locais** (`next/font/local` + Fontsource) em vez de `next/font/google`: build sem dependência de rede (o download da Google falhava no ambiente de build por proxy), um ficheiro variável por família (Inter 48 KB, Manrope 25 KB) e apenas o subconjunto `latin`, suficiente para português.
-- **Raiz do projeto fixada** em `next.config.ts` (`turbopack.root`): o projeto está numa subpasta de outro repositório com o seu próprio `package-lock.json`.
+- **Raiz do projeto fixada** em `next.config.mjs` (`turbopack.root`): o projeto está numa subpasta de outro repositório com o seu próprio `package-lock.json`.
 - **1024–1279 px**: o botão do header mostra "Proposta" e os links ficam mais compactos; "Solicitar proposta" completo a partir de 1280 px. Medido: sem scroll horizontal em nenhuma largura.
 - **Rodapé no mobile**: Navegação e Soluções lado a lado em duas colunas, em vez de acordeões (menos toques, tudo visível).
 - **WhatsApp**: usa a cor primária da marca (sem verde WhatsApp) para não acrescentar uma cor ao sistema; o rodapé tem espaço inferior para o botão nunca tapar os links legais.
