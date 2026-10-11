@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
 import { ConsentProvider } from "@/components/consent/consent-provider";
 import { CookieBanner } from "@/components/consent/cookie-banner";
+import { OrganizationJsonLd } from "@/components/common/organization-json-ld";
 import { SiteContactsProvider } from "@/components/common/site-contacts";
 import { SkipLink } from "@/components/common/skip-link";
 import { WhatsAppButton } from "@/components/common/whatsapp-button";
@@ -66,6 +67,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
               <Footer />
               <WhatsAppButton />
               <CookieBanner />
+              <OrganizationJsonLd contacts={contacts} />
             </SiteContactsProvider>
           </ConsentProvider>
         </NextIntlClientProvider>

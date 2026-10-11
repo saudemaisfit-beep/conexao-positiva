@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { noIndex } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getEvent, getEvents, registrationState } from "@/content/events";
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const event = await getEvent(slug);
   if (!event) return {};
   const t = await getTranslations({ locale, namespace: "Registration" });
-  return { title: t("metaTitle", { event: event.title }), robots: { index: false } };
+  return { title: t("metaTitle", { event: event.title }), robots: noIndex };
 }
 
 export default async function RegistrationPage({ params }: PageProps) {

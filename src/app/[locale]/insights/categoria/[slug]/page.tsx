@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { articleCategories, isArticleCategory } from "@/content/insight-categories";
@@ -20,11 +21,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale, slug } = await params;
   if (!isArticleCategory(slug)) return {};
   const t = await getTranslations({ locale, namespace: "Insights" });
-  return {
+  return pageMetadata({
     title: `${t(`categories.${slug}.name`)} · ${t("metaTitle")}`,
     description: t(`categories.${slug}.description`),
-    alternates: { canonical: `/insights/categoria/${slug}` },
-  };
+    path: `/insights/categoria/${slug}`,
+  });
 }
 
 export default async function InsightsCategoryPage({ params }: PageProps) {

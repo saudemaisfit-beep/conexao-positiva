@@ -1,5 +1,6 @@
 import { CalendarDays, Clock, MapPin, Ticket, Users } from "lucide-react";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -32,7 +33,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const event = await getEvent(slug);
   if (!event) return {};
-  return { title: event.title, description: event.summary };
+  return pageMetadata({
+    title: event.title,
+    description: event.summary,
+    path: `/eventos/${event.slug}`,
+  });
 }
 
 function RegistrationAction({

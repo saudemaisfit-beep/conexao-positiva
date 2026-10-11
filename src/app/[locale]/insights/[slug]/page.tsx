@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -32,17 +33,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const article = await getArticle(slug);
   if (!article) return {};
-  return {
+  return pageMetadata({
     title: article.title,
     description: article.excerpt,
-    alternates: { canonical: `/insights/${article.slug}` },
-    openGraph: {
-      type: "article",
+    path: `/insights/${article.slug}`,
+    article: {
       publishedTime: article.publishedAt,
       modifiedTime: article.updatedAt,
       authors: [article.author.name],
     },
-  };
+  });
 }
 
 export default async function ArticlePage({ params }: PageProps) {

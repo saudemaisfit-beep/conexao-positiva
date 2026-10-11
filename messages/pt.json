@@ -728,5 +728,10 @@
       "events": "Agenda de eventos",
       "home": "Voltar à Home"
     }
+  },
+  "Legal": {
+    "updated": "Última atualização: {date}",
+    "contents": "Nesta página",
+    "draft": "Texto-base em validação jurídica. Os campos entre parênteses retos serão preenchidos antes da publicação."
   }
 }

@@ -22,8 +22,9 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 | 12    | Contactos e Proposta                          | ✅ Concluída |
 | 13    | CMS                                           | ✅ Concluída |
 | 14    | Base de dados e formulários                   | ✅ Concluída |
-| 15    | SEO                                           | ⏳ Próxima   |
-| 16–20 | Performance → Documentação final              | Por iniciar  |
+| 15    | SEO                                           | ✅ Concluída |
+| 16    | Performance                                   | ⏳ Próxima   |
+| 17–20 | Acessibilidade → Documentação final           | Por iniciar  |
 
 ## Documentação de planeamento (Fase 1)
 
@@ -88,6 +89,10 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 ## Base de dados e formulários (Fase 14)
 
 [Base de dados e formulários](docs/fase-14/01-base-de-dados.md): Supabase (migração em `supabase/migrations/`), vagas reais, e-mails, anti-spam e **como configurar os serviços**.
+
+## SEO (Fase 15)
+
+[SEO](docs/fase-15/01-seo.md): metadados, imagens de partilha, sitemap, robots, dados estruturados e **páginas legais para validação jurídica**.
 
 ## Desenvolvimento
 

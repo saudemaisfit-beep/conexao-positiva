@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { proposalHref } from "@/config/navigation";
 import { getHomeContent, upcomingEvents } from "@/content/home";
@@ -24,7 +25,12 @@ export const revalidate = 3600;
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Home" });
-  return { title: { absolute: t("metaTitle") }, description: t("metaDescription") };
+  return pageMetadata({
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    path: "/",
+    absoluteTitle: true,
+  });
 }
 
 export default async function HomePage({ params }: PageProps) {

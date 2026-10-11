@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { proposalHref, services } from "@/config/navigation";
@@ -39,7 +40,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const service = findService(slug);
   if (!service) return {};
-  return { title: service.name, description: service.lead };
+  return pageMetadata({
+    title: service.name,
+    description: service.lead,
+    path: `/solucoes/${service.slug}`,
+  });
 }
 
 export default async function ServicePage({ params }: PageProps) {

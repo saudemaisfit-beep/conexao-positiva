@@ -1,5 +1,6 @@
 import { CalendarX } from "lucide-react";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Suspense } from "react";
 import { proposalHref } from "@/config/navigation";
@@ -20,11 +21,11 @@ export const revalidate = 3600;
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Events" });
-  return {
+  return pageMetadata({
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: { canonical: "/eventos" },
-  };
+    path: "/eventos",
+  });
 }
 
 export default async function EventsPage({ params }: PageProps) {

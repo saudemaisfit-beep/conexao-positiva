@@ -5,5 +5,5 @@ export default createMiddleware(routing);
 
 export const config = {
   // Exclui API, Sanity Studio, ficheiros internos do Next.js e ficheiros com extensão.
-  matcher: ["/((?!api|studio|_next|_vercel|.*\\..*).*)"],
+  matcher: ["/((?!api|studio|og|_next|_vercel|.*\\..*).*)"],
 };

@@ -1,5 +1,6 @@
 import { CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -31,11 +32,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const study = await getCaseStudy(slug);
   if (!study) return {};
-  return {
+  return pageMetadata({
     title: study.title,
     description: study.objective,
-    alternates: { canonical: `/experiencias/${study.slug}` },
-  };
+    path: `/experiencias/${study.slug}`,
+  });
 }
 
 /** Bloco narrativo: título à esquerda, texto à direita (empilhado no mobile). */

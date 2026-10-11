@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { noIndex } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Confirmation, ExploreLinks } from "@/components/sections/forms/confirmation";
 import { NextSteps } from "@/components/sections/forms/next-steps";
@@ -10,7 +11,7 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Confirmation" });
-  return { title: t("proposal.metaTitle"), robots: { index: false } };
+  return { title: t("proposal.metaTitle"), robots: noIndex };
 }
 
 export default async function ProposalReceivedPage({ params }: PageProps) {

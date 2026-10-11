@@ -1,5 +1,6 @@
 import { CalendarPlus } from "lucide-react";
 import type { Metadata } from "next";
+import { noIndex } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getEvent } from "@/content/events";
 import { ButtonLink, buttonVariants } from "@/components/ui/button";
@@ -15,7 +16,7 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Confirmation" });
-  return { title: t("registration.metaTitle"), robots: { index: false } };
+  return { title: t("registration.metaTitle"), robots: noIndex };
 }
 
 export default async function RegistrationConfirmedPage({ params, searchParams }: PageProps) {

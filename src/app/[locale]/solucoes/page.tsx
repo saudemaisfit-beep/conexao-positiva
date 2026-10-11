@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { proposalHref, services } from "@/config/navigation";
 import { ServiceCard } from "@/components/cards/service-card";
@@ -17,7 +18,11 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Solutions" });
-  return { title: t("metaTitle"), description: t("metaDescription") };
+  return pageMetadata({
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    path: "/solucoes",
+  });
 }
 
 export default async function SolutionsPage({ params }: PageProps) {
