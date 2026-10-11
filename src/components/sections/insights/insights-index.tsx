@@ -9,13 +9,7 @@ import { ArticleList } from "./article-list";
 import { CategoryNav } from "./category-nav";
 
 /** Corpo partilhado de /insights e /insights/categoria/[slug]. */
-export async function InsightsIndex({
-  category,
-  label,
-}: {
-  category: ArticleCategory | null;
-  label: string;
-}) {
+export async function InsightsIndex({ category }: { category: ArticleCategory | null }) {
   const t = await getTranslations("Insights");
   const basePath = category ? `/insights/categoria/${category}` : "/insights";
   const all = await getArticleSummaries();
@@ -25,7 +19,7 @@ export async function InsightsIndex({
     .filter((slug) => all.some((article) => article.category === slug));
 
   return (
-    <Section aria-label={label} className="pt-0 md:pt-0">
+    <Section className="pt-0 md:pt-0">
       <div className="container-site flex flex-col gap-10">
         {all.length === 0 ? (
           <div className="flex flex-col items-start gap-5 rounded-xl bg-surface p-8 md:p-12">

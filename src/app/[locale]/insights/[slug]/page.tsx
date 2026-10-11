@@ -125,10 +125,7 @@ export default async function ArticlePage({ params }: PageProps) {
                 {t("article.updated", { date: formatLongDate(article.updatedAt) })}
               </p>
             )}
-            <aside
-              aria-labelledby="author-title"
-              className="flex max-w-[68ch] flex-col gap-5 rounded-xl bg-surface p-6 md:flex-row md:p-8"
-            >
+            <div className="flex max-w-[68ch] flex-col gap-5 rounded-xl bg-surface p-6 md:flex-row md:p-8">
               <PersonAvatar
                 name={article.author.name}
                 photo={article.author.photo}
@@ -143,7 +140,7 @@ export default async function ArticlePage({ params }: PageProps) {
                 <p className="text-small font-semibold text-primary">{article.author.role}</p>
                 {article.author.bio && <p className="mt-2 text-muted">{article.author.bio}</p>}
               </div>
-            </aside>
+            </div>
           </div>
           <div className="lg:order-first lg:col-start-2 lg:row-start-1">
             <div className="lg:sticky lg:top-28">

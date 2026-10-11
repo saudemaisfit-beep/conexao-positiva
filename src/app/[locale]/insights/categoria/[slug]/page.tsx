@@ -46,7 +46,7 @@ export default async function InsightsCategoryPage({ params }: PageProps) {
           { label: name, href: `/insights/categoria/${slug}` },
         ]}
       />
-      <InsightsIndex category={slug} label={name} />
+      <InsightsIndex category={slug} />
     </>
   );
 }

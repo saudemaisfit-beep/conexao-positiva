@@ -53,12 +53,9 @@ export default async function RegistrationPage({ params }: PageProps) {
       />
       <section aria-labelledby="page-title" className="pb-(--space-section)">
         <div className="container-site grid gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,4fr)] lg:gap-16">
-          <aside
-            aria-label={t("summary")}
-            className="self-start rounded-xl bg-surface p-6 md:p-8 lg:sticky lg:top-28 lg:order-2"
-          >
+          <div className="self-start rounded-xl bg-surface p-6 md:p-8 lg:sticky lg:top-28 lg:order-2">
             <EventSummary event={event} title={t("summary")} />
-          </aside>
+          </div>
           <div className="rounded-xl border border-border bg-surface-raised p-5 md:p-10">
             {open ? (
               <RegistrationForm eventSlug={event.slug} waitlist={waitlist} />

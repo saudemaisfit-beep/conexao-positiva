@@ -40,7 +40,7 @@ export default async function ExperiencesPage({ params }: PageProps) {
         lead={t("hero.lead")}
         breadcrumbs={[{ label: t("breadcrumb"), href: "/experiencias" }]}
       />
-      <Section aria-label={t("hero.title")} className="pt-0 md:pt-0">
+      <Section className="pt-0 md:pt-0">
         <div className="container-site">
           {studies.length === 0 ? (
             <div className="flex flex-col items-start gap-5 rounded-xl bg-surface p-8 md:p-12">
