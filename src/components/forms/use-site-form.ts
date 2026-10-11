@@ -13,6 +13,7 @@ import {
 } from "react-hook-form";
 import type { z } from "zod";
 import { useRouter } from "@/i18n/navigation";
+import { track } from "@/lib/analytics/track";
 import type { FormResult } from "@/lib/forms/schemas";
 
 type ServerError = Exclude<FormResult, { ok: true }>["error"];
@@ -30,12 +31,15 @@ export function useSiteForm<S extends z.ZodType<FieldValues, FieldValues>>({
   defaultValues,
   action,
   draftKey,
+  analyticsEvent,
 }: {
   schema: S;
   defaultValues: DefaultValues<z.input<S>>;
   action: (input: unknown) => Promise<FormResult>;
   /** Chave do rascunho em sessionStorage (apagado ao fechar o separador ou ao enviar). */
   draftKey?: string;
+  /** Evento de conversão (GA4, só com consentimento), sem dados pessoais. */
+  analyticsEvent?: { name: string; params: Record<string, string> };
 }) {
   const t = useTranslations("Forms");
   const router = useRouter();
@@ -124,6 +128,7 @@ export function useSiteForm<S extends z.ZodType<FieldValues, FieldValues>>({
           // Ignorar.
         }
       }
+      if (analyticsEvent) track(analyticsEvent.name, analyticsEvent.params);
       setRedirecting(true);
       router.push(result.redirectTo);
       return;

@@ -64,13 +64,13 @@ export function ArticleBody({ blocks }: { blocks: ArticleBlock[] }) {
             );
           case "callout":
             return (
-              <aside
+              <div
                 key={key}
                 className="my-4 flex flex-col gap-2 rounded-lg bg-primary-soft p-6 md:p-8"
               >
                 {block.title && <p className="font-display text-h4 font-bold">{block.title}</p>}
                 <p>{block.text}</p>
-              </aside>
+              </div>
             );
         }
       })}

@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
+import { Analytics } from "@/components/consent/analytics";
 import { ConsentProvider } from "@/components/consent/consent-provider";
 import { CookieBanner } from "@/components/consent/cookie-banner";
 import { OrganizationJsonLd } from "@/components/common/organization-json-ld";
@@ -13,7 +14,9 @@ import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { siteConfig } from "@/config/site";
 import { getSiteContacts } from "@/content/site";
+import { pickClientMessages } from "@/i18n/client-messages";
 import { routing } from "@/i18n/routing";
+import { CONSENT_COOKIE } from "@/lib/consent";
 import { inter, manrope } from "../fonts";
 import "../globals.css";
 
@@ -49,14 +52,26 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   const contacts = await getSiteContacts();
+  // Só os textos usados no browser (os restantes ficam no servidor).
+  const messages = pickClientMessages(await getMessages());
 
   return (
     <html
       lang={locale === "pt" ? "pt-AO" : locale}
       className={`${manrope.variable} ${inter.variable}`}
+      // O script abaixo pode acrescentar data-consent antes da hidratação.
+      suppressHydrationWarning
     >
+      <head>
+        {/* Marca quem já escolheu as preferências de cookies, antes da primeira pintura. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(/(?:^|;\\s*)${CONSENT_COOKIE}=/.test(document.cookie))document.documentElement.dataset.consent="1"}catch(e){}`,
+          }}
+        />
+      </head>
       <body className="flex min-h-dvh flex-col">
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
           <ConsentProvider>
             <SiteContactsProvider value={contacts}>
               <SkipLink />
@@ -67,6 +82,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
               <Footer />
               <WhatsAppButton />
               <CookieBanner />
+              <Analytics />
               <OrganizationJsonLd contacts={contacts} />
             </SiteContactsProvider>
           </ConsentProvider>

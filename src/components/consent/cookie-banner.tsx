@@ -3,7 +3,7 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { useConsent } from "./consent-provider";
@@ -12,13 +12,22 @@ import { useConsent } from "./consent-provider";
 export function CookieBanner() {
   const t = useTranslations("Consent");
   const { consent, preferencesOpen, setPreferencesOpen, save } = useConsent();
-  const showBanner = consent === null && !preferencesOpen;
+  // Também no servidor (consent === undefined): o aviso vem no HTML e é pintado logo, em vez de
+  // aparecer só depois da hidratação. Quem já escolheu não o vê: o script do <head> marca
+  // <html data-consent> antes da primeira pintura e o CSS esconde-o.
+  const showBanner = !consent && !preferencesOpen;
+
+  useEffect(() => {
+    // Cookie antigo ou inválido: a marca do <head> não se aplica e o aviso volta a aparecer.
+    if (consent === null) delete document.documentElement.dataset.consent;
+  }, [consent]);
 
   return (
     <>
       {showBanner && (
         <section
           aria-labelledby="consent-title"
+          data-consent-banner=""
           className="fixed inset-x-0 bottom-0 z-(--z-toast) animate-rise-in p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] md:inset-x-auto md:right-4 md:bottom-4 md:max-w-md md:p-0"
         >
           <div className="flex flex-col gap-4 rounded-lg border border-border bg-surface-raised p-5 shadow-lg">

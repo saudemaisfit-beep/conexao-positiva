@@ -16,7 +16,7 @@ export async function LegalPage({ document }: { document: LegalDocument }) {
       />
       <section aria-labelledby="page-title" className="pb-(--space-section)">
         <div className="container-site grid gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-16">
-          <aside className="flex flex-col gap-6 self-start lg:sticky lg:top-28">
+          <div className="flex flex-col gap-6 self-start lg:sticky lg:top-28">
             <p className="text-small text-muted">
               {t("updated", { date: formatLongDate(`${document.updatedAt}T12:00:00Z`) })}
             </p>
@@ -41,7 +41,7 @@ export async function LegalPage({ document }: { document: LegalDocument }) {
                 ))}
               </ol>
             </nav>
-          </aside>
+          </div>
           <div className="flex max-w-[68ch] flex-col gap-10">
             {document.sections.map((section) => (
               <section

@@ -174,17 +174,14 @@ export default async function EventPage({ params }: PageProps) {
 
       <Section aria-label={t("detail.about")} className="pt-0 md:pt-0">
         <div className="container-site grid gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,4fr)] lg:gap-16">
-          <aside
-            aria-label={t("detail.facts")}
-            className="flex flex-col gap-6 self-start rounded-xl border border-border bg-surface-raised p-6 lg:sticky lg:top-28 lg:order-2 lg:p-8"
-          >
+          <div className="flex flex-col gap-6 self-start rounded-xl border border-border bg-surface-raised p-6 lg:sticky lg:top-28 lg:order-2 lg:p-8">
             <h2 className="text-h4 font-bold">{t("detail.facts")}</h2>
             {facts}
             <RegistrationAction event={event} now={now} className="hidden w-full lg:inline-flex" />
             {!past && event.priceKz !== null && (
               <p className="text-small text-muted">{t("detail.paidNote")}</p>
             )}
-          </aside>
+          </div>
 
           <div className="flex flex-col gap-14">
             <div className="flex flex-col gap-4">

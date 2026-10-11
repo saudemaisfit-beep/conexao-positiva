@@ -33,7 +33,7 @@ export default async function InsightsPage({ params }: PageProps) {
         lead={t("hero.lead")}
         breadcrumbs={[{ label: t("breadcrumb"), href: "/insights" }]}
       />
-      <InsightsIndex category={null} label={t("hero.title")} />
+      <InsightsIndex category={null} />
     </>
   );
 }

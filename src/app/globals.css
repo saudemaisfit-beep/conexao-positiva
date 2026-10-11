@@ -111,7 +111,8 @@
 @theme {
   --animate-panel-in: panel-in var(--duration-base) var(--ease-out);
   --animate-fade-in: fade-in var(--duration-fast) var(--ease-out);
-  --animate-rise-in: rise-in var(--duration-base) var(--ease-out);
+  /* "both": durante o atraso o elemento já está no estado inicial (sem piscar). */
+  --animate-rise-in: rise-in var(--duration-base) var(--ease-out) both;
 
   @keyframes panel-in {
     from {
@@ -126,18 +127,26 @@
     }
   }
 
+  /* Opacidade inicial 0.01 (e não 0): o browser conta o elemento como pintado desde o primeiro
+     frame, por isso a animação não atrasa o Largest Contentful Paint. Visualmente é igual. */
   @keyframes rise-in {
     from {
-      opacity: 0;
+      opacity: 0.01;
       transform: translateY(var(--reveal-distance));
     }
   }
 }
 
+/* Aviso de cookies: escondido desde a primeira pintura para quem já fez a sua escolha. */
+html[data-consent] [data-consent-banner] {
+  display: none;
+}
+
 /* ---------- Movimento: reveals por scroll (CSS puro, melhoria progressiva) ---------- */
+/* Só deslize, sem transparência: o texto tem sempre o contraste total (WCAG 1.4.3), mesmo
+   quando está a entrar no ecrã, e nunca atrasa o Largest Contentful Paint. */
 @keyframes reveal-up {
   from {
-    opacity: 0;
     transform: translateY(var(--reveal-distance));
   }
 }

@@ -2,7 +2,6 @@ import { FolderOpen } from "lucide-react";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Suspense } from "react";
 import { proposalHref } from "@/config/navigation";
 import { getCaseStudies, toCaseSummary } from "@/content/cases";
 import { Section } from "@/components/layout/section";
@@ -41,7 +40,7 @@ export default async function ExperiencesPage({ params }: PageProps) {
         lead={t("hero.lead")}
         breadcrumbs={[{ label: t("breadcrumb"), href: "/experiencias" }]}
       />
-      <Section aria-label={t("hero.title")} className="pt-0 md:pt-0">
+      <Section className="pt-0 md:pt-0">
         <div className="container-site">
           {studies.length === 0 ? (
             <div className="flex flex-col items-start gap-5 rounded-xl bg-surface p-8 md:p-12">
@@ -58,9 +57,7 @@ export default async function ExperiencesPage({ params }: PageProps) {
               </div>
             </div>
           ) : (
-            <Suspense>
-              <ExperiencesBrowser studies={studies} />
-            </Suspense>
+            <ExperiencesBrowser studies={studies} />
           )}
         </div>
       </Section>

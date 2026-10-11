@@ -1,15 +1,16 @@
 import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import type { NextRequest } from "next/server";
 import { siteConfig } from "@/config/site";
 import { resolveOgContent } from "@/lib/og-content";
 
+// Caminhos a partir da raiz do projeto (o servidor arranca sempre na raiz, com `next start`).
+const asset = (file: string) => readFile(join(process.cwd(), file));
 const fonts = Promise.all([
-  readFile(new URL("../../assets/fonts/manrope-latin-800-normal.woff", import.meta.url)),
-  readFile(new URL("../../assets/fonts/inter-latin-500-normal.woff", import.meta.url)),
-  readFile(
-    new URL("../../../public/brand/conexao-positiva/conexao-positiva-simbolo.png", import.meta.url),
-  ),
+  asset("src/assets/fonts/manrope-latin-800-normal.woff"),
+  asset("src/assets/fonts/inter-latin-500-normal.woff"),
+  asset("public/brand/conexao-positiva/conexao-positiva-simbolo.png"),
 ]);
 
 const palette = {

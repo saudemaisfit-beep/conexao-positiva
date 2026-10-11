@@ -20,6 +20,7 @@ export function ContactForm() {
       schema: contactSchema,
       action: submitContact,
       draftKey: "cp-rascunho-contacto",
+      analyticsEvent: { name: "generate_lead", params: { form: "contacto" } },
       defaultValues: {
         name: "",
         company: "",

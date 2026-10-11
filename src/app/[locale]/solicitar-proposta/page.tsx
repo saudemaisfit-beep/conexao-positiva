@@ -46,13 +46,13 @@ export default async function ProposalPage({ params, searchParams }: PageProps) 
           <div className="rounded-xl border border-border bg-surface-raised p-5 md:p-10">
             <ProposalForm service={service} />
           </div>
-          <aside className="flex flex-col gap-8 self-start rounded-xl bg-surface p-6 md:p-8 lg:sticky lg:top-28">
+          <div className="flex flex-col gap-8 self-start rounded-xl bg-surface p-6 md:p-8 lg:sticky lg:top-28">
             <NextSteps />
             <p className="flex items-start gap-3 border-t border-border pt-6 text-small text-muted">
               <ShieldCheck aria-hidden="true" className="size-5 shrink-0 text-primary" />
               {t("privacy")}
             </p>
-          </aside>
+          </div>
         </div>
       </section>
       <ClientLogos clients={clients} />

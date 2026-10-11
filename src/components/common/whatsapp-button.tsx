@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { whatsappHref } from "@/config/site";
 import { usePathname } from "@/i18n/navigation";
+import { track } from "@/lib/analytics/track";
 import { cn } from "@/lib/cn";
 import { useSiteContacts } from "./site-contacts";
 
@@ -40,7 +41,7 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t("label")}
-      data-track="whatsapp"
+      onClick={() => track("contact_whatsapp", { location: "botao-flutuante" })}
       className={cn(
         "fixed right-4 bottom-[calc(1rem+env(safe-area-inset-bottom))] z-(--z-floating) grid size-14 place-items-center rounded-full bg-primary text-on-primary shadow-lg transition-[opacity,transform,background-color] duration-(--duration-base) ease-out hover:bg-primary-hover md:right-6 md:bottom-6",
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0",

@@ -28,6 +28,7 @@ export function RegistrationForm({
       schema: registrationSchema,
       action: submitRegistration,
       draftKey: "cp-rascunho-inscricao",
+      analyticsEvent: { name: "sign_up", params: { form: "inscricao", event: eventSlug } },
       defaultValues: {
         eventSlug,
         firstName: "",
