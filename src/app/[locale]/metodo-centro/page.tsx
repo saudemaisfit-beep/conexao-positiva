@@ -69,7 +69,7 @@ export default async function MetodoPage({ params }: PageProps) {
       />
 
       <Section tone="alt" aria-labelledby="what-title">
-        <div className="container-site grid gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="container-site grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
           <div className="flex reveal flex-col gap-5">
             <h2 id="what-title" className="text-h2 font-bold">
               {metodoCopy.what.title}

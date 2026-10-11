@@ -11,7 +11,7 @@ export async function Faq({ items, id = "faq-title" }: { items: FaqItem[]; id?: 
   const t = await getTranslations("Common");
   return (
     <Section aria-labelledby={id}>
-      <div className="container-site grid gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-20">
+      <div className="container-site grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-20">
         <SectionHeader id={id} title={t("faqTitle")} className="mb-0 self-start md:mb-0" />
         <div className="flex flex-col border-t border-border">
           {items.map((item, index) => (

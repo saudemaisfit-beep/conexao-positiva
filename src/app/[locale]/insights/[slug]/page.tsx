@@ -73,7 +73,7 @@ export default async function ArticlePage({ params }: PageProps) {
           <div className="mt-4 flex max-w-4xl flex-col gap-5 md:mt-8">
             <Link
               href={`/insights/categoria/${article.category}`}
-              className="eyebrow self-start hover:text-primary"
+              className="eyebrow inline-flex min-h-6 items-center self-start hover:text-primary"
             >
               {category}
             </Link>
@@ -117,7 +117,7 @@ export default async function ArticlePage({ params }: PageProps) {
           </div>
         )}
 
-        <div className="container-site grid gap-12 pt-10 pb-(--space-section) md:pt-14 lg:grid-cols-[minmax(0,1fr)_14rem] lg:gap-16">
+        <div className="container-site grid grid-cols-1 gap-12 pt-10 pb-(--space-section) md:pt-14 lg:grid-cols-[minmax(0,1fr)_14rem] lg:gap-16">
           <div className="flex flex-col gap-14">
             <ArticleBody blocks={article.body} />
             {article.updatedAt && (

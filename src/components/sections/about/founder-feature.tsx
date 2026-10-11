@@ -8,7 +8,7 @@ export async function FounderFeature({ founder }: { founder: TeamMember | null }
   const t = await getTranslations("About.founder");
   return (
     <Section aria-labelledby="founder-title">
-      <div className="container-site grid gap-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:items-center lg:gap-20">
+      <div className="container-site grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:items-center lg:gap-20">
         <PersonAvatar
           name={founder.name}
           photo={founder.photo}

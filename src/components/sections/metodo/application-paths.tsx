@@ -13,7 +13,7 @@ export async function ApplicationPaths() {
     <Section aria-labelledby="paths-title">
       <div className="container-site">
         <SectionHeader id="paths-title" eyebrow={t("eyebrow")} title={t("title")} />
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           <article className="flex reveal flex-col gap-4 rounded-xl border border-border bg-surface-raised p-7 md:p-10">
             <h3 className="text-h3 font-bold">{individual.title}</h3>
             <p className="text-muted">{individual.text}</p>

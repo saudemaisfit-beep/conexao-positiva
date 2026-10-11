@@ -37,6 +37,9 @@
   h4 {
     font-family: var(--font-display);
     text-wrap: balance;
+    /* Palavras longas em títulos grandes não saem do ecrã (320px, espaçamento aumentado). */
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   ::selection {
