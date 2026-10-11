@@ -6,27 +6,28 @@ Alojamento: **Hostinger, plano Business** (aplicação Node.js). Decisões em `d
 
 ## Estado
 
-| Fase  | Descrição                                     | Estado       |
-| ----- | --------------------------------------------- | ------------ |
-| 1     | Planeamento e sitemap                         | ✅ Concluída |
-| 2     | Wireframes e estrutura UX                     | ✅ Concluída |
-| 3     | Design System (cores oficiais azul e marsala) | ✅ Concluída |
-| 4     | Header, Footer e componentes globais          | ✅ Concluída |
-| 5     | Home                                          | ✅ Concluída |
-| 6     | Sobre Nós                                     | ✅ Concluída |
-| 7     | Soluções                                      | ✅ Concluída |
-| 8     | Método C.E.N.T.R.O.                           | ✅ Concluída |
-| 9     | Eventos                                       | ✅ Concluída |
-| 10    | Experiências                                  | ✅ Concluída |
-| 11    | Insights                                      | ✅ Concluída |
-| 12    | Contactos e Proposta                          | ✅ Concluída |
-| 13    | CMS                                           | ✅ Concluída |
-| 14    | Base de dados e formulários                   | ✅ Concluída |
-| 15    | SEO                                           | ✅ Concluída |
-| 16    | Performance                                   | ✅ Concluída |
-| 17    | Acessibilidade                                | ✅ Concluída |
-| 18    | Testes                                        | ⏳ Próxima   |
-| 19–20 | Deploy → Documentação final                   | Por iniciar  |
+| Fase | Descrição                                     | Estado       |
+| ---- | --------------------------------------------- | ------------ |
+| 1    | Planeamento e sitemap                         | ✅ Concluída |
+| 2    | Wireframes e estrutura UX                     | ✅ Concluída |
+| 3    | Design System (cores oficiais azul e marsala) | ✅ Concluída |
+| 4    | Header, Footer e componentes globais          | ✅ Concluída |
+| 5    | Home                                          | ✅ Concluída |
+| 6    | Sobre Nós                                     | ✅ Concluída |
+| 7    | Soluções                                      | ✅ Concluída |
+| 8    | Método C.E.N.T.R.O.                           | ✅ Concluída |
+| 9    | Eventos                                       | ✅ Concluída |
+| 10   | Experiências                                  | ✅ Concluída |
+| 11   | Insights                                      | ✅ Concluída |
+| 12   | Contactos e Proposta                          | ✅ Concluída |
+| 13   | CMS                                           | ✅ Concluída |
+| 14   | Base de dados e formulários                   | ✅ Concluída |
+| 15   | SEO                                           | ✅ Concluída |
+| 16   | Performance                                   | ✅ Concluída |
+| 17   | Acessibilidade                                | ✅ Concluída |
+| 18   | Testes                                        | ✅ Concluída |
+| 19   | Deploy (Hostinger)                            | ⏳ Próxima   |
+| 20   | Documentação final                            | Por iniciar  |
 
 ## Documentação de planeamento (Fase 1)
 
@@ -103,6 +104,10 @@ Alojamento: **Hostinger, plano Business** (aplicação Node.js). Decisões em `d
 ## Acessibilidade (Fase 17)
 
 [Acessibilidade](docs/fase-17/01-acessibilidade.md): verificação WCAG 2.2 AA (axe, teclado, 320 px, zoom, espaçamento de texto) e correções.
+
+## Testes (Fase 18)
+
+`npm test` corre os testes unitários e ponta a ponta (Playwright). Detalhes em [Testes](docs/fase-18/01-testes.md).
 
 ## Desenvolvimento
 

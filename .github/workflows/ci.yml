@@ -42,3 +42,42 @@ jobs:
 
       - name: Build de produção
         run: npm run build
+
+  tests:
+    name: Testes (unitários e ponta a ponta)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci --no-audit --no-fund
+
+      - name: Testes unitários
+        run: npm run test:unit
+
+      - name: Instalar o Chromium do Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Build de teste (conteúdos [Exemplo], envios simulados)
+        run: npm run build:test
+
+      - name: Testes ponta a ponta
+        run: npm run test:e2e
+
+      - name: Relatório dos testes (em caso de falha)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            playwright-report
+            test-results
+          retention-days: 7
