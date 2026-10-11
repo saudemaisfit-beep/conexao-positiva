@@ -38,8 +38,8 @@ Studio (/studio) ──publica──▶ Sanity Content Lake ──webhook assina
 ## Ligar o projeto Sanity (uma vez)
 
 1. Criar conta e projeto em [sanity.io/manage](https://www.sanity.io/manage) (plano gratuito), com o dataset `production`.
-2. **API → CORS origins**: acrescentar `https://conexaopositiva.ao` (e o domínio de pré-visualização da Vercel) com "Allow credentials".
-3. Na Vercel (e em `.env.local` para desenvolvimento), definir:
+2. **API → CORS origins**: acrescentar `https://conexaopositiva.ao` (e `http://localhost:3000` para desenvolvimento) com "Allow credentials".
+3. No hPanel da Hostinger (aplicação Node.js → variáveis de ambiente) e em `.env.local` para desenvolvimento, definir:
    - `NEXT_PUBLIC_SANITY_PROJECT_ID` (ID do projeto; é público);
    - `NEXT_PUBLIC_SANITY_DATASET=production`;
    - `SANITY_REVALIDATE_SECRET` (gerar com `openssl rand -hex 32`; **só no servidor**, nunca em código).

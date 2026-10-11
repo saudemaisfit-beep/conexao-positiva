@@ -17,7 +17,7 @@ const ALLOWED_TYPES = new Set([
 /**
  * Webhook do Sanity: quando a equipa publica, altera ou apaga um documento, as páginas que o
  * usam são regeneradas no pedido seguinte. O pedido é assinado com SANITY_REVALIDATE_SECRET
- * (configurado no Sanity e na Vercel); pedidos sem assinatura válida são recusados.
+ * (configurado no Sanity e no alojamento); pedidos sem assinatura válida são recusados.
  */
 export async function POST(request: NextRequest) {
   const secret = process.env.SANITY_REVALIDATE_SECRET;

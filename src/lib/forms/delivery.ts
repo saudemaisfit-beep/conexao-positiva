@@ -13,7 +13,7 @@ import { contactEmails, proposalEmails, registrationEmails } from "@/lib/email/t
 import type { ContactData, ProposalData, RegistrationData } from "./schemas";
 
 /**
- * Entrega dos pedidos: 1) grava na base de dados (Supabase); 2) envia os e-mails (Resend).
+ * Entrega dos pedidos: 1) grava na base de dados (Supabase); 2) envia os e-mails (SMTP da Hostinger).
  * Um e-mail que falha fica registado sem dados pessoais e não anula o pedido.
  *
  * Sem base de dados configurada:

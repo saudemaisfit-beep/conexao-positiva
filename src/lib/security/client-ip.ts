@@ -1,7 +1,7 @@
 import "server-only";
 import { headers } from "next/headers";
 
-/** IP do visitante (primeiro endereço de x-forwarded-for, definido pela Vercel). */
+/** IP do visitante (primeiro endereço de x-forwarded-for, definido pelo proxy do alojamento). */
 export async function clientIp() {
   const list = await headers();
   return (

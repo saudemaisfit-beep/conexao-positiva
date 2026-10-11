@@ -25,8 +25,9 @@ function memoryLimit(key: string, limit: number, windowMs: number, now: number) 
 
 /**
  * Limite de pedidos por chave (ex.: "proposta:IP"): 5 envios em 10 minutos por defeito.
- * Com Upstash Redis configurado, o contador é partilhado por todas as instâncias da Vercel;
- * se o Upstash falhar, usa o contador em memória (nunca bloqueia pessoas por causa de uma falha).
+ * Na Hostinger (plano Business) o site corre num único processo Node.js, por isso o contador
+ * em memória já é partilhado por todos os pedidos. O Upstash Redis é opcional: só faz falta com
+ * várias instâncias. Se falhar, usa o contador em memória (nunca bloqueia pessoas por uma falha).
  */
 export async function rateLimit(key: string, limit = 5, windowMs = 10 * 60 * 1_000) {
   const now = Date.now();
