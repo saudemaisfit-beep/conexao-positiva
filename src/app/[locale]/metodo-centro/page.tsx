@@ -61,6 +61,7 @@ export default async function MetodoPage({ params }: PageProps) {
             src={logo}
             alt={t("hero.logoAlt")}
             priority
+            fetchPriority="high"
             sizes="(min-width: 1024px) 22rem, 15rem"
             className="h-auto w-full"
           />

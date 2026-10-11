@@ -35,6 +35,7 @@ export function ProposalForm({ service }: { service?: ProposalService }) {
       action: submitProposal,
       // Com serviço no URL, o rascunho de outro serviço não deve sobrepor-se à escolha.
       draftKey: service ? undefined : "cp-rascunho-proposta",
+      analyticsEvent: { name: "generate_lead", params: { form: "proposta" } },
       defaultValues: {
         name: "",
         company: "",

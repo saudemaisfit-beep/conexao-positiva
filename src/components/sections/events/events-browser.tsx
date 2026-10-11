@@ -1,14 +1,13 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
 import type { EventCategory, EventSummary } from "@/content/types";
-import { usePathname, useRouter } from "@/i18n/navigation";
 import { EventCard } from "@/components/cards/event-card";
 import { Button } from "@/components/ui/button";
 import { chipClass } from "@/components/ui/chip";
 import { FilterChips } from "@/components/ui/filter-chips";
 import { cn } from "@/lib/cn";
+import { useUrlSearch } from "@/lib/use-url-search";
 
 export interface BrowsableEvent extends EventSummary {
   past: boolean;
@@ -16,20 +15,50 @@ export interface BrowsableEvent extends EventSummary {
 
 const CATEGORIES: EventCategory[] = ["workshop", "formacao", "palestra", "experiencia"];
 
+type Period = "proximos" | "passados";
+type Update = (next: { filtro?: string | null; categoria?: string | null }) => void;
+
 /**
  * Agenda com filtros Próximos/Passados + categoria. O estado vive no URL
  * (?filtro=passados&categoria=workshop): pode ser partilhado e cada mudança fica no histórico ("voltar").
  */
 export function EventsBrowser({ events }: { events: BrowsableEvent[] }) {
-  const t = useTranslations("Events.filters");
-  const tc = useTranslations("Events.categories");
-  const params = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
+  const { params, navigate } = useUrlSearch();
 
-  const period = params.get("filtro") === "passados" ? "passados" : "proximos";
+  const period: Period = params.get("filtro") === "passados" ? "passados" : "proximos";
   const requested = params.get("categoria");
   const category = CATEGORIES.find((item) => item === requested) ?? null;
+
+  const update: Update = (next) => {
+    const query = new URLSearchParams(params.toString());
+    for (const [key, value] of Object.entries(next)) {
+      if (value) query.set(key, value);
+      else query.delete(key);
+    }
+    navigate(query);
+  };
+
+  return <EventsView events={events} period={period} category={category} onUpdate={update} />;
+}
+
+/**
+ * Vista da agenda sem estado próprio. O servidor desenha-a com o filtro por defeito: a lista
+ * está no HTML inicial e é reaproveitada na hidratação (sem saltos de layout nem LCP tardio).
+ */
+export function EventsView({
+  events,
+  period = "proximos",
+  category = null,
+  onUpdate,
+}: {
+  events: BrowsableEvent[];
+  period?: Period;
+  category?: EventCategory | null;
+  onUpdate?: Update;
+}) {
+  const t = useTranslations("Events.filters");
+  const tc = useTranslations("Events.categories");
+  const update: Update = (next) => onUpdate?.(next);
 
   const inPeriod = events
     .filter((event) => (period === "passados" ? event.past : !event.past))
@@ -43,16 +72,6 @@ export function EventsBrowser({ events }: { events: BrowsableEvent[] }) {
   const showFeatured = period === "proximos" && !category;
   const featured = showFeatured ? visible[0] : undefined;
   const rest = showFeatured ? visible.slice(1) : visible;
-
-  const update = (next: { filtro?: string | null; categoria?: string | null }) => {
-    const query = new URLSearchParams(params.toString());
-    for (const [key, value] of Object.entries(next)) {
-      if (value) query.set(key, value);
-      else query.delete(key);
-    }
-    const search = query.toString();
-    router.push(search ? `${pathname}?${search}` : pathname, { scroll: false });
-  };
 
   return (
     <div className="flex flex-col gap-10">
@@ -93,6 +112,7 @@ export function EventsBrowser({ events }: { events: BrowsableEvent[] }) {
         )}
       </div>
 
+      <h2 className="sr-only">{t("listTitle")}</h2>
       <p aria-live="polite" className="text-small text-muted">
         {t("results", { count: visible.length })}
       </p>

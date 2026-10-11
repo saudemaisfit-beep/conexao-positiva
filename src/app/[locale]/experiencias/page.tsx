@@ -2,7 +2,6 @@ import { FolderOpen } from "lucide-react";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Suspense } from "react";
 import { proposalHref } from "@/config/navigation";
 import { getCaseStudies, toCaseSummary } from "@/content/cases";
 import { Section } from "@/components/layout/section";
@@ -58,9 +57,7 @@ export default async function ExperiencesPage({ params }: PageProps) {
               </div>
             </div>
           ) : (
-            <Suspense>
-              <ExperiencesBrowser studies={studies} />
-            </Suspense>
+            <ExperiencesBrowser studies={studies} />
           )}
         </div>
       </Section>

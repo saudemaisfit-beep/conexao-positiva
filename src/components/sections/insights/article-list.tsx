@@ -1,8 +1,8 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 import type { ArticleSummary } from "@/content/types";
+import { useUrlSearch } from "@/lib/use-url-search";
 import { ArticleGrid, paginate } from "./article-grid";
 
 /** Versão interativa da grelha: lê ?pagina e, ao carregar mais, foca o primeiro artigo novo. */
@@ -13,7 +13,7 @@ export function ArticleList({
   articles: ArticleSummary[];
   basePath: string;
 }) {
-  const params = useSearchParams();
+  const { params, navigate } = useUrlSearch();
   const listRef = useRef<HTMLUListElement>(null);
   const requested = Number.parseInt(params.get("pagina") ?? "1", 10);
   const shown = paginate(articles, requested).visible.length;
@@ -26,5 +26,13 @@ export function ArticleList({
     previousCount.current = shown;
   }, [shown]);
 
-  return <ArticleGrid articles={articles} page={requested} basePath={basePath} listRef={listRef} />;
+  return (
+    <ArticleGrid
+      articles={articles}
+      page={requested}
+      basePath={basePath}
+      listRef={listRef}
+      onLoadMore={(page) => navigate(new URLSearchParams({ pagina: String(page) }))}
+    />
+  );
 }

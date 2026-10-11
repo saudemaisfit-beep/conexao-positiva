@@ -1,12 +1,10 @@
 import { BookOpen } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import { Suspense } from "react";
 import { articleCategories } from "@/content/insight-categories";
 import { getArticleSummaries } from "@/content/insights";
 import type { ArticleCategory } from "@/content/types";
 import { Section } from "@/components/layout/section";
 import { ButtonLink } from "@/components/ui/button";
-import { ArticleGrid } from "./article-grid";
 import { ArticleList } from "./article-list";
 import { CategoryNav } from "./category-nav";
 
@@ -48,9 +46,7 @@ export async function InsightsIndex({
                 {t("emptyCategory")}
               </p>
             ) : (
-              <Suspense fallback={<ArticleGrid articles={articles} page={1} basePath={basePath} />}>
-                <ArticleList articles={articles} basePath={basePath} />
-              </Suspense>
+              <ArticleList articles={articles} basePath={basePath} />
             )}
           </>
         )}

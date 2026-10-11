@@ -24,11 +24,14 @@ export function ArticleGrid({
   page: requested,
   basePath,
   listRef,
+  onLoadMore,
 }: {
   articles: ArticleSummary[];
   page: number;
   basePath: string;
   listRef?: Ref<HTMLUListElement>;
+  /** Versão interativa: carrega mais sem pedir a página ao servidor (o link fica para quem não tem JS). */
+  onLoadMore?: (page: number) => void;
 }) {
   const t = useTranslations("Insights");
   const { featured, visible, page, pages, rest } = paginate(articles, requested);
@@ -60,6 +63,11 @@ export function ArticleGrid({
             <Link
               href={{ pathname: basePath, query: { pagina: String(page + 1) } }}
               scroll={false}
+              onClick={(event) => {
+                if (!onLoadMore) return;
+                event.preventDefault();
+                onLoadMore(page + 1);
+              }}
               className={buttonVariants({ variant: "secondary" })}
             >
               {t("loadMore")}

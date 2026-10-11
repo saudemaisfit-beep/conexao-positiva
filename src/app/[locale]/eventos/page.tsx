@@ -2,7 +2,6 @@ import { CalendarX } from "lucide-react";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Suspense } from "react";
 import { proposalHref } from "@/config/navigation";
 import { getEvents, isPastEvent, toSummary } from "@/content/events";
 import { Section } from "@/components/layout/section";
@@ -60,9 +59,7 @@ export default async function EventsPage({ params }: PageProps) {
               </ButtonLink>
             </div>
           ) : (
-            <Suspense>
-              <EventsBrowser events={events} />
-            </Suspense>
+            <EventsBrowser events={events} />
           )}
         </div>
       </Section>

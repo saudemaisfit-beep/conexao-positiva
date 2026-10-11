@@ -1,6 +1,9 @@
 import { z } from "zod";
 import { budgetRanges, contactSubjects, participantRanges, proposalServices } from "./options";
 
+// Sem compilação JIT (que usa `Function`): compatível com a Content Security Policy do site.
+z.config({ jitless: true });
+
 /**
  * Esquemas partilhados entre o browser (React Hook Form) e o servidor (Server Actions).
  * As mensagens de erro são CHAVES de tradução (Forms.errors.*), não texto final.

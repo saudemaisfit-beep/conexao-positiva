@@ -349,7 +349,8 @@
       "all": "Todos",
       "results": "{count, plural, =0 {Nenhum evento} one {1 evento} other {# eventos}}",
       "noResults": "Não encontrámos eventos para este filtro.",
-      "reset": "Limpar filtros"
+      "reset": "Limpar filtros",
+      "listTitle": "Lista de eventos"
     },
     "categories": {
       "workshop": "Workshops",
@@ -411,7 +412,8 @@
     "filters": {
       "category": "Tipo de experiência",
       "all": "Todas",
-      "results": "{count, plural, =0 {Nenhuma experiência} one {1 experiência} other {# experiências}}"
+      "results": "{count, plural, =0 {Nenhuma experiência} one {1 experiência} other {# experiências}}",
+      "listTitle": "Lista de experiências"
     },
     "confidential": "Cliente confidencial",
     "more": "Ver experiência",

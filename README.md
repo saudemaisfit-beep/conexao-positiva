@@ -23,8 +23,9 @@ Alojamento: **Hostinger, plano Business** (aplicação Node.js). Decisões em `d
 | 13    | CMS                                           | ✅ Concluída |
 | 14    | Base de dados e formulários                   | ✅ Concluída |
 | 15    | SEO                                           | ✅ Concluída |
-| 16    | Performance                                   | ⏳ Próxima   |
-| 17–20 | Acessibilidade → Documentação final           | Por iniciar  |
+| 16    | Performance                                   | ✅ Concluída |
+| 17    | Acessibilidade                                | ⏳ Próxima   |
+| 18–20 | Testes → Documentação final                   | Por iniciar  |
 
 ## Documentação de planeamento (Fase 1)
 
@@ -93,6 +94,10 @@ Alojamento: **Hostinger, plano Business** (aplicação Node.js). Decisões em `d
 ## SEO (Fase 15)
 
 [SEO](docs/fase-15/01-seo.md): metadados, imagens de partilha, sitemap, robots, dados estruturados e **páginas legais para validação jurídica**.
+
+## Performance (Fase 16)
+
+[Performance](docs/fase-16/01-performance.md): resultados do Lighthouse, Content Security Policy e Google Analytics 4 com consentimento.
 
 ## Desenvolvimento
 
