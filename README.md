@@ -2,7 +2,7 @@
 
 Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento humano, formação, eventos e experiências corporativas, incluindo o **Método C.E.N.T.R.O.**
 
-> Este projeto é independente do restante repositório (Creator Market AO). Recomenda-se movê-lo para um repositório próprio antes do deploy (ver `docs/fase-01/04-conteudos-e-decisoes-pendentes.md`).
+Alojamento: **Hostinger, plano Business** (aplicação Node.js). Decisões em `docs/fase-01/04-conteudos-e-decisoes-pendentes.md`.
 
 ## Estado
 
@@ -96,10 +96,9 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 
 ## Desenvolvimento
 
-Requisitos: Node.js 22 (mínimo 20.9).
+Requisitos: Node.js 22.12 ou superior.
 
 ```bash
-cd conexao-positiva
 npm install
 cp .env.example .env.local   # preencher os valores necessários
 npm run dev                  # http://localhost:3000
@@ -114,7 +113,7 @@ npm run dev                  # http://localhost:3000
 | `npm run format` / `format:check` | Prettier                     |
 | `npm run check`                   | Lint + tipos + formatação    |
 
-O CI (`.github/workflows/conexao-positiva.yml`) corre lint, tipos, formatação e build em cada pull request que altere esta pasta.
+O CI (`.github/workflows/ci.yml`) corre lint, tipos, formatação e build em cada pull request e em cada push para `main`.
 
 ### Estrutura
 
