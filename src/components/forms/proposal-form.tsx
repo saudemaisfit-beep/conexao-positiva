@@ -21,6 +21,7 @@ import {
 } from "./field";
 import { ErrorSummary, SubmitButton } from "./form-feedback";
 import { Honeypot } from "./honeypot";
+import { Turnstile } from "./turnstile";
 import { ServerError } from "./server-error";
 import { useSiteForm } from "./use-site-form";
 
@@ -28,30 +29,32 @@ import { useSiteForm } from "./use-site-form";
 export function ProposalForm({ service }: { service?: ProposalService }) {
   const t = useTranslations("Forms");
   const tp = useTranslations("Proposal");
-  const { form, onSubmit, summary, summaryRef, serverError, errorFor, pending } = useSiteForm({
-    schema: proposalSchema,
-    action: submitProposal,
-    // Com serviço no URL, o rascunho de outro serviço não deve sobrepor-se à escolha.
-    draftKey: service ? undefined : "cp-rascunho-proposta",
-    defaultValues: {
-      name: "",
-      company: "",
-      role: "",
-      email: "",
-      phone: "+244 ",
-      service,
-      participants: undefined,
-      location: "",
-      date: "",
-      dateUndecided: false,
-      objective: "",
-      budget: undefined,
-      details: "",
-      consent: false as unknown as true,
-      website: "",
-      startedAt: 0,
-    },
-  });
+  const { form, onSubmit, summary, summaryRef, serverError, errorFor, pending, turnstile } =
+    useSiteForm({
+      schema: proposalSchema,
+      action: submitProposal,
+      // Com serviço no URL, o rascunho de outro serviço não deve sobrepor-se à escolha.
+      draftKey: service ? undefined : "cp-rascunho-proposta",
+      defaultValues: {
+        name: "",
+        company: "",
+        role: "",
+        email: "",
+        phone: "+244 ",
+        service,
+        participants: undefined,
+        location: "",
+        date: "",
+        dateUndecided: false,
+        objective: "",
+        budget: undefined,
+        details: "",
+        consent: false as unknown as true,
+        website: "",
+        startedAt: 0,
+        turnstileToken: "",
+      },
+    });
   const { register, watch } = form;
   const dateUndecided = watch("dateUndecided");
   const labels: Record<string, string> = {
@@ -222,6 +225,8 @@ export function ProposalForm({ service }: { service?: ProposalService }) {
       </FieldGroup>
 
       <Honeypot registration={register("website")} />
+
+      <Turnstile {...turnstile} label={t("turnstile")} />
       <div>
         <SubmitButton pending={pending} label={tp("submit")} />
       </div>

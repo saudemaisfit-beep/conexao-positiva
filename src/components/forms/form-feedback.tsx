@@ -26,12 +26,12 @@ export function ErrorSummary({
         <CircleAlert aria-hidden="true" className="size-5 text-error" />
         {t("summary", { count: errors.length })}
       </p>
-      <ul className="flex flex-col gap-1 pl-7 text-small">
+      <ul className="flex flex-col pl-7 text-small">
         {errors.map((error) => (
           <li key={error.field}>
             <a
               href={`#${error.field}`}
-              className="underline underline-offset-2 hover:text-error"
+              className="inline-block py-1 underline underline-offset-2 hover:text-error"
               onClick={(event) => {
                 event.preventDefault();
                 document.getElementById(error.field)?.focus();

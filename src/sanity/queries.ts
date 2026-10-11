@@ -33,7 +33,7 @@ export const clientLogosQuery = `*[_type == "clientLogo" && authorized == true] 
 export const testimonialsQuery = `*[_type == "testimonial" && authorized == true] | order(_createdAt desc)${testimonial}`;
 
 export const eventsQuery = `*[_type == "event" && defined(slug.current)] | order(startsAt asc){
-  "slug": slug.current, title, category, startsAt, endsAt, location, priceKz, status,
+  "slug": slug.current, title, category, startsAt, endsAt, location, priceKz, capacity, status,
   summary, description,
   program[]{ time, activity },
   facilitator${person},

@@ -156,6 +156,7 @@ export interface RawEvent {
   endsAt?: string | null;
   location?: string | null;
   priceKz?: number | null;
+  capacity?: number | null;
   status?: string | null;
   summary?: string | null;
   description?: string | null;
@@ -196,7 +197,8 @@ export function toEvent(raw: RawEvent): EventDetail | null {
           photo: facilitator.photo,
         }
       : undefined,
-    // Vagas reais vêm da base de dados de inscrições (Fase 14).
+    capacity: raw.capacity ?? null,
+    // Vagas restantes: calculadas com as inscrições da base de dados (src/content/events.ts).
     spotsLeft: null,
     gallery: toImages(raw.gallery),
     faq: (raw.faq ?? []).flatMap((item) =>

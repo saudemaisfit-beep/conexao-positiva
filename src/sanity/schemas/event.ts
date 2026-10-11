@@ -71,6 +71,15 @@ export const event = defineType({
       validation: (r) => r.min(0).integer(),
     }),
     defineField({
+      name: "capacity",
+      title: "Lotação",
+      type: "number",
+      group: "main",
+      description:
+        'Número de vagas. Vazio = sem limite. Quando as vagas acabam, o site passa a "Esgotado" e abre a lista de espera automaticamente.',
+      validation: (r) => r.min(1).integer(),
+    }),
+    defineField({
       name: "status",
       title: "Estado das inscrições",
       type: "string",
@@ -78,7 +87,7 @@ export const event = defineType({
       options: {
         list: [
           { title: "Aberto", value: "aberto" },
-          { title: "Últimas vagas", value: "ultimas-vagas" },
+          { title: "Últimas vagas (manual)", value: "ultimas-vagas" },
           { title: "Esgotado (lista de espera)", value: "esgotado" },
           { title: "Encerrado", value: "encerrado" },
         ],

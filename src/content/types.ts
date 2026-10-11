@@ -54,7 +54,9 @@ export interface EventDetail extends EventSummary {
   description: string[];
   program: { time: string; activity: string }[];
   facilitator?: { name: string; role: string; bio?: string; photo?: ContentImage };
-  /** Vagas restantes (vêm da base de dados de inscrições a partir da Fase 14). */
+  /** Lotação (CMS). null = sem limite de vagas. */
+  capacity?: number | null;
+  /** Vagas restantes = lotação − inscrições confirmadas (base de dados). */
   spotsLeft?: number | null;
   gallery: ContentImage[];
   faq: FaqItem[];

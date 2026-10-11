@@ -1,4 +1,6 @@
 import "server-only";
+import { isDatabaseConfigured } from "@/lib/db/client";
+import { confirmedRegistrations } from "@/lib/db/submissions";
 import { present, toEvent, type RawEvent } from "@/sanity/mappers";
 import { sanityFetch } from "@/sanity/fetch";
 import { eventsQuery, tags } from "@/sanity/queries";
@@ -13,11 +15,11 @@ export async function getEvents(now = new Date()): Promise<EventDetail[]> {
   const source = contentSource();
   if (source === "sanity") {
     const raw = await sanityFetch<RawEvent[]>(eventsQuery, [...tags.events]);
-    return (raw ?? []).map(toEvent).filter(present);
+    return withAvailability((raw ?? []).map(toEvent).filter(present));
   }
   if (source === "preview") {
     const { exampleEvents } = await import("./fixtures");
-    return exampleEvents(now);
+    return withAvailability(exampleEvents(now));
   }
   return [];
 }
@@ -29,6 +31,35 @@ export async function getEvent(slug: string, now = new Date()) {
 
 export function isPastEvent(event: EventSummary, now: Date) {
   return new Date(event.endsAt ?? event.startsAt).getTime() < now.getTime();
+}
+
+/**
+ * Vagas restantes e estado automático a partir das inscrições confirmadas:
+ * "Últimas vagas" com 10 % ou menos da lotação; "Esgotado" (lista de espera) sem vagas.
+ * Um estado marcado no CMS como "Encerrado" ou "Esgotado" nunca é reaberto automaticamente.
+ */
+export function applyAvailability(event: EventDetail, confirmed: number): EventDetail {
+  if (!event.capacity) return event;
+  const spotsLeft = Math.max(0, event.capacity - confirmed);
+  let status = event.status;
+  if (status === "aberto" || status === "ultimas-vagas") {
+    if (spotsLeft === 0) status = "esgotado";
+    else if (spotsLeft <= Math.max(1, Math.ceil(event.capacity * 0.1))) status = "ultimas-vagas";
+  }
+  return { ...event, spotsLeft, status };
+}
+
+async function withAvailability(events: EventDetail[]) {
+  const limited = events.filter((event) => event.capacity);
+  if (!isDatabaseConfigured || limited.length === 0) return events;
+  try {
+    const counts = await confirmedRegistrations(limited.map((event) => event.slug));
+    return events.map((event) => applyAvailability(event, counts.get(event.slug) ?? 0));
+  } catch (error) {
+    // Sem contagem, a página mostra o evento sem vagas; a inscrição confirma sempre no servidor.
+    console.error("[eventos] não foi possível obter as vagas", error);
+    return events;
+  }
 }
 
 /** Aceita inscrições: futuro e com vagas (ou lista de espera, se esgotado). */

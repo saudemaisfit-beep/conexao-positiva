@@ -18,7 +18,7 @@ import type { FormResult } from "@/lib/forms/schemas";
 type ServerError = Exclude<FormResult, { ok: true }>["error"];
 
 /** Campos que nunca são guardados no rascunho. */
-const NOT_SAVED = new Set(["consent", "website", "startedAt", "eventSlug"]);
+const NOT_SAVED = new Set(["consent", "website", "startedAt", "eventSlug", "turnstileToken"]);
 
 /**
  * Lógica comum dos formulários: validação (à saída do campo e, depois do primeiro erro,
@@ -48,6 +48,8 @@ export function useSiteForm<S extends z.ZodType<FieldValues, FieldValues>>({
   const [summary, setSummary] = useState<{ field: string; message: string }[]>([]);
   const [serverError, setServerError] = useState<ServerError | null>(null);
   const [redirecting, setRedirecting] = useState(false);
+  // Muda depois de cada envio sem sucesso: o token do Turnstile só pode ser usado uma vez.
+  const [attempt, setAttempt] = useState(0);
   const summaryRef = useRef<HTMLDivElement>(null);
   const { reset, subscribe, setError, setValue } = form;
 
@@ -126,6 +128,7 @@ export function useSiteForm<S extends z.ZodType<FieldValues, FieldValues>>({
       router.push(result.redirectTo);
       return;
     }
+    setAttempt((value) => value + 1);
     if (result.error === "validation" && result.fieldErrors) {
       const entries = Object.entries(result.fieldErrors);
       for (const [field, code] of entries) {
@@ -150,5 +153,9 @@ export function useSiteForm<S extends z.ZodType<FieldValues, FieldValues>>({
       return error ? message(error.message as string | undefined) : undefined;
     },
     pending: form.formState.isSubmitting || redirecting,
+    turnstile: {
+      resetKey: attempt,
+      onToken: (token: string) => setValue("turnstileToken" as Path<z.input<S>>, token as never),
+    },
   };
 }

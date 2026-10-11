@@ -7,6 +7,7 @@ import { ConsentField } from "./consent-field";
 import { Field, FieldRow, fieldA11y, inputClass, textareaClass } from "./field";
 import { ErrorSummary, SubmitButton } from "./form-feedback";
 import { Honeypot } from "./honeypot";
+import { Turnstile } from "./turnstile";
 import { ServerError } from "./server-error";
 import { useSiteForm } from "./use-site-form";
 
@@ -22,24 +23,26 @@ export function RegistrationForm({
 }) {
   const t = useTranslations("Forms");
   const tr = useTranslations("Registration");
-  const { form, onSubmit, summary, summaryRef, serverError, errorFor, pending } = useSiteForm({
-    schema: registrationSchema,
-    action: submitRegistration,
-    draftKey: "cp-rascunho-inscricao",
-    defaultValues: {
-      eventSlug,
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "+244 ",
-      company: "",
-      role: "",
-      notes: "",
-      consent: false as unknown as true,
-      website: "",
-      startedAt: 0,
-    },
-  });
+  const { form, onSubmit, summary, summaryRef, serverError, errorFor, pending, turnstile } =
+    useSiteForm({
+      schema: registrationSchema,
+      action: submitRegistration,
+      draftKey: "cp-rascunho-inscricao",
+      defaultValues: {
+        eventSlug,
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "+244 ",
+        company: "",
+        role: "",
+        notes: "",
+        consent: false as unknown as true,
+        website: "",
+        startedAt: 0,
+        turnstileToken: "",
+      },
+    });
   const { register } = form;
   const labels: Record<string, string> = {
     firstName: t("fields.firstName"),
@@ -115,6 +118,7 @@ export function RegistrationForm({
       </Field>
       <ConsentField registration={register("consent")} error={errorFor("consent")} />
       <Honeypot registration={register("website")} />
+      <Turnstile {...turnstile} label={t("turnstile")} />
       <div>
         <SubmitButton pending={pending} label={waitlist ? tr("waitlistSubmit") : tr("submit")} />
       </div>

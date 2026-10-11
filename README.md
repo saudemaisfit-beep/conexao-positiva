@@ -21,8 +21,9 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 | 11    | Insights                                      | ✅ Concluída |
 | 12    | Contactos e Proposta                          | ✅ Concluída |
 | 13    | CMS                                           | ✅ Concluída |
-| 14    | Base de dados e formulários                   | ⏳ Próxima   |
-| 15–20 | SEO → Documentação final                      | Por iniciar  |
+| 14    | Base de dados e formulários                   | ✅ Concluída |
+| 15    | SEO                                           | ⏳ Próxima   |
+| 16–20 | Performance → Documentação final              | Por iniciar  |
 
 ## Documentação de planeamento (Fase 1)
 
@@ -84,6 +85,10 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 
 [CMS](docs/fase-13/01-cms.md): o que se edita no Studio (`/studio`), como o site lê o conteúdo e **como ligar o projeto Sanity**.
 
+## Base de dados e formulários (Fase 14)
+
+[Base de dados e formulários](docs/fase-14/01-base-de-dados.md): Supabase (migração em `supabase/migrations/`), vagas reais, e-mails, anti-spam e **como configurar os serviços**.
+
 ## Desenvolvimento
 
 Requisitos: Node.js 22 (mínimo 20.9).
@@ -125,6 +130,7 @@ src/
   lib/               utilitários (cn, consent)
   styles/            tokens do Design System
 messages/            textos de interface (pt.json)
+supabase/migrations/ esquema da base de dados (formulários)
 ```
 
 As instruções de CMS, base de dados e publicação são acrescentadas nas fases respetivas.

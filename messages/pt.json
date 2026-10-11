@@ -549,6 +549,14 @@
       "server": {
         "title": "Ocorreu um erro ao enviar.",
         "text": "Os seus dados continuam no formulário. Tente novamente dentro de instantes."
+      },
+      "verification": {
+        "title": "Não foi possível confirmar o envio.",
+        "text": "A verificação de segurança falhou ou expirou. Recarregue a página e tente novamente; os seus dados ficam guardados."
+      },
+      "duplicate": {
+        "title": "Já existe uma inscrição com este e-mail.",
+        "text": "Se precisa de alterar a inscrição, fale connosco."
       }
     },
     "alternatives": "Também pode falar connosco por:",
@@ -611,7 +619,8 @@
         "outro": "Outro"
       }
     },
-    "seeEvents": "Ver próximos eventos"
+    "seeEvents": "Ver próximos eventos",
+    "turnstile": "Verificação de segurança"
   },
   "Contact": {
     "metaTitle": "Contactos",

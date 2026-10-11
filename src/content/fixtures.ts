@@ -135,6 +135,7 @@ export function exampleEvents(now: Date): EventDetail[] {
       location: "[Local]",
       priceKz: 25000,
       status: "aberto",
+      capacity: 20,
       spotsLeft: 14,
     },
     {
@@ -147,6 +148,7 @@ export function exampleEvents(now: Date): EventDetail[] {
       location: "[Local]",
       priceKz: null,
       status: "ultimas-vagas",
+      capacity: 2,
       spotsLeft: 3,
     },
     {

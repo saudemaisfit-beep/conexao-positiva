@@ -43,6 +43,8 @@ const consent = z.literal(true, "consent");
 export const spamFields = {
   website: z.string().optional().default(""),
   startedAt: z.number().int().nonnegative(),
+  /** Token do Cloudflare Turnstile (vazio quando não está configurado). */
+  turnstileToken: z.string().max(4096).optional().default(""),
 };
 
 export const contactSchema = z.object({
@@ -106,6 +108,13 @@ export type FormResult =
   | { ok: true; redirectTo: string }
   | {
       ok: false;
-      error: "validation" | "rate-limit" | "closed" | "unavailable" | "server";
+      error:
+        | "validation"
+        | "rate-limit"
+        | "verification"
+        | "closed"
+        | "duplicate"
+        | "unavailable"
+        | "server";
       fieldErrors?: Record<string, string>;
     };

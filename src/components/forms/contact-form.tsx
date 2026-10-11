@@ -8,28 +8,31 @@ import { ConsentField } from "./consent-field";
 import { Field, FieldRow, fieldA11y, inputClass, selectClass, textareaClass } from "./field";
 import { ErrorSummary, SubmitButton } from "./form-feedback";
 import { Honeypot } from "./honeypot";
+import { Turnstile } from "./turnstile";
 import { ServerError } from "./server-error";
 import { useSiteForm } from "./use-site-form";
 
 export function ContactForm() {
   const t = useTranslations("Forms");
   const tc = useTranslations("Contact");
-  const { form, onSubmit, summary, summaryRef, serverError, errorFor, pending } = useSiteForm({
-    schema: contactSchema,
-    action: submitContact,
-    draftKey: "cp-rascunho-contacto",
-    defaultValues: {
-      name: "",
-      company: "",
-      email: "",
-      phone: "+244 ",
-      subject: undefined,
-      message: "",
-      consent: false as unknown as true,
-      website: "",
-      startedAt: 0,
-    },
-  });
+  const { form, onSubmit, summary, summaryRef, serverError, errorFor, pending, turnstile } =
+    useSiteForm({
+      schema: contactSchema,
+      action: submitContact,
+      draftKey: "cp-rascunho-contacto",
+      defaultValues: {
+        name: "",
+        company: "",
+        email: "",
+        phone: "+244 ",
+        subject: undefined,
+        message: "",
+        consent: false as unknown as true,
+        website: "",
+        startedAt: 0,
+        turnstileToken: "",
+      },
+    });
   const { register } = form;
   const labels = {
     name: t("fields.name"),
@@ -119,6 +122,7 @@ export function ContactForm() {
       </Field>
       <ConsentField registration={register("consent")} error={errorFor("consent")} />
       <Honeypot registration={register("website")} />
+      <Turnstile {...turnstile} label={t("turnstile")} />
       <div>
         <SubmitButton pending={pending} label={tc("submit")} />
       </div>
