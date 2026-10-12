@@ -11,7 +11,7 @@ interface IndexItem {
 }
 
 /**
- * Índice dos seis pilares. Desktop: coluna fixa vertical; mobile: faixa horizontal fixa.
+ * Índice dos seis pilares em faixa horizontal fixa (mobile e tablet; no desktop há a órbita).
  * Marca o pilar visível (IntersectionObserver) com aria-current.
  */
 export function PillarIndex({ items }: { items: IndexItem[] }) {
@@ -38,9 +38,9 @@ export function PillarIndex({ items }: { items: IndexItem[] }) {
   return (
     <nav
       aria-label={t("indexLabel")}
-      className="sticky top-(--header-height) z-(--z-sticky) -mx-(--space-gutter) border-b border-border bg-background/95 px-(--space-gutter) py-2 backdrop-blur-sm lg:top-28 lg:mx-0 lg:self-start lg:border-0 lg:bg-transparent lg:p-0 lg:backdrop-blur-none"
+      className="sticky top-(--header-height) z-(--z-sticky) -mx-(--space-gutter) border-b border-border bg-inverse/95 px-(--space-gutter) py-2 backdrop-blur-sm lg:hidden"
     >
-      <ol className="grid grid-cols-6 gap-1 lg:grid-cols-1 lg:gap-0">
+      <ol className="grid grid-cols-6 gap-1">
         {items.map((item) => {
           const current = item.slug === active;
           return (
@@ -49,16 +49,12 @@ export function PillarIndex({ items }: { items: IndexItem[] }) {
                 href={`#${item.slug}`}
                 aria-current={current ? "true" : undefined}
                 className={cn(
-                  "flex min-h-11 items-center justify-center rounded-md font-display text-h4 font-extrabold transition-colors duration-(--duration-fast) lg:justify-start lg:gap-4 lg:rounded-none lg:border-l-2 lg:py-2 lg:pl-5 lg:text-h2",
-                  current
-                    ? "bg-primary text-on-primary lg:border-primary lg:bg-transparent lg:text-primary"
-                    : "text-muted hover:text-primary lg:border-border",
+                  "flex min-h-11 items-center justify-center rounded-md font-display text-h4 font-extrabold transition-colors duration-(--duration-fast)",
+                  current ? "bg-glow text-on-glow" : "text-muted hover:text-glow",
                 )}
               >
                 <span aria-hidden="true">{item.letter}</span>
-                <span className="sr-only lg:not-sr-only lg:font-body lg:text-small lg:font-semibold">
-                  {item.name}
-                </span>
+                <span className="sr-only">{item.name}</span>
               </a>
             </li>
           );

@@ -41,3 +41,10 @@ O nome é o conceito: os seis pilares giram em volta de um **centro**.
 - Rotação automática a cada 7 s só com a secção visível, com barra de progresso e **botão de pausa** (WCAG 2.2.2); para de vez quando a pessoa escolhe um pilar.
 - Acessibilidade: separadores ARIA (setas, Home/End, foco visível), nome de cada pilar no separador, painel de texto associado. Com movimento reduzido: sem rotação automática nem animações (cada desenho tem um estado parado legível).
 - Componentes: `sections/centro-orbit.tsx` e `sections/centro-orbit-art.tsx`; estilos em `globals.css` ("Órbita do Método C.E.N.T.R.O."). Substitui `centro-experience.tsx`.
+
+## Página /metodo-centro: órbita guiada pelo scroll
+
+- A secção dos seis pilares passa a marsala-escuro (`tone="inverse"`), com a letra em gradiente e as práticas em caixas de vidro.
+- Desktop (≥ 1024 px): a órbita fica fixa à esquerda e roda até ao pilar visível enquanto se desce a página; o núcleo mostra a animação desse pilar. As letras são links para as âncoras (`#consciencia`…), com `aria-current` no pilar visível.
+- Mobile e tablet: índice fixo em faixa (como antes) e a animação de cada pilar junto à letra.
+- O mostrador é partilhado com a Home: `sections/orbit-dial.tsx` (`useOrbit`, `orbitNode`, `OrbitDial`); a página usa `sections/metodo/pillars-orbit.tsx`.
