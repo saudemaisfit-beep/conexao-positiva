@@ -31,3 +31,13 @@ Sub-marca do Método C.E.N.T.R.O.: dentro de `data-brand="metodo"`, a aurora, a 
 - Movimento reduzido: aurora e rede de pontos paradas. Em telemóveis (< 768 px) a rede de pontos é desenhada uma vez, sem animação (poupa bateria e processador).
 - Otimizações: aurora sem `filter: blur` (gradientes radiais já suaves), animação em camada própria (`will-change: transform`); rede de pontos fora do JavaScript inicial, começa só com o browser livre, a 30 imagens/s, e para fora do ecrã ou com o separador oculto.
 - Lighthouse (telemóvel, simulado): desempenho **91–95** (antes 94–98 na mesma máquina); acessibilidade, boas práticas e SEO 100; CLS 0. O tempo real até à primeira pintura é praticamente igual; a diferença vem sobretudo do trabalho extra de pintura e do carregamento de links do hero na simulação.
+
+## Secção do Método C.E.N.T.R.O. na Home: órbita interativa
+
+O nome é o conceito: os seis pilares giram em volta de um **centro**.
+
+- As letras C, E, N, T, R, O estão num anel; o pilar escolhido roda até ao topo (caminho mais curto) e um raio animado liga-o ao núcleo.
+- O núcleo mostra uma animação própria de cada pilar (SVG e CSS, sem bibliotecas): ondas de luz (Consciência), balança que estabiliza (Equilíbrio), rebento que cresce (Nutrição), ponteiros de relógio (Tempo), **respiração guiada** com "Inspire / Expire" em ciclos de 4 s (Respiração) e agulha de bússola que procura o norte (Orientação).
+- Rotação automática a cada 7 s só com a secção visível, com barra de progresso e **botão de pausa** (WCAG 2.2.2); para de vez quando a pessoa escolhe um pilar.
+- Acessibilidade: separadores ARIA (setas, Home/End, foco visível), nome de cada pilar no separador, painel de texto associado. Com movimento reduzido: sem rotação automática nem animações (cada desenho tem um estado parado legível).
+- Componentes: `sections/centro-orbit.tsx` e `sections/centro-orbit-art.tsx`; estilos em `globals.css` ("Órbita do Método C.E.N.T.R.O."). Substitui `centro-experience.tsx`.
