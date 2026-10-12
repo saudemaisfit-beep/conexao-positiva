@@ -13,7 +13,7 @@ export async function WhoWeAre() {
   }));
   return (
     <Section tone="alt" aria-labelledby="who-title">
-      <div className="container-site grid gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-center lg:gap-20">
+      <div className="container-site grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-center lg:gap-20">
         <div className="flex reveal flex-col gap-5">
           <p className="eyebrow">{t("eyebrow")}</p>
           <h2 id="who-title" className="text-h2 font-bold">

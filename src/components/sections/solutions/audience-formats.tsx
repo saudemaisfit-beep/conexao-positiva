@@ -29,7 +29,7 @@ export function AudienceFormats({
 }) {
   return (
     <Section aria-label={`${audienceTitle} · ${formatsTitle}`}>
-      <div className="container-site grid gap-6 md:grid-cols-2">
+      <div className="container-site grid grid-cols-1 gap-6 md:grid-cols-2">
         <div className="flex reveal flex-col gap-6 rounded-lg border border-border bg-surface-raised p-6 md:p-8">
           <h2 className="text-h3 font-bold">{audienceTitle}</h2>
           <CheckList items={audience} />

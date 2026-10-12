@@ -20,7 +20,7 @@ export function ConsentField({
           type="checkbox"
           {...fieldA11y("consent", { error })}
           {...registration}
-          className="mt-0.5 size-5 shrink-0 cursor-pointer rounded-xs accent-primary aria-invalid:outline-2 aria-invalid:outline-error"
+          className="size-6 shrink-0 cursor-pointer rounded-xs accent-primary aria-invalid:outline-2 aria-invalid:outline-error"
         />
         <label htmlFor="consent" className="cursor-pointer text-small">
           {t.rich("consent", {

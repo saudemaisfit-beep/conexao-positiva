@@ -4,28 +4,33 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 
 Alojamento: **Hostinger, plano Business** (aplicação Node.js). Decisões em `docs/fase-01/04-conteudos-e-decisoes-pendentes.md`.
 
+- **Equipa da Conexão Positiva:** [Guia do site](GUIA-DO-CLIENTE.md) — editar conteúdos, ver pedidos, cookies e estatísticas.
+- **Quem mantém o site:** [Entrega e manutenção](docs/fase-20/01-entrega.md) — arquitetura, contas, decisões, checklist de lançamento e manutenção.
+
 ## Estado
 
-| Fase  | Descrição                                     | Estado       |
-| ----- | --------------------------------------------- | ------------ |
-| 1     | Planeamento e sitemap                         | ✅ Concluída |
-| 2     | Wireframes e estrutura UX                     | ✅ Concluída |
-| 3     | Design System (cores oficiais azul e marsala) | ✅ Concluída |
-| 4     | Header, Footer e componentes globais          | ✅ Concluída |
-| 5     | Home                                          | ✅ Concluída |
-| 6     | Sobre Nós                                     | ✅ Concluída |
-| 7     | Soluções                                      | ✅ Concluída |
-| 8     | Método C.E.N.T.R.O.                           | ✅ Concluída |
-| 9     | Eventos                                       | ✅ Concluída |
-| 10    | Experiências                                  | ✅ Concluída |
-| 11    | Insights                                      | ✅ Concluída |
-| 12    | Contactos e Proposta                          | ✅ Concluída |
-| 13    | CMS                                           | ✅ Concluída |
-| 14    | Base de dados e formulários                   | ✅ Concluída |
-| 15    | SEO                                           | ✅ Concluída |
-| 16    | Performance                                   | ✅ Concluída |
-| 17    | Acessibilidade                                | ⏳ Próxima   |
-| 18–20 | Testes → Documentação final                   | Por iniciar  |
+| Fase | Descrição                                     | Estado                                                     |
+| ---- | --------------------------------------------- | ---------------------------------------------------------- |
+| 1    | Planeamento e sitemap                         | ✅ Concluída                                               |
+| 2    | Wireframes e estrutura UX                     | ✅ Concluída                                               |
+| 3    | Design System (cores oficiais azul e marsala) | ✅ Concluída                                               |
+| 4    | Header, Footer e componentes globais          | ✅ Concluída                                               |
+| 5    | Home                                          | ✅ Concluída                                               |
+| 6    | Sobre Nós                                     | ✅ Concluída                                               |
+| 7    | Soluções                                      | ✅ Concluída                                               |
+| 8    | Método C.E.N.T.R.O.                           | ✅ Concluída                                               |
+| 9    | Eventos                                       | ✅ Concluída                                               |
+| 10   | Experiências                                  | ✅ Concluída                                               |
+| 11   | Insights                                      | ✅ Concluída                                               |
+| 12   | Contactos e Proposta                          | ✅ Concluída                                               |
+| 13   | CMS                                           | ✅ Concluída                                               |
+| 14   | Base de dados e formulários                   | ✅ Concluída                                               |
+| 15   | SEO                                           | ✅ Concluída                                               |
+| 16   | Performance                                   | ✅ Concluída                                               |
+| 17   | Acessibilidade                                | ✅ Concluída                                               |
+| 18   | Testes                                        | ✅ Concluída                                               |
+| 19   | Deploy (Hostinger)                            | 🔶 Guia e testes prontos; falta verificar o site publicado |
+| 20   | Documentação final                            | ✅ Concluída                                               |
 
 ## Documentação de planeamento (Fase 1)
 
@@ -99,6 +104,22 @@ Alojamento: **Hostinger, plano Business** (aplicação Node.js). Decisões em `d
 
 [Performance](docs/fase-16/01-performance.md): resultados do Lighthouse, Content Security Policy e Google Analytics 4 com consentimento.
 
+## Acessibilidade (Fase 17)
+
+[Acessibilidade](docs/fase-17/01-acessibilidade.md): verificação WCAG 2.2 AA (axe, teclado, 320 px, zoom, espaçamento de texto) e correções.
+
+## Testes (Fase 18)
+
+`npm test` corre os testes unitários e ponta a ponta (Playwright). Detalhes em [Testes](docs/fase-18/01-testes.md).
+
+## Deploy (Fase 19)
+
+[Deploy na Hostinger](docs/fase-19/01-deploy-hostinger.md): variáveis, domínio e HTTPS, serviços, verificação do site publicado (`LIVE_URL=https://conexaopositiva.ao npm run test:live`) e rollback.
+
+## Documentação final (Fase 20)
+
+[Entrega e manutenção](docs/fase-20/01-entrega.md) e [Guia do cliente](GUIA-DO-CLIENTE.md).
+
 ## Desenvolvimento
 
 Requisitos: Node.js 22.12 ou superior.
@@ -109,16 +130,18 @@ cp .env.example .env.local   # preencher os valores necessários
 npm run dev                  # http://localhost:3000
 ```
 
-| Comando                           | O que faz                    |
-| --------------------------------- | ---------------------------- |
-| `npm run dev`                     | Servidor de desenvolvimento  |
-| `npm run build` / `npm start`     | Build de produção e servidor |
-| `npm run lint`                    | ESLint                       |
-| `npm run typecheck`               | TypeScript (strict)          |
-| `npm run format` / `format:check` | Prettier                     |
-| `npm run check`                   | Lint + tipos + formatação    |
+| Comando                           | O que faz                                    |
+| --------------------------------- | -------------------------------------------- |
+| `npm run dev`                     | Servidor de desenvolvimento                  |
+| `npm run build` / `npm start`     | Build de produção e servidor                 |
+| `npm run lint`                    | ESLint                                       |
+| `npm run typecheck`               | TypeScript (strict)                          |
+| `npm run format` / `format:check` | Prettier                                     |
+| `npm run check`                   | Lint + tipos + formatação                    |
+| `npm test`                        | Testes unitários e ponta a ponta             |
+| `npm run test:live`               | Verificação do site publicado (`LIVE_URL=…`) |
 
-O CI (`.github/workflows/ci.yml`) corre lint, tipos, formatação e build em cada pull request e em cada push para `main`.
+O CI (`.github/workflows/ci.yml`) corre lint, tipos, formatação, build e os testes em cada pull request e em cada push para `main`.
 
 ### Estrutura
 
@@ -136,10 +159,9 @@ src/
   content/           modelos e leitura de conteúdo (Sanity, exemplos ou vazio)
   sanity/            Studio: esquemas, consultas GROQ e conversões
   i18n/              next-intl (routing, request, navigation)
-  lib/               utilitários (cn, consent)
+  lib/               formulários, segurança, e-mail, base de dados, SEO, analytics
   styles/            tokens do Design System
 messages/            textos de interface (pt.json)
 supabase/migrations/ esquema da base de dados (formulários)
+tests/               unit/, e2e/ e live/ (Playwright)
 ```
-
-As instruções de CMS, base de dados e publicação são acrescentadas nas fases respetivas.

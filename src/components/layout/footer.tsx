@@ -130,13 +130,16 @@ export async function Footer() {
           <ul className="flex flex-wrap gap-x-5 gap-y-2">
             {legalNav.map((item) => (
               <li key={item.key}>
-                <Link href={item.href} className="hover:text-on-inverse">
+                <Link
+                  href={item.href}
+                  className="inline-flex min-h-6 items-center hover:text-on-inverse"
+                >
                   {t(item.key)}
                 </Link>
               </li>
             ))}
             <li>
-              <ManageCookiesButton className="cursor-pointer hover:text-on-inverse" />
+              <ManageCookiesButton className="inline-flex min-h-6 cursor-pointer items-center hover:text-on-inverse" />
             </li>
           </ul>
         </div>

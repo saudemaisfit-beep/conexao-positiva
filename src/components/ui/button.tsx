@@ -5,7 +5,7 @@ import { cn } from "@/lib/cn";
 
 export const buttonVariants = cva(
   [
-    "group/button inline-flex items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap",
+    "group/button inline-flex max-w-full items-center justify-center gap-2 rounded-full py-2 text-center font-semibold",
     "transition-[background-color,color,border-color,transform] duration-(--duration-instant) ease-out",
     "active:scale-[0.98] disabled:pointer-events-none disabled:opacity-45",
     "aria-disabled:pointer-events-none aria-disabled:opacity-45",
@@ -26,7 +26,7 @@ export const buttonVariants = cva(
         lg: "min-h-14 px-[1.875rem] text-body",
       },
     },
-    compoundVariants: [{ variant: "link", className: "min-h-0 px-0" }],
+    compoundVariants: [{ variant: "link", className: "min-h-6 px-0 py-0" }],
     defaultVariants: { variant: "primary", size: "md" },
   },
 );

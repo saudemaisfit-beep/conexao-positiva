@@ -89,7 +89,7 @@ export default async function ServicePage({ params }: PageProps) {
       />
 
       <Section tone="alt" aria-labelledby="intro-title" className="py-14 md:py-20">
-        <div className="container-site grid gap-6 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-20">
+        <div className="container-site grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-20">
           <p id="intro-title" className="eyebrow self-start">
             {t("service.introEyebrow")}
           </p>

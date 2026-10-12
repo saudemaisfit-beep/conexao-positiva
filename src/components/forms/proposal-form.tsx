@@ -173,7 +173,7 @@ export function ProposalForm({ service }: { service?: ProposalService }) {
             <label className="flex cursor-pointer items-center gap-3 text-small">
               <input
                 type="checkbox"
-                className="size-5 cursor-pointer rounded-xs accent-primary"
+                className="size-6 cursor-pointer rounded-xs accent-primary"
                 {...register("dateUndecided", {
                   onChange: () => form.trigger("date"),
                 })}

@@ -27,7 +27,7 @@ export function PageHero({
 }: PageHeroProps) {
   return (
     <section aria-labelledby="page-title" className="relative overflow-hidden">
-      <div className="container-site grid items-center gap-10 pt-6 pb-14 md:pt-8 md:pb-20 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)] lg:gap-16 lg:pb-24">
+      <div className="container-site grid grid-cols-1 items-center gap-10 pt-6 pb-14 md:pt-8 md:pb-20 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)] lg:gap-16 lg:pb-24">
         <div className="flex flex-col gap-5">
           <Breadcrumbs items={breadcrumbs} />
           <p className="mt-4 eyebrow animate-rise-in md:mt-8">{eyebrow}</p>

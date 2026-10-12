@@ -20,7 +20,7 @@ const utc = (iso: string) =>
 
 // Escapa caracteres especiais do formato (\ ; , e mudanças de linha).
 const escape = (value: string) =>
-  value.replace(/\\/g, "\\\\").replace(/;/g, "\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
+  value.replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
 
 // Linhas com mais de 75 octetos continuam na linha seguinte, iniciada por um espaço.
 function fold(line: string) {

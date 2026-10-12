@@ -12,10 +12,21 @@ z.config({ jitless: true });
 // Remove caracteres de controlo (exceto mudança de linha) e espaços nas pontas.
 const clean = (value: string) => value.replace(/[\u0000-\u0009\u000B-\u001F\u007F]/g, "").trim();
 
-const text = (max: number) => z.string().transform(clean).pipe(z.string().max(max, "tooLong"));
-const required = (max: number) =>
-  z.string().transform(clean).pipe(z.string().min(1, "required").max(max, "tooLong"));
-const optional = (max: number) => text(max).optional().default("");
+// Campos de uma linha (nome, empresa…): mudanças de linha passam a espaço. Alguns entram no
+// assunto dos e-mails; só os campos de texto longo aceitam parágrafos.
+const singleLine = (value: string) => clean(value).replace(/\s*[\r\n]+\s*/g, " ");
+
+const text = (max: number, multiline = false) =>
+  z
+    .string()
+    .transform(multiline ? clean : singleLine)
+    .pipe(z.string().max(max, "tooLong"));
+const required = (max: number, multiline = false) =>
+  z
+    .string()
+    .transform(multiline ? clean : singleLine)
+    .pipe(z.string().min(1, "required").max(max, "tooLong"));
+const optional = (max: number, multiline = false) => text(max, multiline).optional().default("");
 
 const email = z
   .string()
@@ -56,7 +67,7 @@ export const contactSchema = z.object({
   email,
   phone: optionalPhone,
   subject: z.enum(contactSubjects, "required"),
-  message: required(3000).pipe(z.string().min(10, "tooShort")),
+  message: required(3000, true).pipe(z.string().min(10, "tooShort")),
   consent,
   ...spamFields,
 });
@@ -73,9 +84,9 @@ export const proposalSchema = z
     location: required(160),
     date: z.string().optional().default(""),
     dateUndecided: z.boolean().optional().default(false),
-    objective: required(2000).pipe(z.string().min(10, "tooShort")),
+    objective: required(2000, true).pipe(z.string().min(10, "tooShort")),
     budget: z.enum(budgetRanges).optional(),
-    details: optional(3000),
+    details: optional(3000, true),
     consent,
     ...spamFields,
   })
@@ -94,7 +105,7 @@ export const registrationSchema = z.object({
   phone,
   company: optional(120),
   role: optional(120),
-  notes: optional(1000),
+  notes: optional(1000, true),
   consent,
   ...spamFields,
 });

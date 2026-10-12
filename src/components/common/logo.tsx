@@ -24,7 +24,8 @@ export function Logo({ className, priority = false }: { className?: string; prio
         priority={priority}
         className="size-8 md:size-9"
       />
-      <span>Conexão Positiva</span>
+      {/* Abaixo de 360px o nome passa a duas linhas para caber o menu (reflow a 320px). */}
+      <span className="max-[22.5rem]:w-min">Conexão Positiva</span>
     </Link>
   );
 }

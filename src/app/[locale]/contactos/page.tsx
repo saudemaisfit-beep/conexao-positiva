@@ -88,7 +88,7 @@ export default async function ContactPage({ params }: PageProps) {
         breadcrumbs={[{ label: t("breadcrumb"), href: "/contactos" }]}
       />
       <Section className="pt-0 md:pt-0">
-        <div className="container-site grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+        <div className="container-site grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
           <div className="flex flex-col gap-6">
             <h2 className="text-h3 font-bold">{t("channels")}</h2>
             {hasChannels ? (

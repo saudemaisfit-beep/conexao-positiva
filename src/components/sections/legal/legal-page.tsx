@@ -15,7 +15,7 @@ export async function LegalPage({ document }: { document: LegalDocument }) {
         breadcrumbs={[{ label: document.title, href: `/${document.slug}` }]}
       />
       <section aria-labelledby="page-title" className="pb-(--space-section)">
-        <div className="container-site grid gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-16">
+        <div className="container-site grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-16">
           <div className="flex flex-col gap-6 self-start lg:sticky lg:top-28">
             <p className="text-small text-muted">
               {t("updated", { date: formatLongDate(`${document.updatedAt}T12:00:00Z`) })}

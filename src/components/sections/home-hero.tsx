@@ -10,7 +10,7 @@ export async function HomeHero() {
 
   return (
     <section aria-labelledby="hero-title" className="relative overflow-hidden">
-      <div className="container-site grid items-center gap-10 pt-10 pb-16 md:pt-16 md:pb-24 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16 lg:pt-12 lg:pb-24">
+      <div className="container-site grid grid-cols-1 items-center gap-10 pt-10 pb-16 md:pt-16 md:pb-24 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16 lg:pt-12 lg:pb-24">
         <div className="flex flex-col gap-6">
           <p className="eyebrow animate-rise-in">{t("eyebrow")}</p>
           <h1

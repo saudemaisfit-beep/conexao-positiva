@@ -131,7 +131,7 @@ export default async function EventPage({ params }: PageProps) {
           href={mapHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-small font-semibold text-primary underline underline-offset-2"
+          className="inline-flex min-h-6 items-center text-small font-semibold text-primary underline underline-offset-2"
         >
           {t("detail.map")}
         </a>
@@ -173,7 +173,7 @@ export default async function EventPage({ params }: PageProps) {
       />
 
       <Section aria-label={t("detail.about")} className="pt-0 md:pt-0">
-        <div className="container-site grid gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,4fr)] lg:gap-16">
+        <div className="container-site grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,4fr)] lg:gap-16">
           <div className="flex flex-col gap-6 self-start rounded-xl border border-border bg-surface-raised p-6 lg:sticky lg:top-28 lg:order-2 lg:p-8">
             <h2 className="text-h4 font-bold">{t("detail.facts")}</h2>
             {facts}
