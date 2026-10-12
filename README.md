@@ -4,6 +4,9 @@ Plataforma institucional e comercial da **Conexão Positiva**: desenvolvimento h
 
 Alojamento: **Hostinger, plano Business** (aplicação Node.js). Decisões em `docs/fase-01/04-conteudos-e-decisoes-pendentes.md`.
 
+- **Equipa da Conexão Positiva:** [Guia do site](GUIA-DO-CLIENTE.md) — editar conteúdos, ver pedidos, cookies e estatísticas.
+- **Quem mantém o site:** [Entrega e manutenção](docs/fase-20/01-entrega.md) — arquitetura, contas, decisões, checklist de lançamento e manutenção.
+
 ## Estado
 
 | Fase | Descrição                                     | Estado                                                     |
@@ -27,7 +30,7 @@ Alojamento: **Hostinger, plano Business** (aplicação Node.js). Decisões em `d
 | 17   | Acessibilidade                                | ✅ Concluída                                               |
 | 18   | Testes                                        | ✅ Concluída                                               |
 | 19   | Deploy (Hostinger)                            | 🔶 Guia e testes prontos; falta verificar o site publicado |
-| 20   | Documentação final                            | Por iniciar                                                |
+| 20   | Documentação final                            | ✅ Concluída                                               |
 
 ## Documentação de planeamento (Fase 1)
 
@@ -113,6 +116,10 @@ Alojamento: **Hostinger, plano Business** (aplicação Node.js). Decisões em `d
 
 [Deploy na Hostinger](docs/fase-19/01-deploy-hostinger.md): variáveis, domínio e HTTPS, serviços, verificação do site publicado (`LIVE_URL=https://conexaopositiva.ao npm run test:live`) e rollback.
 
+## Documentação final (Fase 20)
+
+[Entrega e manutenção](docs/fase-20/01-entrega.md) e [Guia do cliente](GUIA-DO-CLIENTE.md).
+
 ## Desenvolvimento
 
 Requisitos: Node.js 22.12 ou superior.
@@ -123,16 +130,18 @@ cp .env.example .env.local   # preencher os valores necessários
 npm run dev                  # http://localhost:3000
 ```
 
-| Comando                           | O que faz                    |
-| --------------------------------- | ---------------------------- |
-| `npm run dev`                     | Servidor de desenvolvimento  |
-| `npm run build` / `npm start`     | Build de produção e servidor |
-| `npm run lint`                    | ESLint                       |
-| `npm run typecheck`               | TypeScript (strict)          |
-| `npm run format` / `format:check` | Prettier                     |
-| `npm run check`                   | Lint + tipos + formatação    |
+| Comando                           | O que faz                                    |
+| --------------------------------- | -------------------------------------------- |
+| `npm run dev`                     | Servidor de desenvolvimento                  |
+| `npm run build` / `npm start`     | Build de produção e servidor                 |
+| `npm run lint`                    | ESLint                                       |
+| `npm run typecheck`               | TypeScript (strict)                          |
+| `npm run format` / `format:check` | Prettier                                     |
+| `npm run check`                   | Lint + tipos + formatação                    |
+| `npm test`                        | Testes unitários e ponta a ponta             |
+| `npm run test:live`               | Verificação do site publicado (`LIVE_URL=…`) |
 
-O CI (`.github/workflows/ci.yml`) corre lint, tipos, formatação e build em cada pull request e em cada push para `main`.
+O CI (`.github/workflows/ci.yml`) corre lint, tipos, formatação, build e os testes em cada pull request e em cada push para `main`.
 
 ### Estrutura
 
@@ -150,10 +159,9 @@ src/
   content/           modelos e leitura de conteúdo (Sanity, exemplos ou vazio)
   sanity/            Studio: esquemas, consultas GROQ e conversões
   i18n/              next-intl (routing, request, navigation)
-  lib/               utilitários (cn, consent)
+  lib/               formulários, segurança, e-mail, base de dados, SEO, analytics
   styles/            tokens do Design System
 messages/            textos de interface (pt.json)
 supabase/migrations/ esquema da base de dados (formulários)
+tests/               unit/, e2e/ e live/ (Playwright)
 ```
-
-As instruções de CMS, base de dados e publicação são acrescentadas nas fases respetivas.
