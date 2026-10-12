@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { proposalHref, services } from "@/config/navigation";
-import { ServiceCard } from "@/components/cards/service-card";
+import { proposalHref } from "@/config/navigation";
+import { ServicesBento } from "@/components/sections/services-bento";
 import { Section } from "@/components/layout/section";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { PageHero } from "@/components/sections/page-hero";
@@ -43,13 +43,7 @@ export default async function SolutionsPage({ params }: PageProps) {
       <Section aria-labelledby="all-title">
         <div className="container-site">
           <SectionHeader id="all-title" eyebrow={t("all.eyebrow")} title={t("all.title")} />
-          <ul className="grid gap-3 md:grid-cols-2 md:gap-5 xl:grid-cols-4">
-            {services.map((service) => (
-              <li key={service.slug} className="reveal">
-                <ServiceCard service={service} moreLabel={tHome("more")} />
-              </li>
-            ))}
-          </ul>
+          <ServicesBento moreLabel={tHome("more")} />
         </div>
       </Section>
       <Section tone="alt" aria-labelledby="process-title">

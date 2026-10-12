@@ -132,7 +132,7 @@ export default async function ExperiencePage({ params }: PageProps) {
         </div>
       )}
 
-      <Section aria-label={t("detail.facts")} className="pt-0 md:pt-0">
+      <Section aria-label={t("detail.facts")}>
         <div className="container-site flex flex-col gap-16 md:gap-20">
           <div className="rounded-xl bg-surface p-6 md:p-8">
             <h2 className="sr-only">{t("detail.facts")}</h2>

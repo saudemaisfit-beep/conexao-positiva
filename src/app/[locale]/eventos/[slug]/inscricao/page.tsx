@@ -51,7 +51,7 @@ export default async function RegistrationPage({ params }: PageProps) {
           { label: t("breadcrumb"), href: `/eventos/${event.slug}/inscricao` },
         ]}
       />
-      <section aria-labelledby="page-title" className="pb-(--space-section)">
+      <section aria-labelledby="page-title" className="pt-10 pb-(--space-section) md:pt-14">
         <div className="container-site grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,4fr)] lg:gap-16">
           <div className="self-start rounded-xl bg-surface p-6 md:p-8 lg:sticky lg:top-28 lg:order-2">
             <EventSummary event={event} title={t("summary")} />

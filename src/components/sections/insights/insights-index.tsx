@@ -19,7 +19,7 @@ export async function InsightsIndex({ category }: { category: ArticleCategory | 
     .filter((slug) => all.some((article) => article.category === slug));
 
   return (
-    <Section className="pt-0 md:pt-0">
+    <Section>
       <div className="container-site flex flex-col gap-10">
         {all.length === 0 ? (
           <div className="flex flex-col items-start gap-5 rounded-xl bg-surface p-8 md:p-12">

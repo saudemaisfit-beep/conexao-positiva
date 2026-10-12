@@ -2,7 +2,10 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 
-/** Header fixo no topo que ganha fundo, sombra e menor altura depois de algum scroll. */
+/**
+ * Header fixo no topo, azul-noite (contínuo com os heros escuros). Depois de algum scroll fica
+ * translúcido com desfoque, linha inferior e sombra, e reduz a altura.
+ */
 export function HeaderShell({ children }: { children: ReactNode }) {
   const [scrolled, setScrolled] = useState(false);
 
@@ -16,7 +19,8 @@ export function HeaderShell({ children }: { children: ReactNode }) {
   return (
     <header
       data-scrolled={scrolled}
-      className="group/header sticky top-0 z-(--z-header) border-b border-transparent bg-background transition-[box-shadow,border-color] duration-(--duration-fast) data-[scrolled=true]:border-border data-[scrolled=true]:shadow-header"
+      data-surface="inverse"
+      className="group/header sticky top-0 z-(--z-header) border-b border-transparent bg-inverse text-on-inverse transition-[box-shadow,border-color,background-color] duration-(--duration-fast) data-[scrolled=true]:border-white/10 data-[scrolled=true]:bg-inverse/85 data-[scrolled=true]:shadow-header data-[scrolled=true]:backdrop-blur-lg"
     >
       {children}
     </header>

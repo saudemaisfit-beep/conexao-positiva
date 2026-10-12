@@ -16,6 +16,7 @@ export async function Header() {
         <ButtonLink
           href={proposalHref}
           size="sm"
+          variant="glow"
           className="ml-auto max-lg:min-h-11 max-md:px-3.5 lg:ml-0"
         >
           <span className="xl:hidden">{t("proposalShort")}</span>

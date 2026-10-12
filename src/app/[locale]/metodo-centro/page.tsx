@@ -47,24 +47,26 @@ export default async function MetodoPage({ params }: PageProps) {
         asideOnMobile
         actions={
           <>
-            <ButtonLink href={proposal} size="lg">
+            <ButtonLink href={proposal} size="lg" variant="glow">
               {t("hero.primary")}
               <ArrowRight aria-hidden="true" className={arrowClassName} />
             </ButtonLink>
-            <ButtonLink href="#consciencia" variant="secondary" size="lg">
+            <ButtonLink href="#consciencia" variant="glass" size="lg">
               {t("hero.secondary")}
             </ButtonLink>
           </>
         }
         aside={
-          <Image
-            src={logo}
-            alt={t("hero.logoAlt")}
-            priority
-            fetchPriority="high"
-            sizes="(min-width: 1024px) 22rem, 15rem"
-            className="h-auto w-full"
-          />
+          <div className="rounded-xl bg-white p-6 shadow-lg md:p-8">
+            <Image
+              src={logo}
+              alt={t("hero.logoAlt")}
+              priority
+              fetchPriority="high"
+              sizes="(min-width: 1024px) 18rem, 12rem"
+              className="h-auto w-full"
+            />
+          </div>
         }
       />
 

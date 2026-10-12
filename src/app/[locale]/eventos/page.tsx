@@ -45,7 +45,7 @@ export default async function EventsPage({ params }: PageProps) {
         lead={t("hero.lead")}
         breadcrumbs={[{ label: t("breadcrumb"), href: "/eventos" }]}
       />
-      <Section className="pt-0 md:pt-0">
+      <Section>
         <div className="container-site">
           {events.length === 0 ? (
             <div className="flex flex-col items-start gap-5 rounded-xl bg-surface p-8 md:p-12">
