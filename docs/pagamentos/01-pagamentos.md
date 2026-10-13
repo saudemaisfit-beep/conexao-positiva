@@ -1,28 +1,48 @@
 # Método C.E.N.T.R.O.: landing page e pagamentos online
 
-## O que foi integrado da landing page de Luciana Machado
+## A página /metodo-centro: landing de Luciana Machado
 
-A página `/metodo-centro` mantém a órbita e o design do site e ganhou estas secções:
+A página segue a **landing page completa** de Luciana Machado, com a identidade dela, aplicada com
+`data-brand="luciana"`:
 
-| Secção                                 | Origem                         | Estado dos dados                                                                         |
-| -------------------------------------- | ------------------------------ | ---------------------------------------------------------------------------------------- |
-| Hero com fotografia de Luciana Machado | Landing (imagem do hero)       | Fotografia fornecida pela cliente                                                        |
-| "Reconhece estes sinais?"              | Landing (sinais de desconexão) | Texto adaptado a linguagem neutra                                                        |
-| Conheça a criadora                     | Landing (secção "Sobre")       | Citação e texto da landing; **números marcados [Exemplo]**                               |
-| Benefícios                             | Landing                        | Texto adaptado                                                                           |
-| Testemunhos                            | Landing                        | **[Exemplo]**: nomes trocados por "[Exemplo] Nome da participante" até haver autorização |
-| Participar (encontro, e-books, guia)   | Landing (planos e produtos)    | **Preços e condições [Exemplo]**                                                         |
-| Apelo final                            | Landing                        | Texto adaptado                                                                           |
+- **Cores:** carvão, dourado e areia.
+- **Tipos de letra:** Playfair Display nos títulos e Montserrat no texto, alojados no próprio site.
 
-Ficaram de fora, de propósito:
+O checkout e a página do pedido usam a mesma identidade.
 
-- **Contagem decrescente e "oferta por tempo limitado"**: urgência artificial e um limite de tempo
-  não ajustável (WCAG 2.2.1).
-- **Data do encontro (15 de maio de 2026)**: já passou. Os encontros novos entram pela agenda (`/eventos`).
-- **Área de administração da landing**: o site já usa o Sanity (`/studio`).
-- **"Mais de 2.000 downloads", "98 % de sucesso"**: números sem fonte.
+**Secções, pela ordem da landing:**
 
-Textos e ofertas: `src/content/metodo.ts` e `src/content/offers.ts`.
+1. Hero de ecrã inteiro com a fotografia.
+2. Números.
+3. "Reconhece estes sinais?".
+4. Guia gratuito, com o formulário na própria página.
+5. A criadora.
+6. **O que é o método** (conteúdo do site).
+7. **Os seis pilares em órbita** (secção do site, com as cores da landing).
+8. **Como funciona** e **Para quem é** (conteúdo do site).
+9. Testemunhos.
+10. Benefícios.
+11. Oferta.
+12. Encontro.
+13. Bilhetes.
+14. E-books.
+15. **Individual ou na sua organização** (conteúdo do site).
+16. **Perguntas frequentes** (conteúdo do site).
+17. Apelo final.
+
+**Textos e dados:**
+
+- Os textos estão em `src/content/metodo-landing.ts`; o conteúdo do site está em `src/content/metodo.ts`.
+- Os preços estão em `src/content/offers.ts`.
+- Os números, os testemunhos, a data do encontro, o preço de referência e a garantia de devolução estão
+  marcados **[Exemplo]** até serem confirmados.
+
+**Acessibilidade (WCAG 2.2 AA):**
+
+- O dourado claro só aparece sobre carvão ou com texto carvão (6,3 : 1).
+- O texto dourado sobre fundos claros usa o dourado escuro `#6e523a` (≥ 5 : 1).
+- A contagem decrescente só aparece com uma data-limite **real** (`landing.urgency.deadline`). Não recomeça,
+  atualiza de minuto a minuto e pode ser pausada.
 
 ## Como funciona a compra
 

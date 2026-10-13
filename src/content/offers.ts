@@ -12,6 +12,8 @@ export interface Offer {
   id: string;
   kind: OfferKind;
   name: string;
+  /** Nome curto nos cartões da landing (ex.: "Plano Premium"). */
+  label: string;
   summary: string;
   /** Preço em kwanzas (inteiro). 0 = gratuito (pedido sem pagamento). */
   priceKz: number;
@@ -26,8 +28,9 @@ export const offers: Offer[] = [
     id: "guia-regressar-ao-centro",
     kind: "guia",
     name: "Guia gratuito “Regressar ao Centro”",
+    label: "Regressar ao Centro",
     summary:
-      "Os sinais de desconexão emocional e um primeiro passo prático para recuperar o equilíbrio interior.",
+      "Descubra os sinais de desconexão emocional e dê o primeiro passo para recuperar o equilíbrio interior.",
     priceKz: 0,
     features: [
       "Os sinais que indicam que está a viver no automático",
@@ -42,12 +45,13 @@ export const offers: Offer[] = [
     id: "encontro-plano-normal",
     kind: "bilhete",
     name: "Encontro Método C.E.N.T.R.O. · Plano Normal",
-    summary: "Acesso integral ao encontro presencial.",
+    label: "Plano Normal",
+    summary: "Acesso integral ao evento.",
     priceKz: 40_000,
     features: [
       "Acesso integral a todas as sessões do encontro",
-      "Material de apoio digital",
-      "Certificado de participação",
+      "Material de apoio digital completo",
+      "Certificado oficial de participação",
       "Coffee break incluído",
     ],
     example: true,
@@ -56,13 +60,15 @@ export const offers: Offer[] = [
     id: "encontro-plano-premium",
     kind: "bilhete",
     name: "Encontro Método C.E.N.T.R.O. · Plano Premium",
-    summary: "A experiência completa, com acompanhamento individual.",
+    label: "Plano Premium",
+    summary: "Experiência completa, exclusiva e transformadora.",
     priceKz: 75_000,
     features: [
-      "Tudo o que inclui o Plano Normal",
-      "Sessão individual de 30 minutos com Luciana Machado",
-      "Workbook físico",
-      "Acesso ao grupo de acompanhamento durante 3 meses",
+      "Tudo do Plano Normal",
+      "Sessão individual personalizada de 30 minutos com Luciana Machado",
+      "Workbook físico exclusivo e personalizado",
+      "Acesso privilegiado ao grupo VIP durante 3 meses",
+      "Recursos adicionais exclusivos e ferramentas avançadas",
     ],
     example: true,
     highlight: true,
@@ -71,7 +77,9 @@ export const offers: Offer[] = [
     id: "ebook-metodo-centro-completo",
     kind: "ebook",
     name: "E-book “Método C.E.N.T.R.O. Completo”",
-    summary: "O guia aprofundado com as práticas, ferramentas e exercícios dos seis pilares.",
+    label: "Método C.E.N.T.R.O. Completo",
+    summary:
+      "O guia completo e aprofundado com todas as práticas, ferramentas e exercícios do Método C.E.N.T.R.O.",
     priceKz: 15_000,
     features: [],
     example: true,
@@ -80,7 +88,9 @@ export const offers: Offer[] = [
     id: "ebook-praticas-diarias",
     kind: "ebook",
     name: "E-book “Práticas Diárias de Equilíbrio”",
-    summary: "Exercícios práticos para integrar no dia a dia e manter o equilíbrio.",
+    label: "Práticas Diárias de Equilíbrio",
+    summary:
+      "Exercícios práticos e transformadores para integrar no seu quotidiano e manter-se centrada.",
     priceKz: 8_000,
     features: [],
     example: true,

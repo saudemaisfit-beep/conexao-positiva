@@ -10,7 +10,7 @@ test.describe("Compra no Método C.E.N.T.R.O.", () => {
   }) => {
     await page.goto("/metodo-centro");
     const premium = page.getByRole("article", { name: /Plano Premium/ });
-    await premium.getByRole("link", { name: "Comprar" }).click();
+    await premium.getByRole("link", { name: "Adquirir bilhete Premium" }).click();
     await expect(page).toHaveURL(/\/metodo-centro\/comprar\/encontro-plano-premium$/);
     // O valor mostrado vem do catálogo do servidor.
     await expect(page.getByRole("complementary")).toContainText("75");
@@ -31,8 +31,8 @@ test.describe("Compra no Método C.E.N.T.R.O.", () => {
     await expect(page.locator("h1")).toHaveText("Pagamento confirmado");
   });
 
-  test("guia gratuito: pedido sem pagamento", async ({ page }) => {
-    await page.goto("/metodo-centro/comprar/guia-regressar-ao-centro");
+  test("guia gratuito: pedido na própria página do Método, sem pagamento", async ({ page }) => {
+    await page.goto("/metodo-centro#guia");
     await page.getByLabel("Nome").fill("Teste Automático");
     await page.getByLabel("E-mail").fill("teste@exemplo.ao");
     await page.getByLabel("Telefone").fill("+244 923 000 000");

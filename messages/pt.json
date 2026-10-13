@@ -307,9 +307,7 @@
       "lead": "Um caminho para desenvolver pessoas de dentro para fora.",
       "primary": "Levar o método para a minha organização",
       "secondary": "Conhecer os pilares",
-      "logoAlt": "Logótipo Método C.E.N.T.R.O.",
-      "photoAlt": "Luciana Machado, criadora do Método C.E.N.T.R.O.",
-      "offers": "Ver bilhetes e e-books"
+      "logoAlt": "Logótipo Método C.E.N.T.R.O."
     },
     "audience": {
       "eyebrow": "Para quem é",
@@ -329,28 +327,11 @@
       "eyebrow": "Aplicação",
       "title": "Individual ou na sua organização"
     },
-    "results": {
-      "eyebrow": "Resultados esperados",
-      "title": "O que procuramos construir consigo"
-    },
     "cta": {
       "title": "Levar o Método C.E.N.T.R.O. para a minha organização",
       "text": "Desenhamos consigo a aplicação do método à realidade das suas pessoas e equipas.",
       "primary": "Solicitar proposta",
       "secondary": "Falar connosco"
-    },
-    "signs": {
-      "eyebrow": "Reconhece estes sinais?"
-    },
-    "creator": {
-      "eyebrow": "Conheça a criadora"
-    },
-    "benefits": {
-      "eyebrow": "Transformação"
-    },
-    "testimonials": {
-      "eyebrow": "Testemunhos",
-      "title": "O que dizem os participantes"
     },
     "offers": {
       "eyebrow": "Participar",
@@ -367,10 +348,6 @@
         "ebook": "E-books"
       },
       "soon": "Disponível em breve"
-    },
-    "closing": {
-      "primary": "Pedir o guia gratuito",
-      "secondary": "Ver bilhetes"
     }
   },
   "Events": {
