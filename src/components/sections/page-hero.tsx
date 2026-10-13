@@ -45,7 +45,7 @@ export function PageHero({
           <p className="mt-4 eyebrow animate-rise-in md:mt-8">{eyebrow}</p>
           <h1
             id="page-title"
-            className="max-w-4xl animate-rise-in text-h1 font-extrabold"
+            className="max-w-4xl animate-rise-in text-h1 font-normal"
             style={{ animationDelay: "80ms" }}
           >
             {title}

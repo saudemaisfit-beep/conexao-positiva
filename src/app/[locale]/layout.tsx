@@ -17,7 +17,7 @@ import { getSiteContacts } from "@/content/site";
 import { pickClientMessages } from "@/i18n/client-messages";
 import { routing } from "@/i18n/routing";
 import { CONSENT_COOKIE } from "@/lib/consent";
-import { inter, manrope, montserrat, playfair } from "../fonts";
+import { montserrat, playfair } from "../fonts";
 import "../globals.css";
 
 interface LayoutProps {
@@ -58,7 +58,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   return (
     <html
       lang={locale === "pt" ? "pt-AO" : locale}
-      className={`${manrope.variable} ${inter.variable} ${playfair.variable} ${montserrat.variable}`}
+      className={`${playfair.variable} ${montserrat.variable}`}
       // O script abaixo pode acrescentar data-consent antes da hidratação.
       suppressHydrationWarning
     >

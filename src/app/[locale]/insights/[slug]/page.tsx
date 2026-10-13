@@ -83,7 +83,7 @@ export default async function ArticlePage({ params }: PageProps) {
               >
                 {category}
               </Link>
-              <h1 id="page-title" className="animate-rise-in text-h1 font-extrabold text-balance">
+              <h1 id="page-title" className="animate-rise-in text-h1 font-normal text-balance">
                 {article.title}
               </h1>
               <p className="max-w-2xl text-lead text-muted">{article.excerpt}</p>

@@ -11,7 +11,7 @@ export async function AboutIntro() {
       <div className="container-site grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] lg:items-center lg:gap-20">
         <div className="flex reveal flex-col gap-5">
           <p className="eyebrow">{t("eyebrow")}</p>
-          <h2 id="about-title" className="text-h1 font-extrabold">
+          <h2 id="about-title" className="text-h1 font-normal">
             {t("title")}
           </h2>
           <p className="max-w-xl text-lead text-muted">{t("text")}</p>

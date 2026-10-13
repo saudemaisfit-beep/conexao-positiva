@@ -129,7 +129,7 @@ export function CentroOrbit() {
           <p className="font-display text-small font-bold tracking-[0.2em] text-accent-on-inverse uppercase tabular-nums">
             {t("position", { current: active + 1, total: count })}
           </p>
-          <h3 className="flex items-baseline gap-4 font-display text-h1 font-extrabold">
+          <h3 className="flex items-baseline gap-4 font-display text-h1 font-normal">
             <span aria-hidden="true" className="text-glow-gradient text-[1.6em] leading-none">
               {pillar.letter}
             </span>

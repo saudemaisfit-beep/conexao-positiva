@@ -21,7 +21,7 @@ export function SectionHeader({ id, eyebrow, title, lead, action, className }: S
     >
       <div className="flex max-w-3xl flex-col gap-3">
         {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-        <h2 id={id} className="text-h2 font-bold">
+        <h2 id={id} className="text-h2 font-normal">
           {title}
         </h2>
         {lead && (

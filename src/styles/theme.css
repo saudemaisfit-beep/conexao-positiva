@@ -9,49 +9,50 @@
 
 @theme {
   /* ---------- Cor ---------- */
+  /* Identidade da landing do Método C.E.N.T.R.O. (Luciana Machado), aplicada a todo o site:
+     carvão, dourado e areia. O azul oficial fica só no logótipo. */
   --color-*: initial;
-  --color-primary: var(--azul-700);
-  --color-primary-hover: var(--azul-800);
-  --color-primary-strong: var(--azul-950);
-  --color-primary-soft: var(--azul-100);
+  --color-primary: var(--luciana-carvao);
+  --color-primary-hover: var(--luciana-carvao-claro);
+  --color-primary-strong: var(--luciana-carvao);
+  --color-primary-soft: var(--luciana-nude);
   --color-on-primary: var(--branco);
 
-  /* Azul oficial do logótipo: marca e detalhes; nunca texto sobre fundo claro (2,7 : 1). */
-  --color-secondary: var(--azul-400);
-  --color-secondary-strong: var(--azul-800);
-  --color-secondary-soft: var(--azul-200);
+  /* Dourado claro: detalhes e fundos; nunca texto sobre fundo claro (2,2 : 1). */
+  --color-secondary: var(--luciana-dourado);
+  --color-secondary-strong: var(--luciana-dourado-escuro);
+  --color-secondary-soft: var(--luciana-nude);
 
-  /* Acento quente = marsala oficial do Método C.E.N.T.R.O. */
-  --color-accent: var(--marsala-700);
-  --color-accent-strong: var(--marsala-800);
-  --color-accent-soft: var(--marsala-100);
-  --color-accent-on-inverse: var(--marsala-400);
-  --color-brand-on-inverse: var(--azul-400);
-  /* Destaque luminoso sobre superfícies escuras (botão principal dos heros, brilhos):
-     azul oficial com texto azul-noite (5,5 : 1). */
-  --color-glow: var(--azul-400);
-  --color-on-glow: var(--azul-950);
+  /* Acento = dourado escuro para texto sobre fundos claros (≥ 5 : 1). */
+  --color-accent: var(--luciana-dourado-escuro);
+  --color-accent-strong: var(--luciana-dourado-escuro);
+  --color-accent-soft: var(--luciana-nude);
+  --color-accent-on-inverse: var(--luciana-dourado);
+  --color-brand-on-inverse: var(--luciana-dourado);
+  /* Destaque luminoso sobre carvão (botão principal, brilhos): dourado com texto carvão (6,3 : 1). */
+  --color-glow: var(--luciana-dourado);
+  --color-on-glow: var(--luciana-carvao);
 
-  /* Sub-marca Método C.E.N.T.R.O. */
-  --color-method: var(--marsala-700);
-  --color-method-strong: var(--marsala-950);
-  --color-method-soft: var(--marsala-100);
+  /* Sub-marca Método C.E.N.T.R.O. (agora com a mesma identidade). */
+  --color-method: var(--luciana-carvao);
+  --color-method-strong: var(--luciana-carvao);
+  --color-method-soft: var(--luciana-nude);
   --color-on-method: var(--branco);
 
-  --color-background: var(--areia-50);
-  --color-surface: var(--areia-100);
+  --color-background: var(--luciana-areia);
+  --color-surface: var(--luciana-linho);
   --color-surface-raised: var(--branco);
-  --color-inverse: var(--azul-950);
+  --color-inverse: var(--luciana-carvao);
   --color-on-inverse: var(--branco);
-  --color-on-inverse-muted: var(--azul-200);
+  --color-on-inverse-muted: var(--luciana-perola);
 
-  --color-text: var(--grafite-900);
-  --color-muted: var(--grafite-600);
-  --color-border: var(--areia-300);
+  --color-text: var(--luciana-carvao);
+  --color-muted: var(--luciana-cinza);
+  --color-border: var(--luciana-linha);
   --color-border-strong: var(--grafite-400);
 
-  --color-focus: var(--azul-600);
-  --color-focus-on-inverse: var(--azul-200);
+  --color-focus: var(--luciana-dourado-escuro);
+  --color-focus-on-inverse: var(--luciana-dourado);
 
   --color-success: var(--verde-700);
   --color-success-soft: var(--verde-100);
@@ -65,30 +66,32 @@
   --color-current: currentColor;
 
   /* ---------- Tipografia ---------- */
-  /* --font-manrope e --font-inter são injetadas por next/font. */
-  --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Títulos em Playfair Display (serifa, peso normal) e texto em Montserrat, como na landing.
+     As variáveis --font-playfair e --font-montserrat são injetadas por next/font. */
+  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-body:
+    var(--font-montserrat), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  /* Escala fluida: mínimo em 360 px, máximo em 1440 px. */
-  --text-display: clamp(2.125rem, 1.333rem + 3.958vw, 4.5rem); /* 34 (320px) → 72 */
+  /* Escala da landing (fluida, mínimo em 360 px e máximo em 1440 px). */
+  --text-display: clamp(3rem, 1.9rem + 5vw, 6rem); /* 48 → 96 */
   --text-display--line-height: 1.05;
-  --text-display--letter-spacing: -0.03em;
-  --text-h1: clamp(2.125rem, 1.71rem + 1.85vw, 3.5rem); /* 34 → 56 */
+  --text-display--letter-spacing: -0.01em;
+  --text-h1: clamp(2.5rem, 1.8rem + 3vw, 4.5rem); /* 40 → 72 */
   --text-h1--line-height: 1.1;
-  --text-h1--letter-spacing: -0.02em;
-  --text-h2: clamp(1.75rem, 1.5rem + 1.11vw, 2.5rem); /* 28 → 40 */
-  --text-h2--line-height: 1.15;
-  --text-h2--letter-spacing: -0.02em;
+  --text-h1--letter-spacing: -0.01em;
+  --text-h2: clamp(2.25rem, 1.7rem + 2.4vw, 3.75rem); /* 36 → 60 */
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.005em;
   --text-h3: clamp(1.375rem, 1.25rem + 0.56vw, 1.75rem); /* 22 → 28 */
   --text-h3--line-height: 1.3;
-  --text-h3--letter-spacing: -0.015em;
+  --text-h3--letter-spacing: 0;
   --text-h4: clamp(1.125rem, 1.08rem + 0.19vw, 1.25rem); /* 18 → 20 */
   --text-h4--line-height: 1.35;
-  --text-lead: clamp(1.125rem, 1.08rem + 0.19vw, 1.25rem); /* 18 → 20 */
+  --text-lead: clamp(1.125rem, 1.04rem + 0.37vw, 1.375rem); /* 18 → 22 */
   --text-lead--line-height: 1.6;
   --text-body: 1rem; /* 16 */
-  --text-body--line-height: 1.6;
-  --text-body-lg: 1.0625rem; /* 17 */
+  --text-body--line-height: 1.65;
+  --text-body-lg: 1.125rem; /* 18 */
   --text-body-lg--line-height: 1.7;
   --text-small: 0.875rem; /* 14 */
   --text-small--line-height: 1.5;
@@ -102,11 +105,11 @@
   --radius-lg: 1.25rem;
   --radius-xl: 1.75rem;
 
-  /* ---------- Sombras (tingidas com o azul-marinho, nunca pretas puras) ---------- */
-  --shadow-sm: 0 1px 2px rgb(8 34 49 / 0.06), 0 1px 1px rgb(8 34 49 / 0.04);
-  --shadow-md: 0 8px 24px -12px rgb(8 34 49 / 0.18), 0 2px 6px rgb(8 34 49 / 0.06);
-  --shadow-lg: 0 24px 48px -20px rgb(8 34 49 / 0.28), 0 4px 12px rgb(8 34 49 / 0.06);
-  --shadow-header: 0 6px 20px -12px rgb(8 34 49 / 0.22);
+  /* ---------- Sombras (tingidas com o carvão, nunca pretas puras) ---------- */
+  --shadow-sm: 0 1px 2px rgb(44 44 44 / 0.06), 0 1px 1px rgb(44 44 44 / 0.04);
+  --shadow-md: 0 8px 24px -12px rgb(44 44 44 / 0.18), 0 2px 6px rgb(44 44 44 / 0.06);
+  --shadow-lg: 0 24px 48px -20px rgb(44 44 44 / 0.28), 0 4px 12px rgb(44 44 44 / 0.06);
+  --shadow-header: 0 6px 20px -12px rgb(44 44 44 / 0.22);
 
   /* ---------- Movimento ---------- */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -121,63 +124,6 @@
 }
 
 /*
- * Identidade do Método C.E.N.T.R.O.: aplicar data-brand="metodo" ao contentor da página
- * /metodo-centro. As secções de ênfase passam a marsala profundo em vez de azul-marinho.
+ * data-brand="metodo" e data-brand="luciana" ficam como marcadores das páginas do Método:
+ * a identidade da landing é agora a do site todo (tokens acima), sem substituições.
  */
-[data-brand="metodo"] {
-  --color-inverse: var(--marsala-950);
-  --color-on-inverse-muted: var(--marsala-200);
-  --color-accent-on-inverse: var(--marsala-200);
-  --color-brand-on-inverse: var(--marsala-400);
-  --color-primary: var(--marsala-700);
-  --color-primary-hover: var(--marsala-800);
-  --color-primary-soft: var(--marsala-100);
-  --color-focus: var(--marsala-700);
-  /* Marsala claro com texto marsala profundo (5,0 : 1). */
-  --color-glow: var(--marsala-400);
-  --color-on-glow: var(--marsala-950);
-  --aurora-1: var(--marsala-400);
-  --aurora-2: var(--marsala-700);
-  --aurora-3: var(--azul-700);
-  --network-line: 194 127 124;
-  --network-dot: 233 201 198;
-}
-
-/*
- * Landing do Método C.E.N.T.R.O. (Luciana Machado): data-brand="luciana" na página
- * /metodo-centro, no checkout e na página do pedido. Carvão e dourado, títulos em Playfair Display
- * e texto em Montserrat. Os componentes partilhados (órbita, formulários) seguem estes tokens.
- */
-[data-brand="luciana"] {
-  --color-primary: var(--luciana-carvao);
-  --color-primary-hover: var(--luciana-carvao-claro);
-  --color-primary-strong: var(--luciana-carvao);
-  --color-primary-soft: var(--luciana-nude);
-  --color-on-primary: var(--branco);
-  --color-accent: var(--luciana-dourado-escuro);
-  --color-accent-soft: var(--luciana-nude);
-  --color-accent-on-inverse: var(--luciana-dourado);
-  --color-brand-on-inverse: var(--luciana-dourado);
-  --color-glow: var(--luciana-dourado);
-  --color-on-glow: var(--luciana-carvao);
-  --color-inverse: var(--luciana-carvao);
-  --color-on-inverse-muted: var(--luciana-perola);
-  --color-background: var(--luciana-areia);
-  --color-surface: var(--luciana-linho);
-  --color-surface-raised: var(--branco);
-  --color-text: var(--luciana-carvao);
-  --color-muted: var(--luciana-cinza);
-  --color-border: var(--luciana-linha);
-  --color-focus: var(--luciana-dourado-escuro);
-  --color-focus-on-inverse: var(--luciana-dourado);
-  --aurora-1: var(--luciana-dourado);
-  --aurora-2: var(--luciana-nude);
-  --aurora-3: var(--luciana-carvao-claro);
-  --network-line: 201 168 138;
-  --network-dot: 232 213 196;
-  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
-  --font-body: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
-  font-family: var(--font-body);
-  color: var(--color-text);
-  background-color: var(--color-background);
-}

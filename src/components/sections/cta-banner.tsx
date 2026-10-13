@@ -26,7 +26,7 @@ export function CtaBanner({ id, title, text, primary, secondary }: CtaBannerProp
           <Aurora />
           <NetworkGraphic className="pointer-events-none absolute -top-1/3 -right-1/4 -z-10 w-[min(42rem,120%)] text-brand-on-inverse opacity-20 md:-right-[10%]" />
           <div className="flex max-w-2xl reveal flex-col gap-5">
-            <h2 id={id} className="text-h1 font-extrabold">
+            <h2 id={id} className="text-h1 font-normal">
               {title}
             </h2>
             <p className="text-lead text-on-inverse-muted">{text}</p>

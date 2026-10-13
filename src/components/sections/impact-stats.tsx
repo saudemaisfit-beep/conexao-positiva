@@ -19,7 +19,7 @@ export async function ImpactStats({ stats }: { stats: ImpactStat[] }) {
               className="flex reveal flex-col-reverse gap-2 border-l-2 border-secondary pl-5"
             >
               <dt className="text-small text-muted">{stat.label}</dt>
-              <dd className="font-display text-h1 font-extrabold text-primary tabular-nums">
+              <dd className="font-display text-h1 font-normal text-primary tabular-nums">
                 {stat.value}
               </dd>
             </div>

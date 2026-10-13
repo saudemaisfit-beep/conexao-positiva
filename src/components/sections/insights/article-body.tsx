@@ -12,7 +12,7 @@ export function ArticleBody({ blocks }: { blocks: ArticleBlock[] }) {
             return <p key={key}>{block.text}</p>;
           case "heading":
             return block.level === 2 ? (
-              <h2 key={key} className="mt-8 text-h2 font-bold text-balance">
+              <h2 key={key} className="mt-8 text-h2 font-normal text-balance">
                 {block.text}
               </h2>
             ) : (

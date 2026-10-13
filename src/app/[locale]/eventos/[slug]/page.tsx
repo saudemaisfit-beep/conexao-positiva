@@ -192,7 +192,7 @@ export default async function EventPage({ params }: PageProps) {
 
           <div className="flex flex-col gap-14">
             <div className="flex flex-col gap-4">
-              <h2 className="text-h2 font-bold">{t("detail.about")}</h2>
+              <h2 className="text-h2 font-normal">{t("detail.about")}</h2>
               {event.description.map((paragraph) => (
                 <p key={paragraph.slice(0, 30)} className="max-w-[68ch] text-body-lg text-muted">
                   {paragraph}
@@ -202,7 +202,7 @@ export default async function EventPage({ params }: PageProps) {
 
             {event.program.length > 0 && (
               <div className="flex flex-col gap-5">
-                <h2 className="text-h2 font-bold">{t("detail.program")}</h2>
+                <h2 className="text-h2 font-normal">{t("detail.program")}</h2>
                 <ol className="flex flex-col border-t border-border">
                   {event.program.map((item) => (
                     <li
@@ -219,7 +219,7 @@ export default async function EventPage({ params }: PageProps) {
 
             {event.facilitator && (
               <div className="flex flex-col gap-5">
-                <h2 className="text-h2 font-bold">{t("detail.facilitator")}</h2>
+                <h2 className="text-h2 font-normal">{t("detail.facilitator")}</h2>
                 <div className="flex flex-col gap-5 rounded-xl bg-surface p-6 md:flex-row md:items-center">
                   <PersonAvatar
                     name={event.facilitator.name}
@@ -242,7 +242,7 @@ export default async function EventPage({ params }: PageProps) {
 
             {event.gallery.length > 0 && (
               <div className="flex flex-col gap-5">
-                <h2 className="text-h2 font-bold">{t("detail.gallery")}</h2>
+                <h2 className="text-h2 font-normal">{t("detail.gallery")}</h2>
                 <Gallery images={event.gallery} />
               </div>
             )}

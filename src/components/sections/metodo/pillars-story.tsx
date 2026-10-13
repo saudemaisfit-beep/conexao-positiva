@@ -78,7 +78,7 @@ export async function PillarsStory({
                       <span className="grid size-12 shrink-0 place-items-center rounded-full bg-glow text-on-glow">
                         <Icon aria-hidden="true" className="size-6" strokeWidth={1.75} />
                       </span>
-                      <h3 id={`${pillar.slug}-title`} className="text-h2 font-bold">
+                      <h3 id={`${pillar.slug}-title`} className="text-h2 font-normal">
                         {pillar.name}
                       </h3>
                     </div>

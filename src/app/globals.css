@@ -70,9 +70,9 @@
   }
 
   [data-surface="light"] {
-    --color-text: var(--grafite-900);
-    --color-muted: var(--grafite-600);
-    --color-border: var(--areia-300);
+    --color-text: var(--luciana-carvao);
+    --color-muted: var(--luciana-cinza);
+    --color-border: var(--luciana-linha);
   }
 
   /* Reduzir movimento: sem animações, atrasos nem transições (o conteúdo aparece logo). */
@@ -218,12 +218,12 @@ html[data-consent] [data-consent-banner] {
    variável, para a sub-marca do Método usar marsala. Intensidade baixa: o texto claro mantém
    contraste AA mesmo sobre a zona mais brilhante. */
 :root {
-  --aurora-1: var(--azul-400);
-  --aurora-2: var(--azul-700);
-  --aurora-3: var(--marsala-700);
+  --aurora-1: var(--luciana-dourado);
+  --aurora-2: var(--luciana-nude);
+  --aurora-3: var(--luciana-carvao-claro);
   /* Rede de pontos dos heros (canais RGB, lidos pelo canvas). */
-  --network-line: 10 160 224;
-  --network-dot: 179 225 245;
+  --network-line: 201 168 138;
+  --network-dot: 232 213 196;
 }
 
 @layer components {

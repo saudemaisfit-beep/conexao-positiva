@@ -14,7 +14,7 @@ export async function CentroTeaser() {
         >
           <div className="flex reveal flex-col gap-4">
             <p className="eyebrow">{t("eyebrow")}</p>
-            <h2 id="centro-teaser-title" className="text-h2 font-bold">
+            <h2 id="centro-teaser-title" className="text-h2 font-normal">
               {t("title")}
             </h2>
             <p className="text-lead text-on-inverse-muted">{t("text")}</p>

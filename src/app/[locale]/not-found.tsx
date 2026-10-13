@@ -12,10 +12,10 @@ export default function NotFound() {
   return (
     <Section>
       <div className="container-site flex max-w-2xl flex-col items-start gap-6">
-        <p className="font-display text-display font-extrabold text-primary" aria-hidden="true">
+        <p className="font-display text-display font-normal text-primary" aria-hidden="true">
           404
         </p>
-        <h1 className="text-h1 font-extrabold">{t("title")}</h1>
+        <h1 className="text-h1 font-normal">{t("title")}</h1>
         <p className="text-lead text-muted">{t("description")}</p>
         <ul className="flex flex-wrap gap-2">
           {mainNav

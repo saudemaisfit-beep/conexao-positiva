@@ -37,7 +37,7 @@ export default async function OrderPage({ params, searchParams }: PageProps) {
     return (
       <section aria-labelledby="page-title" className="pt-10 pb-(--space-section) md:pt-16">
         <div className="container-site flex max-w-3xl flex-col items-start gap-5">
-          <h1 id="page-title" className="text-h1 font-extrabold">
+          <h1 id="page-title" className="text-h1 font-normal">
             {t("notFound.title")}
           </h1>
           <p className="text-lead text-muted">{t("notFound.text")}</p>
@@ -76,7 +76,7 @@ export default async function OrderPage({ params, searchParams }: PageProps) {
           >
             <Icon aria-hidden="true" className="size-8" strokeWidth={1.75} />
           </span>
-          <h1 id="page-title" className="text-h1 font-extrabold text-balance">
+          <h1 id="page-title" className="text-h1 font-normal text-balance">
             {t(`${state}Title`)}
           </h1>
           <p className="text-lead text-muted">{t(`${state}Lead`)}</p>
