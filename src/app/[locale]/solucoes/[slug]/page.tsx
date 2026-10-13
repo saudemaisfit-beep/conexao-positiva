@@ -71,19 +71,19 @@ export default async function ServicePage({ params }: PageProps) {
           { label: service.name, href: `/solucoes/${service.slug}` },
         ]}
         actions={
-          <ButtonLink href={proposal} size="lg">
+          <ButtonLink href={proposal} size="lg" variant="glow">
             {t("service.requestProposal")}
             <ArrowRight aria-hidden="true" className={arrowClassName} />
           </ButtonLink>
         }
         aside={
           <div className="relative grid aspect-square place-items-center">
-            <div aria-hidden="true" className="absolute inset-[6%] rounded-full bg-primary-soft" />
+            <div aria-hidden="true" className="glass absolute inset-[6%] rounded-full" />
             <div
               aria-hidden="true"
-              className="absolute inset-0 rounded-full border-[6px] border-secondary/40"
+              className="absolute inset-0 rounded-full border-[6px] border-glow/40"
             />
-            <Icon aria-hidden="true" className="relative size-28 text-primary" strokeWidth={1.25} />
+            <Icon aria-hidden="true" className="relative size-28 text-glow" strokeWidth={1.25} />
           </div>
         }
       />

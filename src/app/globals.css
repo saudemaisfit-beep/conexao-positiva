@@ -56,6 +56,25 @@
     outline-color: var(--color-focus-on-inverse);
   }
 
+  [data-surface="inverse"] [data-surface="light"] :focus-visible {
+    outline-color: var(--color-focus);
+  }
+
+  /* Superfícies escuras: o texto, o texto secundário e as linhas passam a tons claros, para
+     que os componentes (breadcrumbs, navegação, cartões de vidro) funcionem em qualquer fundo.
+     Um painel claro dentro de uma superfície escura repõe os valores com data-surface="light". */
+  [data-surface="inverse"] {
+    --color-text: var(--color-on-inverse);
+    --color-muted: var(--color-on-inverse-muted);
+    --color-border: rgb(255 255 255 / 0.16);
+  }
+
+  [data-surface="light"] {
+    --color-text: var(--grafite-900);
+    --color-muted: var(--grafite-600);
+    --color-border: var(--areia-300);
+  }
+
   /* Reduzir movimento: sem animações, atrasos nem transições (o conteúdo aparece logo). */
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -191,5 +210,341 @@ html[data-consent] [data-consent-banner] {
 
   .network-ring {
     animation: fade-in var(--duration-slow) var(--ease-out) both;
+  }
+}
+
+/* ---------- Aurora: brilhos suaves das cores da marca nos fundos escuros ---------- */
+/* Três manchas desfocadas que derivam devagar (paradas com movimento reduzido). Cores por
+   variável, para a sub-marca do Método usar marsala. Intensidade baixa: o texto claro mantém
+   contraste AA mesmo sobre a zona mais brilhante. */
+:root {
+  --aurora-1: var(--azul-400);
+  --aurora-2: var(--azul-700);
+  --aurora-3: var(--marsala-700);
+  /* Rede de pontos dos heros (canais RGB, lidos pelo canvas). */
+  --network-line: 10 160 224;
+  --network-dot: 179 225 245;
+}
+
+@layer components {
+  .aurora {
+    position: absolute;
+    inset: -20%;
+    z-index: -2;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  /* Sem filter: blur (caro de pintar): os gradientes radiais já têm a borda suave. */
+  .aurora > span {
+    position: absolute;
+    border-radius: 9999px;
+    will-change: transform;
+  }
+
+  .aurora > span:nth-child(1) {
+    width: 55%;
+    height: 60%;
+    left: 48%;
+    top: 4%;
+    background: radial-gradient(closest-side, var(--aurora-1), transparent);
+  }
+
+  .aurora > span:nth-child(2) {
+    width: 45%;
+    height: 55%;
+    left: 4%;
+    top: 42%;
+    background: radial-gradient(closest-side, var(--aurora-2), transparent);
+  }
+
+  .aurora > span:nth-child(3) {
+    width: 32%;
+    height: 36%;
+    left: 70%;
+    top: 58%;
+    background: radial-gradient(closest-side, var(--aurora-3), transparent);
+    opacity: 0.8;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .aurora > span:nth-child(1) {
+      animation: aurora-drift 18s ease-in-out infinite alternate;
+    }
+    .aurora > span:nth-child(2) {
+      animation: aurora-drift 22s ease-in-out infinite alternate-reverse;
+    }
+    .aurora > span:nth-child(3) {
+      animation: aurora-drift 26s ease-in-out infinite alternate;
+    }
+  }
+
+  /* Cartão de vidro sobre fundos escuros. */
+  .glass {
+    background-color: color-mix(in srgb, var(--color-inverse) 60%, transparent);
+    border: 1px solid rgb(255 255 255 / 0.14);
+    backdrop-filter: blur(16px);
+  }
+
+  /* Texto com gradiente luminoso (só em superfícies escuras). */
+  .text-glow-gradient {
+    background-image: linear-gradient(
+      100deg,
+      var(--color-glow) 10%,
+      var(--color-on-inverse-muted) 75%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@keyframes aurora-drift {
+  to {
+    transform: translate(-6%, 5%) scale(1.08);
+  }
+}
+
+/* ---------- Órbita do Método C.E.N.T.R.O. ---------- */
+/* Os pilares ficam num anel (raio = 40 % da órbita) e rodam até o escolhido ficar no topo;
+   cada letra roda ao contrário para continuar direita. --orbit-turn vem do componente. */
+@layer components {
+  .centro-orbit .orbit-node {
+    transform: translate(-50%, -50%) rotate(calc(var(--orbit-angle) + var(--orbit-turn)))
+      translateY(-222%) rotate(calc(-1 * (var(--orbit-angle) + var(--orbit-turn))));
+    transition:
+      transform 900ms var(--ease-in-out),
+      background-color var(--duration-base),
+      border-color var(--duration-base),
+      color var(--duration-base),
+      box-shadow var(--duration-base),
+      scale var(--duration-base) var(--ease-out);
+  }
+
+  .centro-orbit .orbit-spokes {
+    transform: rotate(var(--orbit-turn));
+    transition: transform 900ms var(--ease-in-out);
+  }
+
+  .centro-art {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .centro-art text {
+    font: 700 11px/1 var(--font-display);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .centro-art .art-north {
+    font-size: 11px;
+  }
+
+  .centro-art .art-ripple,
+  .centro-art .art-beam,
+  .centro-art .art-hand-hour,
+  .centro-art .art-hand-minute,
+  .centro-art .art-breath,
+  .centro-art .art-needle {
+    transform-box: view-box;
+    transform-origin: 60px 60px;
+  }
+
+  .centro-art .art-beam {
+    transform-origin: 60px 50px;
+  }
+
+  .centro-art .art-ripple:nth-child(2) {
+    transform: scale(0.66);
+  }
+
+  .centro-art .art-ripple:nth-child(3) {
+    transform: scale(0.33);
+  }
+
+  .centro-art .art-hand-hour {
+    transform: rotate(-60deg);
+  }
+
+  .centro-art .art-breath-out {
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .centro-orbit[data-animate="true"] .orbit-ring {
+      animation: orbit-spin 90s linear infinite;
+    }
+
+    .centro-orbit[data-animate="true"] .orbit-spoke-active {
+      animation: orbit-flow 1.2s linear infinite;
+    }
+
+    .centro-orbit .orbit-progress {
+      animation: orbit-progress 7s linear both;
+    }
+
+    .centro-orbit[data-animate="true"] .art-ripple {
+      animation: art-ripple 3s var(--ease-out) infinite;
+    }
+    .centro-orbit[data-animate="true"] .art-ripple:nth-child(2) {
+      animation-delay: 1s;
+    }
+    .centro-orbit[data-animate="true"] .art-ripple:nth-child(3) {
+      animation-delay: 2s;
+    }
+
+    .centro-orbit[data-animate="true"] .art-beam {
+      animation: art-balance 4.5s var(--ease-in-out) infinite;
+    }
+
+    .centro-orbit[data-animate="true"] .art-draw {
+      stroke-dasharray: 1;
+      animation: draw-line 1.4s var(--ease-out) both;
+    }
+    .centro-orbit[data-animate="true"] .art-leaf-l {
+      animation-delay: 0.6s;
+    }
+    .centro-orbit[data-animate="true"] .art-leaf-r {
+      animation-delay: 1s;
+    }
+    .centro-orbit[data-animate="true"] .art-sprout {
+      transform-box: view-box;
+      transform-origin: 60px 98px;
+      animation: art-sway 5s var(--ease-in-out) 2s infinite;
+    }
+
+    .centro-orbit[data-animate="true"] .art-hand-minute {
+      animation: art-spin 6s linear infinite;
+    }
+    .centro-orbit[data-animate="true"] .art-hand-hour {
+      animation: art-spin-from 72s linear infinite;
+    }
+
+    .centro-orbit[data-animate="true"] .art-breath {
+      animation: art-breathe 8s var(--ease-in-out) infinite;
+    }
+    .centro-orbit[data-animate="true"] .art-breath-in {
+      animation: art-breath-label 8s steps(1, end) infinite;
+    }
+    .centro-orbit[data-animate="true"] .art-breath-out {
+      animation: art-breath-label 8s steps(1, end) -4s infinite;
+    }
+
+    .centro-orbit[data-animate="true"] .art-needle {
+      animation: art-compass 6s var(--ease-out) infinite;
+    }
+  }
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-flow {
+  to {
+    stroke-dashoffset: -2.8;
+  }
+}
+
+@keyframes orbit-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes art-ripple {
+  from {
+    transform: scale(0.15);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes art-balance {
+  0%,
+  100% {
+    transform: rotate(-9deg);
+  }
+  35% {
+    transform: rotate(7deg);
+  }
+  60% {
+    transform: rotate(-3deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes art-sway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
+@keyframes art-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes art-spin-from {
+  from {
+    transform: rotate(-60deg);
+  }
+  to {
+    transform: rotate(300deg);
+  }
+}
+
+@keyframes art-breathe {
+  0%,
+  100% {
+    transform: scale(0.72);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+/* Inspire nos primeiros 4 s, Expire nos últimos 4 s (o segundo rótulo começa a meio). */
+@keyframes art-breath-label {
+  0% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes art-compass {
+  0% {
+    transform: rotate(-140deg);
+  }
+  30% {
+    transform: rotate(25deg);
+  }
+  45% {
+    transform: rotate(-12deg);
+  }
+  60%,
+  100% {
+    transform: rotate(0deg);
   }
 }

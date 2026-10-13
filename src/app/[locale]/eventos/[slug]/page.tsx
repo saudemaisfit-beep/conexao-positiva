@@ -44,29 +44,34 @@ function RegistrationAction({
   event,
   now,
   className,
+  dark = false,
 }: {
   event: EventDetail;
   now: Date;
   className?: string;
+  /** No hero escuro: botões "glow"/"glass". */
+  dark?: boolean;
 }) {
-  return <RegistrationButton event={event} now={now} className={className} />;
+  return <RegistrationButton event={event} now={now} className={className} dark={dark} />;
 }
 
 async function RegistrationButton({
   event,
   now,
   className,
+  dark,
 }: {
   event: EventDetail;
   now: Date;
   className?: string;
+  dark: boolean;
 }) {
   const t = await getTranslations("Events.detail");
   const state = registrationState(event, now);
   if (state === "passado" || state === "encerrado") {
     return (
       <p
-        className={`rounded-full bg-surface px-5 py-3 text-center text-small font-semibold text-muted ${className ?? ""}`}
+        className={`rounded-full px-5 py-3 text-center text-small font-semibold text-muted ${dark ? "glass" : "bg-surface"} ${className ?? ""}`}
       >
         {state === "passado" ? t("past") : t("closed")}
       </p>
@@ -75,7 +80,9 @@ async function RegistrationButton({
   return (
     <ButtonLink
       href={`/eventos/${event.slug}/inscricao`}
-      variant={state === "lista-de-espera" ? "secondary" : "primary"}
+      variant={
+        state === "lista-de-espera" ? (dark ? "glass" : "secondary") : dark ? "glow" : "primary"
+      }
       size="lg"
       className={className}
     >
@@ -157,7 +164,7 @@ export default async function EventPage({ params }: PageProps) {
           { label: t("breadcrumb"), href: "/eventos" },
           { label: event.title, href: `/eventos/${event.slug}` },
         ]}
-        actions={<RegistrationAction event={event} now={now} />}
+        actions={<RegistrationAction event={event} now={now} dark />}
         aside={
           event.image ? (
             <Image
@@ -172,7 +179,7 @@ export default async function EventPage({ params }: PageProps) {
         }
       />
 
-      <Section aria-label={t("detail.about")} className="pt-0 md:pt-0">
+      <Section aria-label={t("detail.about")}>
         <div className="container-site grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,4fr)] lg:gap-16">
           <div className="flex flex-col gap-6 self-start rounded-xl border border-border bg-surface-raised p-6 lg:sticky lg:top-28 lg:order-2 lg:p-8">
             <h2 className="text-h4 font-bold">{t("detail.facts")}</h2>

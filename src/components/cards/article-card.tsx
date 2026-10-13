@@ -20,7 +20,7 @@ export function ArticleCard({
   return (
     <article
       className={cn(
-        "group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-surface-raised transition-shadow duration-(--duration-base) hover:shadow-md has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-focus",
+        "group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-surface-raised transition-[transform,box-shadow,border-color] duration-(--duration-base) ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-lg has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-focus",
         featured && "lg:grid lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]",
       )}
     >

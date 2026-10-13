@@ -39,10 +39,11 @@ export default async function HomePage({ params }: PageProps) {
   const t = await getTranslations("Home.cta");
   const now = new Date();
   const content = await getHomeContent(now);
+  const nextEvents = upcomingEvents(content.events, now);
 
   return (
     <>
-      <HomeHero />
+      <HomeHero nextEvent={nextEvents[0] ?? null} stats={content.stats} />
       <AboutIntro />
       <ServicesGrid />
       <CentroSection />
@@ -50,7 +51,7 @@ export default async function HomePage({ params }: PageProps) {
       <ImpactStats stats={content.stats} />
       <ClientLogos clients={content.clients} />
       <TestimonialsSection testimonials={content.testimonials} />
-      <UpcomingEvents events={upcomingEvents(content.events, now)} />
+      <UpcomingEvents events={nextEvents} />
       <LatestInsights articles={content.articles} />
       <CtaBanner
         id="cta-title"

@@ -10,9 +10,9 @@ import { arrowClassName } from "@/components/ui/button";
 import { NavLink, isActivePath } from "./nav-link";
 
 const linkClass =
-  "relative rounded-sm px-2.5 py-2 text-small xl:px-3 font-medium text-text transition-colors duration-(--duration-instant) hover:text-primary " +
-  "after:absolute after:inset-x-2.5 xl:after:inset-x-3 after:bottom-0.5 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-accent after:transition-transform after:duration-(--duration-fast) " +
-  "hover:after:scale-x-100 data-[active=true]:after:scale-x-100 data-[active=true]:text-primary";
+  "relative rounded-sm px-2.5 py-2 text-small xl:px-3 font-medium text-muted transition-colors duration-(--duration-instant) hover:text-text " +
+  "after:absolute after:inset-x-2.5 xl:after:inset-x-3 after:bottom-0.5 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-glow after:transition-transform after:duration-(--duration-fast) " +
+  "hover:after:scale-x-100 data-[active=true]:after:scale-x-100 data-[active=true]:text-text";
 
 export function DesktopNav() {
   const t = useTranslations("Navigation");
@@ -116,7 +116,8 @@ function SolutionsMenu({ href, label }: { href: string; label: string }) {
       <div
         id={panelId}
         hidden={!open}
-        className="absolute inset-x-0 top-full animate-panel-in border-y border-border bg-surface-raised shadow-lg"
+        data-surface="light"
+        className="absolute inset-x-0 top-full animate-panel-in border-y border-border bg-surface-raised text-text shadow-lg"
       >
         <div className="container-site grid grid-cols-[minmax(0,1fr)_16rem] gap-10 py-8">
           <ul className="grid grid-cols-2 gap-x-6 gap-y-1">

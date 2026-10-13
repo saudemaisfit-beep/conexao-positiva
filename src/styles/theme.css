@@ -27,6 +27,10 @@
   --color-accent-soft: var(--marsala-100);
   --color-accent-on-inverse: var(--marsala-400);
   --color-brand-on-inverse: var(--azul-400);
+  /* Destaque luminoso sobre superfícies escuras (botão principal dos heros, brilhos):
+     azul oficial com texto azul-noite (5,5 : 1). */
+  --color-glow: var(--azul-400);
+  --color-on-glow: var(--azul-950);
 
   /* Sub-marca Método C.E.N.T.R.O. */
   --color-method: var(--marsala-700);
@@ -129,4 +133,12 @@
   --color-primary-hover: var(--marsala-800);
   --color-primary-soft: var(--marsala-100);
   --color-focus: var(--marsala-700);
+  /* Marsala claro com texto marsala profundo (5,0 : 1). */
+  --color-glow: var(--marsala-400);
+  --color-on-glow: var(--marsala-950);
+  --aurora-1: var(--marsala-400);
+  --aurora-2: var(--marsala-700);
+  --aurora-3: var(--azul-700);
+  --network-line: 194 127 124;
+  --network-dot: 233 201 198;
 }

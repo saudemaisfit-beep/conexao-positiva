@@ -120,6 +120,10 @@ Alojamento: **Hostinger, plano Business** (aplicação Node.js). Decisões em `d
 
 [Entrega e manutenção](docs/fase-20/01-entrega.md) e [Guia do cliente](GUIA-DO-CLIENTE.md).
 
+## Redesign visual
+
+[Redesign visual](docs/redesign/01-redesign-visual.md): cabeçalho e heros escuros com aurora e rede de pontos, soluções em grelha bento, novos botões e cartões.
+
 ## Desenvolvimento
 
 Requisitos: Node.js 22.12 ou superior.

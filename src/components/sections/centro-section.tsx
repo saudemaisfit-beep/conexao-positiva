@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { Section } from "@/components/layout/section";
 import { ButtonLink } from "@/components/ui/button";
 import { SectionHeader } from "@/components/ui/section-header";
-import { CentroExperience } from "./centro-experience";
+import { CentroOrbit } from "./centro-orbit";
 
 /** Secção do Método na Home, com a identidade marsala do Método (data-brand="metodo"). */
 export async function CentroSection() {
@@ -22,7 +22,7 @@ export async function CentroSection() {
               </ButtonLink>
             }
           />
-          <CentroExperience />
+          <CentroOrbit />
         </div>
       </Section>
     </div>

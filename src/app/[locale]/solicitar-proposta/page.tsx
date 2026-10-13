@@ -41,7 +41,7 @@ export default async function ProposalPage({ params, searchParams }: PageProps) 
         lead={t("lead")}
         breadcrumbs={[{ label: t("breadcrumb"), href: proposalHref }]}
       />
-      <section aria-labelledby="page-title" className="pb-(--space-section)">
+      <section aria-labelledby="page-title" className="pt-10 pb-(--space-section) md:pt-14">
         <div className="container-site grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,4fr)] lg:gap-16">
           <div className="rounded-xl border border-border bg-surface-raised p-5 md:p-10">
             <ProposalForm service={service} />

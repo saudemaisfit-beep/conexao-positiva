@@ -31,7 +31,7 @@ export function EventCard({
   return (
     <article
       className={cn(
-        "group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-surface-raised transition-shadow duration-(--duration-base) hover:shadow-md",
+        "group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-surface-raised transition-[transform,box-shadow,border-color] duration-(--duration-base) ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-lg",
         featured && "md:grid md:grid-cols-[minmax(0,6fr)_minmax(0,5fr)]",
       )}
     >

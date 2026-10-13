@@ -1,3 +1,4 @@
+import { Aurora } from "@/components/common/aurora";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
@@ -62,48 +63,56 @@ export default async function ArticlePage({ params }: PageProps) {
   return (
     <>
       <article aria-labelledby="page-title">
-        <header className="container-site flex flex-col gap-5 pt-6 pb-10 md:pt-8 md:pb-14">
-          <Breadcrumbs
-            items={[
-              { label: t("breadcrumb"), href: "/insights" },
-              { label: category, href: `/insights/categoria/${article.category}` },
-              { label: article.title, href: `/insights/${article.slug}` },
-            ]}
-          />
-          <div className="mt-4 flex max-w-4xl flex-col gap-5 md:mt-8">
-            <Link
-              href={`/insights/categoria/${article.category}`}
-              className="eyebrow inline-flex min-h-6 items-center self-start hover:text-primary"
-            >
-              {category}
-            </Link>
-            <h1 id="page-title" className="animate-rise-in text-h1 font-extrabold text-balance">
-              {article.title}
-            </h1>
-            <p className="max-w-2xl text-lead text-muted">{article.excerpt}</p>
-            <div className="mt-2 flex items-center gap-3">
-              <PersonAvatar
-                name={article.author.name}
-                photo={article.author.photo}
-                sizes="48px"
-                className="size-12 shrink-0 rounded-full [&>span]:text-body"
-              />
-              <p className="flex flex-col text-small">
-                <span className="font-semibold">
-                  {t("article.by", { name: article.author.name })}
-                </span>
-                <span className="text-muted tabular-nums">
-                  <time dateTime={article.publishedAt}>{formatLongDate(article.publishedAt)}</time>
-                  {" · "}
-                  {t("readingTime", { minutes })}
-                </span>
-              </p>
+        <header
+          data-surface="inverse"
+          className="relative isolate overflow-hidden bg-inverse text-on-inverse"
+        >
+          <Aurora />
+          <div className="container-site flex flex-col gap-5 pt-6 pb-14 md:pt-8 md:pb-20">
+            <Breadcrumbs
+              items={[
+                { label: t("breadcrumb"), href: "/insights" },
+                { label: category, href: `/insights/categoria/${article.category}` },
+                { label: article.title, href: `/insights/${article.slug}` },
+              ]}
+            />
+            <div className="mt-4 flex max-w-4xl flex-col gap-5 md:mt-8">
+              <Link
+                href={`/insights/categoria/${article.category}`}
+                className="eyebrow inline-flex min-h-6 items-center self-start hover:text-text"
+              >
+                {category}
+              </Link>
+              <h1 id="page-title" className="animate-rise-in text-h1 font-extrabold text-balance">
+                {article.title}
+              </h1>
+              <p className="max-w-2xl text-lead text-muted">{article.excerpt}</p>
+              <div className="mt-2 flex items-center gap-3">
+                <PersonAvatar
+                  name={article.author.name}
+                  photo={article.author.photo}
+                  sizes="48px"
+                  className="size-12 shrink-0 rounded-full [&>span]:text-body"
+                />
+                <p className="flex flex-col text-small">
+                  <span className="font-semibold">
+                    {t("article.by", { name: article.author.name })}
+                  </span>
+                  <span className="text-muted tabular-nums">
+                    <time dateTime={article.publishedAt}>
+                      {formatLongDate(article.publishedAt)}
+                    </time>
+                    {" · "}
+                    {t("readingTime", { minutes })}
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
         </header>
 
         {article.image && (
-          <div className="container-site">
+          <div className="container-site pt-10 md:pt-14">
             <div className="relative aspect-[16/10] overflow-hidden rounded-xl md:aspect-[21/9]">
               <Image
                 src={article.image.src}

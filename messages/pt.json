@@ -76,7 +76,8 @@
       "line3": "Potencializamos resultados.",
       "lead": "Criamos experiências de desenvolvimento humano, formação e transformação pensadas para pessoas, equipas e organizações.",
       "primary": "Conhecer as nossas soluções",
-      "secondary": "Solicitar uma proposta"
+      "secondary": "Solicitar uma proposta",
+      "nextEvent": "Próximo evento"
     },
     "about": {
       "eyebrow": "Quem somos",
@@ -99,7 +100,12 @@
       "lead": "Seis pilares para desenvolver pessoas de dentro para fora.",
       "cta": "Descobrir o Método C.E.N.T.R.O.",
       "tablist": "Pilares do Método C.E.N.T.R.O.",
-      "more": "Saber mais sobre {pillar}"
+      "more": "Saber mais sobre {pillar}",
+      "position": "Pilar {current} de {total}",
+      "pause": "Pausar a rotação dos pilares",
+      "play": "Retomar a rotação dos pilares",
+      "breatheIn": "Inspire",
+      "breatheOut": "Expire"
     },
     "cases": {
       "eyebrow": "Experiências",

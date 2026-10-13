@@ -44,7 +44,7 @@ export function MobileMenu() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         aria-label={t("openMenu")}
-        className="grid size-11 shrink-0 place-items-center rounded-md border border-border bg-surface-raised text-text lg:hidden"
+        className="grid size-11 shrink-0 place-items-center rounded-full border border-white/20 bg-white/5 text-on-inverse transition-colors hover:bg-white/10 lg:hidden"
       >
         <Menu aria-hidden="true" className="size-5" />
       </Dialog.Trigger>

@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import { services } from "@/config/navigation";
-import { ServiceCard } from "@/components/cards/service-card";
 import { Section } from "@/components/layout/section";
+import { ServicesBento } from "@/components/sections/services-bento";
 import { SectionHeader } from "@/components/ui/section-header";
 import { TextLink } from "@/components/ui/text-link";
 
@@ -17,13 +16,7 @@ export async function ServicesGrid() {
           lead={t("lead")}
           action={<TextLink href="/solucoes">{t("all")}</TextLink>}
         />
-        <ul className="grid gap-3 md:grid-cols-2 md:gap-5 xl:grid-cols-4">
-          {services.map((service) => (
-            <li key={service.slug} className="reveal">
-              <ServiceCard service={service} moreLabel={t("more")} />
-            </li>
-          ))}
-        </ul>
+        <ServicesBento moreLabel={t("more")} />
       </div>
     </Section>
   );
