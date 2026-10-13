@@ -124,6 +124,85 @@ export const metodoCopy = {
       text: "Equipas com uma base partilhada para falar de desenvolvimento e bem-estar.",
     },
   ] satisfies TitledText[],
+  /**
+   * Secções vindas da landing page de Luciana Machado (outubro de 2026). Textos adaptados a uma
+   * linguagem neutra; números e testemunhos são [Exemplo] até haver dados reais e autorização.
+   */
+  signs: {
+    title: "Consegue dar conta de tudo, mas sente-se cansado(a) por dentro?",
+    lead: "Estes são os sinais mais comuns de desconexão interior:",
+    items: [
+      {
+        title: "Exaustão emocional",
+        text: "Um cansaço profundo que não passa, mesmo depois de descansar. A energia simplesmente não volta.",
+      },
+      {
+        title: "Falta de clareza",
+        text: "As decisões mais simples parecem difíceis. Tudo parece confuso, pesado e sem direção.",
+      },
+      {
+        title: "Sobrecarga constante",
+        text: "Está sempre a fazer alguma coisa, mas nunca sente que avança. Tudo é urgente, tudo é prioritário.",
+      },
+      {
+        title: "Modo automático",
+        text: "Os dias repetem-se: acordar, fazer, dormir. Sem estar verdadeiramente presente em nada.",
+      },
+    ] satisfies TitledText[],
+    closing:
+      "Se se reconhece em dois ou mais destes sinais, o Método C.E.N.T.R.O. foi criado para si.",
+  },
+  creator: {
+    name: "Luciana Machado",
+    role: "Criadora do Método C.E.N.T.R.O.",
+    quote:
+      "Passei anos a observar o mesmo padrão repetir-se: pessoas incrivelmente capazes por fora, completamente esgotadas por dentro.",
+    paragraphs: [
+      "Ao longo do seu percurso de acompanhamento pessoal, Luciana Machado encontrou muitas vezes a mesma realidade: pessoas fortes, resilientes e aparentemente no controlo da sua vida, mas profundamente sobrecarregadas.",
+      "Pessoas que davam conta de tudo, exceto de si mesmas. Foi desta constatação que nasceu o Método C.E.N.T.R.O.: um sistema prático para reorganizar a vida interior, recuperar o equilíbrio e voltar a sentir-se inteiro(a).",
+    ],
+    /** [Exemplo] até a Conexão Positiva confirmar os valores. */
+    stats: [
+      { value: "[Exemplo] 8+", label: "anos de experiência em acompanhamento pessoal" },
+      { value: "[Exemplo] 500+", label: "pessoas acompanhadas" },
+      { value: "[Exemplo] 4,9/5", label: "avaliação média" },
+    ],
+  },
+  benefits: {
+    title: "O que pode mudar na sua vida",
+    items: [
+      "Clareza mental para tomar decisões com confiança",
+      "Menos ansiedade e sobrecarga emocional",
+      "Uma vida reorganizada com mais equilíbrio",
+      "Reconexão com o seu propósito e os seus valores",
+      "Uma direção pessoal clara e sustentável",
+    ],
+  },
+  /** [Exemplo]: testemunhos ilustrativos da landing, sem autorização confirmada. */
+  testimonials: [
+    {
+      quote:
+        "Estava completamente esgotada. O Método C.E.N.T.R.O. devolveu-me a clareza que pensava ter perdido. Hoje acordo com propósito e durmo em paz.",
+      name: "[Exemplo] Nome da participante",
+      role: "Empresária",
+    },
+    {
+      quote:
+        "Passei anos a cuidar de todos menos de mim. Aprendi que cuidar de mim não é egoísmo. Transformou a minha forma de viver.",
+      name: "[Exemplo] Nome da participante",
+      role: "Gestora",
+    },
+    {
+      quote:
+        "Finalmente saí do piloto automático. Aprendi a dizer não sem culpa e a dar prioridade ao que realmente importa.",
+      name: "[Exemplo] Nome da participante",
+      role: "Advogada",
+    },
+  ],
+  closing: {
+    title: "Pode continuar a cuidar de tudo e esquecer-se de si.",
+    text: "Ou pode decidir, hoje, regressar ao seu centro.",
+  },
   faq: [
     {
       question: "É preciso trabalhar todos os pilares?",

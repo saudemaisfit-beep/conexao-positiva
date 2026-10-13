@@ -19,7 +19,14 @@ import type { FormResult } from "@/lib/forms/schemas";
 type ServerError = Exclude<FormResult, { ok: true }>["error"];
 
 /** Campos que nunca são guardados no rascunho. */
-const NOT_SAVED = new Set(["consent", "website", "startedAt", "eventSlug", "turnstileToken"]);
+const NOT_SAVED = new Set([
+  "consent",
+  "website",
+  "startedAt",
+  "eventSlug",
+  "offerId",
+  "turnstileToken",
+]);
 
 /**
  * Lógica comum dos formulários: validação (à saída do campo e, depois do primeiro erro,
