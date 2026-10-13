@@ -10,12 +10,20 @@ import { CtaBanner } from "@/components/sections/cta-banner";
 import { Faq } from "@/components/sections/faq";
 import { FeatureList } from "@/components/sections/feature-list";
 import { ApplicationPaths } from "@/components/sections/metodo/application-paths";
+import {
+  BenefitsSection,
+  ClosingSection,
+  CreatorSection,
+  OffersSection,
+  SignsSection,
+} from "@/components/sections/metodo/landing-sections";
 import { PillarsStory } from "@/components/sections/metodo/pillars-story";
 import { PageHero } from "@/components/sections/page-hero";
 import { StepsList } from "@/components/sections/steps-list";
 import { ButtonLink, arrowClassName } from "@/components/ui/button";
 import { SectionHeader } from "@/components/ui/section-header";
 import logo from "../../../../public/brand/metodo-centro/metodo-centro-logo.png";
+import heroPhoto from "../../../../public/images/metodo-centro/luciana-machado-hero.jpg";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -47,28 +55,36 @@ export default async function MetodoPage({ params }: PageProps) {
         asideOnMobile
         actions={
           <>
-            <ButtonLink href={proposal} size="lg" variant="glow">
-              {t("hero.primary")}
+            <ButtonLink href="#participar" size="lg" variant="glow">
+              {t("hero.offers")}
               <ArrowRight aria-hidden="true" className={arrowClassName} />
             </ButtonLink>
-            <ButtonLink href="#consciencia" variant="glass" size="lg">
-              {t("hero.secondary")}
+            <ButtonLink href={proposal} variant="glass" size="lg">
+              {t("hero.primary")}
             </ButtonLink>
           </>
         }
         aside={
-          <div className="rounded-xl bg-white p-6 shadow-lg md:p-8">
-            <Image
-              src={logo}
-              alt={t("hero.logoAlt")}
-              priority
-              fetchPriority="high"
-              sizes="(min-width: 1024px) 18rem, 12rem"
-              className="h-auto w-full"
-            />
+          <div className="relative">
+            <div className="overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src={heroPhoto}
+                alt={t("hero.photoAlt")}
+                priority
+                fetchPriority="high"
+                placeholder="blur"
+                sizes="(min-width: 1024px) 34rem, (min-width: 768px) 60vw, 100vw"
+                className="aspect-4/3 h-auto w-full object-cover object-[75%_center]"
+              />
+            </div>
+            <div className="absolute -bottom-5 left-5 w-32 rounded-xl bg-white p-3 shadow-lg md:w-40">
+              <Image src={logo} alt={t("hero.logoAlt")} sizes="10rem" className="h-auto w-full" />
+            </div>
           </div>
         }
       />
+
+      <SignsSection />
 
       <Section tone="alt" aria-labelledby="what-title">
         <div className="container-site grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
@@ -88,6 +104,8 @@ export default async function MetodoPage({ params }: PageProps) {
           </div>
         </div>
       </Section>
+
+      <CreatorSection />
 
       <Section aria-labelledby="audience-title">
         <div className="container-site">
@@ -109,7 +127,11 @@ export default async function MetodoPage({ params }: PageProps) {
         </div>
       </Section>
 
+      <BenefitsSection />
+
       <ApplicationPaths />
+
+      <OffersSection />
 
       <Section tone="alt" aria-labelledby="results-title">
         <div className="container-site">
@@ -123,6 +145,8 @@ export default async function MetodoPage({ params }: PageProps) {
       </Section>
 
       <Faq items={metodoCopy.faq} />
+
+      <ClosingSection />
 
       <CtaBanner
         id="metodo-cta-title"

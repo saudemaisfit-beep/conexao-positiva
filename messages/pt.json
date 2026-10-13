@@ -307,7 +307,9 @@
       "lead": "Um caminho para desenvolver pessoas de dentro para fora.",
       "primary": "Levar o método para a minha organização",
       "secondary": "Conhecer os pilares",
-      "logoAlt": "Logótipo Método C.E.N.T.R.O."
+      "logoAlt": "Logótipo Método C.E.N.T.R.O.",
+      "photoAlt": "Luciana Machado, criadora do Método C.E.N.T.R.O.",
+      "offers": "Ver bilhetes e e-books"
     },
     "audience": {
       "eyebrow": "Para quem é",
@@ -336,6 +338,39 @@
       "text": "Desenhamos consigo a aplicação do método à realidade das suas pessoas e equipas.",
       "primary": "Solicitar proposta",
       "secondary": "Falar connosco"
+    },
+    "signs": {
+      "eyebrow": "Reconhece estes sinais?"
+    },
+    "creator": {
+      "eyebrow": "Conheça a criadora"
+    },
+    "benefits": {
+      "eyebrow": "Transformação"
+    },
+    "testimonials": {
+      "eyebrow": "Testemunhos",
+      "title": "O que dizem os participantes"
+    },
+    "offers": {
+      "eyebrow": "Participar",
+      "title": "Encontro, e-books e guia gratuito",
+      "lead": "Escolha como quer começar. O pagamento é feito por referência Multicaixa, no ATM, no Multicaixa Express ou no homebanking.",
+      "example": "[Exemplo] Preço e condições por confirmar",
+      "free": "Gratuito",
+      "recommended": "Recomendado",
+      "buy": "Comprar",
+      "request": "Pedir o guia",
+      "groups": {
+        "guia": "Guia gratuito",
+        "bilhete": "Encontro presencial",
+        "ebook": "E-books"
+      },
+      "soon": "Disponível em breve"
+    },
+    "closing": {
+      "primary": "Pedir o guia gratuito",
+      "secondary": "Ver bilhetes"
     }
   },
   "Events": {
@@ -565,6 +600,10 @@
       "duplicate": {
         "title": "Já existe uma inscrição com este e-mail.",
         "text": "Se precisa de alterar a inscrição, fale connosco."
+      },
+      "offer-unavailable": {
+        "title": "Esta oferta ainda não está disponível.",
+        "text": "Fale connosco para saber quando abre ou para reservar o seu lugar."
       }
     },
     "alternatives": "Também pode falar connosco por:",
@@ -741,5 +780,47 @@
     "updated": "Última atualização: {date}",
     "contents": "Nesta página",
     "draft": "Texto-base em validação jurídica. Os campos entre parênteses retos serão preenchidos antes da publicação."
+  },
+  "Checkout": {
+    "metaTitle": "Comprar: {offer}",
+    "breadcrumb": "Comprar",
+    "title": "Finalizar compra",
+    "freeTitle": "Pedir o guia gratuito",
+    "lead": "Preencha os seus dados. A seguir mostramos a referência Multicaixa para pagar.",
+    "freeLead": "Preencha os seus dados e enviamos-lhe o guia por e-mail.",
+    "summary": "Resumo",
+    "total": "Total",
+    "submit": "Continuar para o pagamento",
+    "freeSubmit": "Pedir o guia",
+    "unavailable": "Esta oferta ainda não está disponível para compra no site. Fale connosco para reservar.",
+    "contact": "Falar connosco",
+    "secure": "Os seus dados são tratados só para este pedido. O valor é calculado no nosso servidor."
+  },
+  "Order": {
+    "metaTitle": "O seu pedido",
+    "notFound": {
+      "title": "Não encontrámos este pedido.",
+      "text": "Confirme o link que recebeu por e-mail ou fale connosco."
+    },
+    "pendingTitle": "Falta só o pagamento",
+    "pendingLead": "Pague com a referência Multicaixa abaixo, no ATM, no Multicaixa Express ou no homebanking. Enviámos os mesmos dados para o seu e-mail.",
+    "paidTitle": "Pagamento confirmado",
+    "paidLead": "Obrigado! Enviámos a confirmação para o seu e-mail. A equipa entra em contacto com os próximos passos.",
+    "freeTitle": "Pedido recebido",
+    "freeLead": "Obrigado! Enviamos-lhe o guia por e-mail em breve.",
+    "expiredTitle": "A referência expirou",
+    "expiredLead": "Fale connosco para gerar uma nova referência.",
+    "entity": "Entidade",
+    "reference": "Referência",
+    "amount": "Montante",
+    "until": "Pagar até",
+    "order": "Pedido",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "redirect": "Pagar agora",
+    "refresh": "Já paguei: atualizar estado",
+    "test": "Modo de teste: nenhum pagamento real é feito.",
+    "simulate": "Simular pagamento (teste)",
+    "back": "Voltar ao Método C.E.N.T.R.O."
   }
 }

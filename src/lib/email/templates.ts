@@ -3,6 +3,7 @@ import { siteConfig } from "@/config/site";
 import type { EventDetail } from "@/content/types";
 import { formatKz, formatLongDate, formatTime } from "@/lib/format";
 import type { ContactData, ProposalData, RegistrationData } from "@/lib/forms/schemas";
+import type { PaymentInstructions } from "@/lib/payments/types";
 import type { Email } from "./send";
 
 /** Todo o texto vindo de formulários ou do CMS é escapado antes de entrar no HTML. */
@@ -194,6 +195,112 @@ export function registrationEmails(
         userBody + paragraph(`Página do evento: ${eventUrl}`),
       ),
       text: `${waitlist ? "Lista de espera" : "Inscrição confirmada"}: ${event.title}\n\n${details.text}\n\n${eventUrl}`,
+    },
+  ];
+}
+
+// ---------- Pedidos e pagamentos (Método C.E.N.T.R.O.) ----------
+interface OrderForEmail {
+  offerName: string;
+  amountKz: number;
+  name: string;
+  email: string;
+  phone: string;
+  instructions: PaymentInstructions | null;
+}
+
+function orderFields(order: OrderForEmail) {
+  return fields([
+    ["Pedido", order.offerName],
+    ["Valor", order.amountKz === 0 ? "Gratuito" : formatKz(order.amountKz)],
+  ]);
+}
+
+function instructionFields(instructions: PaymentInstructions) {
+  return instructions.method === "referencia"
+    ? fields([
+        ["Entidade", instructions.entity],
+        ["Referência", instructions.reference],
+        ["Montante", formatKz(instructions.amountKz)],
+        ["Pagar até", formatLongDate(instructions.expiresAt)],
+      ])
+    : fields([
+        ["Montante", formatKz(instructions.amountKz)],
+        ["Pagar até", formatLongDate(instructions.expiresAt)],
+      ]);
+}
+
+/** Pedido criado: instruções de pagamento (ou confirmação do pedido gratuito) e aviso à equipa. */
+export function orderCreatedEmails(order: OrderForEmail, pageUrl: string, team: string[]): Email[] {
+  const person = fields([
+    ["Nome", order.name],
+    ["E-mail", order.email],
+    ["Telefone", order.phone],
+  ]);
+  const summary = orderFields(order);
+  const free = order.amountKz === 0;
+  const pay = order.instructions ? instructionFields(order.instructions) : null;
+
+  const userBody = free
+    ? paragraph("Recebemos o seu pedido. A equipa envia-lhe o guia por e-mail em breve.") +
+      summary.html
+    : paragraph(
+        "O seu pedido está registado. Para o concluir, faça o pagamento por referência Multicaixa (ATM, Multicaixa Express ou homebanking):",
+      ) +
+      (pay?.html ?? "") +
+      summary.html +
+      paragraph("Assim que o pagamento for confirmado, enviamos-lhe um e-mail.") +
+      button("Ver o estado do pedido", pageUrl);
+
+  return [
+    {
+      to: team,
+      replyTo: order.email,
+      subject: `${free ? "Novo pedido" : "Nova compra (por pagar)"}: ${order.offerName} — ${order.name}`,
+      html: layout(
+        free ? "Novo pedido" : "Nova compra, a aguardar pagamento",
+        person.html + summary.html,
+      ),
+      text: `${free ? "Novo pedido" : "Nova compra (por pagar)"}\n\n${person.text}\n\n${summary.text}`,
+    },
+    {
+      to: [order.email],
+      subject: free
+        ? `Pedido recebido: ${order.offerName}`
+        : `Instruções de pagamento: ${order.offerName}`,
+      html: layout(`Obrigado, ${order.name}.`, userBody),
+      text: `Obrigado, ${order.name}.\n\n${free ? "Recebemos o seu pedido." : `Pagamento por referência Multicaixa:\n${pay?.text ?? ""}`}\n\n${summary.text}\n\n${pageUrl}`,
+    },
+  ];
+}
+
+/** Pagamento confirmado (aviso do fornecedor já verificado). */
+export function orderPaidEmails(order: OrderForEmail, team: string[]): Email[] {
+  const summary = orderFields(order);
+  const person = fields([
+    ["Nome", order.name],
+    ["E-mail", order.email],
+    ["Telefone", order.phone],
+  ]);
+  return [
+    {
+      to: team,
+      replyTo: order.email,
+      subject: `Pagamento confirmado: ${order.offerName} — ${order.name}`,
+      html: layout("Pagamento confirmado", person.html + summary.html),
+      text: `Pagamento confirmado\n\n${person.text}\n\n${summary.text}`,
+    },
+    {
+      to: [order.email],
+      subject: `Pagamento confirmado: ${order.offerName}`,
+      html: layout(
+        `Pagamento confirmado. Obrigado, ${order.name}!`,
+        summary.html +
+          paragraph(
+            "A equipa Conexão Positiva entra em contacto consigo com os próximos passos (acesso ao e-book ou detalhes do encontro).",
+          ),
+      ),
+      text: `Pagamento confirmado. Obrigado, ${order.name}!\n\n${summary.text}`,
     },
   ];
 }

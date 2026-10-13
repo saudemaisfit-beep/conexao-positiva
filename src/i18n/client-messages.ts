@@ -16,6 +16,8 @@ const CLIENT_NAMESPACES = [
   "Contact.submit",
   "Proposal",
   "Registration",
+  "Checkout",
+  "Order",
   "Home.events",
   "Home.centro",
   "Home.testimonials",

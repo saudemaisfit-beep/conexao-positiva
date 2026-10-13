@@ -110,12 +110,24 @@ export const registrationSchema = z.object({
   ...spamFields,
 });
 
+/** Compra (ou pedido do guia gratuito). O preço NUNCA vem do browser: só o id da oferta. */
+export const checkoutSchema = z.object({
+  offerId: z.string().regex(/^[a-z0-9-]{1,80}$/),
+  name: required(120),
+  email,
+  phone,
+  consent,
+  ...spamFields,
+});
+
 export type ContactInput = z.input<typeof contactSchema>;
 export type ContactData = z.output<typeof contactSchema>;
 export type ProposalInput = z.input<typeof proposalSchema>;
 export type ProposalData = z.output<typeof proposalSchema>;
 export type RegistrationInput = z.input<typeof registrationSchema>;
 export type RegistrationData = z.output<typeof registrationSchema>;
+export type CheckoutInput = z.input<typeof checkoutSchema>;
+export type CheckoutData = z.output<typeof checkoutSchema>;
 
 /** Resultado devolvido pelas Server Actions. */
 export type FormResult =
@@ -127,6 +139,7 @@ export type FormResult =
         | "rate-limit"
         | "verification"
         | "closed"
+        | "offer-unavailable"
         | "duplicate"
         | "unavailable"
         | "server";
