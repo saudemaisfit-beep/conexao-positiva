@@ -61,7 +61,7 @@ export default async function OrderPage({ params, searchParams }: PageProps) {
 
   return (
     <section
-      data-brand="metodo"
+      data-brand="luciana"
       aria-labelledby="page-title"
       className="pt-10 pb-(--space-section) md:pt-16"
     >

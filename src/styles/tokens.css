@@ -24,6 +24,18 @@
 
   /* Marsala: cor OFICIAL do Método C.E.N.T.R.O. (logótipo, ~#904141). Restantes tons derivados. */
   --marsala-950: #3a1717;
+
+  /* Landing do Método C.E.N.T.R.O. (Luciana Machado): carvão, dourado e areia. */
+  --luciana-carvao: #2c2c2c;
+  --luciana-carvao-claro: #444444;
+  --luciana-dourado: #c9a88a; /* só sobre carvão (6,3 : 1) ou com texto carvão */
+  --luciana-dourado-escuro: #6e523a; /* texto dourado sobre fundos claros (≥ 5 : 1) */
+  --luciana-areia: #f5f1ed;
+  --luciana-linho: #faf7f3;
+  --luciana-nude: #e8d5c4;
+  --luciana-perola: #d9cfc6;
+  --luciana-cinza: #6b6b6b;
+  --luciana-linha: #e2d9cf;
   --marsala-800: #742f30;
   --marsala-700: #904141;
   --marsala-400: #c27f7c;

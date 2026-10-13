@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
 import { centroPillars } from "@/content/centro";
 import { metodoCopy } from "@/content/metodo";
@@ -13,7 +14,18 @@ import { PillarsOrbit } from "./pillars-orbit";
  * Desktop: órbita fixa que roda até ao pilar visível. Mobile: índice fixo em faixa e a
  * animação de cada pilar junto à letra.
  */
-export async function PillarsStory() {
+export async function PillarsStory({
+  eyebrow,
+  title,
+  lead,
+  children,
+}: {
+  eyebrow?: string;
+  title?: string;
+  lead?: string;
+  /** Conteúdo depois dos pilares (ex.: frase de fecho da landing). */
+  children?: ReactNode;
+} = {}) {
   const t = await getTranslations("Metodo.pillars");
   const tc = await getTranslations("Home.centro");
   const indexItems = centroPillars.map(({ slug, letter, name }) => ({ slug, letter, name }));
@@ -21,7 +33,12 @@ export async function PillarsStory() {
   return (
     <Section tone="inverse" aria-labelledby="pillars-title">
       <div className="container-site">
-        <SectionHeader id="pillars-title" eyebrow={t("eyebrow")} title={t("title")} />
+        <SectionHeader
+          id="pillars-title"
+          eyebrow={eyebrow ?? t("eyebrow")}
+          title={title ?? t("title")}
+          lead={lead}
+        />
         <div className="grid gap-8 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-16 xl:grid-cols-[minmax(0,26rem)_minmax(0,1fr)]">
           <PillarIndex items={indexItems} />
           <div className="hidden lg:sticky lg:top-32 lg:block lg:self-start">
@@ -91,6 +108,7 @@ export async function PillarsStory() {
             })}
           </div>
         </div>
+        {children}
       </div>
     </Section>
   );

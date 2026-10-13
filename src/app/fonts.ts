@@ -19,3 +19,23 @@ export const inter = localFont({
   display: "swap",
   fallback: ["ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
 });
+
+// Identidade da landing do Método C.E.N.T.R.O. (Luciana Machado): títulos em serifa e texto em
+// Montserrat. Só usadas dentro de [data-brand="luciana"] (o browser só as descarrega aí).
+export const playfair = localFont({
+  src: "../../node_modules/@fontsource-variable/playfair-display/files/playfair-display-latin-wght-normal.woff2",
+  weight: "400 900",
+  variable: "--font-playfair",
+  display: "swap",
+  preload: false,
+  fallback: ["Georgia", "Times New Roman", "serif"],
+});
+
+export const montserrat = localFont({
+  src: "../../node_modules/@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2",
+  weight: "100 900",
+  variable: "--font-montserrat",
+  display: "swap",
+  preload: false,
+  fallback: ["ui-sans-serif", "system-ui", "sans-serif"],
+});

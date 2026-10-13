@@ -142,3 +142,42 @@
   --network-line: 194 127 124;
   --network-dot: 233 201 198;
 }
+
+/*
+ * Landing do Método C.E.N.T.R.O. (Luciana Machado): data-brand="luciana" na página
+ * /metodo-centro, no checkout e na página do pedido. Carvão e dourado, títulos em Playfair Display
+ * e texto em Montserrat. Os componentes partilhados (órbita, formulários) seguem estes tokens.
+ */
+[data-brand="luciana"] {
+  --color-primary: var(--luciana-carvao);
+  --color-primary-hover: var(--luciana-carvao-claro);
+  --color-primary-strong: var(--luciana-carvao);
+  --color-primary-soft: var(--luciana-nude);
+  --color-on-primary: var(--branco);
+  --color-accent: var(--luciana-dourado-escuro);
+  --color-accent-soft: var(--luciana-nude);
+  --color-accent-on-inverse: var(--luciana-dourado);
+  --color-brand-on-inverse: var(--luciana-dourado);
+  --color-glow: var(--luciana-dourado);
+  --color-on-glow: var(--luciana-carvao);
+  --color-inverse: var(--luciana-carvao);
+  --color-on-inverse-muted: var(--luciana-perola);
+  --color-background: var(--luciana-areia);
+  --color-surface: var(--luciana-linho);
+  --color-surface-raised: var(--branco);
+  --color-text: var(--luciana-carvao);
+  --color-muted: var(--luciana-cinza);
+  --color-border: var(--luciana-linha);
+  --color-focus: var(--luciana-dourado-escuro);
+  --color-focus-on-inverse: var(--luciana-dourado);
+  --aurora-1: var(--luciana-dourado);
+  --aurora-2: var(--luciana-nude);
+  --aurora-3: var(--luciana-carvao-claro);
+  --network-line: 201 168 138;
+  --network-dot: 232 213 196;
+  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}

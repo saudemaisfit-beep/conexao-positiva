@@ -37,7 +37,7 @@ export default async function CheckoutPage({ params }: PageProps) {
   const available = isOfferAvailable(offer);
 
   return (
-    <div data-brand="metodo">
+    <div data-brand="luciana">
       <FormPageHeader
         eyebrow={offer.name}
         title={free ? t("freeTitle") : t("title")}
