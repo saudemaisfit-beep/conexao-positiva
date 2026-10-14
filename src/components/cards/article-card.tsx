@@ -4,6 +4,7 @@ import type { ArticleSummary } from "@/content/types";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { formatLongDate } from "@/lib/format";
+import { stockImage } from "@/content/stock-photos";
 import { MediaFrame } from "./media-frame";
 
 export function ArticleCard({
@@ -25,7 +26,8 @@ export function ArticleCard({
       )}
     >
       <MediaFrame
-        image={article.image}
+        // Sem imagem própria: fotografia ilustrativa da categoria.
+        image={article.image ?? stockImage(`cat-${article.category}`, 800)}
         icon={BookOpen}
         ratio={featured ? "aspect-[16/10] lg:aspect-auto lg:min-h-[22rem]" : "aspect-[16/10]"}
         sizes={featured ? "(min-width: 1024px) 58vw, 100vw" : "(min-width: 1024px) 380px, 100vw"}

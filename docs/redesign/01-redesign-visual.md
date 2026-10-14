@@ -48,3 +48,30 @@ O nome é o conceito: os seis pilares giram em volta de um **centro**.
 - Desktop (≥ 1024 px): a órbita fica fixa à esquerda e roda até ao pilar visível enquanto se desce a página; o núcleo mostra a animação desse pilar. As letras são links para as âncoras (`#consciencia`…), com `aria-current` no pilar visível.
 - Mobile e tablet: índice fixo em faixa (como antes) e a animação de cada pilar junto à letra.
 - O mostrador é partilhado com a Home: `sections/orbit-dial.tsx` (`useOrbit`, `orbitNode`, `OrbitDial`); a página usa `sections/metodo/pillars-orbit.tsx`.
+
+## Identidade da landing em todo o site (outubro de 2026)
+
+A pedido da cliente, o site todo passou a usar a identidade da landing do Método C.E.N.T.R.O.
+(Luciana Machado), através dos tokens globais (`src/styles/tokens.css`, `src/styles/theme.css`):
+
+- **Cores:** carvão `#2c2c2c` (texto, botões, secções escuras, cabeçalho), dourado `#c9a88a`
+  (destaques sobre carvão e botões com texto carvão), dourado escuro `#6e523a` (texto dourado sobre
+  fundos claros) e areia `#f5f1ed` (fundo). O azul oficial fica só no logótipo.
+- **Tipos de letra:** Playfair Display nos títulos (peso normal nos títulos grandes, como na landing)
+  e Montserrat no texto, alojados no site com Fontsource. Manrope e Inter deixam de ser carregadas.
+- **Tamanhos:** a escala da landing (`--text-display` 48→96 px, `--text-h1` 40→72, `--text-h2` 36→60,
+  `--text-lead` 18→22, texto 16–18).
+- **Contraste:** a auditoria axe passa nas 50 páginas, em 390 px e em 1280 px.
+
+## Fotografias ilustrativas (Unsplash)
+
+Enquanto não há fotografias reais, o site usa fotografias de banco do Unsplash
+(`src/content/stock-photos.ts`), servidas pelo CDN do Unsplash, com crédito ao autor nos heros:
+
+- Heros com fotografia de fundo (véu carvão para o contraste): Sobre, Soluções, cada solução,
+  Insights, categorias de Insights e Contactos.
+- Cartões de artigos sem imagem própria: fotografia da categoria.
+- **Nunca** em equipa, clientes, testemunhos, eventos ou casos (seria enganoso).
+
+Para trocar por fotografias reais: publicar a imagem no CMS (tem prioridade) ou retirar a chave
+do ficheiro. A política de segurança (CSP) autoriza `https://images.unsplash.com`.

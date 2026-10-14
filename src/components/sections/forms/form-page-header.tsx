@@ -26,7 +26,7 @@ export function FormPageHeader({
         <Breadcrumbs items={breadcrumbs} />
         <div className="mt-4 flex max-w-3xl flex-col gap-4 md:mt-8">
           {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-          <h1 id="page-title" className="text-h1 font-extrabold text-balance">
+          <h1 id="page-title" className="text-h1 font-normal text-balance">
             {title}
           </h1>
           <p className="text-lead text-muted">{lead}</p>

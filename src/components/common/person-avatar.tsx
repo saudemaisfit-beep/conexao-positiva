@@ -29,7 +29,7 @@ export function PersonAvatar({
       ) : (
         <span
           aria-hidden="true"
-          className="absolute inset-0 grid place-items-center font-display text-h2 font-extrabold text-primary"
+          className="absolute inset-0 grid place-items-center font-display text-h2 font-normal text-primary"
         >
           {initials || "·"}
         </span>

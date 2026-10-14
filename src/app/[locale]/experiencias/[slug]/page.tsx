@@ -194,7 +194,7 @@ export default async function ExperiencePage({ params }: PageProps) {
                   className="flex reveal flex-col gap-3 border-t border-on-inverse/20 pt-6"
                 >
                   {result.value ? (
-                    <span className="font-display text-display leading-none font-extrabold text-brand-on-inverse">
+                    <span className="font-display text-display leading-none font-normal text-brand-on-inverse">
                       {result.value}
                     </span>
                   ) : (

@@ -17,7 +17,7 @@ export async function FounderFeature({ founder }: { founder: TeamMember | null }
         />
         <div className="flex reveal flex-col gap-4">
           <p className="eyebrow">{t("eyebrow")}</p>
-          <h2 id="founder-title" className="text-h2 font-bold">
+          <h2 id="founder-title" className="text-h2 font-normal">
             {founder.name}
           </h2>
           <p className="font-semibold text-primary">{founder.role}</p>

@@ -19,7 +19,7 @@ export function Confirmation({
           <span className="grid size-16 animate-rise-in place-items-center rounded-full bg-success-soft text-success">
             <CircleCheck aria-hidden="true" className="size-8" strokeWidth={1.75} />
           </span>
-          <h1 id="page-title" className="text-h1 font-extrabold text-balance">
+          <h1 id="page-title" className="text-h1 font-normal text-balance">
             {title}
           </h1>
           <p className="text-lead text-muted">{text}</p>

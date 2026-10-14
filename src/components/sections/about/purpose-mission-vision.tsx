@@ -9,7 +9,7 @@ export async function PurposeMissionVision() {
       <div className="container-site grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] lg:gap-20">
         <div className="flex reveal flex-col gap-5">
           <p className="eyebrow">{t("eyebrow")}</p>
-          <h2 id="purpose-title" className="text-h1 font-extrabold">
+          <h2 id="purpose-title" className="text-h1 font-normal">
             {aboutCopy.purpose.statement.split(". ").map((part, index, all) => (
               <span key={part} className="block">
                 {part}

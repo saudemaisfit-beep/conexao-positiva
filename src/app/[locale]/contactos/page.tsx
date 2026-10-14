@@ -10,6 +10,7 @@ import { ContactForm } from "@/components/forms/contact-form";
 import { Section } from "@/components/layout/section";
 import { PageHero } from "@/components/sections/page-hero";
 import { ButtonLink, arrowClassName } from "@/components/ui/button";
+import { stockPhotos } from "@/content/stock-photos";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -82,6 +83,7 @@ export default async function ContactPage({ params }: PageProps) {
   return (
     <>
       <PageHero
+        photo={stockPhotos.contactos}
         eyebrow={t("hero.eyebrow")}
         title={t("hero.title")}
         lead={t("hero.lead")}

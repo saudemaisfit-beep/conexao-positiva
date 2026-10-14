@@ -37,7 +37,7 @@ export async function HomeHero({ nextEvent, stats = [] }: HomeHeroProps) {
           <p className="eyebrow animate-rise-in">{t("eyebrow")}</p>
           <h1
             id="hero-title"
-            className="text-display font-extrabold lg:text-[clamp(3.25rem,1.6rem+2.6vw,4.5rem)]"
+            className="text-display font-normal lg:text-[clamp(3.25rem,1.6rem+2.6vw,4.5rem)]"
           >
             {lines.map((line, index) => (
               <span
