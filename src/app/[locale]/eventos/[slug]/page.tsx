@@ -1,7 +1,6 @@
 import { CalendarDays, Clock, MapPin, Ticket, Users } from "lucide-react";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
@@ -164,19 +163,8 @@ export default async function EventPage({ params }: PageProps) {
           { label: t("breadcrumb"), href: "/eventos" },
           { label: event.title, href: `/eventos/${event.slug}` },
         ]}
-        actions={<RegistrationAction event={event} now={now} dark />}
-        aside={
-          event.image ? (
-            <Image
-              src={event.image.src}
-              alt={event.image.alt}
-              width={event.image.width}
-              height={event.image.height}
-              sizes="22rem"
-              className="rounded-xl object-cover"
-            />
-          ) : undefined
-        }
+        actions={<RegistrationAction event={event} now={now} />}
+        image={event.image}
       />
 
       <Section aria-label={t("detail.about")}>

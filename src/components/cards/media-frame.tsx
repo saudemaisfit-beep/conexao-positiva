@@ -42,6 +42,11 @@ export function MediaFrame({
           )}
         </div>
       )}
+      {image?.provisional && (
+        <span className="absolute right-3 bottom-3 rounded-full bg-inverse px-3 py-1 text-caption font-medium text-on-inverse">
+          Fotografia ilustrativa
+        </span>
+      )}
     </div>
   );
 }

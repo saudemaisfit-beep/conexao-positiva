@@ -1,9 +1,27 @@
 import { expect, test } from "@playwright/test";
 import { getOffer, offers } from "@/content/offers";
 import { checkoutSchema } from "@/lib/forms/schemas";
+import { getPaymentProvider, getProviderById } from "@/lib/payments";
 import { signSimulatedWebhook, simulatedProvider } from "@/lib/payments/providers/simulated";
 
 test.describe("Pagamentos", () => {
+  test("só aceita fornecedores registados, incluindo nomes herdados de objetos", () => {
+    const previous = process.env.PAYMENTS_PROVIDER;
+    try {
+      for (const id of ["nao-existe", "constructor", "toString", "__proto__"]) {
+        process.env.PAYMENTS_PROVIDER = id;
+        expect(getPaymentProvider(), id).toBeNull();
+        expect(getProviderById(id), id).toBeNull();
+      }
+      process.env.PAYMENTS_PROVIDER = "simulado";
+      expect(getPaymentProvider()).toBe(simulatedProvider);
+      expect(getProviderById("simulado")).toBe(simulatedProvider);
+    } finally {
+      if (previous === undefined) delete process.env.PAYMENTS_PROVIDER;
+      else process.env.PAYMENTS_PROVIDER = previous;
+    }
+  });
+
   test("catálogo: ids únicos e preços inteiros não negativos", () => {
     const ids = offers.map((offer) => offer.id);
     expect(new Set(ids).size).toBe(ids.length);

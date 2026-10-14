@@ -8,6 +8,8 @@ export interface ContentImage {
   alt: string;
   width: number;
   height: number;
+  /** Imagem ilustrativa gerada por IA, a substituir por fotografia real. */
+  provisional?: boolean;
 }
 
 export interface ImpactStat {

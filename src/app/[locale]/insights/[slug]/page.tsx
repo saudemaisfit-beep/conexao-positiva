@@ -1,4 +1,3 @@
-import { Aurora } from "@/components/common/aurora";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
@@ -67,7 +66,6 @@ export default async function ArticlePage({ params }: PageProps) {
           data-surface="inverse"
           className="relative isolate overflow-hidden bg-inverse text-on-inverse"
         >
-          <Aurora />
           <div className="container-site flex flex-col gap-5 pt-6 pb-14 md:pt-8 md:pb-20">
             <Breadcrumbs
               items={[

@@ -46,16 +46,26 @@ export function CookieBanner() {
               </p>
             </div>
             <div className="grid grid-cols-2 gap-2">
-              <Button variant="secondary" size="sm" onClick={() => save(true)}>
+              <Button
+                variant="secondary"
+                size="sm"
+                className="max-md:min-h-11"
+                onClick={() => save(true)}
+              >
                 {t("accept")}
               </Button>
-              <Button variant="secondary" size="sm" onClick={() => save(false)}>
+              <Button
+                variant="secondary"
+                size="sm"
+                className="max-md:min-h-11"
+                onClick={() => save(false)}
+              >
                 {t("reject")}
               </Button>
               <Button
                 variant="link"
                 size="sm"
-                className="col-span-2 justify-self-center"
+                className="col-span-2 justify-self-center max-md:min-h-11 max-md:px-3"
                 onClick={() => setPreferencesOpen(true)}
               >
                 {t("customize")}

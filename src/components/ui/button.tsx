@@ -19,10 +19,9 @@ export const buttonVariants = cva(
         inverse: "bg-white text-primary-strong hover:bg-primary-soft",
         "inverse-outline": "border-[1.5px] border-on-inverse text-on-inverse hover:bg-white/10",
         /* Botão principal sobre fundos escuros (heros, cabeçalho): cor luminosa da marca. */
-        glow: "bg-glow text-on-glow shadow-[0_10px_30px_-12px_var(--color-glow)] hover:-translate-y-0.5 hover:brightness-110",
+        glow: "bg-glow text-on-glow hover:brightness-110",
         /* Botão secundário de vidro sobre fundos escuros. */
-        glass:
-          "border-[1.5px] border-white/30 bg-white/5 text-on-inverse backdrop-blur-sm hover:bg-white/12",
+        glass: "border-[1.5px] border-white/40 bg-transparent text-on-inverse hover:bg-white/10",
         link: "rounded-none text-primary underline decoration-[1.5px] underline-offset-4 hover:decoration-transparent",
       },
       size: {

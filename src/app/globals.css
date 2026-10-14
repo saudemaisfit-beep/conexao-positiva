@@ -39,7 +39,7 @@
     text-wrap: balance;
     /* Palavras longas em títulos grandes não saem do ecrã (320px, espaçamento aumentado). */
     overflow-wrap: break-word;
-    hyphens: auto;
+    hyphens: none;
   }
 
   ::selection {
