@@ -10,6 +10,7 @@ import { AudiencePaths } from "@/components/sections/solutions/audience-paths";
 import { CentroTeaser } from "@/components/sections/solutions/centro-teaser";
 import { StepsList } from "@/components/sections/steps-list";
 import { SectionHeader } from "@/components/ui/section-header";
+import { stockPhotos } from "@/content/stock-photos";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -34,6 +35,7 @@ export default async function SolutionsPage({ params }: PageProps) {
   return (
     <>
       <PageHero
+        photo={stockPhotos.solucoes}
         eyebrow={t("hero.eyebrow")}
         title={t("hero.title")}
         lead={t("hero.lead")}

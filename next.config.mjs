@@ -34,6 +34,8 @@ const siteCsp = csp({
     "data:",
     "blob:",
     "https://cdn.sanity.io",
+    // Fotografias de banco (Unsplash), servidas pelo CDN do Unsplash.
+    "https://images.unsplash.com",
     "https://*.google-analytics.com",
     "https://*.googletagmanager.com",
   ],

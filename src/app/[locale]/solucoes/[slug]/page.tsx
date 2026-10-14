@@ -19,6 +19,7 @@ import { StepsList } from "@/components/sections/steps-list";
 import { TestimonialsShowcase } from "@/components/sections/testimonials";
 import { ButtonLink, arrowClassName } from "@/components/ui/button";
 import { SectionHeader } from "@/components/ui/section-header";
+import { stockPhotos } from "@/content/stock-photos";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -63,6 +64,7 @@ export default async function ServicePage({ params }: PageProps) {
   return (
     <>
       <PageHero
+        photo={stockPhotos[service.slug]}
         eyebrow={t("breadcrumb")}
         title={service.name}
         lead={service.lead}

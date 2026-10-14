@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { articleCategories, isArticleCategory } from "@/content/insight-categories";
 import { InsightsIndex } from "@/components/sections/insights/insights-index";
 import { PageHero } from "@/components/sections/page-hero";
+import { stockPhotos } from "@/content/stock-photos";
 
 interface PageProps {
   params: Promise<{ locale: string; slug: string }>;
@@ -38,6 +39,7 @@ export default async function InsightsCategoryPage({ params }: PageProps) {
   return (
     <>
       <PageHero
+        photo={stockPhotos[`cat-${slug}`]}
         eyebrow={t("hero.eyebrow")}
         title={name}
         lead={t(`categories.${slug}.description`)}

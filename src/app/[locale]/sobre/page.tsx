@@ -13,6 +13,7 @@ import { WhoWeAre } from "@/components/sections/about/who-we-are";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { PageHero } from "@/components/sections/page-hero";
 import { PullQuote } from "@/components/sections/pull-quote";
+import { stockPhotos } from "@/content/stock-photos";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -33,6 +34,7 @@ export default async function AboutPage({ params }: PageProps) {
   return (
     <>
       <PageHero
+        photo={stockPhotos.sobre}
         eyebrow={t("hero.eyebrow")}
         title={t("hero.title")}
         lead={t("hero.lead")}

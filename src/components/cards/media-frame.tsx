@@ -28,6 +28,8 @@ export function MediaFrame({
           alt={image.alt}
           fill
           sizes={sizes}
+          // Fotografias de banco: o CDN do Unsplash já redimensiona e escolhe o formato.
+          unoptimized={image.src.startsWith("https://images.unsplash.com/")}
           className="object-cover transition-transform duration-(--duration-slow) ease-out group-hover:scale-[1.04]"
         />
       ) : (

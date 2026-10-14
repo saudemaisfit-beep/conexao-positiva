@@ -3,6 +3,7 @@ import { pageMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { InsightsIndex } from "@/components/sections/insights/insights-index";
 import { PageHero } from "@/components/sections/page-hero";
+import { stockPhotos } from "@/content/stock-photos";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -28,6 +29,7 @@ export default async function InsightsPage({ params }: PageProps) {
   return (
     <>
       <PageHero
+        photo={stockPhotos.insights}
         eyebrow={t("hero.eyebrow")}
         title={t("hero.title")}
         lead={t("hero.lead")}

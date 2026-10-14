@@ -62,3 +62,16 @@ A pedido da cliente, o site todo passou a usar a identidade da landing do Métod
 - **Tamanhos:** a escala da landing (`--text-display` 48→96 px, `--text-h1` 40→72, `--text-h2` 36→60,
   `--text-lead` 18→22, texto 16–18).
 - **Contraste:** a auditoria axe passa nas 50 páginas, em 390 px e em 1280 px.
+
+## Fotografias ilustrativas (Unsplash)
+
+Enquanto não há fotografias reais, o site usa fotografias de banco do Unsplash
+(`src/content/stock-photos.ts`), servidas pelo CDN do Unsplash, com crédito ao autor nos heros:
+
+- Heros com fotografia de fundo (véu carvão para o contraste): Sobre, Soluções, cada solução,
+  Insights, categorias de Insights e Contactos.
+- Cartões de artigos sem imagem própria: fotografia da categoria.
+- **Nunca** em equipa, clientes, testemunhos, eventos ou casos (seria enganoso).
+
+Para trocar por fotografias reais: publicar a imagem no CMS (tem prioridade) ou retirar a chave
+do ficheiro. A política de segurança (CSP) autoriza `https://images.unsplash.com`.
