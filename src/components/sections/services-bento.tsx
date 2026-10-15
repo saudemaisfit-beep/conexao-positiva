@@ -1,7 +1,7 @@
 import { services } from "@/config/navigation";
 import { ServiceCard, type ServiceCardVariant } from "@/components/cards/service-card";
 
-/** Solução em destaque (cartão escuro 2×2) e a de cartão largo (2×1). */
+/** Solução fotográfica em destaque (2×2) e a de cartão largo (2×1). */
 const FEATURED = "team-building";
 const WIDE = "desenvolvimento-de-lideranca";
 

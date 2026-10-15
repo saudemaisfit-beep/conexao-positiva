@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
+import type { ContentImage } from "@/content/types";
+import { getEditorialImage } from "@/content/provisional-images";
 import { Breadcrumbs, type BreadcrumbItem } from "@/components/common/breadcrumbs";
-import { Aurora } from "@/components/common/aurora";
-import { NetworkCanvas } from "@/components/common/network-canvas-lazy";
-import { NetworkGraphic } from "@/components/common/network-graphic";
+import { EditorialPhoto } from "@/components/common/editorial-photo";
 import { cn } from "@/lib/cn";
 
 interface PageHeroProps {
@@ -10,71 +10,50 @@ interface PageHeroProps {
   title: string;
   lead?: string;
   breadcrumbs: BreadcrumbItem[];
-  /** Conteúdo visual à direita (fotografia, logótipo…). Por defeito, o motivo da rede. */
+  image?: ContentImage;
   aside?: ReactNode;
   actions?: ReactNode;
-  /** Mostra o conteúdo lateral também no mobile (por baixo do texto). */
   asideOnMobile?: boolean;
 }
 
-/**
- * Hero das páginas interiores, sobre fundo escuro com aurora e rede de pontos (azul-noite;
- * marsala profundo na sub-marca do Método): breadcrumbs, eyebrow, h1 e introdução.
- * Botões em `actions`: usar as variantes "glow" e "glass".
- */
+/** Cabeçalho editorial com fotografia contextual e espaço para leitura. */
 export function PageHero({
   eyebrow,
   title,
   lead,
   breadcrumbs,
+  image,
   aside,
   actions,
   asideOnMobile = false,
 }: PageHeroProps) {
+  const photo = image ?? (!aside ? getEditorialImage(breadcrumbs.at(-1)?.href ?? "") : undefined);
+  const hasVisual = Boolean(photo || aside);
   return (
-    <section
-      aria-labelledby="page-title"
-      data-surface="inverse"
-      className="relative isolate overflow-hidden bg-inverse text-on-inverse"
-    >
-      <Aurora />
-      <NetworkCanvas className="opacity-40" />
-      <div className="container-site grid grid-cols-1 items-center gap-10 pt-6 pb-16 md:pt-8 md:pb-24 lg:grid-cols-[minmax(0,8fr)_minmax(0,4fr)] lg:gap-16 lg:pb-28">
+    <section aria-labelledby="page-title" className="border-b border-border bg-background">
+      <div
+        className={cn(
+          "container-site grid grid-cols-1 items-center gap-10 pt-7 pb-12 md:pt-10 md:pb-20 lg:gap-16",
+          hasVisual && "lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]",
+        )}
+      >
         <div className="flex flex-col gap-5">
           <Breadcrumbs items={breadcrumbs} />
-          <p className="mt-4 eyebrow animate-rise-in md:mt-8">{eyebrow}</p>
+          {eyebrow && <p className="mt-5 eyebrow md:mt-8">{eyebrow}</p>}
           <h1
             id="page-title"
-            className="max-w-4xl animate-rise-in text-h1 font-extrabold"
-            style={{ animationDelay: "80ms" }}
+            className="max-w-4xl text-h1 font-extrabold lg:text-[clamp(2.125rem,3.5vw,3rem)]"
           >
             {title}
           </h1>
-          {lead && (
-            <p
-              className="max-w-2xl animate-rise-in text-lead text-muted"
-              style={{ animationDelay: "160ms" }}
-            >
-              {lead}
-            </p>
-          )}
-          {actions && (
-            <div
-              className="mt-3 flex animate-rise-in flex-col gap-3 md:flex-row"
-              style={{ animationDelay: "240ms" }}
-            >
-              {actions}
-            </div>
-          )}
+          {lead && <p className="max-w-2xl text-lead text-muted">{lead}</p>}
+          {actions && <div className="mt-3 flex flex-col gap-3 md:flex-row">{actions}</div>}
         </div>
-        <div
-          className={cn(
-            "relative mx-auto w-full max-w-[22rem] lg:block",
-            asideOnMobile ? "max-w-[15rem] lg:max-w-[22rem]" : "hidden",
-          )}
-        >
-          {aside ?? <NetworkGraphic className="relative w-full text-brand-on-inverse" />}
-        </div>
+        {photo ? (
+          <EditorialPhoto image={photo} priority />
+        ) : aside ? (
+          <div className={cn("relative w-full", !asideOnMobile && "hidden lg:block")}>{aside}</div>
+        ) : null}
       </div>
     </section>
   );

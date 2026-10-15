@@ -22,13 +22,11 @@ const testing = process.env.NODE_ENV !== "production" || process.env.FORMS_DRY_R
 
 export function getPaymentProvider(): PaymentProvider | null {
   const id = process.env.PAYMENTS_PROVIDER?.trim() || (testing ? "simulado" : "");
-  const provider = providers[id];
-  if (!provider) return null;
-  if (provider.testMode && !testing) return null;
-  return provider;
+  return getProviderById(id);
 }
 
 export function getProviderById(id: string): PaymentProvider | null {
+  if (!Object.hasOwn(providers, id)) return null;
   const provider = providers[id];
   if (!provider || (provider.testMode && !testing)) return null;
   return provider;

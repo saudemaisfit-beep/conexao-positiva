@@ -162,14 +162,6 @@ export function LandingHero() {
             </a>
           </div>
           <div className="mt-4 flex flex-col items-start gap-4 md:flex-row md:items-center">
-            <div aria-hidden="true" className="flex -space-x-3">
-              {[0, 1, 2, 3, 4].map((index) => (
-                <span
-                  key={index}
-                  className="size-12 rounded-full border-2 border-white bg-linear-to-br from-glow to-glow/60 shadow-lg"
-                />
-              ))}
-            </div>
             <div className="flex flex-col gap-1">
               <p className="font-bold text-white md:text-lg">{hero.proof}</p>
               <p className="flex items-center gap-2 text-small text-white/85">

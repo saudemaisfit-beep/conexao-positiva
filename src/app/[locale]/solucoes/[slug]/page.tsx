@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { proposalHref, services } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
+import { serviceImages } from "@/content/provisional-images";
 import { getServiceDetail, getServiceRelated, serviceDetails } from "@/content/services";
 import { CaseStudyCard } from "@/components/cards/case-study-card";
 import { ServiceCard } from "@/components/cards/service-card";
@@ -56,7 +57,6 @@ export default async function ServicePage({ params }: PageProps) {
   const t = await getTranslations("Solutions");
   const tHome = await getTranslations("Home.services");
   const related = await getServiceRelated(slug);
-  const Icon = service.icon;
   const proposal = { pathname: proposalHref, query: { servico: service.slug } };
   const others = services.filter((item) => item.slug !== service.slug).slice(0, 4);
 
@@ -76,16 +76,7 @@ export default async function ServicePage({ params }: PageProps) {
             <ArrowRight aria-hidden="true" className={arrowClassName} />
           </ButtonLink>
         }
-        aside={
-          <div className="relative grid aspect-square place-items-center">
-            <div aria-hidden="true" className="glass absolute inset-[6%] rounded-full" />
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 rounded-full border-[6px] border-glow/40"
-            />
-            <Icon aria-hidden="true" className="relative size-28 text-glow" strokeWidth={1.25} />
-          </div>
-        }
+        image={serviceImages[slug]}
       />
 
       <Section tone="alt" aria-labelledby="intro-title" className="py-14 md:py-20">

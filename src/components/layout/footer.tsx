@@ -38,6 +38,9 @@ export async function Footer() {
               {siteConfig.name}
             </Link>
             <p className="max-w-xs text-small text-on-inverse-muted">{t("tagline")}</p>
+            <p className="max-w-xs text-caption text-on-inverse-muted">
+              As fotografias assinaladas como ilustrativas são provisórias e geradas por IA.
+            </p>
             {contacts.social.length > 0 && (
               <ul aria-label={t("social")} className="flex flex-wrap gap-x-5 gap-y-2">
                 {contacts.social.map((item) => (

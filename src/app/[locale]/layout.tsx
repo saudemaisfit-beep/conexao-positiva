@@ -58,6 +58,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   return (
     <html
       lang={locale === "pt" ? "pt-AO" : locale}
+      data-scroll-behavior="smooth"
       className={`${manrope.variable} ${inter.variable} ${playfair.variable} ${montserrat.variable}`}
       // O script abaixo pode acrescentar data-consent antes da hidratação.
       suppressHydrationWarning

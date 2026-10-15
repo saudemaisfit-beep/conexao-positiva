@@ -1,4 +1,5 @@
 import "server-only";
+import { provisionalImages } from "./provisional-images";
 import type {
   AboutContent,
   Article,
@@ -15,34 +16,9 @@ import type {
  */
 export function exampleHomeContent(now: Date): HomeContent {
   return {
-    stats: [
-      { value: "[000]", label: "[Exemplo] Empresas atendidas" },
-      { value: "[0 000]", label: "[Exemplo] Pessoas impactadas" },
-      { value: "[000]", label: "[Exemplo] Formações realizadas" },
-      { value: "[00]", label: "[Exemplo] Anos de experiência" },
-    ],
-    clients: Array.from({ length: 6 }, (_, index) => ({ name: `[Exemplo] Cliente ${index + 1}` })),
-    testimonials: [
-      {
-        quote:
-          "[Exemplo] Texto de um testemunho real, com autorização de publicação. Duas a quatro frases sobre a experiência vivida pela equipa.",
-        name: "[Exemplo] Nome",
-        role: "Cargo",
-        company: "Empresa",
-      },
-      {
-        quote: "[Exemplo] Testemunho curto sobre um workshop ou formação.",
-        name: "[Exemplo] Nome",
-        role: "Cargo",
-        company: "Empresa",
-      },
-      {
-        quote: "[Exemplo] Testemunho curto sobre uma palestra ou evento.",
-        name: "[Exemplo] Nome",
-        role: "Cargo",
-        company: "Empresa",
-      },
-    ],
+    stats: [],
+    clients: [],
+    testimonials: [],
     events: exampleEvents(now),
     caseStudies: [],
     articles: [],
@@ -50,39 +26,7 @@ export function exampleHomeContent(now: Date): HomeContent {
 }
 
 export function exampleAboutContent(): AboutContent {
-  return {
-    history: [
-      {
-        year: "[Ano]",
-        title: "[Exemplo] Fundação",
-        text: "[Exemplo] Uma frase sobre o início da Conexão Positiva.",
-      },
-      {
-        year: "[Ano]",
-        title: "[Exemplo] Primeiros programas",
-        text: "[Exemplo] Uma frase sobre os primeiros projetos com empresas.",
-      },
-      {
-        year: "[Ano]",
-        title: "[Exemplo] Método C.E.N.T.R.O.",
-        text: "[Exemplo] Uma frase sobre a criação do método.",
-      },
-      {
-        year: "[Ano]",
-        title: "[Exemplo] Hoje",
-        text: "[Exemplo] Uma frase sobre o momento atual.",
-      },
-    ],
-    founder: {
-      name: "[Exemplo] Nome do(a) fundador(a)",
-      role: "Fundador(a)",
-      bio: "[Exemplo] Biografia real a fornecer: percurso, formação e o que motivou a criação da Conexão Positiva e do Método C.E.N.T.R.O.",
-    },
-    team: Array.from({ length: 4 }, (_, index) => ({
-      name: `[Exemplo] Pessoa ${index + 1}`,
-      role: "Cargo",
-    })),
-  };
+  return { history: [], founder: null, team: [] };
 }
 
 const exampleFaq = [
@@ -104,6 +48,7 @@ export function exampleEvents(now: Date): EventDetail[] {
     return date.toISOString();
   };
   const base = {
+    image: provisionalImages.training,
     summary: "[Exemplo] Uma frase que apresenta o evento e o que os participantes vão viver.",
     description: [
       "[Exemplo] Descrição real do evento: objetivo, temas e o que os participantes vão levar.",
@@ -155,6 +100,7 @@ export function exampleEvents(now: Date): EventDetail[] {
       ...base,
       slug: "exemplo-palestra",
       title: "[Exemplo] Palestra sobre bem-estar no trabalho",
+      image: provisionalImages.talks,
       category: "palestra",
       startsAt: at(40, 18),
       endsAt: at(40, 20),
@@ -167,6 +113,7 @@ export function exampleEvents(now: Date): EventDetail[] {
       ...base,
       slug: "exemplo-experiencia-passada",
       title: "[Exemplo] Experiência Método C.E.N.T.R.O.",
+      image: provisionalImages.wellbeing,
       category: "experiencia",
       startsAt: at(-20, 9),
       endsAt: at(-20, 13),
@@ -178,6 +125,7 @@ export function exampleEvents(now: Date): EventDetail[] {
       ...base,
       slug: "exemplo-workshop-passado",
       title: "[Exemplo] Workshop de respiração consciente",
+      image: provisionalImages.wellbeing,
       category: "workshop",
       startsAt: at(-45, 10),
       location: "[Local]",
@@ -199,6 +147,7 @@ export function exampleCaseStudies(): CaseStudy[] {
   return [
     {
       slug: "exemplo-team-building-equipa-comercial",
+      image: provisionalImages.outdoor,
       title: "[Exemplo] Um dia fora do escritório para reaproximar a equipa comercial",
       client: null,
       category: "team-building",
@@ -231,6 +180,7 @@ export function exampleCaseStudies(): CaseStudy[] {
     },
     {
       slug: "exemplo-programa-de-lideranca",
+      image: provisionalImages.mentoring,
       title: "[Exemplo] Programa de liderança para novos chefes de equipa",
       client: "[Cliente]",
       category: "lideranca",
@@ -252,6 +202,7 @@ export function exampleCaseStudies(): CaseStudy[] {
     },
     {
       slug: "exemplo-programa-de-bem-estar",
+      image: provisionalImages.wellbeing,
       title: "[Exemplo] Programa de bem-estar com o Método C.E.N.T.R.O.",
       client: "[Cliente]",
       category: "bem-estar",
@@ -265,6 +216,7 @@ export function exampleCaseStudies(): CaseStudy[] {
     },
     {
       slug: "exemplo-workshop-comunicacao",
+      image: provisionalImages.training,
       title: "[Exemplo] Workshop de comunicação consciente",
       client: null,
       category: "workshop",
@@ -277,6 +229,7 @@ export function exampleCaseStudies(): CaseStudy[] {
     },
     {
       slug: "exemplo-encontro-anual",
+      image: provisionalImages.talks,
       title: "[Exemplo] Encontro anual de colaboradores",
       client: "[Cliente]",
       category: "evento",
@@ -317,6 +270,12 @@ export function exampleArticles(now: Date): Article[] {
     excerpt: "[Exemplo] Introdução curta do artigo, com uma ou duas frases que resumem a ideia.",
     category,
     publishedAt: daysAgo(days),
+    image:
+      category === "bem-estar" || category === "metodo-centro"
+        ? provisionalImages.wellbeing
+        : category === "lideranca"
+          ? provisionalImages.training
+          : provisionalImages.collaboration,
     author,
     body: [paragraph(filler), paragraph(filler), paragraph(filler)],
   });
@@ -324,6 +283,7 @@ export function exampleArticles(now: Date): Article[] {
   return [
     {
       slug: "exemplo-conversas-conscientes",
+      image: provisionalImages.collaboration,
       title: "[Exemplo] Como criar conversas mais conscientes na equipa",
       excerpt:
         "[Exemplo] Pequenas mudanças na forma como falamos e ouvimos podem mudar o clima de uma equipa. Três práticas para começar esta semana.",

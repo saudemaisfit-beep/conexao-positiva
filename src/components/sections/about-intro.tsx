@@ -1,4 +1,6 @@
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
+import { provisionalImages } from "@/content/provisional-images";
 import { Section } from "@/components/layout/section";
 import { TextLink } from "@/components/ui/text-link";
 
@@ -21,6 +23,18 @@ export async function AboutIntro() {
         </div>
 
         <figure className="reveal rounded-xl bg-surface-raised p-6 shadow-sm md:p-10">
+          <div className="relative mb-6 aspect-[3/2] overflow-hidden rounded-lg">
+            <Image
+              src={provisionalImages.training.src}
+              alt={provisionalImages.training.alt}
+              fill
+              sizes="(min-width: 1024px) 42vw, 100vw"
+              className="object-cover"
+            />
+            <span className="absolute right-3 bottom-3 rounded-full bg-inverse px-3 py-1 text-caption font-medium text-on-inverse">
+              Fotografia ilustrativa
+            </span>
+          </div>
           <figcaption className="text-caption font-semibold tracking-[0.12em] text-muted uppercase">
             {t("journeyTitle")}
           </figcaption>

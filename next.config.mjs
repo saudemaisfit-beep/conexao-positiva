@@ -90,6 +90,8 @@ const projectRoot = fileURLToPath(new URL(".", import.meta.url));
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
+  // Mantém a URL original para o next-intl reescrever / para /pt sem um ciclo de redirecionamento.
+  skipProxyUrlNormalize: true,
   turbopack: { root: projectRoot },
   outputFileTracingRoot: projectRoot,
   reactStrictMode: true,

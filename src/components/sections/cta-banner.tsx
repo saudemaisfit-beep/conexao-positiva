@@ -1,6 +1,4 @@
 import { ArrowRight } from "lucide-react";
-import { Aurora } from "@/components/common/aurora";
-import { NetworkGraphic } from "@/components/common/network-graphic";
 import { ButtonLink, arrowClassName } from "@/components/ui/button";
 
 interface CtaBannerProps {
@@ -14,7 +12,7 @@ interface CtaBannerProps {
 // Rótulos longos (ex.: nomes de serviços) quebram linha em ecrãs estreitos em vez de serem cortados.
 const wrap = "py-3 text-center whitespace-normal";
 
-/** CTA final de página: cartão escuro com aurora e o motivo da rede em segundo plano. */
+/** CTA final de página: superfície escura, tipografia forte e ações diretas. */
 export function CtaBanner({ id, title, text, primary, secondary }: CtaBannerProps) {
   return (
     <section aria-labelledby={id} className="bg-background section-spacing">
@@ -23,8 +21,6 @@ export function CtaBanner({ id, title, text, primary, secondary }: CtaBannerProp
           data-surface="inverse"
           className="relative isolate overflow-hidden rounded-[2rem] bg-inverse px-6 py-14 text-on-inverse md:px-14 md:py-20"
         >
-          <Aurora />
-          <NetworkGraphic className="pointer-events-none absolute -top-1/3 -right-1/4 -z-10 w-[min(42rem,120%)] text-brand-on-inverse opacity-20 md:-right-[10%]" />
           <div className="flex max-w-2xl reveal flex-col gap-5">
             <h2 id={id} className="text-h1 font-extrabold">
               {title}
