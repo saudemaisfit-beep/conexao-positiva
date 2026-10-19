@@ -7,11 +7,21 @@ export function FormPageHeader({
   title,
   lead,
   breadcrumbs,
+  compact = false,
 }: {
   eyebrow?: string;
   title: string;
   lead: string;
   breadcrumbs: BreadcrumbItem[];
+  compact?: boolean;
 }) {
-  return <PageHero eyebrow={eyebrow ?? ""} title={title} lead={lead} breadcrumbs={breadcrumbs} />;
+  return (
+    <PageHero
+      eyebrow={eyebrow ?? ""}
+      title={title}
+      lead={lead}
+      breadcrumbs={breadcrumbs}
+      compact={compact}
+    />
+  );
 }

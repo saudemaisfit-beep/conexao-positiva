@@ -10,17 +10,21 @@ export function ArticleCard({
   article,
   showImage = true,
   featured = false,
+  compact = false,
 }: {
   article: ArticleSummary;
   showImage?: boolean;
   /** Destaque: imagem e texto lado a lado a partir de 1024 px. */
   featured?: boolean;
+  compact?: boolean;
 }) {
   const t = useTranslations("Insights");
   return (
     <article
       className={cn(
         "group relative flex h-full flex-col overflow-hidden rounded-xl border border-border bg-surface-raised transition-[transform,box-shadow,border-color] duration-(--duration-base) ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-lg has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-focus",
+        compact &&
+          "rounded-none border-x-0 border-t-0 bg-transparent hover:translate-y-0 hover:border-border hover:shadow-none",
         featured && "lg:grid lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]",
       )}
     >
@@ -29,11 +33,12 @@ export function ArticleCard({
         icon={BookOpen}
         ratio={featured ? "aspect-[16/10] lg:aspect-auto lg:min-h-[22rem]" : "aspect-[16/10]"}
         sizes={featured ? "(min-width: 1024px) 58vw, 100vw" : "(min-width: 1024px) 380px, 100vw"}
-        className={cn(!showImage && "max-md:hidden")}
+        className={cn(!showImage && "max-md:hidden", compact && "hidden")}
       />
       <div
         className={cn(
           "flex flex-1 flex-col gap-2 p-5 md:p-6",
+          compact && "px-0 pt-0 md:px-0 md:pt-0",
           featured && "gap-3 lg:justify-center lg:p-10",
         )}
       >
@@ -50,7 +55,11 @@ export function ArticleCard({
           {article.excerpt}
         </p>
         <p
-          className={cn("mt-auto pt-2 text-caption text-muted tabular-nums", featured && "lg:mt-0")}
+          className={cn(
+            "mt-auto pt-2 text-caption text-muted tabular-nums",
+            featured && "lg:mt-0",
+            compact && "mt-2",
+          )}
         >
           <time dateTime={article.publishedAt}>{formatLongDate(article.publishedAt)}</time>
           {" · "}

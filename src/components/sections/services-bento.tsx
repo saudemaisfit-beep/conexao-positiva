@@ -6,14 +6,14 @@ const FEATURED = "team-building";
 const WIDE = "desenvolvimento-de-lideranca";
 
 const layout: Record<ServiceCardVariant, string> = {
-  featured: "md:col-span-2 md:row-span-2",
+  featured: "xl:col-span-2 xl:row-span-2",
   wide: "md:col-span-2",
   default: "",
 };
 
 /**
  * Grelha bento das 8 soluções (Home e /solucoes): 4 colunas em ecrãs grandes (3 linhas
- * completas), 2 no tablet, 1 no telemóvel. O destaque aparece primeiro.
+ * completas), 2 no tablet (sem o destaque alto), 1 no telemóvel. O destaque aparece primeiro.
  */
 export function ServicesBento({ moreLabel }: { moreLabel: string }) {
   const ordered = [

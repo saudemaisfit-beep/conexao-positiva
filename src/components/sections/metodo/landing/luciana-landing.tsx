@@ -494,11 +494,11 @@ export function LandingSteps({
           {steps.map((step, index) => (
             <li
               key={step.title}
-              className="relative flex flex-col gap-3 border-2 border-border bg-white p-8"
+              className="relative flex flex-col gap-3 border-t border-border pt-6"
             >
               <span
                 aria-hidden="true"
-                className="absolute -top-5 left-8 grid size-10 place-items-center rounded-full bg-glow font-display font-bold text-on-glow"
+                className="mb-3 font-display text-[2.5rem] leading-none text-accent tabular-nums"
               >
                 {index + 1}
               </span>
@@ -527,10 +527,7 @@ export function LandingAudience({
         <LandingHeader id="audience-title" eyebrow={eyebrow} title={title} />
         <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => (
-            <li
-              key={item.title}
-              className="flex flex-col gap-3 border-t-4 border-glow bg-white p-8 shadow-lg"
-            >
+            <li key={item.title} className="flex flex-col gap-3 border-t border-border pt-6">
               <h3 className="font-display text-[1.75rem] leading-tight">{item.title}</h3>
               <p className="text-muted">{item.text}</p>
             </li>
@@ -644,7 +641,7 @@ export function LandingUrgency() {
             {urgency.deadline && <Countdown deadline={urgency.deadline} />}
             <a
               href="#bilhetes"
-              className="inline-flex min-h-14 items-center justify-center rounded-sm bg-primary px-8 py-5 text-lg font-bold text-on-primary uppercase shadow-2xl transition-transform hover:scale-[1.02]"
+              className="inline-flex min-h-14 items-center justify-center rounded-sm bg-primary px-8 py-5 text-lg font-semibold text-on-primary transition-opacity hover:opacity-90"
             >
               {urgency.cta}
             </a>
@@ -695,7 +692,7 @@ export function LandingEvent() {
   return (
     <section id="evento" aria-labelledby="event-title" className="bg-primary-soft/40 py-20">
       <div className="mx-auto w-full max-w-5xl px-(--space-gutter) md:px-6">
-        <div className="bg-white p-8 shadow-xl lg:p-12">
+        <div className="border border-border bg-white p-6 md:p-8 lg:p-12">
           <div className="mb-12 flex flex-col gap-4 text-center">
             <h2 id="event-title" className={h2Class}>
               {event.title}

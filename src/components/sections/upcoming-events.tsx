@@ -17,10 +17,10 @@ export async function UpcomingEvents({ events }: { events: EventSummary[] }) {
           title={t("title")}
           action={<TextLink href="/eventos">{t("all")}</TextLink>}
         />
-        <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {events.map((event) => (
-            <li key={event.slug} className="reveal">
-              <EventCard event={event} />
+        <ul className="grid gap-6 md:grid-cols-2">
+          {events.slice(0, 3).map((event, index) => (
+            <li key={event.slug} className={index === 0 ? "reveal md:col-span-2" : "reveal"}>
+              <EventCard event={event} featured={index === 0} />
             </li>
           ))}
         </ul>

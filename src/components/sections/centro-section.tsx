@@ -4,11 +4,11 @@ import { ButtonLink } from "@/components/ui/button";
 import { SectionHeader } from "@/components/ui/section-header";
 import { CentroOrbit } from "./centro-orbit";
 
-/** Secção do Método na Home, com a identidade marsala do Método (data-brand="metodo"). */
+/** Secção do Método na Home, integrada na paleta azul da Home. */
 export async function CentroSection() {
   const t = await getTranslations("Home.centro");
   return (
-    <div data-brand="metodo">
+    <div>
       <Section tone="inverse" aria-labelledby="centro-title">
         <div className="container-site">
           <SectionHeader

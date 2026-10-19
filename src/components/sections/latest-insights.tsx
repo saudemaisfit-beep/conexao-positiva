@@ -20,14 +20,18 @@ export async function LatestInsights({ articles }: { articles: ArticleSummary[] 
           title={t("title")}
           action={<TextLink href="/insights">{t("all")}</TextLink>}
         />
-        <ul className="grid gap-5 md:grid-cols-3">
-          {latest.map((article, index) => (
-            <li key={article.slug} className="reveal">
-              {/* No mobile, só o primeiro artigo mostra imagem (menos scroll). */}
-              <ArticleCard article={article} showImage={index === 0} />
-            </li>
-          ))}
-        </ul>
+        <div className="grid gap-7 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+          {latest[0] && <ArticleCard article={latest[0]} />}
+          {latest.length > 1 && (
+            <ul className="flex flex-col gap-7">
+              {latest.slice(1).map((article) => (
+                <li key={article.slug} className="min-w-0 reveal">
+                  <ArticleCard article={article} compact />
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
     </Section>
   );

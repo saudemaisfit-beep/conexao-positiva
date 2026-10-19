@@ -6,7 +6,7 @@
  * raios e sombras estão em theme.css (@theme), que os expõe como variáveis e utilitários.
  *
  * PALETA: azul (Conexão Positiva) e marsala (Método C.E.N.T.R.O.) são cores oficiais,
- * extraídas dos logótipos. Os neutros (areia, grafite) são uma proposta. Para ajustar,
+ * extraídas dos logótipos. Os neutros (gelo, grafite) complementam o azul da marca. Para ajustar,
  * alterar apenas os valores de "Paleta base"; tokens semânticos e componentes não mudam.
  * Contrastes verificados (WCAG 2.2 AA) em docs/fase-03/01-design-system.md.
  */
@@ -42,10 +42,10 @@
   --marsala-200: #e9c9c6;
   --marsala-100: #f5e6e4;
 
-  /* Neutros quentes (proposta) e grafite com viés azul. */
-  --areia-50: #faf8f3;
-  --areia-100: #f1ede4;
-  --areia-300: #dcd6ca;
+  /* Neutros frios: branco, gelo e linhas azuladas. */
+  --gelo-50: #f7faff;
+  --gelo-100: #edf5fc;
+  --gelo-300: #ccdae8;
 
   --grafite-900: #131c24;
   --grafite-600: #52606b;
