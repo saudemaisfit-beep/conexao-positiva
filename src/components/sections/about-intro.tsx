@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { provisionalImages } from "@/content/provisional-images";
+import { homeImages } from "@/content/provisional-images";
 import { EditorialPhoto } from "@/components/common/editorial-photo";
 import { Section } from "@/components/layout/section";
 import { TextLink } from "@/components/ui/text-link";
@@ -13,7 +13,7 @@ export async function AboutIntro() {
       <div className="container-site">
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-20">
           <EditorialPhoto
-            image={provisionalImages.training}
+            image={homeImages.about}
             sizes="(min-width: 1024px) 42vw, 100vw"
             className="reveal"
           />

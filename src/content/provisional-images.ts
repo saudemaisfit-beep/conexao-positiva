@@ -44,22 +44,78 @@ export const provisionalImages = {
     height: 1024,
     provisional: true,
   },
+  heroPeople: {
+    src: "/images/provisorias/hero-pessoas.webp",
+    alt: "Fotografia ilustrativa gerada por IA: profissionais a chegar a um espaço de formação.",
+    width: 1536,
+    height: 1024,
+    provisional: true,
+  },
+  heroTeams: {
+    src: "/images/provisorias/hero-equipas.webp",
+    alt: "Fotografia ilustrativa gerada por IA: profissionais a caminhar num jardim costeiro.",
+    width: 1536,
+    height: 1024,
+    provisional: true,
+  },
+  heroBalance: {
+    src: "/images/provisorias/hero-equilibrio.webp",
+    alt: "Fotografia ilustrativa gerada por IA: profissional numa pausa junto à janela.",
+    width: 1536,
+    height: 1024,
+    provisional: true,
+  },
+  workshop: {
+    src: "/images/provisorias/workshop-criativo.webp",
+    alt: "Fotografia ilustrativa gerada por IA: grupo a organizar ideias num quadro durante um workshop.",
+    width: 1536,
+    height: 1024,
+    provisional: true,
+  },
+  corporateEvent: {
+    src: "/images/provisorias/evento-corporativo.webp",
+    alt: "Fotografia ilustrativa gerada por IA: profissionais numa receção de networking.",
+    width: 1536,
+    height: 1024,
+    provisional: true,
+  },
+  solutionsIntro: {
+    src: "/images/provisorias/solucoes-introducao.webp",
+    alt: "Fotografia ilustrativa gerada por IA: facilitador a preparar uma sala de formação.",
+    width: 1536,
+    height: 1024,
+    provisional: true,
+  },
+  homeAbout: {
+    src: "/images/provisorias/home-sobre.webp",
+    alt: "Fotografia ilustrativa gerada por IA: facilitadores a preparar um programa de desenvolvimento.",
+    width: 1536,
+    height: 1024,
+    provisional: true,
+  },
+  homeContact: {
+    src: "/images/provisorias/home-contacto.webp",
+    alt: "Fotografia ilustrativa gerada por IA: consultora a escutar um cliente no escritório.",
+    width: 1536,
+    height: 1024,
+    provisional: true,
+  },
 } satisfies Record<string, ContentImage>;
 
 export const serviceImages: Record<string, ContentImage> = {
   palestras: provisionalImages.talks,
   formacoes: provisionalImages.training,
-  workshops: provisionalImages.training,
+  workshops: provisionalImages.workshop,
   "team-building": provisionalImages.outdoor,
   "desenvolvimento-de-lideranca": provisionalImages.mentoring,
   "desenvolvimento-de-equipas": provisionalImages.collaboration,
   "bem-estar-corporativo": provisionalImages.wellbeing,
-  "eventos-corporativos": provisionalImages.talks,
+  "eventos-corporativos": provisionalImages.corporateEvent,
 };
 
 const pageImages: Record<string, ContentImage> = {
   "/sobre": provisionalImages.outdoor,
-  "/solucoes": provisionalImages.training,
+  "/solucoes": provisionalImages.solutionsIntro,
   "/eventos": provisionalImages.talks,
   "/experiencias": provisionalImages.outdoor,
   "/insights": provisionalImages.mentoring,
@@ -91,3 +147,14 @@ export function getEditorialImage(path: string): ContentImage | undefined {
   }
   return undefined;
 }
+
+/** Exclusivas dos destaques da Home: nunca usadas nos cartões das soluções. */
+export const homeImages = {
+  slides: [
+    provisionalImages.heroPeople,
+    provisionalImages.heroTeams,
+    provisionalImages.heroBalance,
+  ],
+  about: provisionalImages.homeAbout,
+  contact: provisionalImages.homeContact,
+};
