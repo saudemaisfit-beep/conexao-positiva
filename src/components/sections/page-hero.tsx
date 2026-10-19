@@ -14,6 +14,7 @@ interface PageHeroProps {
   aside?: ReactNode;
   actions?: ReactNode;
   asideOnMobile?: boolean;
+  compact?: boolean;
 }
 
 /** Cabeçalho editorial com fotografia contextual e espaço para leitura. */
@@ -26,23 +27,27 @@ export function PageHero({
   aside,
   actions,
   asideOnMobile = false,
+  compact = false,
 }: PageHeroProps) {
-  const photo = image ?? (!aside ? getEditorialImage(breadcrumbs.at(-1)?.href ?? "") : undefined);
+  const photo = compact
+    ? undefined
+    : (image ?? (!aside ? getEditorialImage(breadcrumbs.at(-1)?.href ?? "") : undefined));
   const hasVisual = Boolean(photo || aside);
   return (
     <section aria-labelledby="page-title" className="border-b border-border bg-background">
       <div
         className={cn(
-          "container-site grid grid-cols-1 items-center gap-10 pt-7 pb-12 md:pt-10 md:pb-20 lg:gap-16",
+          "container-site grid grid-cols-1 items-center gap-10 pt-6 pb-12 md:pt-8 md:pb-20 lg:gap-16",
+          compact && "pb-8 md:pb-10",
           hasVisual && "lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]",
         )}
       >
         <div className="flex flex-col gap-5">
           <Breadcrumbs items={breadcrumbs} />
-          {eyebrow && <p className="mt-5 eyebrow md:mt-8">{eyebrow}</p>}
+          {eyebrow && <p className={cn("mt-3 eyebrow md:mt-6", compact && "md:mt-2")}>{eyebrow}</p>}
           <h1
             id="page-title"
-            className="max-w-4xl text-h1 font-extrabold lg:text-[clamp(2.125rem,3.5vw,3rem)]"
+            className="max-w-4xl text-h1 leading-[1.12] font-extrabold tracking-[-0.035em] lg:text-[clamp(2.125rem,3.5vw,3rem)]"
           >
             {title}
           </h1>

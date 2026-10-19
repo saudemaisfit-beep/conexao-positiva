@@ -12,7 +12,7 @@ import { cn } from "@/lib/cn";
 import symbol from "../../../public/brand/conexao-positiva/conexao-positiva-simbolo.png";
 
 const footerLink =
-  "text-small text-on-inverse-muted transition-colors duration-(--duration-instant) hover:text-on-inverse";
+  "inline-flex min-h-11 items-center text-small text-on-inverse-muted transition-colors duration-(--duration-instant) hover:text-on-inverse";
 
 export async function Footer() {
   const t = await getTranslations("Footer");
@@ -135,14 +135,14 @@ export async function Footer() {
               <li key={item.key}>
                 <Link
                   href={item.href}
-                  className="inline-flex min-h-6 items-center hover:text-on-inverse"
+                  className="inline-flex min-h-11 items-center hover:text-on-inverse"
                 >
                   {t(item.key)}
                 </Link>
               </li>
             ))}
             <li>
-              <ManageCookiesButton className="inline-flex min-h-6 cursor-pointer items-center hover:text-on-inverse" />
+              <ManageCookiesButton className="inline-flex min-h-11 cursor-pointer items-center hover:text-on-inverse" />
             </li>
           </ul>
         </div>
@@ -157,7 +157,7 @@ function FooterColumn({ title, children }: { title: string; children: ReactNode 
       <h2 className="text-caption font-semibold tracking-[0.12em] text-on-inverse-muted uppercase">
         {title}
       </h2>
-      <ul className="flex flex-col gap-2.5">{children}</ul>
+      <ul className="flex flex-col gap-0.5">{children}</ul>
     </div>
   );
 }

@@ -21,11 +21,11 @@
   --color-secondary-strong: var(--azul-800);
   --color-secondary-soft: var(--azul-200);
 
-  /* Acento quente = marsala oficial do Método C.E.N.T.R.O. */
-  --color-accent: var(--marsala-700);
-  --color-accent-strong: var(--marsala-800);
-  --color-accent-soft: var(--marsala-100);
-  --color-accent-on-inverse: var(--marsala-400);
+  /* Acento azul da marca principal; o Método define os seus próprios tons. */
+  --color-accent: var(--azul-700);
+  --color-accent-strong: var(--azul-800);
+  --color-accent-soft: var(--azul-100);
+  --color-accent-on-inverse: var(--azul-200);
   --color-brand-on-inverse: var(--azul-400);
   /* Destaque luminoso sobre superfícies escuras (botão principal dos heros, brilhos):
      azul oficial com texto azul-noite (5,5 : 1). */
@@ -38,8 +38,8 @@
   --color-method-soft: var(--marsala-100);
   --color-on-method: var(--branco);
 
-  --color-background: var(--areia-50);
-  --color-surface: var(--areia-100);
+  --color-background: var(--branco);
+  --color-surface: var(--gelo-100);
   --color-surface-raised: var(--branco);
   --color-inverse: var(--azul-950);
   --color-on-inverse: var(--branco);
@@ -47,7 +47,7 @@
 
   --color-text: var(--grafite-900);
   --color-muted: var(--grafite-600);
-  --color-border: var(--areia-300);
+  --color-border: var(--gelo-300);
   --color-border-strong: var(--grafite-400);
 
   --color-focus: var(--azul-600);

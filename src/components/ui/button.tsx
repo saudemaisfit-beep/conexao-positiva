@@ -25,7 +25,7 @@ export const buttonVariants = cva(
         link: "rounded-none text-primary underline decoration-[1.5px] underline-offset-4 hover:decoration-transparent",
       },
       size: {
-        sm: "min-h-10 px-[1.125rem] text-small",
+        sm: "min-h-11 px-[1.125rem] text-small",
         md: "min-h-12 px-6 text-[0.9375rem]",
         lg: "min-h-14 px-[1.875rem] text-body",
       },

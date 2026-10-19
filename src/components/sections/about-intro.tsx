@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
 import { provisionalImages } from "@/content/provisional-images";
+import { EditorialPhoto } from "@/components/common/editorial-photo";
 import { Section } from "@/components/layout/section";
 import { TextLink } from "@/components/ui/text-link";
 
@@ -10,67 +10,43 @@ export async function AboutIntro() {
 
   return (
     <Section tone="alt" aria-labelledby="about-title">
-      <div className="container-site grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] lg:items-center lg:gap-20">
-        <div className="flex reveal flex-col gap-5">
-          <p className="eyebrow">{t("eyebrow")}</p>
-          <h2 id="about-title" className="text-h1 font-extrabold">
-            {t("title")}
-          </h2>
-          <p className="max-w-xl text-lead text-muted">{t("text")}</p>
-          <TextLink href="/sobre" className="self-start">
-            {t("cta")}
-          </TextLink>
-        </div>
-
-        <figure className="reveal rounded-xl bg-surface-raised p-6 shadow-sm md:p-10">
-          <div className="relative mb-6 aspect-[3/2] overflow-hidden rounded-lg">
-            <Image
-              src={provisionalImages.training.src}
-              alt={provisionalImages.training.alt}
-              fill
-              sizes="(min-width: 1024px) 42vw, 100vw"
-              className="object-cover"
-            />
-            <span className="absolute right-3 bottom-3 rounded-full bg-inverse px-3 py-1 text-caption font-medium text-on-inverse">
-              Fotografia ilustrativa
-            </span>
+      <div className="container-site">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-20">
+          <EditorialPhoto
+            image={provisionalImages.training}
+            sizes="(min-width: 1024px) 42vw, 100vw"
+            className="reveal"
+          />
+          <div className="flex reveal flex-col items-start gap-5">
+            <p className="eyebrow">{t("eyebrow")}</p>
+            <h2
+              id="about-title"
+              className="max-w-[18ch] text-h1 leading-[1.12] font-bold tracking-[-0.035em]"
+            >
+              {t("title")}
+            </h2>
+            <p className="max-w-xl text-lead text-muted">{t("text")}</p>
+            <TextLink href="/sobre">{t("cta")}</TextLink>
           </div>
-          <figcaption className="text-caption font-semibold tracking-[0.12em] text-muted uppercase">
+        </div>
+        <div className="mt-12 border-t border-border pt-8 md:mt-16">
+          <p className="mb-6 text-caption font-semibold tracking-[0.12em] text-muted uppercase">
             {t("journeyTitle")}
-          </figcaption>
-          <ol className="mt-6 flex flex-col">
-            {journey.map((step, index) => {
-              const last = index === journey.length - 1;
-              return (
-                <li key={step} className="relative flex items-center gap-4 pb-6 last:pb-0">
-                  {!last && (
-                    <span
-                      aria-hidden="true"
-                      className="absolute top-6 left-[0.6875rem] h-full w-0.5 bg-secondary-soft"
-                    />
-                  )}
-                  <span
-                    aria-hidden="true"
-                    className={
-                      last
-                        ? "relative size-6 shrink-0 rounded-full bg-primary ring-4 ring-primary-soft"
-                        : "relative size-6 shrink-0 rounded-full border-2 border-secondary bg-surface-raised"
-                    }
-                  />
-                  <span
-                    className={
-                      last
-                        ? "font-display text-h3 font-bold text-primary"
-                        : "font-display text-h4 font-bold"
-                    }
-                  >
-                    {step}
-                  </span>
-                </li>
-              );
-            })}
+          </p>
+          <ol className="sm:grid-cols-2 grid gap-x-8 gap-y-5 lg:grid-cols-5">
+            {journey.map((step, index) => (
+              <li key={step} className="flex items-baseline gap-3">
+                <span
+                  aria-hidden="true"
+                  className="text-caption font-semibold text-primary tabular-nums"
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="font-display text-h4 font-semibold">{step}</span>
+              </li>
+            ))}
           </ol>
-        </figure>
+        </div>
       </div>
     </Section>
   );

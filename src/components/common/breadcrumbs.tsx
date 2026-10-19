@@ -48,7 +48,10 @@ export async function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
                 </span>
               ) : (
                 <>
-                  <Link href={item.href} className="hover:text-primary hover:underline">
+                  <Link
+                    href={item.href}
+                    className="inline-flex min-h-11 items-center hover:text-primary hover:underline"
+                  >
                     {item.label}
                   </Link>
                   <ChevronRight aria-hidden="true" className="size-3.5" />

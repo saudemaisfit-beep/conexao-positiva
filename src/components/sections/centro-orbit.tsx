@@ -82,8 +82,12 @@ export function CentroOrbit() {
   return (
     <div
       ref={rootRef}
+      onFocusCapture={(event) => {
+        if (!(event.target instanceof Element) || !event.target.closest("[data-rotation-control]"))
+          setPlaying(false);
+      }}
       data-animate={visible && !reduceMotion ? "true" : "false"}
-      className="centro-orbit grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16"
+      className="centro-orbit grid grid-cols-1 items-center gap-10 overflow-x-clip lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16"
     >
       <OrbitDial
         active={active}
@@ -124,15 +128,12 @@ export function CentroOrbit() {
           id={`${baseId}-panel`}
           role="tabpanel"
           aria-labelledby={`${baseId}-tab-${active}`}
-          className="flex animate-rise-in flex-col gap-4"
+          className="flex min-h-64 flex-col gap-4 md:min-h-60"
         >
           <p className="font-display text-small font-bold tracking-[0.2em] text-accent-on-inverse uppercase tabular-nums">
             {t("position", { current: active + 1, total: count })}
           </p>
-          <h3 className="flex items-baseline gap-4 font-display text-h1 font-extrabold">
-            <span aria-hidden="true" className="text-glow-gradient text-[1.6em] leading-none">
-              {pillar.letter}
-            </span>
+          <h3 className="font-display text-h2 leading-tight font-bold tracking-[-0.025em]">
             {pillar.name}
           </h3>
           <p className="max-w-xl text-lead text-on-inverse-muted">{pillar.description}</p>
@@ -147,6 +148,7 @@ export function CentroOrbit() {
             <button
               type="button"
               onClick={() => setPlaying((value) => !value)}
+              data-rotation-control
               aria-label={playing ? t("pause") : t("play")}
               className="grid size-11 shrink-0 cursor-pointer place-items-center rounded-full border border-white/25 text-on-inverse transition-colors hover:bg-white/10"
             >

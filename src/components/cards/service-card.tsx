@@ -25,16 +25,16 @@ export function ServiceCard({
   return (
     <article
       className={cn(
-        "group relative flex h-full flex-col overflow-hidden rounded-sm border border-border bg-surface-raised has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-focus",
-        variant === "wide" && "md:grid md:grid-cols-2",
+        "group relative flex h-full flex-col overflow-hidden border-b border-border bg-background has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-focus",
+        variant === "wide" && "md:grid md:grid-cols-2 md:gap-6",
         className,
       )}
     >
       {image && (
         <div
           className={cn(
-            "relative aspect-[16/10] overflow-hidden bg-surface",
-            featured && "flex-1 md:min-h-80",
+            "relative aspect-[16/10] overflow-hidden rounded-sm bg-surface",
+            featured && "xl:min-h-80 xl:flex-1",
             variant === "wide" && "md:aspect-auto md:min-h-48",
           )}
         >
@@ -54,7 +54,7 @@ export function ServiceCard({
           </span>
         </div>
       )}
-      <div className="flex flex-col gap-3 p-5 md:p-6">
+      <div className="flex flex-col justify-center gap-3 py-5 md:py-6">
         <div className="flex items-start justify-between gap-4">
           <h3 className={cn("font-bold", featured ? "text-h3" : "text-h4")}>
             <Link

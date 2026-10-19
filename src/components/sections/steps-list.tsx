@@ -11,16 +11,16 @@ export function StepsList({
   return (
     <ol
       className={cn(
-        "grid gap-5 md:grid-cols-2 lg:gap-4",
+        "grid gap-x-8 gap-y-10 md:grid-cols-2",
         columns === 5 ? "lg:grid-cols-5" : "lg:grid-cols-4",
       )}
     >
       {steps.map((step, index) => (
         <li
           key={step.title}
-          className="flex reveal flex-col gap-3 rounded-lg bg-surface-raised p-6 shadow-sm"
+          className="flex reveal flex-col gap-3 border-t border-border-strong pt-5"
         >
-          <span className="font-display text-small font-extrabold text-secondary-strong tabular-nums">
+          <span className="mb-3 font-display text-h2 font-medium tracking-[-0.04em] text-secondary-strong tabular-nums">
             {String(index + 1).padStart(2, "0")}
           </span>
           <h3 className="text-h4 font-bold">{step.title}</h3>

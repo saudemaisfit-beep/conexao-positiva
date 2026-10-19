@@ -22,7 +22,7 @@ export async function AudiencePaths() {
           {paths.map((path) => (
             <li
               key={path.title}
-              className="flex reveal flex-col gap-4 rounded-lg bg-surface-raised p-6 shadow-sm md:p-7"
+              className="flex reveal flex-col gap-4 border-t border-border-strong pt-6 md:pr-6"
             >
               <h3 className="text-h3 font-bold">{path.title}</h3>
               <p className="text-muted">{path.text}</p>
