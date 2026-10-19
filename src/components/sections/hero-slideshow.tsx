@@ -3,18 +3,18 @@
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
-import { provisionalImages } from "@/content/provisional-images";
+import { homeImages } from "@/content/provisional-images";
 import { cn } from "@/lib/cn";
 
 const slides = [
   {
-    image: provisionalImages.collaboration,
+    image: homeImages.slides[0]!,
     label: "Conexão entre pessoas",
     position: "60% center",
   },
-  { image: provisionalImages.outdoor, label: "Equipas em movimento", position: "center center" },
+  { image: homeImages.slides[1]!, label: "Equipas em movimento", position: "center center" },
   {
-    image: provisionalImages.wellbeing,
+    image: homeImages.slides[2]!,
     label: "Espaço para o bem-estar",
     position: "center center",
   },

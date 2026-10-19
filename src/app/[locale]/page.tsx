@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { homeImages } from "@/content/provisional-images";
 import { pageMetadata } from "@/lib/seo";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { proposalHref } from "@/config/navigation";
@@ -55,6 +56,7 @@ export default async function HomePage({ params }: PageProps) {
       <LatestInsights articles={content.articles} />
       <CtaBanner
         id="cta-title"
+        image={homeImages.contact}
         title={t("title")}
         text={t("text")}
         primary={{ label: t("primary"), href: proposalHref }}
