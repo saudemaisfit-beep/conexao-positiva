@@ -3,13 +3,13 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 import { legalNav, mainNav, proposalHref, services } from "@/config/navigation";
-import { siteConfig, whatsappHref } from "@/config/site";
+import { whatsappHref } from "@/config/site";
 import { getSiteContacts } from "@/content/site";
 import { Link } from "@/i18n/navigation";
 import { ButtonLink, arrowClassName } from "@/components/ui/button";
 import { ManageCookiesButton } from "@/components/consent/manage-cookies-button";
 import { cn } from "@/lib/cn";
-import symbol from "../../../public/brand/conexao-positiva/conexao-positiva-simbolo.png";
+import officialLogo from "../../../public/brand/conexao-positiva/conexao-positiva-oficial-sem-fundo.png";
 
 const footerLink =
   "inline-flex min-h-11 items-center text-small text-on-inverse-muted transition-colors duration-(--duration-instant) hover:text-on-inverse";
@@ -32,10 +32,15 @@ export async function Footer() {
           <div className="col-span-2 flex flex-col gap-5 lg:col-span-1">
             <Link
               href="/"
-              className="inline-flex items-center gap-3 self-start rounded-sm font-display text-h4 font-extrabold"
+              aria-label="Conexão Positiva — página inicial"
+              className="inline-flex self-start rounded-sm"
             >
-              <Image src={symbol} alt="" width={44} height={44} className="size-11" />
-              {siteConfig.name}
+              <Image
+                src={officialLogo}
+                alt="Conexão Positiva"
+                sizes="224px"
+                className="h-auto w-56 max-w-full rounded-sm"
+              />
             </Link>
             <p className="max-w-xs text-small text-on-inverse-muted">{t("tagline")}</p>
             <p className="max-w-xs text-caption text-on-inverse-muted">

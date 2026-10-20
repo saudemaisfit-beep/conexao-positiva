@@ -1,31 +1,23 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
-import symbol from "../../../public/brand/conexao-positiva/conexao-positiva-simbolo.png";
+import logo from "../../../public/brand/conexao-positiva/conexao-positiva-oficial-horizontal.png";
 
-/**
- * Composição PROVISÓRIA: símbolo oficial + nome em Manrope 800,
- * até ser fornecido o logótipo oficial com o nome (ver docs/fase-03).
- */
+/** Composição compacta com o símbolo e o lettering do logótipo oficial. */
 export function Logo({ className, priority = false }: { className?: string; priority?: boolean }) {
   return (
     <Link
       href="/"
-      className={cn(
-        "inline-flex shrink-0 items-center gap-2 rounded-sm font-display text-[0.9375rem] leading-none font-extrabold tracking-[-0.01em] md:gap-2.5 md:text-[1.0625rem]",
-        className,
-      )}
+      aria-label="Conexão Positiva — página inicial"
+      className={cn("inline-flex min-h-11 shrink-0 items-center rounded-sm", className)}
     >
       <Image
-        src={symbol}
-        alt=""
-        width={36}
-        height={36}
+        src={logo}
+        alt="Conexão Positiva"
         priority={priority}
-        className="size-8 md:size-9"
+        sizes="(min-width: 768px) 192px, 144px"
+        className="h-auto w-36 md:w-48"
       />
-      {/* Abaixo de 360px o nome passa a duas linhas para caber o menu (reflow a 320px). */}
-      <span className="max-[22.5rem]:w-min">Conexão Positiva</span>
     </Link>
   );
 }
