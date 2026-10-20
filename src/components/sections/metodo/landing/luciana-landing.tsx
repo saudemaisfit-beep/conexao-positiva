@@ -35,15 +35,15 @@ import { Countdown } from "./countdown";
 
 /**
  * Landing do Método C.E.N.T.R.O. (Luciana Machado) com a identidade dela: carvão, dourado e areia,
- * títulos em Playfair Display. Usar dentro de [data-brand="luciana"].
+ * títulos em Manrope e texto em Inter. Usar dentro de [data-brand="luciana"].
  * Regras de contraste: dourado (glow) só sobre carvão ou com texto carvão; texto dourado sobre
  * fundos claros usa o dourado escuro (text-accent).
  */
 
 // ---------- Peças comuns ----------
-const container = "mx-auto w-full max-w-7xl px-(--space-gutter) md:px-6";
+const container = "container-site";
 const h2Class =
-  "font-display text-[clamp(2.25rem,1.7rem+2.4vw,3.75rem)] leading-[1.1] font-normal text-balance";
+  "max-w-[26ch] font-display text-h2 leading-[1.18] font-semibold tracking-[-0.025em] text-balance";
 
 function Badge({
   children,
@@ -57,7 +57,7 @@ function Badge({
   return (
     <p
       className={cn(
-        "inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-small font-bold tracking-wide uppercase",
+        "inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-small font-semibold tracking-[0.08em] uppercase",
         tone === "accent" && "border-2 border-glow/50 bg-glow/15 text-accent",
         tone === "alert" && "border border-error/30 bg-error-soft text-error",
         tone === "light" && "bg-white/25 text-text",
@@ -129,34 +129,32 @@ export function LandingHero() {
         aria-hidden="true"
         className="absolute inset-0 -z-10 bg-linear-to-b from-transparent to-[rgb(0_0_0/0.3)]"
       />
-      <div className={cn(container, "py-20 md:py-28 lg:py-32")}>
-        <div className="flex max-w-3xl flex-col items-start gap-6 lg:gap-8">
-          <p className="inline-flex items-center gap-2 rounded-full border-2 border-glow/60 bg-[rgb(0_0_0/0.3)] px-5 py-2.5 text-small font-bold tracking-wide text-white uppercase backdrop-blur-md">
+      <div className={cn(container, "py-12 md:py-20")}>
+        <div className="flex max-w-3xl flex-col items-start gap-5 lg:gap-6">
+          <p className="inline-flex items-center gap-2 rounded-full border-2 border-glow/60 bg-[rgb(0_0_0/0.3)] px-5 py-2.5 text-small font-semibold tracking-[0.08em] text-white uppercase backdrop-blur-md">
             <Sparkles aria-hidden="true" className="size-4 text-glow" />
             {hero.badge}
           </p>
           <h1
             id="page-title"
-            className="font-display text-[clamp(3rem,1.9rem+5vw,6rem)] leading-[1.05] font-normal"
+            className="max-w-[18ch] font-display text-h1 leading-[1.1] font-bold tracking-[-0.035em]"
           >
             {hero.titleStart}
             <br />
             <span className="text-glow">{hero.titleAccent}</span>
           </h1>
-          <p className="max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl lg:text-2xl">
-            {hero.lead}
-          </p>
+          <p className="max-w-[52ch] text-lead text-white/90">{hero.lead}</p>
           <p className="font-semibold text-glow md:text-lg">✓ {hero.promise}</p>
           <div className="flex w-full flex-col gap-4 md:w-auto md:flex-row">
             <a
               href="#guia"
-              className="inline-flex min-h-14 items-center justify-center rounded-sm bg-glow px-10 py-5 text-lg font-bold text-on-glow shadow-xl transition-transform hover:scale-[1.03]"
+              className="inline-flex min-h-14 items-center justify-center rounded-sm bg-glow px-7 py-4 text-body font-semibold text-on-glow shadow-xl transition-transform hover:scale-[1.03]"
             >
               {hero.primary}
             </a>
             <a
               href="#bilhetes"
-              className="inline-flex min-h-14 items-center justify-center rounded-sm border-2 border-white/80 bg-white/10 px-10 py-5 text-lg font-bold text-white backdrop-blur-md transition-colors hover:bg-white hover:text-text"
+              className="inline-flex min-h-14 items-center justify-center rounded-sm border-2 border-white/80 bg-white/10 px-7 py-4 text-body font-semibold text-white backdrop-blur-md transition-colors hover:bg-white hover:text-text"
             >
               {hero.secondary}
             </a>
@@ -237,7 +235,7 @@ export function LandingPains() {
             <br />
             <span className="text-accent">{pains.titleAccent}</span>
           </h2>
-          <p className="text-lg text-muted md:text-xl">{pains.lead}</p>
+          <p className="max-w-[65ch] text-lead text-muted">{pains.lead}</p>
         </div>
         <ul className="mb-12 grid gap-6 md:grid-cols-2">
           {pains.items.map((item, index) => {
@@ -251,7 +249,7 @@ export function LandingPains() {
                   <Icon aria-hidden="true" className="size-8" strokeWidth={1.5} />
                 </span>
                 <div className="flex flex-col gap-3">
-                  <h3 className="text-2xl font-bold">{item.title}</h3>
+                  <h3 className="text-h3 font-semibold">{item.title}</h3>
                   <p className="leading-relaxed text-muted">{item.text}</p>
                 </div>
               </li>
@@ -259,8 +257,8 @@ export function LandingPains() {
           })}
         </ul>
         <div className="mx-auto max-w-4xl rounded-sm border-l-4 border-glow bg-linear-to-r from-glow/15 to-glow/5 p-8 text-center">
-          <p className="mb-4 text-2xl font-bold">{pains.closingTitle}</p>
-          <p className="mb-6 text-lg text-muted md:text-xl">{pains.closingText}</p>
+          <p className="mb-4 text-h3 font-semibold">{pains.closingTitle}</p>
+          <p className="mb-6 max-w-[65ch] text-lead text-muted">{pains.closingText}</p>
           <p className="inline-flex items-center gap-2 font-semibold text-accent">
             <span aria-hidden="true" className="size-2 rounded-full bg-accent" />
             {pains.closingHint}
@@ -291,13 +289,13 @@ export function LandingGuide() {
             </Badge>
             <h2
               id="guide-title"
-              className="font-display text-[clamp(2rem,1.6rem+1.8vw,3rem)] leading-tight"
+              className="max-w-[24ch] font-display text-h2 leading-tight font-semibold tracking-[-0.025em]"
             >
               {guide.title}
             </h2>
-            <p className="text-lg md:text-xl">{guide.lead}</p>
+            <p className="text-lead">{guide.lead}</p>
             <div className="flex flex-col gap-3">
-              <h3 className="text-xl font-bold">{guide.listTitle}</h3>
+              <h3 className="text-h4 font-semibold">{guide.listTitle}</h3>
               <ul className="flex flex-col gap-3">
                 {offer.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
@@ -314,7 +312,7 @@ export function LandingGuide() {
               <span className="grid size-20 place-items-center rounded-full bg-glow/15 text-accent">
                 <Download aria-hidden="true" className="size-10" />
               </span>
-              <h3 id={`offer-${offer.id}`} className="text-2xl font-bold">
+              <h3 id={`offer-${offer.id}`} className="text-h3 font-semibold">
                 {guide.formTitle}
               </h3>
               <p className="text-muted">{guide.formLead}</p>
@@ -342,7 +340,7 @@ export function LandingGuide() {
 export function LandingAbout() {
   const { about } = landing;
   return (
-    <section id="sobre" aria-labelledby="about-title" className="bg-white py-24">
+    <section id="sobre" aria-labelledby="about-title" className="bg-white py-16 md:py-24">
       <div className={cn(container, "grid items-center gap-16 lg:grid-cols-2")}>
         <div className="relative mb-10 lg:order-2 lg:mb-0">
           <div className="relative mx-auto aspect-4/5 w-full max-w-md lg:mr-0 lg:ml-auto lg:max-w-lg">
@@ -381,7 +379,7 @@ export function LandingAbout() {
             </h2>
             <span aria-hidden="true" className="h-1.5 w-24 bg-glow" />
           </div>
-          <blockquote className="border-l-4 border-glow py-2 pl-6 text-xl leading-relaxed font-bold italic lg:text-2xl">
+          <blockquote className="border-l-4 border-glow py-2 pl-6 text-xl leading-relaxed font-bold font-semibold italic lg:text-h3">
             <p>“{about.quote}”</p>
           </blockquote>
           <div className="flex flex-col gap-6 text-lg leading-relaxed text-muted">
@@ -399,7 +397,7 @@ export function LandingAbout() {
                 <dt className="text-small font-semibold tracking-wide text-muted uppercase">
                   {stat.label}
                 </dt>
-                <dd className="font-display text-[2rem] leading-tight font-bold text-accent">
+                <dd className="font-display text-h3 leading-tight font-bold font-semibold text-accent">
                   {stat.value}
                 </dd>
               </div>
@@ -417,7 +415,7 @@ export function MethodClosing() {
   return (
     <div className="mt-16 text-center">
       <div className="inline-block rounded-sm border border-white/20 bg-white/10 p-8">
-        <p className="mb-3 text-2xl font-bold">{method.closingStrong}</p>
+        <p className="mb-3 text-h3 font-semibold">{method.closingStrong}</p>
         <p className="text-xl text-glow">{method.closingAccent}</p>
       </div>
     </div>
@@ -442,7 +440,7 @@ export function LandingHeader({
       <h2 id={id} className={h2Class}>
         {title}
       </h2>
-      {lead && <p className="text-lg text-muted md:text-xl">{lead}</p>}
+      {lead && <p className="max-w-[65ch] text-lead text-muted">{lead}</p>}
     </div>
   );
 }
@@ -455,7 +453,7 @@ export function LandingWhat({
   why: { title: string; text: string };
 }) {
   return (
-    <section aria-labelledby="what-title" className="bg-background py-24">
+    <section aria-labelledby="what-title" className="bg-background py-16 md:py-24">
       <div className={cn(container, "grid gap-12 lg:grid-cols-2 lg:gap-20")}>
         <div className="flex flex-col gap-6">
           <h2 id="what-title" className={h2Class}>
@@ -469,7 +467,7 @@ export function LandingWhat({
           ))}
         </div>
         <div className="flex flex-col gap-5 self-start border-t-4 border-glow bg-white p-8 shadow-xl md:p-12">
-          <h2 className="font-display text-[2rem] leading-tight">{why.title}</h2>
+          <h2 className="font-display text-h3 leading-tight font-semibold">{why.title}</h2>
           <p className="text-lg leading-relaxed text-muted">{why.text}</p>
         </div>
       </div>
@@ -487,7 +485,7 @@ export function LandingSteps({
   steps: readonly { title: string; text: string }[];
 }) {
   return (
-    <section aria-labelledby="steps-title" className="bg-white py-24">
+    <section aria-labelledby="steps-title" className="bg-white py-16 md:py-24">
       <div className={container}>
         <LandingHeader id="steps-title" eyebrow={eyebrow} title={title} />
         <ol className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -502,7 +500,7 @@ export function LandingSteps({
               >
                 {index + 1}
               </span>
-              <h3 className="mt-2 text-xl font-bold">{step.title}</h3>
+              <h3 className="mt-2 text-h4 font-semibold">{step.title}</h3>
               <p className="text-muted">{step.text}</p>
             </li>
           ))}
@@ -522,13 +520,13 @@ export function LandingAudience({
   items: readonly { title: string; text: string }[];
 }) {
   return (
-    <section aria-labelledby="audience-title" className="bg-background py-24">
+    <section aria-labelledby="audience-title" className="bg-background py-16 md:py-24">
       <div className={container}>
         <LandingHeader id="audience-title" eyebrow={eyebrow} title={title} />
         <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => (
             <li key={item.title} className="flex flex-col gap-3 border-t border-border pt-6">
-              <h3 className="font-display text-[1.75rem] leading-tight">{item.title}</h3>
+              <h3 className="font-display text-h3 leading-tight font-semibold">{item.title}</h3>
               <p className="text-muted">{item.text}</p>
             </li>
           ))}
@@ -626,7 +624,7 @@ export function LandingUrgency() {
             </p>
             <h2
               id="urgency-title"
-              className="font-display text-[clamp(2rem,1.6rem+1.8vw,3rem)] leading-tight"
+              className="max-w-[24ch] font-display text-h2 leading-tight font-semibold tracking-[-0.025em]"
             >
               {urgency.title}
             </h2>
@@ -634,7 +632,7 @@ export function LandingUrgency() {
               <Users aria-hidden="true" className="size-6 shrink-0" />
               {urgency.spots}
             </p>
-            <p className="flex items-center gap-3 text-lg md:text-xl">
+            <p className="flex items-center gap-3 text-lead">
               <Clock aria-hidden="true" className="size-6 shrink-0" />
               {urgency.deadline ? urgency.deadlineLabel : urgency.noDeadline}
             </p>
@@ -648,7 +646,7 @@ export function LandingUrgency() {
             <p className="text-center text-small">✓ {urgency.guarantee}</p>
           </div>
           <div className="flex flex-col gap-5 rounded-sm border border-white/40 bg-white/30 p-6 md:p-8">
-            <h3 className="text-2xl font-bold">{urgency.includedTitle}</h3>
+            <h3 className="text-h3 font-semibold">{urgency.includedTitle}</h3>
             <ul className="flex flex-col gap-3">
               {urgency.included.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-lg">
@@ -697,7 +695,7 @@ export function LandingEvent() {
             <h2 id="event-title" className={h2Class}>
               {event.title}
             </h2>
-            <p className="text-lg text-muted md:text-xl">{event.lead}</p>
+            <p className="max-w-[65ch] text-lead text-muted">{event.lead}</p>
           </div>
           <ul className="mb-12 grid gap-8 md:grid-cols-3">
             {facts.map((fact) => (
@@ -711,7 +709,7 @@ export function LandingEvent() {
             ))}
           </ul>
           <div className="mx-auto mb-10 flex max-w-2xl flex-col gap-6">
-            <h3 className="text-center text-2xl">{event.listTitle}</h3>
+            <h3 className="text-center text-h3 font-semibold">{event.listTitle}</h3>
             <ul className="flex flex-col gap-3 text-muted">
               {event.items.map((item) => (
                 <li key={item} className="flex items-start gap-3">
@@ -750,7 +748,7 @@ export function LandingPricing() {
           <h2 id="pricing-title" className={h2Class}>
             {pricing.title}
           </h2>
-          <p className="text-lg text-muted md:text-xl">{pricing.lead}</p>
+          <p className="max-w-[65ch] text-lead text-muted">{pricing.lead}</p>
           <p className="text-small text-muted">[Exemplo] Preços e condições por confirmar.</p>
         </div>
         <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
@@ -776,7 +774,7 @@ export function LandingPricing() {
                   plan.highlight && "pt-8 md:pt-0",
                 )}
               >
-                <h3 id={`offer-${plan.id}`} className="text-2xl">
+                <h3 id={`offer-${plan.id}`} className="text-h3 font-semibold">
                   {plan.label}
                 </h3>
                 <p className="font-display text-[clamp(2.25rem,2rem+1vw,3rem)] text-accent">
@@ -819,7 +817,7 @@ export function LandingProducts() {
         </h2>
         {guide && (
           <div className="mb-16">
-            <h3 className="mb-8 text-center text-2xl">{products.free}</h3>
+            <h3 className="mb-8 text-center text-h3 font-semibold">{products.free}</h3>
             <div className="mx-auto flex max-w-2xl flex-col items-center gap-6 bg-surface p-8 md:flex-row">
               <span className="grid h-40 w-32 shrink-0 place-items-center bg-glow/30 text-accent">
                 <BookOpen aria-hidden="true" className="size-12" />
@@ -838,7 +836,7 @@ export function LandingProducts() {
             </div>
           </div>
         )}
-        <h3 className="mb-8 text-center text-2xl">{products.premium}</h3>
+        <h3 className="mb-8 text-center text-h3 font-semibold">{products.premium}</h3>
         <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
           {ebooks.map((book) => (
             <article
@@ -896,12 +894,12 @@ export function LandingPaths({
   corporateHref: { pathname: string; query: Record<string, string> };
 }) {
   return (
-    <section aria-labelledby="paths-title" className="bg-background py-24">
+    <section aria-labelledby="paths-title" className="bg-background py-16 md:py-24">
       <div className={container}>
         <LandingHeader id="paths-title" eyebrow={eyebrow} title={title} />
         <div className="grid gap-8 md:grid-cols-2">
           <div className="flex flex-col gap-4 border-2 border-border bg-white p-8 md:p-10">
-            <h3 className="font-display text-[2rem] leading-tight">{individual.title}</h3>
+            <h3 className="font-display text-h3 leading-tight font-semibold">{individual.title}</h3>
             <p className="flex-1 text-lg text-muted">{individual.text}</p>
             <a
               href="#bilhetes"
@@ -914,7 +912,7 @@ export function LandingPaths({
             data-surface="inverse"
             className="flex flex-col gap-4 border-t-4 border-glow bg-inverse p-8 text-white md:p-10"
           >
-            <h3 className="font-display text-[2rem] leading-tight">{corporate.title}</h3>
+            <h3 className="font-display text-h3 leading-tight font-semibold">{corporate.title}</h3>
             <p className="flex-1 text-lg text-on-inverse-muted">{corporate.text}</p>
             <Link
               href={corporateHref}
@@ -941,13 +939,13 @@ export function LandingFinal() {
       <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-8 px-(--space-gutter) text-center md:px-6">
         <h2
           id="final-title"
-          className="font-display text-[clamp(2.25rem,1.6rem+3vw,4rem)] leading-tight"
+          className="font-display text-h2 leading-tight font-semibold tracking-[-0.025em]"
         >
           {final.titleStart}
           <br />
           {final.titleEnd}
         </h2>
-        <p className="text-xl text-white/90 lg:text-2xl">{final.text}</p>
+        <p className="max-w-[52ch] text-lead text-white/90">{final.text}</p>
         <a
           href="#guia"
           className="inline-flex min-h-14 items-center justify-center bg-glow px-12 py-5 text-lg font-semibold text-on-glow transition-opacity hover:opacity-90"
