@@ -145,7 +145,7 @@
 
 /*
  * Landing do Método C.E.N.T.R.O. (Luciana Machado): data-brand="luciana" na página
- * /metodo-centro, no checkout e na página do pedido. Carvão e dourado, títulos em Manrope
+ * /metodo-centro, no checkout e na página do pedido. Marsala do logótipo e branco, títulos em Manrope
  * e texto em Inter, alinhados com a marca principal. Os componentes partilhados (órbita, formulários) seguem estes tokens.
  */
 [data-brand="luciana"] {
@@ -173,8 +173,8 @@
   --aurora-1: var(--luciana-dourado);
   --aurora-2: var(--luciana-nude);
   --aurora-3: var(--luciana-carvao-claro);
-  --network-line: 201 168 138;
-  --network-dot: 232 213 196;
+  --network-line: 134 71 68;
+  --network-dot: 237 188 184;
   --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --text-h1: clamp(2.25rem, 1.5rem + 3vw, 4.25rem);

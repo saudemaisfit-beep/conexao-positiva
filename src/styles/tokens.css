@@ -25,17 +25,17 @@
   /* Marsala: cor OFICIAL do Método C.E.N.T.R.O. (logótipo, ~#904141). Restantes tons derivados. */
   --marsala-950: #3a1717;
 
-  /* Landing do Método C.E.N.T.R.O. (Luciana Machado): carvão, dourado e areia. */
-  --luciana-carvao: #2c2c2c;
-  --luciana-carvao-claro: #444444;
-  --luciana-dourado: #c9a88a; /* só sobre carvão (6,3 : 1) ou com texto carvão */
-  --luciana-dourado-escuro: #6e523a; /* texto dourado sobre fundos claros (≥ 5 : 1) */
-  --luciana-areia: #f5f1ed;
-  --luciana-linho: #faf7f3;
-  --luciana-nude: #e8d5c4;
-  --luciana-perola: #d9cfc6;
-  --luciana-cinza: #6b6b6b;
-  --luciana-linha: #e2d9cf;
+  /* Landing do Método C.E.N.T.R.O. (Luciana Machado): marsala do logótipo, branco e carvão. */
+  --luciana-carvao: #281c1c;
+  --luciana-carvao-claro: #493332;
+  --luciana-dourado: #edbcb8; /* tom claro derivado do marsala, para superfícies escuras */
+  --luciana-dourado-escuro: #864744; /* marsala original do logótipo: RGB 134, 71, 68 */
+  --luciana-areia: #ffffff;
+  --luciana-linho: #faf5f5;
+  --luciana-nude: #f3e4e3;
+  --luciana-perola: #e7d5d4;
+  --luciana-cinza: #6b5a59;
+  --luciana-linha: #e5d3d2;
   --marsala-800: #742f30;
   --marsala-700: #904141;
   --marsala-400: #c27f7c;
