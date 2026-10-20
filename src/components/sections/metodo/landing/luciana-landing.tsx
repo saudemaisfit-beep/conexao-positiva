@@ -34,10 +34,10 @@ import portrait from "../../../../../public/images/metodo-centro/luciana-machado
 import { Countdown } from "./countdown";
 
 /**
- * Landing do Método C.E.N.T.R.O. (Luciana Machado) com a identidade dela: carvão, dourado e areia,
+ * Landing do Método C.E.N.T.R.O. (Luciana Machado) com a identidade dela: marsala do logótipo, branco e carvão,
  * títulos em Manrope e texto em Inter. Usar dentro de [data-brand="luciana"].
- * Regras de contraste: dourado (glow) só sobre carvão ou com texto carvão; texto dourado sobre
- * fundos claros usa o dourado escuro (text-accent).
+ * Regras de contraste: marsala claro (glow) só sobre carvão ou com texto carvão; texto marsala sobre
+ * fundos claros usa o marsala original (text-accent).
  */
 
 // ---------- Peças comuns ----------
@@ -467,6 +467,13 @@ export function LandingWhat({
           ))}
         </div>
         <div className="flex flex-col gap-5 self-start border-t-4 border-glow bg-white p-8 shadow-xl md:p-12">
+          <Image
+            src="/images/metodo-centro/logotipo-centro.png"
+            alt="Logótipo do Método C.E.N.T.R.O."
+            width={702}
+            height={550}
+            className="mb-3 h-auto w-52 max-w-full self-center"
+          />
           <h2 className="font-display text-h3 leading-tight font-semibold">{why.title}</h2>
           <p className="text-lg leading-relaxed text-muted">{why.text}</p>
         </div>
