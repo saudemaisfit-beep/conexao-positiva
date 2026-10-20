@@ -379,7 +379,7 @@ export function LandingAbout() {
             </h2>
             <span aria-hidden="true" className="h-1.5 w-24 bg-glow" />
           </div>
-          <blockquote className="border-l-4 border-glow py-2 pl-6 text-xl leading-relaxed font-bold font-semibold italic lg:text-h3">
+          <blockquote className="border-l-4 border-glow py-2 pl-6 text-lead font-medium italic">
             <p>“{about.quote}”</p>
           </blockquote>
           <div className="flex flex-col gap-6 text-lg leading-relaxed text-muted">
@@ -397,7 +397,7 @@ export function LandingAbout() {
                 <dt className="text-small font-semibold tracking-wide text-muted uppercase">
                   {stat.label}
                 </dt>
-                <dd className="font-display text-h3 leading-tight font-bold font-semibold text-accent">
+                <dd className="font-display text-h3 leading-tight font-semibold text-accent">
                   {stat.value}
                 </dd>
               </div>
