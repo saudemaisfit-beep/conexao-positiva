@@ -145,8 +145,8 @@
 
 /*
  * Landing do Método C.E.N.T.R.O. (Luciana Machado): data-brand="luciana" na página
- * /metodo-centro, no checkout e na página do pedido. Carvão e dourado, títulos em Playfair Display
- * e texto em Montserrat. Os componentes partilhados (órbita, formulários) seguem estes tokens.
+ * /metodo-centro, no checkout e na página do pedido. Carvão e dourado, títulos em Manrope
+ * e texto em Inter, alinhados com a marca principal. Os componentes partilhados (órbita, formulários) seguem estes tokens.
  */
 [data-brand="luciana"] {
   --color-primary: var(--luciana-carvao);
@@ -175,8 +175,16 @@
   --aurora-3: var(--luciana-carvao-claro);
   --network-line: 201 168 138;
   --network-dot: 232 213 196;
-  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
-  --font-body: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --text-h1: clamp(2.25rem, 1.5rem + 3vw, 4.25rem);
+  --text-h1--line-height: 1.1;
+  --text-h2: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem);
+  --text-h2--line-height: 1.18;
+  --text-h3: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);
+  --text-h3--line-height: 1.3;
+  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  --text-lead--line-height: 1.7;
   font-family: var(--font-body);
   color: var(--color-text);
   background-color: var(--color-background);

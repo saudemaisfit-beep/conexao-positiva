@@ -39,7 +39,7 @@ export async function PillarsStory({
           title={title ?? t("title")}
           lead={lead}
         />
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-16 xl:grid-cols-[minmax(0,26rem)_minmax(0,1fr)]">
+        <div className="grid min-w-0 gap-8 overflow-x-clip lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-16 xl:grid-cols-[minmax(0,26rem)_minmax(0,1fr)]">
           <PillarIndex items={indexItems} />
           <div className="hidden lg:sticky lg:top-32 lg:block lg:self-start">
             <PillarsOrbit />
@@ -58,7 +58,7 @@ export async function PillarsStory({
                   <div className="flex items-center gap-6 md:flex-col md:items-start">
                     <span
                       aria-hidden="true"
-                      className="text-glow-gradient font-display text-[clamp(5rem,12vw,9rem)] leading-[0.85] font-extrabold tracking-[-0.04em]"
+                      className="text-glow-gradient font-display text-[clamp(3.5rem,8vw,6rem)] leading-[0.85] font-extrabold tracking-[-0.04em]"
                     >
                       {pillar.letter}
                     </span>
@@ -78,7 +78,7 @@ export async function PillarsStory({
                       <span className="grid size-12 shrink-0 place-items-center rounded-full bg-glow text-on-glow">
                         <Icon aria-hidden="true" className="size-6" strokeWidth={1.75} />
                       </span>
-                      <h3 id={`${pillar.slug}-title`} className="text-h2 font-bold">
+                      <h3 id={`${pillar.slug}-title`} className="min-w-0 text-h3 font-semibold">
                         {pillar.name}
                       </h3>
                     </div>
